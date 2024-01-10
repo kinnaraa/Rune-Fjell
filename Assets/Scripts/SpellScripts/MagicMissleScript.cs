@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireballScript : MonoBehaviour
+public class MagicMissleScript : MonoBehaviour
 {
-   public GameObject fireball;
-   public int speed;
-   public float cooldown;
-   public GameObject firingPoint;
-   private bool cooldownActive = false;
+    public GameObject magicMissle;
+    public int speed;
+    public float cooldown;
+    public GameObject firingPoint;
+    private bool cooldownActive = false;
 
-    public void CastFireball()
+    public void CastMagicMissle()
     {
         if(!cooldownActive)
         {
             // Instantiate the fireball at the firing point position and rotation
-            GameObject newFireball = Instantiate(fireball, firingPoint.transform.position, firingPoint.transform.rotation);
+            GameObject newMagicMissle = Instantiate(magicMissle, firingPoint.transform.position, firingPoint.transform.rotation);
             // Access the Rigidbody component of the instantiated fireball
-            Rigidbody fireballRb = newFireball.GetComponent<Rigidbody>();
+            Rigidbody magicMissleRB = newMagicMissle.GetComponent<Rigidbody>();
             // Set the velocity of the fireball in the forward direction of the firing point
-            fireballRb.velocity = firingPoint.transform.forward * speed;
+            magicMissleRB.velocity = firingPoint.transform.forward * speed;
 
             StartCoroutine(Cooldown());
         }
