@@ -11,6 +11,7 @@ public class PlayerMagic : MonoBehaviour
     public MagicMissleScript MagicMissle;
     public FireballScript Fireball;
     public FireBlastScript FireBlast;
+    public FireStormScript FireStorm;
 
     [Header("Keybinds")]
     public KeyCode QAbility = KeyCode.Q;
@@ -22,6 +23,7 @@ public class PlayerMagic : MonoBehaviour
         MagicMissle = gameObject.GetComponent<MagicMissleScript>();
         Fireball = gameObject.GetComponent<FireballScript>();
         FireBlast = gameObject.GetComponent<FireBlastScript>();
+        FireStorm = gameObject.GetComponent<FireStormScript>();
     }
 
     public void Update() 
@@ -52,6 +54,14 @@ public class PlayerMagic : MonoBehaviour
                 if(FireBlast.usingFireBlast == false && !FireBlast.cooldownActive)
                 {
                     StartCoroutine(FireBlast.CastFireBlast());
+                    StartCoroutine(PauseMovement());
+                }
+            }
+            else if(currentSpell == "FireStorm")
+            {
+                if(FireStorm.isInFireStorm == false)
+                {
+                    StartCoroutine(FireStorm.CastFireStorm());
                     StartCoroutine(PauseMovement());
                 }
             }
