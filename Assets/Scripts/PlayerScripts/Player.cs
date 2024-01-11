@@ -25,15 +25,21 @@ public class Player : MonoBehaviour
     private bool tabMenuOpen;
     private bool escMenuOpen;
     private bool canOpenMenu = true;
+    public void Start() 
+    {
+        
+    }
 
     public void Update()
     {
         tabMenuOpen = tabMenu.activeSelf;
         escMenuOpen = escMenu.activeSelf;
+
         if(Input.GetKey(TabMenu) && canOpenMenu)
         {
             if(tabMenuOpen)
             {
+                StartCoroutine(MenuCooldown());
                 tabMenu.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -59,6 +65,7 @@ public class Player : MonoBehaviour
         {
             if(escMenuOpen)
             {
+                StartCoroutine(MenuCooldown());
                 escMenu.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
