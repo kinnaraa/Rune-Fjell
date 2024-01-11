@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int PlayerHealth;
+    public int PlayerStamina;
     public int SkillPoints;
     public int Coins;
 
@@ -25,10 +26,6 @@ public class Player : MonoBehaviour
     private bool tabMenuOpen;
     private bool escMenuOpen;
     private bool canOpenMenu = true;
-    public void Start() 
-    {
-        
-    }
 
     public void Update()
     {

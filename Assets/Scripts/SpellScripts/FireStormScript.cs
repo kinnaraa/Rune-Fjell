@@ -16,9 +16,10 @@ public class FireStormScript : MonoBehaviour
     }
     public IEnumerator CastFireStorm()
     {
-        if(!cooldownActive)
+        if(!cooldownActive && gameObject.GetComponent<PlayerMovement>().grounded)
         {
             isInFireStorm = true;
+            gameObject.GetComponent<PlayerMovement>().readyToJump = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             StartCoroutine(Lift(0.25f));
             FireStorm.GetComponent<ParticleSystem>().Play();
@@ -29,6 +30,7 @@ public class FireStormScript : MonoBehaviour
 
             StartCoroutine(Lower(0.25f));
             gameObject.GetComponent<Rigidbody>().useGravity = true;
+            gameObject.GetComponent<PlayerMovement>().readyToJump = true;
             gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed - 5;
             FireStorm.GetComponent<ParticleSystem>().Stop();
             FireStorm.GetComponent<BoxCollider>().enabled = false;
