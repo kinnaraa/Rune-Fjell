@@ -367,7 +367,10 @@ GameObject:
   - component: {fileID: 3481378079738711729}
   - component: {fileID: 8526033646751606245}
   - component: {fileID: 8934461291217125693}
+  - component: {fileID: 3282719288912702761}
+  - component: {fileID: 3985745719422165166}
   - component: {fileID: 4628085207683530838}
+  - component: {fileID: 1303852478789852708}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -445,6 +448,47 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   orientation: {fileID: 3682799079701675287}
+--- !u!114 &3282719288912702761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545123548949291122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595e7786b43799c41b5e3877ced5ba94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHealth: 100
+  SkillPoints: 0
+  Coins: 0
+  QAbility: MagicMissle
+  EAbility: Fireball
+  tabMenu: {fileID: 0}
+  PM: {fileID: 8934461291217125693}
+  Cam: {fileID: 0}
+  Magic: {fileID: 3985745719422165166}
+  TabMenu: 9
+--- !u!114 &3985745719422165166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545123548949291122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fc2a4b4ad1f1a45b155a9ac33c2775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3282719288912702761}
+  currentSpell: 
+  Fireball: {fileID: 4628085207683530838}
+  MagicMissle: {fileID: 1303852478789852708}
+  QAbility: 113
+  EAbility: 101
+  fireKey: 323
 --- !u!114 &4628085207683530838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,7 +505,22 @@ MonoBehaviour:
   speed: 10
   cooldown: 0.5
   firingPoint: {fileID: 4238747429198986126}
-  fireKey: 323
+--- !u!114 &1303852478789852708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545123548949291122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd59b0e53dec53c41a2a6149a21e0f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magicMissle: {fileID: 6295465983525052714, guid: d2c5d055746fa3544a7dfa3662ad58a1, type: 3}
+  speed: 50
+  cooldown: 0.1
+  firingPoint: {fileID: 4238747429198986126}
 --- !u!1 &6770300128724706034
 GameObject:
   m_ObjectHideFlags: 0

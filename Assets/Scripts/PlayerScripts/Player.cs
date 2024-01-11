@@ -13,19 +13,23 @@ public class Player : MonoBehaviour
     public string EAbility;
 
     public GameObject tabMenu;
+    public GameObject escMenu;
     public PlayerMovement PM;
     public ThirdPersonCam Cam;
     public PlayerMagic Magic;
 
     [Header("Keybinds")]
     public KeyCode TabMenu = KeyCode.Tab;
+    public KeyCode EscMenu = KeyCode.Escape;
 
     private bool tabMenuOpen;
+    private bool escMenuOpen;
     private bool canOpenMenu = true;
 
     public void Update()
     {
         tabMenuOpen = tabMenu.activeSelf;
+        escMenuOpen = escMenu.activeSelf;
         if(Input.GetKey(TabMenu) && canOpenMenu)
         {
             if(tabMenuOpen)
@@ -38,8 +42,9 @@ public class Player : MonoBehaviour
                 PM.enabled = true;
                 Magic.enabled = true;
             }
-            else
+            else if(!escMenuOpen)
             {
+                StartCoroutine(MenuCooldown());
                 tabMenu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
@@ -48,7 +53,32 @@ public class Player : MonoBehaviour
                 Magic.enabled = false;
                 Cam.enabled = false;
             }
-            StartCoroutine(MenuCooldown());
+        }
+
+        if(Input.GetKey(EscMenu) && canOpenMenu)
+        {
+            if(escMenuOpen)
+            {
+                escMenu.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+
+                Cam.enabled = true;
+                PM.enabled = true;
+                Magic.enabled = true;
+            }
+            else if(!tabMenuOpen)
+            {
+                StartCoroutine(MenuCooldown());
+                escMenu.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
+                PM.enabled = false;
+                Magic.enabled = false;
+                Cam.enabled = false;
+            }
+            
         }
     }
 
