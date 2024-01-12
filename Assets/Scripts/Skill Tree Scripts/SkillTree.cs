@@ -85,7 +85,6 @@ public class SkillTree : MonoBehaviour
                 }
             }
         }
-
         skillPointsText = transform.GetChild(4).GetComponent<TMP_Text>();
     }
 
@@ -108,13 +107,11 @@ public class SkillTree : MonoBehaviour
                 }
             }
         }
-
         skillPointsText.text = "Skill Points: " + skillPoints;
     }
 
     public void UnlockSkill()
     {
-        Debug.Log("clicked");
         for (int i = 0;i < 4;i++)
         {
             for (int j = 0;j < 3; j++)
@@ -123,7 +120,6 @@ public class SkillTree : MonoBehaviour
                 {
                     if (j == 0 || (skillList[i][0].unlocked && (j == 1 && !skillList[i][2].unlocked || j == 2 && !skillList[i][1].unlocked)))
                     {
-                    Debug.Log("unlocked");
                     skillList[i][j].unlocked = true;
                     skillPoints--;
                     }
