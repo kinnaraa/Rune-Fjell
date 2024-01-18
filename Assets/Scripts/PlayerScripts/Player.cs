@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     public IEnumerator MenuCooldown()
     {
         canOpenMenu = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         canOpenMenu = true;
     }
 }

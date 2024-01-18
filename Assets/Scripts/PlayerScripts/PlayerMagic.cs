@@ -12,6 +12,7 @@ public class PlayerMagic : MonoBehaviour
     public FireballScript Fireball;
     public FireBlastScript FireBlast;
     public FireStormScript FireStorm;
+    public TeleportScript Teleport;
 
     [Header("Keybinds")]
     public KeyCode QAbility = KeyCode.Q;
@@ -24,6 +25,7 @@ public class PlayerMagic : MonoBehaviour
         Fireball = gameObject.GetComponent<FireballScript>();
         FireBlast = gameObject.GetComponent<FireBlastScript>();
         FireStorm = gameObject.GetComponent<FireStormScript>();
+        Teleport = gameObject.GetComponent<TeleportScript>();
     }
 
     public void Update() 
@@ -31,10 +33,18 @@ public class PlayerMagic : MonoBehaviour
         if(Input.GetKey(QAbility))
         {
             currentSpell = player.QAbility;
+            if(currentSpell == "Teleport")
+            {
+                Teleport.TeleportPositon.position = player.transform.position;
+            }
         }
         else if(Input.GetKey(EAbility))
         {
             currentSpell = player.EAbility;
+            if(currentSpell == "Teleport")
+            {
+                Teleport.TeleportPositon.position = player.transform.position;
+            }
         }
 
         if(Input.GetKey(fireKey))
@@ -64,6 +74,11 @@ public class PlayerMagic : MonoBehaviour
                     StartCoroutine(FireStorm.CastFireStorm());
                     StartCoroutine(PauseMovement());
                 }
+            }
+            else if(currentSpell == "Teleport")
+            {
+                Teleport.CastTeleport();
+                StartCoroutine(PauseMovement());
             }
             else
             {
