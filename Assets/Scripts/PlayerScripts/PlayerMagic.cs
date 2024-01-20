@@ -5,85 +5,53 @@ using UnityEngine;
 public class PlayerMagic : MonoBehaviour
 {
     public Player player;
-    public string currentSpell;
+    public Ability currentSpell;
     
-    [Header("Spell Scripts")]
-    public MagicMissleScript MagicMissle;
-    public FireballScript Fireball;
-    public FireBlastScript FireBlast;
-    public FireStormScript FireStorm;
-    public TeleportScript Teleport;
+    [Header("Abilities")]
+    public Ability[] abilities;
 
     [Header("Keybinds")]
-    public KeyCode QAbility = KeyCode.Q;
-    public KeyCode EAbility = KeyCode.E;
-    public KeyCode fireKey = KeyCode.Mouse0;
+    public KeyCode Q = KeyCode.Q;
+    public KeyCode E = KeyCode.E;
+    public KeyCode combatCameraMode = KeyCode.Mouse1;
 
-    public void Start() 
-    {
-        MagicMissle = gameObject.GetComponent<MagicMissleScript>();
-        Fireball = gameObject.GetComponent<FireballScript>();
-        FireBlast = gameObject.GetComponent<FireBlastScript>();
-        FireStorm = gameObject.GetComponent<FireStormScript>();
-        Teleport = gameObject.GetComponent<TeleportScript>();
-    }
+    private int index = 0;
 
     public void Update() 
     {
-        if(Input.GetKey(QAbility))
-        {
-            currentSpell = player.QAbility;
-            if(currentSpell == "Teleport")
-            {
-                Teleport.TeleportPositon.position = player.transform.position;
-            }
-        }
-        else if(Input.GetKey(EAbility))
-        {
-            currentSpell = player.EAbility;
-            if(currentSpell == "Teleport")
-            {
-                Teleport.TeleportPositon.position = player.transform.position;
-            }
-        }
+        currentSpell = abilities[index];
 
-        if(Input.GetKey(fireKey))
+        if(Input.GetKey(combatCameraMode))
         {  
-            if(currentSpell == "MagicMissle")
+            if(Input.GetKeyDown(Q))
             {
-                MagicMissle.CastMagicMissle();
-                StartCoroutine(PauseMovement());
-            } 
-            else if(currentSpell == "Fireball")
-            {
-                Fireball.CastFireball();
+                currentSpell.Cast();
                 StartCoroutine(PauseMovement());
             }
-            else if(currentSpell == "FireBlast")
+        }
+        else
+        {
+            if(Input.GetKeyDown(Q))
             {
-                if(FireBlast.usingFireBlast == false && !FireBlast.cooldownActive)
+                if(index == abilities.Length)
                 {
-                    StartCoroutine(FireBlast.CastFireBlast());
-                    StartCoroutine(PauseMovement());
+                    index = 0;
+                }
+                else
+                {
+                    index++;
                 }
             }
-            else if(currentSpell == "FireStorm")
+            else if(Input.GetKeyDown(E))
             {
-                if(FireStorm.isInFireStorm == false)
+                if(index == 0)
                 {
-                    StartCoroutine(FireStorm.CastFireStorm());
-                    StartCoroutine(PauseMovement());
+                    index = abilities.Length;
                 }
-            }
-            else if(currentSpell == "Teleport")
-            {
-                Teleport.CastTeleport();
-                StartCoroutine(PauseMovement());
-            }
-            else
-            {
-                MagicMissle.CastMagicMissle();
-                StartCoroutine(PauseMovement());
+                else
+                {
+                    index--;
+                }
             }
         }
     }
