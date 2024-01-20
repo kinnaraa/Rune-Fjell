@@ -8,9 +8,9 @@ using Unity.VisualScripting.Dependencies.Sqlite;
 public class newSkillTree : MonoBehaviour
 {
     public List<List<Skill>> skillList;
-    public List<Skill> attacksList;
-    public List<Skill> utilityList;
-    public List<Skill> passiveList;
+    private List<Skill> attacksList;
+    private List<Skill> utilityList;
+    private List<Skill> passiveList;
 
     private GameObject skillType;
     private Image skillImage;
@@ -32,7 +32,6 @@ public class newSkillTree : MonoBehaviour
             unlocked = false;
         }
     }
-
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +74,7 @@ public class newSkillTree : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            skillType = transform.GetChild(i).gameObject;
+            skillType = transform.GetChild(i+1).gameObject;
             for (int j = 0; j < skillList[i].Count; j++)
             {
                 skillImage = skillType.transform.GetChild(j).GetComponent<Image>();
@@ -87,7 +86,7 @@ public class newSkillTree : MonoBehaviour
                 }
             }
         }
-        skillPointsText = transform.GetChild(3).GetComponent<TMP_Text>();
+        skillPointsText = transform.GetChild(4).GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -95,7 +94,7 @@ public class newSkillTree : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            skillType = transform.GetChild(i).gameObject;
+            skillType = transform.GetChild(i+1).gameObject;
             for (int j = 0; j < skillList[i].Count; j++)
             {
                 skillImage = skillType.transform.GetChild(j).GetComponent<Image>();
@@ -120,12 +119,7 @@ public class newSkillTree : MonoBehaviour
             {
                 if (skillList[i][j].name == UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name && skillPoints > 0 && !skillList[i][j].unlocked)
                 {
-                    if (!skillList[i][j].isRune && (skillList[i][j-1].unlocked && skillList[i][j+1].unlocked))
-                    {
-                        skillList[i][j].unlocked = true;
-                        skillPoints--;
-                    }
-                    else if (skillList[i][j].isRune)
+                    if (!skillList[i][j].isRune && (skillList[i][j-1].unlocked && skillList[i][j+1].unlocked) || (skillList[i][j].isRune))
                     {
                         skillList[i][j].unlocked = true;
                         skillPoints--;
