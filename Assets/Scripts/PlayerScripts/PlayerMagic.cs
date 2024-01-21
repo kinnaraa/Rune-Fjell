@@ -18,6 +18,7 @@ public class PlayerMagic : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode Q = KeyCode.Q;
     public KeyCode E = KeyCode.E;
+    public KeyCode fireKey = KeyCode.Mouse2;
     public KeyCode combatCameraMode = KeyCode.Mouse1;
 
     public int index = 0;
@@ -45,7 +46,7 @@ public class PlayerMagic : MonoBehaviour
 
         if(Input.GetKey(combatCameraMode))
         {  
-            if(Input.GetKeyDown(Q))
+            if(Input.GetKeyDown(fireKey))
             {
                 StartCoroutine(currentAbility.Cast());
                 StartCoroutine(PauseMovement());
