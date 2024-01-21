@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.23921569, b: 0, a: 1}
+      maxColor: {r: 0, g: 0.52851844, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1308,8 +1308,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.24008352, b: 0, a: 1}
-        key1: {r: 1, g: 0, b: 0, a: 1}
+        key0: {r: 0, g: 0.1271491, b: 1, a: 1}
+        key1: {r: 0, g: 1, b: 0.844877, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4845,7 +4845,7 @@ GameObject:
   - component: {fileID: 1789974618386953192}
   - component: {fileID: 7124889796852909172}
   m_Layer: 0
-  m_Name: FireBall
+  m_Name: IceBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4977,3 +4977,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0034dc71505a0df419c6c8b3e3fa92d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifetime: 2

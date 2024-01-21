@@ -10,9 +10,6 @@ public class Player : MonoBehaviour
     public int SkillPoints;
     public int Coins;
 
-    public string QAbility;
-    public string EAbility;
-
     public GameObject tabMenu;
     public GameObject escMenu;
     public PlayerMovement PM;
@@ -32,7 +29,7 @@ public class Player : MonoBehaviour
         tabMenuOpen = tabMenu.activeSelf;
         escMenuOpen = escMenu.activeSelf;
 
-        if(Input.GetKey(TabMenu) && canOpenMenu)
+        if(Input.GetKeyDown(TabMenu) && canOpenMenu)
         {
             if(tabMenuOpen)
             {
@@ -58,7 +55,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(EscMenu) && canOpenMenu)
+        if(Input.GetKeyDown(EscMenu) && canOpenMenu)
         {
             if(escMenuOpen)
             {

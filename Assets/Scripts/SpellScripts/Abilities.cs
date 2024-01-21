@@ -1,60 +1,144 @@
+using System.Collections;
 using UnityEngine;
 
-public class Ability
+public class Ability : MonoBehaviour
 {
     // Variables for damage and cooldown
     public int damage;
     public float cooldown;
+    public string Name;
 
     // Constructor to initialize the ability with damage and cooldown values
-    public Ability(int damage, float cooldown)
+    public Ability(int damage, float cooldown, string Name)
     {
         this.damage = damage;
         this.cooldown = cooldown;
+        this.Name = Name;
     }
 
     // Common Cast function (can be overridden by subclasses)
-    public virtual void Cast()
+    public virtual IEnumerator Cast()
     {
-        Debug.Log("Ability Casted! Damage: " + damage);
-        // Common logic for all abilities can go here
+        yield return null;
     }
 }
 
-public class FireballAbility : Ability
+public class Storm : Ability
 {
-    // Additional properties specific to Fireball
-    public float fireDamage;
+    public bool isInFireStorm = false;
+    private GameObject storm;
+    private bool cooldownActive = false;
 
-    public FireballAbility(int damage, float cooldown, float fireDamage) : base(damage, cooldown)
+    public Storm() : base(10, 1, "Storm") // Default values, adjust as needed
     {
-        this.fireDamage = fireDamage;
     }
 
-    // Override the Cast function for Fireball
-    public override void Cast()
+    public override IEnumerator Cast()
     {
-        base.Cast(); // Call the common Cast logic from the base class
-        Debug.Log("Fireball Casted! Fire Damage: " + fireDamage);
-        // Implement Fireball-specific logic here
+        storm = GameObject.Find("Storm");
+        if(!cooldownActive && gameObject.GetComponent<PlayerMovement>().grounded)
+        {
+            isInFireStorm = true;
+            gameObject.GetComponent<PlayerMovement>().readyToJump = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            StartCoroutine(Lift(0.25f));
+            storm.GetComponent<ParticleSystem>().Play();
+            storm.GetComponent<BoxCollider>().enabled = true;
+            gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed + 5;
+
+            yield return new WaitForSeconds(10f);
+
+            StartCoroutine(Lower(0.25f));
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+            gameObject.GetComponent<PlayerMovement>().readyToJump = true;
+            gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed - 5;
+            storm.GetComponent<ParticleSystem>().Stop();
+            storm.GetComponent<BoxCollider>().enabled = false;
+            isInFireStorm = false;
+            StartCoroutine(Cooldown());
+        }
+        else
+        {
+            yield break;
+        }
+    }
+
+    public IEnumerator Lift(float duration)
+    {
+        float elapsedTime = 0f;
+        Vector3 initialPosition = transform.position;
+        Vector3 targetPosition = initialPosition + Vector3.up * 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the player is exactly at the target position
+        transform.position = targetPosition;
+    }
+
+    public IEnumerator Lower(float duration)
+    {
+        float elapsedTime = 0f;
+        Vector3 initialPosition = transform.position;
+        Vector3 targetPosition = initialPosition - Vector3.up * 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the player is exactly at the target position
+        transform.position = targetPosition;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
     }
 }
 
-public class IceballAbility : Ability
+public class Ice : Ability
 {
-    // Additional properties specific to Iceball
-    public float freezeDuration;
+    private bool cooldownActive = false;
+    private Transform firingPoint;
+    public GameObject iceBallPrefab;
 
-    public IceballAbility(int damage, float cooldown, float freezeDuration) : base(damage, cooldown)
+    public Ice() : base(10, 1, "Ice") // Default values for damage, cooldown, and name
     {
-        this.freezeDuration = freezeDuration;
     }
 
-    // Override the Cast function for Iceball
-    public override void Cast()
+    public override IEnumerator Cast()
     {
-        base.Cast(); // Call the common Cast logic from the base class
-        Debug.Log("Iceball Casted! Freeze Duration: " + freezeDuration);
-        // Implement Iceball-specific logic here
+        iceBallPrefab = gameObject.GetComponent<PlayerMagic>().iceBallPrefab;
+        firingPoint = GameObject.Find("FiringPoint").GetComponent<Transform>();
+        if(!cooldownActive)
+        {
+            GameObject newIceBall = Instantiate(iceBallPrefab, firingPoint.position, firingPoint.rotation);
+            newIceBall.SetActive(true);
+            Rigidbody iceBallRb = newIceBall.GetComponent<Rigidbody>();
+            iceBallRb.velocity = firingPoint.transform.forward * 10;
+
+            StartCoroutine(Cooldown());
+            yield return null;
+        }
+        else
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
     }
 }
