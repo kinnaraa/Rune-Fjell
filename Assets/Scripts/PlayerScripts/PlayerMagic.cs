@@ -28,8 +28,8 @@ public class PlayerMagic : MonoBehaviour
         abilities[0] = gameObject.AddComponent<Storm>();
         abilities[1] = gameObject.AddComponent<Ice>();
         abilities[2] = gameObject.AddComponent<FireBlast>();
-        abilities[3] = gameObject.AddComponent<Storm>();
-        abilities[4] = gameObject.AddComponent<Storm>();
+        abilities[3] = gameObject.AddComponent<RadialFireBurst>();
+        abilities[4] = gameObject.AddComponent<EarthSpike>();
         abilities[5] = gameObject.AddComponent<Storm>();
         abilities[6] = gameObject.AddComponent<Storm>();
 
@@ -59,14 +59,14 @@ public class PlayerMagic : MonoBehaviour
         if(Input.GetKeyDown(fireKey))
         {
             StartCoroutine(currentAbility.Cast());
-            StartCoroutine(PauseMovement());
+            StartCoroutine(PauseMovement(currentAbility.pauseTime));
         }
     }
 
-    public IEnumerator PauseMovement()
+    public IEnumerator PauseMovement(float pauseTime)
     {
         gameObject.GetComponent<PlayerMovement>().enabled = false;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(pauseTime);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
     }
 
