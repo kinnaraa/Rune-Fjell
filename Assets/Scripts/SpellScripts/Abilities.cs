@@ -26,7 +26,6 @@ public class Ability : MonoBehaviour
 
 public class Storm : Ability
 {
-    public bool isInFireStorm = false;
     private GameObject storm;
     private bool cooldownActive = false;
 
@@ -40,24 +39,22 @@ public class Storm : Ability
         {
             storm = Resources.Load("SpellPrefabs/Storm") as GameObject;
             GameObject effect = Instantiate(storm, gameObject.transform.position, storm.transform.rotation);
-            isInFireStorm = true;
             gameObject.GetComponent<PlayerMovement>().readyToJump = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             StartCoroutine(Lift(0.25f));
             effect.GetComponent<ParticleSystem>().Play();
             effect.GetComponent<BoxCollider>().enabled = true;
-            gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed + 5;
+            //gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed + 5;
 
             yield return new WaitForSeconds(10f);
 
             StartCoroutine(Lower(0.25f));
             gameObject.GetComponent<Rigidbody>().useGravity = true;
             gameObject.GetComponent<PlayerMovement>().readyToJump = true;
-            gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed - 5;
+            //gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed - 5;
             effect.GetComponent<ParticleSystem>().Stop();
             effect.GetComponent<BoxCollider>().enabled = false;
             Destroy(effect, 2);
-            isInFireStorm = false;
             StartCoroutine(Cooldown());
         }
         else
@@ -127,7 +124,7 @@ public class Ice : Ability
             GameObject newIceBall = Instantiate(iceBallPrefab, firingPoint.position, firingPoint.rotation);
             newIceBall.SetActive(true);
             Rigidbody iceBallRb = newIceBall.GetComponent<Rigidbody>();
-            iceBallRb.velocity = firingPoint.transform.forward * 10;
+            iceBallRb.velocity = firingPoint.transform.forward * 20;
 
             StartCoroutine(Cooldown());
             yield return null;

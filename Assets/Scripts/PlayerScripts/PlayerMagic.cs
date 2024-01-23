@@ -66,7 +66,7 @@ public class PlayerMagic : MonoBehaviour
     public IEnumerator PauseMovement()
     {
         gameObject.GetComponent<PlayerMovement>().enabled = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
     }
 

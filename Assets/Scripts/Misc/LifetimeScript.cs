@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LifetimeScript : MonoBehaviour
 {
-    public float lifetime = 2f; // Lifetime in seconds
+    public float lifetime = 5f; // Lifetime in seconds
 
     void Start()
     {
