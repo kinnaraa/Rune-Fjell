@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9061430447076908047}
   - component: {fileID: 1772491692135013016}
   - component: {fileID: 8024882279619306129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RadialFireBurst
   m_TagString: Untagged
   m_Icon: {fileID: 0}

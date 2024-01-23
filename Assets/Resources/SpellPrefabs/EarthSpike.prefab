@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2689438320469809739}
   - component: {fileID: 960953165922986076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EarthSpike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 3660386000226492427}
   - component: {fileID: 2340710175758795352}
   - component: {fileID: 346588460937276596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}

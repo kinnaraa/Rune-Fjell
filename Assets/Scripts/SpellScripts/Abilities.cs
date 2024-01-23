@@ -263,7 +263,7 @@ public class Shield : Ability
 {
     public GameObject ShieldPrefab;
     private Transform firingPoint;
-    public Shield() : base(0, 0, "Shield", 0.1f) // Default values for damage, cooldown, and name
+    public Shield() : base(0, 0, "Shield", 0f) // Default values for damage, cooldown, and name
     {
     }
     public override IEnumerator Cast()
@@ -279,7 +279,55 @@ public class Shield : Ability
 }
 public class ForceField : Ability
 {
-    public ForceField() : base(0, 0, "Force Field", 0.1f) // Default values for damage, cooldown, and name
+    private bool cooldownActive = false;
+
+    public GameObject forceFieldPrefab;
+    public ForceField() : base(0, 5, "Force Field", 0.1f) // Default values for damage, cooldown, and name
     {
+    }
+
+    public override IEnumerator Cast()
+    {
+        forceFieldPrefab = Resources.Load("SpellPrefabs/ForceField") as GameObject;
+        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f, gameObject.transform.position.z);
+        if(!cooldownActive && gameObject.GetComponent<PlayerMovement>().grounded)
+        {
+            cooldownActive = true;
+            GameObject forceField = Instantiate(forceFieldPrefab, pos, gameObject.transform.rotation);
+            Destroy(forceField, 5f);
+
+            StartCoroutine(Cooldown());
+            yield return null;
+        }
+        else
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
+public class Light : Ability
+{
+    public GameObject LightPrefab;
+    private Transform firingPoint;
+    public Light() : base(0, 0, "Light", 0f) // Default values for damage, cooldown, and name
+    {
+    }
+    public override IEnumerator Cast()
+    {
+        LightPrefab = Resources.Load("SpellPrefabs/Light") as GameObject;
+        firingPoint = GameObject.Find("FiringPoint").transform;
+
+        GameObject Shield = Instantiate(LightPrefab, firingPoint.position, firingPoint.rotation);
+
+        Destroy(Shield, 0.2f);
+        yield return null;
     }
 }

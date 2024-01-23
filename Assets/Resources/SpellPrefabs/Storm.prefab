@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 497389275376120255}
   - component: {fileID: 4170026287406132239}
   - component: {fileID: 4873046790965978480}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Storm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4865,4 +4865,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09c2c53a9149a24780344f6387fdda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9079736627581601513}
   - component: {fileID: 3585989454532847508}
   - component: {fileID: -1132708403109098896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7762732259252686776}
   - component: {fileID: 2176199704748836308}
   - component: {fileID: 4955328554782465855}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
