@@ -4,51 +4,16 @@ using UnityEngine;
 
 public class FireBlastScript : MonoBehaviour
 {
-    public ParticleSystem fireBlast;
-    public float cooldown;
-
-    [Header("Keybinds")]
-    public KeyCode fireKey = KeyCode.Mouse0;
-
-    public bool cooldownActive = false;
-    public bool usingFireBlast = false;
-    private bool isPlaying = false; 
-
-    public void Update()
+   private Transform firingPoint;
+    void Start()
     {
-        isPlaying = fireBlast.isPlaying;
-        if(usingFireBlast)
-        {
-            if (!cooldownActive)
-            {
-                if (Input.GetKey(fireKey))
-                {
-                    if(!isPlaying)
-                    {
-                        fireBlast.Play();
-                    }
-                }
-                else
-                {
-                    fireBlast.Stop();
-                }
-            }
-        }
+        firingPoint = GameObject.Find("FiringPoint").transform;
     }
 
-    public IEnumerator CastFireBlast()
+    // Update is called once per frame
+    void Update()
     {
-        usingFireBlast = true;
-        yield return new WaitForSeconds(4f);
-        usingFireBlast = false;
-        fireBlast.Stop();
-        StartCoroutine(Cooldown());
-    }
-    public IEnumerator Cooldown()
-    {
-        cooldownActive = true;
-        usingFireBlast = false;
-        yield return new WaitForSeconds(cooldown);
-        cooldownActive = false;
+        Vector3 pos = new Vector3(firingPoint.transform.position.x, firingPoint.transform.position.y, firingPoint.transform.position.z);
+        gameObject.transform.position = pos;
     }
 }

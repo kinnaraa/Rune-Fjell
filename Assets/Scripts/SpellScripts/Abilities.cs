@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ability : MonoBehaviour
@@ -35,15 +36,16 @@ public class Storm : Ability
 
     public override IEnumerator Cast()
     {
-        storm = GameObject.Find("Storm");
         if(!cooldownActive && gameObject.GetComponent<PlayerMovement>().grounded)
         {
+            storm = Resources.Load("SpellPrefabs/Storm") as GameObject;
+            GameObject effect = Instantiate(storm, gameObject.transform.position, storm.transform.rotation);
             isInFireStorm = true;
             gameObject.GetComponent<PlayerMovement>().readyToJump = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
             StartCoroutine(Lift(0.25f));
-            storm.GetComponent<ParticleSystem>().Play();
-            storm.GetComponent<BoxCollider>().enabled = true;
+            effect.GetComponent<ParticleSystem>().Play();
+            effect.GetComponent<BoxCollider>().enabled = true;
             gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed + 5;
 
             yield return new WaitForSeconds(10f);
@@ -52,8 +54,9 @@ public class Storm : Ability
             gameObject.GetComponent<Rigidbody>().useGravity = true;
             gameObject.GetComponent<PlayerMovement>().readyToJump = true;
             gameObject.GetComponent<PlayerMovement>().moveSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed - 5;
-            storm.GetComponent<ParticleSystem>().Stop();
-            storm.GetComponent<BoxCollider>().enabled = false;
+            effect.GetComponent<ParticleSystem>().Stop();
+            effect.GetComponent<BoxCollider>().enabled = false;
+            Destroy(effect, 2);
             isInFireStorm = false;
             StartCoroutine(Cooldown());
         }
@@ -117,8 +120,8 @@ public class Ice : Ability
 
     public override IEnumerator Cast()
     {
-        iceBallPrefab = gameObject.GetComponent<PlayerMagic>().iceBallPrefab;
-        firingPoint = GameObject.Find("FiringPoint").GetComponent<Transform>();
+        iceBallPrefab = Resources.Load("SpellPrefabs/IceBall") as GameObject;
+        firingPoint = GameObject.Find("FiringPoint").transform;
         if(!cooldownActive)
         {
             GameObject newIceBall = Instantiate(iceBallPrefab, firingPoint.position, firingPoint.rotation);
@@ -138,6 +141,43 @@ public class Ice : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
+public class FireBlast : Ability
+{
+    private bool cooldownActive = false;
+    private Transform firingPoint;
+    public GameObject fireBlastPrefab;
+
+    public FireBlast() : base(10, 1, "Fire Blast") // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        fireBlastPrefab = Resources.Load("SpellPrefabs/FireBlast") as GameObject;
+        firingPoint = GameObject.Find("FiringPoint").transform;
+        if(!cooldownActive)
+        {
+            cooldownActive = true;
+            gameObject.GetComponent<PlayerMovement>().enabled = false;
+            GameObject fireBlast = Instantiate(fireBlastPrefab, firingPoint.position, firingPoint.rotation);
+            Destroy(fireBlast, 1.2f);
+            yield return new WaitForSeconds(1.5f);  
+            StartCoroutine(Cooldown());
+            gameObject.GetComponent<PlayerMovement>().enabled = true;
+        }
+        else
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator Cooldown()
+    {
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }

@@ -8,17 +8,13 @@ public class PlayerMagic : MonoBehaviour
     public Player player;
     public Ability currentAbility;
     public GameObject[] AbilityUI;
-
-    [Header("Prefabs")]
-    public GameObject iceBallPrefab;
     
     [Header("Abilities")]
     public Ability[] abilities;
 
     [Header("Keybinds")]
-    public KeyCode Q = KeyCode.Q;
     public KeyCode E = KeyCode.E;
-    public KeyCode fireKey = KeyCode.Mouse2;
+    public KeyCode fireKey = KeyCode.Q;
     public KeyCode combatCameraMode = KeyCode.Mouse1;
 
     public int index = 0;
@@ -31,7 +27,7 @@ public class PlayerMagic : MonoBehaviour
         abilities = new Ability[7];
         abilities[0] = gameObject.AddComponent<Storm>();
         abilities[1] = gameObject.AddComponent<Ice>();
-        abilities[2] = gameObject.AddComponent<Storm>();
+        abilities[2] = gameObject.AddComponent<FireBlast>();
         abilities[3] = gameObject.AddComponent<Storm>();
         abilities[4] = gameObject.AddComponent<Storm>();
         abilities[5] = gameObject.AddComponent<Storm>();
@@ -54,28 +50,18 @@ public class PlayerMagic : MonoBehaviour
         }
         else
         {
-            if(Input.GetKeyDown(Q))
+            // Use the scroll wheel to change the index
+            float scrollWheel = Input.GetAxis("Mouse ScrollWheel");
+            if (scrollWheel < 0f)
             {
-                if(index == abilities.Length - 1)
-                {
-                    index = 0;
-                }
-                else
-                {
-                    index++;
-                }
+                // Scroll up
+                index = (index + 1) % abilities.Length;
                 SetAbilityUI();
             }
-            else if(Input.GetKeyDown(E))
+            else if (scrollWheel > 0f)
             {
-                if(index == 0)
-                {
-                    index = abilities.Length - 1;
-                }
-                else
-                {
-                    index--;
-                }
+                // Scroll down
+                index = (index - 1 + abilities.Length) % abilities.Length;
                 SetAbilityUI();
             }
         }
