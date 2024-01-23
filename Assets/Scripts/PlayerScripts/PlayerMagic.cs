@@ -40,30 +40,26 @@ public class PlayerMagic : MonoBehaviour
     {
         currentAbility = abilities[index];
 
-        if(Input.GetKey(combatCameraMode))
-        {  
-            if(Input.GetKeyDown(fireKey))
-            {
-                StartCoroutine(currentAbility.Cast());
-                StartCoroutine(PauseMovement());
-            }
-        }
-        else
+        // Use the scroll wheel to change the index
+        float scrollWheel = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollWheel < 0f)
         {
-            // Use the scroll wheel to change the index
-            float scrollWheel = Input.GetAxis("Mouse ScrollWheel");
-            if (scrollWheel < 0f)
-            {
-                // Scroll up
-                index = (index + 1) % abilities.Length;
-                SetAbilityUI();
-            }
-            else if (scrollWheel > 0f)
-            {
-                // Scroll down
-                index = (index - 1 + abilities.Length) % abilities.Length;
-                SetAbilityUI();
-            }
+            // Scroll up
+            index = (index + 1) % abilities.Length;
+            SetAbilityUI();
+        }
+        else if (scrollWheel > 0f)
+        {
+            // Scroll down
+            index = (index - 1 + abilities.Length) % abilities.Length;
+            SetAbilityUI();
+        }
+
+        //Cast Ability
+        if(Input.GetKeyDown(fireKey))
+        {
+            StartCoroutine(currentAbility.Cast());
+            StartCoroutine(PauseMovement());
         }
     }
 
