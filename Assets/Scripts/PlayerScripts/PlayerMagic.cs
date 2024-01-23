@@ -30,7 +30,7 @@ public class PlayerMagic : MonoBehaviour
         abilities[2] = gameObject.AddComponent<FireBlast>();
         abilities[3] = gameObject.AddComponent<RadialFireBurst>();
         abilities[4] = gameObject.AddComponent<EarthSpike>();
-        abilities[5] = gameObject.AddComponent<Storm>();
+        abilities[5] = gameObject.AddComponent<Shield>();
         abilities[6] = gameObject.AddComponent<Storm>();
 
         SetAbilityUI();
@@ -56,7 +56,7 @@ public class PlayerMagic : MonoBehaviour
         }
 
         //Cast Ability
-        if(Input.GetKeyDown(fireKey))
+        if(Input.GetKey(fireKey))
         {
             StartCoroutine(currentAbility.Cast());
             StartCoroutine(PauseMovement(currentAbility.pauseTime));

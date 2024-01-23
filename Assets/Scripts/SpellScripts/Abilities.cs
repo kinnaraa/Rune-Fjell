@@ -40,6 +40,7 @@ public class Storm : Ability
     {
         if(!cooldownActive && gameObject.GetComponent<PlayerMovement>().grounded)
         {
+            cooldownActive = true;
             storm = Resources.Load("SpellPrefabs/Storm") as GameObject;
             GameObject effect = Instantiate(storm, gameObject.transform.position, storm.transform.rotation);
             gameObject.GetComponent<PlayerMovement>().readyToJump = false;
@@ -124,6 +125,7 @@ public class Ice : Ability
         firingPoint = GameObject.Find("FiringPoint").transform;
         if(!cooldownActive)
         {
+            cooldownActive = true;
             GameObject newIceBall = Instantiate(iceBallPrefab, firingPoint.position, firingPoint.rotation);
             Rigidbody iceBallRb = newIceBall.GetComponent<Rigidbody>();
             iceBallRb.velocity = firingPoint.transform.forward * 20;
@@ -254,5 +256,30 @@ public class EarthSpike : Ability
     {
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
+    }
+}
+
+public class Shield : Ability
+{
+    public GameObject ShieldPrefab;
+    private Transform firingPoint;
+    public Shield() : base(0, 0, "Shield", 0.1f) // Default values for damage, cooldown, and name
+    {
+    }
+    public override IEnumerator Cast()
+    {
+        ShieldPrefab = Resources.Load("SpellPrefabs/Shield") as GameObject;
+        firingPoint = GameObject.Find("FiringPoint").transform;
+
+        GameObject Shield = Instantiate(ShieldPrefab, firingPoint.position, firingPoint.rotation);
+
+        Destroy(Shield, 0.2f);
+        yield return null;
+    }
+}
+public class ForceField : Ability
+{
+    public ForceField() : base(0, 0, "Force Field", 0.1f) // Default values for damage, cooldown, and name
+    {
     }
 }
