@@ -13,7 +13,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MagicTestingScene");
     }
 
     public void CloseCredits()
