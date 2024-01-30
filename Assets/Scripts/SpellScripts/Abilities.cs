@@ -1,6 +1,4 @@
 using System.Collections;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ability : MonoBehaviour
@@ -280,7 +278,6 @@ public class Shield : Ability
 public class ForceField : Ability
 {
     private bool cooldownActive = false;
-
     public GameObject forceFieldPrefab;
     public ForceField() : base(0, 5, "Force Field", 0.1f) // Default values for damage, cooldown, and name
     {
