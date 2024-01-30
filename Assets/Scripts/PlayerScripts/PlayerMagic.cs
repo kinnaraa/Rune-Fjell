@@ -18,7 +18,6 @@ public class PlayerMagic : MonoBehaviour
     public KeyCode combatCameraMode = KeyCode.Mouse1;
 
     public int index = 0;
-    
 
     public void Start()
     {
