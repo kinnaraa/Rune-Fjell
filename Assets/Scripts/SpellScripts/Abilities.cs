@@ -331,3 +331,89 @@ public class Light : Ability
         yield return null;
     }
 }
+
+public class Wall : Ability
+{
+    public GameObject WallPrefab;
+    private Transform firingPoint;
+    private bool cooldownActive;
+
+    public Wall() : base(0, 0, "Wall", 0f) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        WallPrefab = Resources.Load("SpellPrefabs/Wall") as GameObject;
+        firingPoint = GameObject.Find("FiringPoint").transform;
+        
+        if(!cooldownActive)
+        {
+            cooldownActive = true;
+            Vector3 pos = new Vector3(firingPoint.position.x, firingPoint.position.y - 4, firingPoint.position.z);
+            GameObject wall = Instantiate(WallPrefab, pos, firingPoint.transform.rotation);
+            Rigidbody wallRB = wall.GetComponent<Rigidbody>();
+            wallRB.velocity = wall.transform.up * 15;
+            
+            yield return new WaitForSeconds(0.5f); 
+
+            wallRB.velocity = Vector3.zero;
+            //wallRB.isKinematic = true;
+            Destroy(wall, 5f);
+
+            StartCoroutine(Cooldown());
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
+public class Hail : Ability
+{
+    public GameObject HailPrefab;
+    private Transform firingPoint;
+    private bool cooldownActive;
+
+    public Hail() : base(0, 0, "Hail", 0f) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        HailPrefab = Resources.Load("SpellPrefabs/Hail") as GameObject;
+        firingPoint = GameObject.Find("FiringPoint").transform;
+        
+        if(!cooldownActive)
+        {
+            cooldownActive = true;
+            Vector3 pos = new Vector3(firingPoint.position.x, firingPoint.position.y + 5, firingPoint.position.z);
+            GameObject hail = Instantiate(HailPrefab, pos, firingPoint.transform.rotation);
+            Rigidbody hailRB = hail.GetComponent<Rigidbody>();
+            hailRB.velocity = hail.transform.forward * 15;
+            
+            yield return new WaitForSeconds(0.5f); 
+
+            hailRB.velocity = Vector3.zero;
+            //wallRB.isKinematic = true;
+            Destroy(hail, 5f);
+
+            StartCoroutine(Cooldown());
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}

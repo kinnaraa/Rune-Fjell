@@ -1,0 +1,34 @@
+using System.Collections;
+using UnityEngine;
+
+public class HailScript : MonoBehaviour
+{
+    public Transform[] starts;
+    public GameObject hailBall;
+    public bool firing;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(firing)
+        {
+            StartCoroutine(hailing());
+        }
+    }
+
+    public IEnumerator hailing()
+    {
+        // Generate a random index within the range of the array length
+        int randomIndex = Random.Range(0, starts.Length);
+
+        // Get the Transform at the random index
+        Transform randomTransform = starts[randomIndex];
+
+        // Instantiate the prefab at the random Transform's position and rotation
+        GameObject hailball = Instantiate(hailBall, randomTransform.position, randomTransform.rotation); 
+        Rigidbody hailballRB = hailball.GetComponent<Rigidbody>();
+        hailballRB.velocity = hailballRB.transform.forward * 15;
+        
+        yield return new WaitForSeconds(0.1f);
+    }
+}

@@ -25,7 +25,7 @@ public class PlayerMagic : MonoBehaviour
         index = 3;
 
         abilities = new Ability[7];
-        abilities[0] = gameObject.AddComponent<Light>();
+        abilities[0] = gameObject.AddComponent<Wall>();
         abilities[1] = gameObject.AddComponent<Storm>();
         abilities[2] = gameObject.AddComponent<FireBlast>();
         abilities[3] = gameObject.AddComponent<RadialFireBurst>();
