@@ -353,7 +353,7 @@ public class Wall : Ability
             Vector3 pos = new Vector3(firingPoint.position.x, firingPoint.position.y - 4, firingPoint.position.z);
             GameObject wall = Instantiate(WallPrefab, pos, firingPoint.transform.rotation);
             Rigidbody wallRB = wall.GetComponent<Rigidbody>();
-            wallRB.velocity = wall.transform.up * 15;
+            wallRB.velocity = wall.transform.up * 30;
             
             yield return new WaitForSeconds(0.5f); 
 
@@ -379,9 +379,9 @@ public class Hail : Ability
 {
     public GameObject HailPrefab;
     private Transform firingPoint;
+    private Transform Player;
     private bool cooldownActive;
-
-    public Hail() : base(0, 0, "Hail", 0f) // Default values for damage, cooldown, and name
+    public Hail() : base(0, 5, "Hail", 0f) // Default values for damage, cooldown, and name
     {
     }
 
@@ -389,21 +389,17 @@ public class Hail : Ability
     {
         HailPrefab = Resources.Load("SpellPrefabs/Hail") as GameObject;
         firingPoint = GameObject.Find("FiringPoint").transform;
+        Player = GameObject.Find("PlayerModel").transform;
         
         if(!cooldownActive)
         {
             cooldownActive = true;
-            Vector3 pos = new Vector3(firingPoint.position.x, firingPoint.position.y + 5, firingPoint.position.z);
-            GameObject hail = Instantiate(HailPrefab, pos, firingPoint.transform.rotation);
-            Rigidbody hailRB = hail.GetComponent<Rigidbody>();
-            hailRB.velocity = hail.transform.forward * 15;
-            
-            yield return new WaitForSeconds(0.5f); 
+            Vector3 pos = new Vector3(Player.position.x, Player.position.y + 10, Player.position.z);
+            Quaternion rot = Quaternion.Euler(50, Player.eulerAngles.y, 0);
+            GameObject hail = Instantiate(HailPrefab, pos, rot);
+            hail.GetComponent<HailScript>().firing = true;
 
-            hailRB.velocity = Vector3.zero;
-            //wallRB.isKinematic = true;
             Destroy(hail, 5f);
-
             StartCoroutine(Cooldown());
         }
 
