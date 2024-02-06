@@ -24,20 +24,17 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 50b9605ee05b8cb48b097e457892064d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _ALPHAPREMULTIPLY_ON
   - _RECEIVE_SHADOWS_OFF
   - _SURFACE_TYPE_TRANSPARENT
-  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
-  disabledShaderPasses:
-  - DepthOnly
-  - SHADOWCASTER
+  stringTagMap: {}
+  disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -63,8 +60,8 @@ Material:
     - _CastShadows: 0
     - _Cull: 0
     - _DstBlend: 1
-    - _FogDensity: 0
-    - _GlowSpread: 0
+    - _FogDensity: 1.5
+    - _GlowSpread: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 0
@@ -75,7 +72,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.1425376, g: 0, b: 1, a: 0}
-    - _FogColor: {r: 0, g: 184.81772, b: 766.9963, a: 0}
+    - _BaseColor: {r: 0.06526093, g: 0, b: 0.46226418, a: 0}
+    - _FogColor: {r: 0, g: 5.388784, b: 22.363533, a: 0}
     - _InteriorPosition: {r: 0, g: -0.46, b: 0, a: 0}
   m_BuildTextureStacks: []
