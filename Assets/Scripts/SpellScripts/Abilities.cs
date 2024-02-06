@@ -410,3 +410,43 @@ public class Hail : Ability
         cooldownActive = false;
     }
 }
+
+public class LightningSmites : Ability
+{
+    public GameObject LightningSmitesPrefab;
+    private Transform Player;
+    private bool cooldownActive;
+    private Transform firingPoint;
+
+    public LightningSmites() : base(0, 5, "Lightning Smites", 0f) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        LightningSmitesPrefab = Resources.Load("SpellPrefabs/LightningSmites") as GameObject;
+        firingPoint = GameObject.Find("FiringPoint").transform;
+        Player = GameObject.Find("PlayerModel").transform;
+        
+        if(!cooldownActive)
+        {
+            cooldownActive = true;
+            Vector3 spawnPosition = Player.position + Player.forward * 10;
+            spawnPosition.y--;
+            GameObject lightningSmites = Instantiate(LightningSmitesPrefab, spawnPosition, LightningSmitesPrefab.transform.rotation);
+            lightningSmites.GetComponent<LightningSmitesScript>().firing = true;
+
+            Destroy(lightningSmites, 5f);
+            StartCoroutine(Cooldown());
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
