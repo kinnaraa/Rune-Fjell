@@ -29,9 +29,9 @@ public class LightningSmitesScript : MonoBehaviour
             int randomAir = Random.Range(0, airs.Length);
 
             GameObject Lightning = Instantiate(lightning, lightning.transform.position, lightning.transform.rotation); 
-            StartCoroutine(ExtendLightning(airs[randomAir].position, grounds[randomGround].position, Lightning.GetComponent<LineRenderer>(), 10, true));
+            StartCoroutine(ExtendLightning(airs[randomAir].position, grounds[randomGround].position, Lightning.GetComponent<LineRenderer>(), 15, true));
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 

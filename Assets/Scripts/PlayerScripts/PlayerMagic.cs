@@ -27,8 +27,8 @@ public class PlayerMagic : MonoBehaviour
         abilities[0] = gameObject.AddComponent<Wall>();
         abilities[1] = gameObject.AddComponent<Hail>();
         abilities[2] = gameObject.AddComponent<LightningSmites>();
-        abilities[3] = gameObject.AddComponent<RadialFireBurst>();
-        abilities[4] = gameObject.AddComponent<EarthSpike>();
+        abilities[3] = gameObject.AddComponent<EnergyBlast>();
+        abilities[4] = gameObject.AddComponent<RadialBlast>();
         abilities[5] = gameObject.AddComponent<Shield>();
         abilities[6] = gameObject.AddComponent<ForceField>();
 

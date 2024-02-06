@@ -416,7 +416,6 @@ public class LightningSmites : Ability
     public GameObject LightningSmitesPrefab;
     private Transform Player;
     private bool cooldownActive;
-    private Transform firingPoint;
 
     public LightningSmites() : base(0, 5, "Lightning Smites", 0f) // Default values for damage, cooldown, and name
     {
@@ -425,7 +424,6 @@ public class LightningSmites : Ability
     public override IEnumerator Cast()
     {
         LightningSmitesPrefab = Resources.Load("SpellPrefabs/LightningSmites") as GameObject;
-        firingPoint = GameObject.Find("FiringPoint").transform;
         Player = GameObject.Find("PlayerModel").transform;
         
         if(!cooldownActive)
@@ -437,6 +435,83 @@ public class LightningSmites : Ability
             lightningSmites.GetComponent<LightningSmitesScript>().firing = true;
 
             Destroy(lightningSmites, 5f);
+            StartCoroutine(Cooldown());
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
+public class EnergyBlast : Ability
+{
+    public GameObject Blast;
+    private Transform firingPoint;
+    private bool cooldownActive;
+
+    public EnergyBlast() : base(0, 1, "Energy Blast", 1f) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        Blast = Resources.Load("SpellPrefabs/Blast") as GameObject;
+        firingPoint = GameObject.Find("FiringPoint").transform;
+
+        if (!cooldownActive)
+        {
+            cooldownActive = true;
+
+            GameObject blast = Instantiate(Blast, firingPoint.position, firingPoint.transform.rotation);
+
+            Destroy(blast, 1f);
+
+            StartCoroutine(Cooldown());
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
+public class RadialBlast : Ability
+{
+    private Transform playerTransform;
+    public GameObject RadiusBlast;
+    private bool cooldownActive;
+
+    public RadialBlast() : base(0, 1, "Radial Blast", 1f) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        RadiusBlast = Resources.Load("SpellPrefabs/RadiusBlast") as GameObject;
+        playerTransform = GameObject.Find("PlayerModel").transform;
+
+        if (!cooldownActive)
+        {
+            cooldownActive = true;
+            
+            Vector3 spawnPos = playerTransform.position;
+            spawnPos.y = spawnPos.y - 0.8f;
+
+            GameObject radiusBlast = Instantiate(RadiusBlast, spawnPos, RadiusBlast.transform.rotation);
+
+            Destroy(radiusBlast, 1f);
+
             StartCoroutine(Cooldown());
         }
 
