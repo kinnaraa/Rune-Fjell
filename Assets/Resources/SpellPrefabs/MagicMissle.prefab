@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4300562430683948802}
   - component: {fileID: 36637414599889695}
   - component: {fileID: 2018361044649278104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: 3553914703382226647}
   - component: {fileID: 1789974618386953192}
   - component: {fileID: 7124889796852909172}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MagicMissle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

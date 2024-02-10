@@ -74,13 +74,12 @@ public class PlayerMagic : MonoBehaviour
     {
         for(int i = 0; i < AbilityUI.Length; i++)
         {
-            //UI/Algiz_Default
-            //UI/Algiz_Default.PNG
-            AbilityUI[i].GetComponentInChildren<Image>().sprite = Resources.Load("UI/" + abilities[i].DefaultIcon + ".PNG") as Sprite;
-            Debug.Log("UI/" + abilities[i].DefaultIcon);
-            AbilityUI[i].transform.position.Set(AbilityUI[i].transform.position.x - 50, AbilityUI[i].transform.position.y, AbilityUI[i].transform.position.z);
+            AbilityUI[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, AbilityUI[i].GetComponent<RectTransform>().anchoredPosition.y);
+            string path = "UI/" + abilities[i].DefaultIcon;
+            AbilityUI[i].GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>(path);
         }
-        AbilityUI[index].GetComponentInChildren<Image>().sprite = Resources.Load("UI/" + abilities[index].ActivatedIcon + ".PNG") as Sprite;
-        AbilityUI[index].transform.position.Set(AbilityUI[index].transform.position.x + 50, AbilityUI[index].transform.position.y, AbilityUI[index].transform.position.z);
+        AbilityUI[index].GetComponent<RectTransform>().anchoredPosition = new Vector2(-25, AbilityUI[index].GetComponent<RectTransform>().anchoredPosition.y);
+        string path2 = "UI/" + abilities[index].ActivatedIcon;
+        AbilityUI[index].GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>(path2);
     }
 }

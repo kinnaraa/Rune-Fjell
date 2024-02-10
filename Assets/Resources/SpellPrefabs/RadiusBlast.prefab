@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7915234749178469514}
   - component: {fileID: 5570418991562004845}
   - component: {fileID: 1429292686369470684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RadiusBlast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
