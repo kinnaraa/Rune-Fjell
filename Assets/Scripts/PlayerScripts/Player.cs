@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
 {
     public int PlayerHealth;
     public int PlayerStamina;
-    public int SkillPoints;
+    public int HealthRegenRate;
+    public int StamRegenRate;
+    public int DamageIncrease;    public int SkillPoints;
     public int Coins;
 
     public GameObject tabMenu;

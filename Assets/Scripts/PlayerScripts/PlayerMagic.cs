@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerMagic : MonoBehaviour
 {
@@ -24,13 +25,13 @@ public class PlayerMagic : MonoBehaviour
         index = 3;
 
         abilities = new Ability[7];
-        abilities[0] = gameObject.AddComponent<Wall>();
-        abilities[1] = gameObject.AddComponent<Hail>();
-        abilities[2] = gameObject.AddComponent<LightningSmites>();
-        abilities[3] = gameObject.AddComponent<EnergyBlast>();
-        abilities[4] = gameObject.AddComponent<RadialBlast>();
+        abilities[0] = gameObject.AddComponent<Shield>();
+        abilities[1] = gameObject.AddComponent<Shield>();
+        abilities[2] = gameObject.AddComponent<Shield>();
+        abilities[3] = gameObject.AddComponent<Shield>();
+        abilities[4] = gameObject.AddComponent<Shield>();
         abilities[5] = gameObject.AddComponent<Shield>();
-        abilities[6] = gameObject.AddComponent<ForceField>();
+        abilities[6] = gameObject.AddComponent<Shield>();
 
         SetAbilityUI();
     }
@@ -73,11 +74,13 @@ public class PlayerMagic : MonoBehaviour
     {
         for(int i = 0; i < AbilityUI.Length; i++)
         {
-            AbilityUI[i].GetComponentInChildren<Image>().color = Color.white;
-            AbilityUI[i].GetComponentInChildren<TextMeshProUGUI>().text = abilities[i].Name;
-            AbilityUI[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+            //UI/Algiz_Default
+            //UI/Algiz_Default.PNG
+            AbilityUI[i].GetComponentInChildren<Image>().sprite = Resources.Load("UI/" + abilities[i].DefaultIcon + ".PNG") as Sprite;
+            Debug.Log("UI/" + abilities[i].DefaultIcon);
+            AbilityUI[i].transform.position.Set(AbilityUI[i].transform.position.x - 50, AbilityUI[i].transform.position.y, AbilityUI[i].transform.position.z);
         }
-        AbilityUI[index].GetComponentInChildren<Image>().color = Color.grey;
-        AbilityUI[index].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+        AbilityUI[index].GetComponentInChildren<Image>().sprite = Resources.Load("UI/" + abilities[index].ActivatedIcon + ".PNG") as Sprite;
+        AbilityUI[index].transform.position.Set(AbilityUI[index].transform.position.x + 50, AbilityUI[index].transform.position.y, AbilityUI[index].transform.position.z);
     }
 }
