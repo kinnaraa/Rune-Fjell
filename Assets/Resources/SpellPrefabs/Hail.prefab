@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1317752545232927157}
   - component: {fileID: 5005219739430514445}
   - component: {fileID: 7594026637469058341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4867,7 +4867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6805722468898480291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Start 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4898,7 +4898,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4174043410620613100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Start 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4929,7 +4929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5886960317312011944}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Start 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4960,7 +4960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 333549753469143480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Start 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4991,7 +4991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 257363433673514837}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Start 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5022,7 +5022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8496874282933804189}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Start 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

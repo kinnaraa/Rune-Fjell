@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerMagic : MonoBehaviour
 {
@@ -24,13 +25,13 @@ public class PlayerMagic : MonoBehaviour
         index = 3;
 
         abilities = new Ability[7];
-        abilities[0] = gameObject.AddComponent<Wall>();
-        abilities[1] = gameObject.AddComponent<Hail>();
-        abilities[2] = gameObject.AddComponent<LightningSmites>();
-        abilities[3] = gameObject.AddComponent<EnergyBlast>();
-        abilities[4] = gameObject.AddComponent<RadialBlast>();
+        abilities[0] = gameObject.AddComponent<Shield>();
+        abilities[1] = gameObject.AddComponent<Shield>();
+        abilities[2] = gameObject.AddComponent<Shield>();
+        abilities[3] = gameObject.AddComponent<Shield>();
+        abilities[4] = gameObject.AddComponent<Shield>();
         abilities[5] = gameObject.AddComponent<Shield>();
-        abilities[6] = gameObject.AddComponent<ForceField>();
+        abilities[6] = gameObject.AddComponent<Shield>();
 
         SetAbilityUI();
     }
@@ -73,11 +74,12 @@ public class PlayerMagic : MonoBehaviour
     {
         for(int i = 0; i < AbilityUI.Length; i++)
         {
-            AbilityUI[i].GetComponentInChildren<Image>().color = Color.white;
-            AbilityUI[i].GetComponentInChildren<TextMeshProUGUI>().text = abilities[i].Name;
-            AbilityUI[i].GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+            AbilityUI[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, AbilityUI[i].GetComponent<RectTransform>().anchoredPosition.y);
+            string path = "UI/" + abilities[i].DefaultIcon;
+            AbilityUI[i].GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>(path);
         }
-        AbilityUI[index].GetComponentInChildren<Image>().color = Color.grey;
-        AbilityUI[index].GetComponentInChildren<TextMeshProUGUI>().color = Color.yellow;
+        AbilityUI[index].GetComponent<RectTransform>().anchoredPosition = new Vector2(-25, AbilityUI[index].GetComponent<RectTransform>().anchoredPosition.y);
+        string path2 = "UI/" + abilities[index].ActivatedIcon;
+        AbilityUI[index].GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>(path2);
     }
 }
