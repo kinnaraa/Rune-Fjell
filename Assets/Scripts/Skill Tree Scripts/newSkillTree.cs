@@ -26,7 +26,7 @@ public class newSkillTree : MonoBehaviour
         public Skill(string skiillName, bool rune)
         {
             name = skiillName;
-            sprite = Resources.Load<Sprite>("Shitty Icons/" + name);
+            sprite = Resources.Load<Sprite>("UI/Algiz_Default");
             isRune = rune;
             unlocked = false;
         }
@@ -81,7 +81,7 @@ public class newSkillTree : MonoBehaviour
                 skillImage.name = skillList[i][j].name;
                 if (!skillList[i][j].unlocked)
                 {
-                    skillImage.color = Color.black;
+                    skillImage.sprite = Resources.Load<Sprite>("UI/Algiz_Activated");
                 }
             }
         }
@@ -99,11 +99,11 @@ public class newSkillTree : MonoBehaviour
                 skillImage = skillType.transform.GetChild(j).GetComponent<Image>();
                 if (!skillList[i][j].unlocked)
                 {
-                    skillImage.color = Color.black;
+                    skillImage.sprite = Resources.Load<Sprite>("UI/Algiz_Default");
                 }
                 else
                 {
-                    skillImage.color = Color.white;
+                    skillImage.sprite = Resources.Load<Sprite>("UI/Algiz_Activated");
                 }
             }
         }
