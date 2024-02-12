@@ -520,10 +520,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewSkillTree
       objectReference: {fileID: 0}
-    - target: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
-      propertyPath: socketingShadow
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6964276000037885227, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

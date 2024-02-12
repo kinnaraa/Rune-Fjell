@@ -101,7 +101,13 @@ public class newSkillTree : MonoBehaviour
         {
             socketedSkills[i] = null;
         }
+
+        for(int i = 0; i < 7; i++)
+        {
+            transform.GetChild(5).GetChild(i).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/transparent");
+        }
         
+
     }
 
     // Update is called once per frame
