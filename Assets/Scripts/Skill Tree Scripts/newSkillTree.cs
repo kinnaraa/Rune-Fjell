@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using UnityEngine.EventSystems;
 
 public class newSkillTree : MonoBehaviour
 {
@@ -15,6 +17,14 @@ public class newSkillTree : MonoBehaviour
     private Image skillImage;
     private TMP_Text skillPointsText;
     private int skillPoints = 20;
+
+    public bool choseSkill = false;
+    public GameObject socketingShadow;
+    public Skill[] socketedSkills = new Skill[7];
+    public Image skillToSocket;
+    public bool socketing = false;
+    public int index = 0;
+    public string skillName;
 
     public class Skill
     {
@@ -86,6 +96,12 @@ public class newSkillTree : MonoBehaviour
             }
         }
         skillPointsText = transform.GetChild(4).GetComponent<TMP_Text>();
+
+        for(int i = 0; i < 7; i++)
+        {
+            socketedSkills[i] = null;
+        }
+        
     }
 
     // Update is called once per frame
@@ -100,13 +116,16 @@ public class newSkillTree : MonoBehaviour
                 if (!skillList[i][j].unlocked)
                 {
                     skillImage.sprite = Resources.Load<Sprite>("UI/Algiz_Default");
+                    skillList[i][j].sprite = skillImage.sprite;
                 }
                 else
                 {
                     skillImage.sprite = Resources.Load<Sprite>("UI/Algiz_Activated");
+                    skillList[i][j].sprite = skillImage.sprite;
                 }
             }
         }
+
         skillPointsText.text = "Skill Points: " + skillPoints;
     }
 
@@ -125,6 +144,45 @@ public class newSkillTree : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    public void Socket()
+    {
+        if (!socketing)
+        {
+            skillToSocket = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Image>();
+            index = int.Parse(skillToSocket.name)-1;
+            Debug.Log("index: " + index);
+            socketing = true;
+        }
+        else
+        {
+            socketing = false;
+        }
+    }
+
+    public void ChooseSkill()
+    {
+        if (socketing)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < skillList[i].Count; j++)
+                {
+                    if (skillList[i][j].name == EventSystem.current.currentSelectedGameObject.name && skillList[i][j].unlocked)
+                    {
+                        Debug.Log("chose " + EventSystem.current.currentSelectedGameObject.name);
+                        Debug.Log("found skill to add");
+                        socketedSkills[index] = skillList[i][j];
+                        transform.GetChild(5).GetChild(index).GetChild(0).GetComponent<Image>().sprite = skillList[i][j].sprite;
+                    }
+                }
+            }
+            
+            Debug.Log("socketedSkill at index " + index + ": " + socketedSkills[index].name);
+            socketing = false;
+            choseSkill = true;
         }
     }
 }
