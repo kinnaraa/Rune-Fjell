@@ -2,9 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class Ability : MonoBehaviour
-{
-    // Variables for damage and cooldown
-    
+{   
     public int damage;
     public float cooldown;
     public string Name;
@@ -12,7 +10,6 @@ public class Ability : MonoBehaviour
     public string DefaultIcon;
     public string ActivatedIcon;
 
-    // Constructor to initialize the ability with damage and cooldown values
     public Ability(string DefaultIcon, string ActivatedIcon, int damage, float cooldown, string Name, float pauseTime)
     {
         this.damage = damage;
@@ -23,7 +20,6 @@ public class Ability : MonoBehaviour
         this.ActivatedIcon = ActivatedIcon;
     }
 
-    // Common Cast function (can be overridden by subclasses)
     public virtual IEnumerator Cast()
     {
         yield return null;

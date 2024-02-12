@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -24,12 +25,14 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform orientation;
 
-    float horizontalInput;
-    float verticalInput;
+    private float horizontalInput;
+    private float verticalInput;
 
-    Vector3 moveDirection;
+    private Vector3 moveDirection;
 
-    Rigidbody rb;
+    private Rigidbody rb;
+
+    private Player playerScript;
 
     private void Start()
     {
@@ -37,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+        playerScript = GameObject.Find("Player").GetComponent<Player>();
+
+        StartCoroutine(DeductStam());
+        StartCoroutine(RegainStam());
     }
 
     private void Update()
@@ -81,8 +88,9 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on ground
-        if(grounded)
-            if(Input.GetKey(sprintKey))
+        if (grounded)
+        {
+            if (Input.GetKey(sprintKey) && playerScript.PlayerStamina > 5)
             {
                 rb.AddForce(moveDirection.normalized * (moveSpeed * sprintSpeed) * 10f, ForceMode.Force);
             }
@@ -90,12 +98,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
             }
-
+        }
         // in air
-        else if(!grounded)
+        else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
     }
-
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -121,9 +130,52 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
+
+        playerScript.PlayerStamina -= 10;
     }
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    public IEnumerator DeductStam()
+    {
+        while (true)
+        {
+            if (Input.GetKey(sprintKey) && (horizontalInput != 0 || verticalInput != 0) && playerScript.PlayerStamina > 1f)
+            {
+                playerScript.PlayerStamina -= 1f;
+            }
+
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    public IEnumerator RegainStam()
+    {
+        //if the player has been standing still for a while or hasnt used any stam in a bit, start to slowly regain stam over time
+        float timeThreshold = 5f; // Adjust this threshold based on your game's needs
+
+        while (true)
+        {
+            // Check if the player is not moving and hasn't used stamina recently
+            if ((horizontalInput == 0 && verticalInput == 0) && playerScript.PlayerStamina < 100)
+            {
+                // Increment stamina over time
+                playerScript.PlayerStamina += 0.5f; // Adjust the increment value as needed
+            }
+
+            yield return new WaitForSeconds(1f);
+
+            // If the player is still not moving after a certain time, increase the stamina regain rate
+            if ((horizontalInput == 0 && verticalInput == 0) && timeThreshold > 0)
+            {
+                timeThreshold -= 1f;
+            }
+            else
+            {
+                timeThreshold = 5f; // Reset the threshold if the player starts moving
+            }
+        }
     }
 }

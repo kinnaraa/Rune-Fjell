@@ -1,15 +1,15 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int PlayerHealth;
-    public int PlayerStamina;
+    public float PlayerHealth;
+    public float PlayerStamina;
     public int HealthRegenRate;
     public int StamRegenRate;
-    public int DamageIncrease;    public int SkillPoints;
+    public int DamageIncrease;    
+    public int SkillPoints;
     public int Coins;
 
     public GameObject tabMenu;
@@ -28,6 +28,12 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        Image health = GameObject.Find("Health").GetComponent<Image>();
+        health.fillAmount = PlayerHealth/100;
+
+        Image stam = GameObject.Find("Stam").GetComponent<Image>();
+        stam.fillAmount = PlayerStamina/100;
+
         tabMenuOpen = tabMenu.activeSelf;
         escMenuOpen = escMenu.activeSelf;
 
