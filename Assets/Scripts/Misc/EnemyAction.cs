@@ -20,13 +20,16 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        
         if (playerInArea)
         {
             AttackPlayer();
         }
+        
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         //BoxCollider enemyArea = collision.gameObject.GetComponent<BoxCollider>();
         if (collision.gameObject == playerModel)
@@ -35,7 +38,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         //BoxCollider enemyArea = collision.gameObject.GetComponent<BoxCollider>();
         if (collision.gameObject == playerModel)
