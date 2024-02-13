@@ -175,7 +175,9 @@ public class newSkillTree : MonoBehaviour
 
     public void Socket()
     {
+
         skillToSocket = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Image>();
+        Debug.Log("skillToSocket: " + skillToSocket);
         index = int.Parse(skillToSocket.name) - 1;
         Debug.Log("index: " + index);
         socketing = true;
