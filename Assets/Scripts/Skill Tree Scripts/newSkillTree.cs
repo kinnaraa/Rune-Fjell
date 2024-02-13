@@ -26,6 +26,9 @@ public class newSkillTree : MonoBehaviour
     public int index = 0;
     public string skillName;
 
+    public Skill chosenSkill;
+    public GameObject infoSection;
+
     public class Skill
     {
         public string name;
@@ -106,7 +109,8 @@ public class newSkillTree : MonoBehaviour
         {
             transform.GetChild(5).GetChild(i).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/transparent");
         }
-        
+
+        infoSection = transform.GetChild(6).gameObject;
 
     }
 
@@ -133,6 +137,21 @@ public class newSkillTree : MonoBehaviour
         }
 
         skillPointsText.text = "Skill Points: " + skillPoints;
+
+        if(chosenSkill != null)
+            if (chosenSkill.unlocked)
+            {
+                infoSection.transform.GetChild(2).gameObject.SetActive(false);
+                infoSection.transform.GetChild(3).gameObject.SetActive(true);
+            }
+            else if (!chosenSkill.unlocked)
+            {
+                infoSection.transform.GetChild(2).gameObject.SetActive(true);
+                infoSection.transform.GetChild(3).gameObject.SetActive(false);
+            }
+
+            if(choseSkill)
+                infoSection.transform.GetChild(4).GetComponent<Image>().sprite = chosenSkill.sprite;
     }
 
     public void UnlockSkill()
@@ -141,11 +160,12 @@ public class newSkillTree : MonoBehaviour
         {
             for (int j = 0; j < skillList[i].Count; j++)
             {
-                if (skillList[i][j].name == UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name && skillPoints > 0 && !skillList[i][j].unlocked)
+                if (skillList[i][j].name == chosenSkill.name && skillPoints > 0 && !skillList[i][j].unlocked)
                 {
-                    if (!skillList[i][j].isRune && (skillList[i][j-1].unlocked && skillList[i][j+1].unlocked) || (skillList[i][j].isRune))
+                    if (!chosenSkill.isRune && (skillList[i][j-1].unlocked && skillList[i][j+1].unlocked) || (chosenSkill.isRune))
                     {
-                        skillList[i][j].unlocked = true;
+                        chosenSkill.unlocked = true;
+                        Debug.Log("unlocked " + chosenSkill.name);
                         skillPoints--;
                     }
                 }
@@ -155,40 +175,32 @@ public class newSkillTree : MonoBehaviour
 
     public void Socket()
     {
-        if (!socketing)
-        {
-            skillToSocket = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Image>();
-            index = int.Parse(skillToSocket.name)-1;
-            Debug.Log("index: " + index);
-            socketing = true;
-        }
-        else
-        {
-            socketing = false;
-        }
+        skillToSocket = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Image>();
+        index = int.Parse(skillToSocket.name) - 1;
+        Debug.Log("index: " + index);
+        socketing = true;
     }
 
     public void ChooseSkill()
     {
-        if (socketing)
+        for(int i = 0; i < 3; i++)
         {
-            for(int i = 0; i < 3; i++)
+            for(int j = 0; j < skillList[i].Count; j++)
             {
-                for(int j = 0; j < skillList[i].Count; j++)
+                if (skillList[i][j].name == EventSystem.current.currentSelectedGameObject.name)
                 {
-                    if (skillList[i][j].name == EventSystem.current.currentSelectedGameObject.name && skillList[i][j].unlocked)
-                    {
-                        Debug.Log("chose " + EventSystem.current.currentSelectedGameObject.name);
-                        Debug.Log("found skill to add");
-                        socketedSkills[index] = skillList[i][j];
-                        transform.GetChild(5).GetChild(index).GetChild(0).GetComponent<Image>().sprite = skillList[i][j].sprite;
-                    }
+                    Debug.Log("chose " + skillList[i][j].name);
+
+                    chosenSkill = skillList[i][j];
+                    Debug.Log("chosenSkill: " + chosenSkill.name);
+                    infoSection.SetActive(true);
+                    infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.name;
+
+                    //socketedSkills[index] = skillList[i][j];
+                    //transform.GetChild(5).GetChild(index).GetChild(0).GetComponent<Image>().sprite = skillList[i][j].sprite;
                 }
             }
-            
-            Debug.Log("socketedSkill at index " + index + ": " + socketedSkills[index].name);
-            socketing = false;
-            choseSkill = true;
         }
+        choseSkill = true;
     }
 }
