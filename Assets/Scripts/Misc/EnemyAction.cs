@@ -6,15 +6,18 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public GameObject playerModel;
     public BoxCollider areaVisible;
+    public BoxCollider enemyHitbox;
 
     public float speedOfEnemy = 5;
 
     bool playerInArea;
+    bool chasePlayer;
     // Start is called before the first frame update
     void Start()
     {
         playerModel = GameObject.FindGameObjectWithTag("Player");
         playerInArea = false;
+        chasePlayer = false;
     }
 
     // Update is called once per frame
@@ -22,7 +25,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
        
         
-        if (playerInArea)
+        if (playerInArea && chasePlayer)
         {
             AttackPlayer();
         }
@@ -35,6 +38,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject == playerModel)
         {
             playerInArea = true;
+            chasePlayer = true;
         }
     }
 
@@ -45,6 +49,27 @@ public class NewBehaviourScript : MonoBehaviour
         {
             playerInArea = false;
         }
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject == playerModel)
+        {
+            chasePlayer = false;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject == playerModel)
+        {
+            chasePlayer = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        
     }
 
     public void AttackPlayer()
