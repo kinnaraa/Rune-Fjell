@@ -5,7 +5,11 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     public GameObject playerModel;
+
     public BoxCollider areaVisible;
+    public float distanceToPlayer;
+    //public BoxCollider attackRange;
+
     public BoxCollider enemyHitbox;
 
     public float speedOfEnemy = 5;
@@ -54,7 +58,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject == playerModel)
+        if((collision.gameObject == playerModel) && (Vector3.Distance(playerModel.transform.position, gameObject.transform.position) <= distanceToPlayer))
         {
             chasePlayer = false;
         }
@@ -69,7 +73,10 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        
+        if (Vector3.Distance(playerModel.transform.position, gameObject.transform.position) <= distanceToPlayer)
+        {
+            chasePlayer = false;
+        }
     }
 
     public void AttackPlayer()
