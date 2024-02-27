@@ -24,13 +24,13 @@ public class PlayerMagic : MonoBehaviour
         index = 3;
 
         abilities = new Ability[7];
-        abilities[0] = gameObject.AddComponent<Shield>();
-        abilities[1] = gameObject.AddComponent<Shield>();
-        abilities[2] = gameObject.AddComponent<Shield>();
-        abilities[3] = gameObject.AddComponent<Shield>();
-        abilities[4] = gameObject.AddComponent<Shield>();
-        abilities[5] = gameObject.AddComponent<Shield>();
-        abilities[6] = gameObject.AddComponent<Shield>();
+        abilities[0] = gameObject.AddComponent<EnergyBlast>();
+        abilities[1] = gameObject.AddComponent<FireBlast>();
+        abilities[2] = gameObject.AddComponent<Storm>();
+        abilities[3] = gameObject.AddComponent<RadialBlast>();
+        abilities[4] = gameObject.AddComponent<RadialFireBurst>();
+        abilities[5] = gameObject.AddComponent<EarthSpike>();
+        abilities[6] = gameObject.AddComponent<Wall>();
 
         SetAbilityUI();
     }

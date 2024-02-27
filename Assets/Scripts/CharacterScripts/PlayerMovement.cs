@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
             if ((horizontalInput == 0 && verticalInput == 0) && playerScript.PlayerStamina < 100)
             {
                 // Increment stamina over time
-                playerScript.PlayerStamina += 0.5f; // Adjust the increment value as needed
+                playerScript.PlayerStamina += 5f; // Adjust the increment value as needed
             }
 
             yield return new WaitForSeconds(1f);

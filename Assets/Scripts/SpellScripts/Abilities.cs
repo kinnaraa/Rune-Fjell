@@ -215,6 +215,7 @@ public class RadialFireBurst : Ability
         cooldownActive = false;
     }
 }
+
 public class EarthSpike : Ability
 {
     private bool cooldownActive = false;
@@ -276,6 +277,7 @@ public class Shield : Ability
         yield return null;
     }
 }
+
 public class ForceField : Ability
 {
     private bool cooldownActive = false;
