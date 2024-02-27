@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
@@ -7,10 +8,12 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject playerModel;
 
     public BoxCollider areaVisible;
-    public float distanceToPlayer;
+    public float attackRange;
+    float distanceToPlayer;
     //public BoxCollider attackRange;
 
-    public BoxCollider enemyHitbox;
+    public GameObject enemyHitbox;
+    //public BoxCollider hitboxCollider = GetComponent<Collider>();
 
     public float speedOfEnemy = 5;
 
@@ -27,8 +30,9 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        
+        distanceToPlayer = Vector3.Distance(playerModel.transform.position, gameObject.transform.position);
+        Debug.Log("distance vector: " + distanceToPlayer);
+
         if (playerInArea && chasePlayer)
         {
             AttackPlayer();
@@ -58,26 +62,40 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if((collision.gameObject == playerModel) && (Vector3.Distance(playerModel.transform.position, gameObject.transform.position) <= distanceToPlayer))
+        if(collision.gameObject == enemyHitbox)
         {
+            chasePlayer = false;
+        }
+        else if((collision.gameObject == playerModel) && (distanceToPlayer <= attackRange))
+        {
+            Debug.Log("Collision Enter Pass");
+
             chasePlayer = false;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject == playerModel)
+        if (collision.gameObject == enemyHitbox)
+        {
+            chasePlayer = true;
+        }
+        else if (collision.gameObject == playerModel)
         {
             chasePlayer = true;
         }
     }
-
-    private void OnCollisionStay(Collision collision)
+    
+    
+/*    private void OnCollisionStay(Collision collision)
     {
-        if (Vector3.Distance(playerModel.transform.position, gameObject.transform.position) <= distanceToPlayer)
+        *//*
+        if (distanceToPlayer <= attackRange)
         {
             chasePlayer = false;
         }
-    }
+        *//*
+    }*/
+    
 
     public void AttackPlayer()
     {
