@@ -19,9 +19,6 @@ public class newSkillTree : MonoBehaviour
     private int skillPoints = 20;
 
     public bool choseSkill = false;
-    public GameObject socketingShadow;
-    public Skill[] socketedSkills = new Skill[7];
-    public Image skillToSocket;
     public bool socketing = false;
     public int index = 0;
     public string skillName;
@@ -35,6 +32,7 @@ public class newSkillTree : MonoBehaviour
         public Sprite sprite;
         public bool isRune;
         public bool unlocked;
+        public string infoBlurb;
 
         public Skill(string skiillName, bool rune)
         {
@@ -42,6 +40,7 @@ public class newSkillTree : MonoBehaviour
             sprite = Resources.Load<Sprite>("UI/Algiz_Default");
             isRune = rune;
             unlocked = false;
+            infoBlurb = name + "\n\nBlurb about ability and what it does.\n\n...\n\n Damage: \n\nCooldown: \n\n";
         }
     }
 
@@ -100,16 +99,6 @@ public class newSkillTree : MonoBehaviour
         }
         skillPointsText = transform.GetChild(4).GetComponent<TMP_Text>();
 
-        for(int i = 0; i < 7; i++)
-        {
-            socketedSkills[i] = null;
-        }
-
-        for(int i = 0; i < 7; i++)
-        {
-            transform.GetChild(5).GetChild(i).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/transparent");
-        }
-
         infoSection = transform.GetChild(6).gameObject;
 
     }
@@ -137,21 +126,6 @@ public class newSkillTree : MonoBehaviour
         }
 
         skillPointsText.text = "Skill Points: " + skillPoints;
-
-        if(chosenSkill != null)
-            if (chosenSkill.unlocked)
-            {
-                infoSection.transform.GetChild(2).gameObject.SetActive(false);
-                infoSection.transform.GetChild(3).gameObject.SetActive(true);
-            }
-            else if (!chosenSkill.unlocked)
-            {
-                infoSection.transform.GetChild(2).gameObject.SetActive(true);
-                infoSection.transform.GetChild(3).gameObject.SetActive(false);
-            }
-
-            if(choseSkill)
-                infoSection.transform.GetChild(4).GetComponent<Image>().sprite = chosenSkill.sprite;
     }
 
     public void UnlockSkill()
@@ -164,22 +138,20 @@ public class newSkillTree : MonoBehaviour
                 {
                     if (!chosenSkill.isRune && (skillList[i][j-1].unlocked && skillList[i][j+1].unlocked) || (chosenSkill.isRune))
                     {
+                        socketing = false;
                         chosenSkill.unlocked = true;
                         Debug.Log("unlocked " + chosenSkill.name);
                         skillPoints--;
+                        infoSection.transform.GetChild(2).gameObject.SetActive(false);
+                        infoSection.transform.GetChild(3).gameObject.SetActive(true);
                     }
                 }
             }
         }
     }
 
-    public void Socket()
+    public void startSocketing()
     {
-
-        skillToSocket = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Image>();
-        Debug.Log("skillToSocket: " + skillToSocket);
-        index = int.Parse(skillToSocket.name) - 1;
-        Debug.Log("index: " + index);
         socketing = true;
     }
 
@@ -191,15 +163,13 @@ public class newSkillTree : MonoBehaviour
             {
                 if (skillList[i][j].name == EventSystem.current.currentSelectedGameObject.name)
                 {
-                    Debug.Log("chose " + skillList[i][j].name);
-
                     chosenSkill = skillList[i][j];
                     Debug.Log("chosenSkill: " + chosenSkill.name);
-                    infoSection.SetActive(true);
+                    //infoSection.SetActive(true);
+                    infoSection.transform.GetChild(3).gameObject.SetActive(false);
+                    infoSection.transform.GetChild(2).gameObject.SetActive(true);
                     infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.name;
-
-                    //socketedSkills[index] = skillList[i][j];
-                    //transform.GetChild(5).GetChild(index).GetChild(0).GetComponent<Image>().sprite = skillList[i][j].sprite;
+                    infoSection.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = chosenSkill.infoBlurb;
                 }
             }
         }

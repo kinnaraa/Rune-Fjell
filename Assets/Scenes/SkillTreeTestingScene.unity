@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7720245335709376495}
         m_TargetAssemblyTypeName: newSkillTree, Assembly-CSharp
-        m_MethodName: Socket
+        m_MethodName: startSocketing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -313,8 +313,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\"Blurb about the ability...\"\n\nSome info about ability...\n...\n\nDamage:
-    \n\n\nCooldown:\n\n\n"
+  m_text: 'Click on a rune or ability for more info
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
   m_sharedMaterial: {fileID: 3121742711131630172, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
@@ -409,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &407566001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -751,7 +753,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title text
+  m_text: Skill Tree
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
   m_sharedMaterial: {fileID: 3121742711131630172, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
@@ -885,7 +887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 83e558015f5cf104ab2e3891afe045c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1306,7 +1308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1557024219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2020,8 +2022,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7720245335709376495}
-        m_TargetAssemblyTypeName: newSkillTree, Assembly-CSharp
+      - m_Target: {fileID: 9126049826821029458}
+        m_TargetAssemblyTypeName: SocketSkill, Assembly-CSharp
         m_MethodName: Socket
         m_Mode: 1
         m_Arguments:
@@ -2136,8 +2138,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7720245335709376495}
-        m_TargetAssemblyTypeName: newSkillTree, Assembly-CSharp
+      - m_Target: {fileID: 9126049826821029458}
+        m_TargetAssemblyTypeName: SocketSkill, Assembly-CSharp
         m_MethodName: Socket
         m_Mode: 1
         m_Arguments:
@@ -2242,8 +2244,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7720245335709376495}
-        m_TargetAssemblyTypeName: newSkillTree, Assembly-CSharp
+      - m_Target: {fileID: 9126049826821029458}
+        m_TargetAssemblyTypeName: SocketSkill, Assembly-CSharp
         m_MethodName: Socket
         m_Mode: 1
         m_Arguments:
@@ -2452,8 +2454,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7720245335709376495}
-        m_TargetAssemblyTypeName: newSkillTree, Assembly-CSharp
+      - m_Target: {fileID: 9126049826821029458}
+        m_TargetAssemblyTypeName: SocketSkill, Assembly-CSharp
         m_MethodName: Socket
         m_Mode: 1
         m_Arguments:
@@ -3411,8 +3413,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7720245335709376495}
-        m_TargetAssemblyTypeName: newSkillTree, Assembly-CSharp
+      - m_Target: {fileID: 9126049826821029458}
+        m_TargetAssemblyTypeName: SocketSkill, Assembly-CSharp
         m_MethodName: Socket
         m_Mode: 1
         m_Arguments:
@@ -3630,8 +3632,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7720245335709376495}
-        m_TargetAssemblyTypeName: newSkillTree, Assembly-CSharp
+      - m_Target: {fileID: 9126049826821029458}
+        m_TargetAssemblyTypeName: SocketSkill, Assembly-CSharp
         m_MethodName: Socket
         m_Mode: 1
         m_Arguments:
@@ -4380,8 +4382,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7720245335709376495}
-        m_TargetAssemblyTypeName: newSkillTree, Assembly-CSharp
+      - m_Target: {fileID: 9126049826821029458}
+        m_TargetAssemblyTypeName: SocketSkill, Assembly-CSharp
         m_MethodName: Socket
         m_Mode: 1
         m_Arguments:
@@ -5479,7 +5481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.690566, g: 0.690566, b: 0.690566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5603,6 +5605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5453861279717517292}
   - component: {fileID: 9126049826821029457}
+  - component: {fileID: 9126049826821029458}
   m_Layer: 5
   m_Name: Sockets
   m_TagString: Untagged
@@ -6268,8 +6271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choseSkill: 0
-  socketingShadow: {fileID: 0}
-  skillToSocket: {fileID: 0}
   socketing: 0
   index: 0
   skillName: 
@@ -7097,6 +7098,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6767008322719888550}
   m_CullTransparentMesh: 1
+--- !u!114 &9126049826821029458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767008322719888550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945f499044662b146b672e150789f277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newSkillTree: {fileID: 7720245335709376495}
+  skillToSocket: {fileID: 0}
 --- !u!222 &9132061883193774105
 CanvasRenderer:
   m_ObjectHideFlags: 0
