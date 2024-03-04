@@ -10,6 +10,8 @@ public class SocketSkill : MonoBehaviour
     public newSkillTree newSkillTree;
     public newSkillTree.Skill[] socketedSkills = new newSkillTree.Skill[7];
     public Image skillToSocket;
+    PlayerMagic playerMagic;
+    public GameObject PMGameobject;
 
     void Start()
     {
@@ -33,6 +35,16 @@ public class SocketSkill : MonoBehaviour
             {
                 socketedSkills[index] = newSkillTree.chosenSkill;
                 skillToSocket.sprite = newSkillTree.chosenSkill.sprite;
+                for(int i = 0; i < PMGameobject.GetComponent<PlayerMagic>().allAbilities.Count(); i++)
+                {
+                    if (newSkillTree.chosenAbilityName == PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name)
+                    {
+                        Debug.Log(PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name);
+                        Debug.Log(index);
+                        PMGameobject.GetComponent<PlayerMagic>().abilities[index] = PMGameobject.GetComponent<PlayerMagic>().allAbilities[i];
+                    }
+                }
+                
             }
         }
     }

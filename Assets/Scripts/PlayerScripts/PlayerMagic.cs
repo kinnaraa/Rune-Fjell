@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
@@ -11,6 +12,7 @@ public class PlayerMagic : MonoBehaviour
     
     [Header("Abilities")]
     public Ability[] abilities;
+    public Ability[] allAbilities;
 
     [Header("Keybinds")]
     public KeyCode E = KeyCode.E;
@@ -23,6 +25,7 @@ public class PlayerMagic : MonoBehaviour
     {
         index = 3;
 
+        //this is the same but the SocketSkill script replaces the abilities with correct ones based on the skill tree
         abilities = new Ability[7];
         abilities[0] = gameObject.AddComponent<EnergyBlast>();
         abilities[1] = gameObject.AddComponent<FireBlast>();
@@ -31,6 +34,22 @@ public class PlayerMagic : MonoBehaviour
         abilities[4] = gameObject.AddComponent<RadialFireBurst>();
         abilities[5] = gameObject.AddComponent<EarthSpike>();
         abilities[6] = gameObject.AddComponent<Wall>();
+
+        // this is just for me so i can find the right ability to add
+        allAbilities = new Ability[12];
+        allAbilities[0] = abilities[0];
+        allAbilities[1] = abilities[1];
+        allAbilities[2] = abilities[2];
+        allAbilities[3] = abilities[3];
+        allAbilities[4] = abilities[4];
+        allAbilities[5] = abilities[5];
+        allAbilities[6] = abilities[6];
+        allAbilities[7] = gameObject.AddComponent<Ice>();
+        allAbilities[8] = gameObject.AddComponent<Shield>();
+        allAbilities[9] = gameObject.AddComponent<Light>();
+        allAbilities[10] = gameObject.AddComponent<Hail>();
+        allAbilities[11] = gameObject.AddComponent<LightningSmites>();
+
 
         SetAbilityUI();
     }
