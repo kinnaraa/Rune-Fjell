@@ -77,16 +77,19 @@ public class PlayerMagic : MonoBehaviour
         //Cast Ability
         if(Input.GetKey(fireKey))
         {
-            StartCoroutine(currentAbility.Cast());
-            StartCoroutine(PauseMovement(currentAbility.pauseTime));
-            StartCoroutine(CooldownVisual(currentAbility.cooldown));
-            Debug.Log(currentAbility.cooldown);
+            if(currentAbility.Name != "Null")
+            {
+                StartCoroutine(currentAbility.Cast());
+                StartCoroutine(PauseMovement(currentAbility.pauseTime));
+                StartCoroutine(CooldownVisual(currentAbility.cooldown));
+            }
         }
     }
 
     public IEnumerator PauseMovement(float pauseTime)
     {
         gameObject.GetComponent<PlayerMovement>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(pauseTime);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
     }
