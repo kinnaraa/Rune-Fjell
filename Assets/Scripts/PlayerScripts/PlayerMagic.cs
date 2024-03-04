@@ -25,31 +25,32 @@ public class PlayerMagic : MonoBehaviour
     {
         index = 3;
 
+        // this is just for me so i can find the right ability to add
+        allAbilities = new Ability[14];
+        allAbilities[0] = gameObject.AddComponent<Null>();
+        allAbilities[1] = gameObject.AddComponent<Light>();
+        allAbilities[2] = gameObject.AddComponent<FireBlast>();
+        allAbilities[3] = gameObject.AddComponent<Storm>();
+        allAbilities[4] = gameObject.AddComponent<RadialBlast>();
+        allAbilities[5] = gameObject.AddComponent<RadialFireBurst>();
+        allAbilities[6] = gameObject.AddComponent<EarthSpike>();
+        allAbilities[7] = gameObject.AddComponent<Wall>();
+        allAbilities[8] = gameObject.AddComponent<Ice>();
+        allAbilities[9] = gameObject.AddComponent<Shield>();
+        allAbilities[10] = gameObject.AddComponent<Light>();
+        allAbilities[11] = gameObject.AddComponent<Hail>();
+        allAbilities[12] = gameObject.AddComponent<LightningSmites>();
+        allAbilities[13] = gameObject.AddComponent<Heal>();
+
         //this is the same but the SocketSkill script replaces the abilities with correct ones based on the skill tree
         abilities = new Ability[7];
-        abilities[0] = gameObject.AddComponent<EnergyBlast>();
-        abilities[1] = gameObject.AddComponent<FireBlast>();
-        abilities[2] = gameObject.AddComponent<Storm>();
-        abilities[3] = gameObject.AddComponent<RadialBlast>();
-        abilities[4] = gameObject.AddComponent<RadialFireBurst>();
-        abilities[5] = gameObject.AddComponent<EarthSpike>();
-        abilities[6] = gameObject.AddComponent<Wall>();
-
-        // this is just for me so i can find the right ability to add
-        allAbilities = new Ability[12];
-        allAbilities[0] = abilities[0];
-        allAbilities[1] = abilities[1];
-        allAbilities[2] = abilities[2];
-        allAbilities[3] = abilities[3];
-        allAbilities[4] = abilities[4];
-        allAbilities[5] = abilities[5];
-        allAbilities[6] = abilities[6];
-        allAbilities[7] = gameObject.AddComponent<Ice>();
-        allAbilities[8] = gameObject.AddComponent<Shield>();
-        allAbilities[9] = gameObject.AddComponent<Light>();
-        allAbilities[10] = gameObject.AddComponent<Hail>();
-        allAbilities[11] = gameObject.AddComponent<LightningSmites>();
-
+        abilities[0] = allAbilities[0];
+        abilities[1] = allAbilities[0];
+        abilities[2] = allAbilities[0];
+        abilities[3] = allAbilities[0];
+        abilities[4] = allAbilities[0];
+        abilities[5] = allAbilities[0];
+        abilities[6] = allAbilities[0];
 
         SetAbilityUI();
     }
@@ -112,7 +113,6 @@ public class PlayerMagic : MonoBehaviour
             cooldownImage.fillAmount = 0f;  // Ensure that the fill amount is set to zero after cooldown
         }
     }
-
 
     public void SetAbilityUI()
     {

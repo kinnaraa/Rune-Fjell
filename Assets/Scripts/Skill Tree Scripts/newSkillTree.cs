@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 using UnityEngine.EventSystems;
 using System.Linq;
+using System.IO;
 
 public class newSkillTree : MonoBehaviour
 {
@@ -71,9 +70,9 @@ public class newSkillTree : MonoBehaviour
         utilityList = new List<Skill>()
         {
             new Skill("Ansuz", "Ansuz", true),
-            new Skill("Wunjo", "Wunjo", true),
+            new Skill("Heal", "Wunjo", true),
             new Skill("Heal in Forcefield", "Heal in Forcefield", false),
-            new Skill("Shield", "Shield", true),
+            new Skill("Shield", "Algiz", true),
             new Skill("Damage in Forcefield", "Damage in Forcefield", false),
             new Skill("Uruz", "Uruz", true),
             new Skill("Light", "Kenaz", true),
@@ -101,7 +100,8 @@ public class newSkillTree : MonoBehaviour
                 skillImage.name = skillList[i][j].name;
                 if (!skillList[i][j].unlocked)
                 {
-                    skillImage.sprite = Resources.Load<Sprite>("UI/Algiz_Activated");
+                    string path = "UI/" + skillList[i][j].displayName + "_Activated";
+                    skillImage.sprite = Resources.Load<Sprite>(path);
                 }
             }
         }
@@ -138,12 +138,14 @@ public class newSkillTree : MonoBehaviour
                 skillImage = skillType.transform.GetChild(j).GetComponent<Image>();
                 if (!skillList[i][j].unlocked)
                 {
-                    skillImage.sprite = Resources.Load<Sprite>("UI/Algiz_Default");
+                    string path = "UI/" + skillList[i][j].displayName + "_Default";
+                    skillImage.sprite = Resources.Load<Sprite>(path);
                     skillList[i][j].sprite = skillImage.sprite;
                 }
                 else
                 {
-                    skillImage.sprite = Resources.Load<Sprite>("UI/Algiz_Activated");
+                    string path = "UI/" + skillList[i][j].displayName + "_Activated";
+                    skillImage.sprite = Resources.Load<Sprite>(path);
                     skillList[i][j].sprite = skillImage.sprite;
                 }
             }
@@ -164,7 +166,7 @@ public class newSkillTree : MonoBehaviour
                     {
                         socketing = false;
                         chosenSkill.unlocked = true;
-                        Debug.Log("unlocked " + chosenSkill.name);
+                        //Debug.Log("unlocked " + chosenSkill.name);
                         skillPoints--;
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
                         infoSection.transform.GetChild(3).gameObject.SetActive(true);
@@ -188,26 +190,35 @@ public class newSkillTree : MonoBehaviour
                 if (skillList[i][j].name == EventSystem.current.currentSelectedGameObject.name)
                 {
                     chosenSkill = skillList[i][j];
-                    infoSection.transform.GetChild(3).gameObject.SetActive(false);
-                    infoSection.transform.GetChild(2).gameObject.SetActive(true);
+                    if(chosenSkill.unlocked)
+                    {
+                        infoSection.transform.GetChild(3).gameObject.SetActive(true);
+                        infoSection.transform.GetChild(2).gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        infoSection.transform.GetChild(3).gameObject.SetActive(false);
+                        infoSection.transform.GetChild(2).gameObject.SetActive(true);
+                    }   
                     infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.name;
                     infoSection.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = chosenSkill.infoBlurb;
                 }
             }
         }
 
-        Debug.Log(playerMagicGO.GetComponent<PlayerMagic>().allAbilities.Count());
+        //Debug.Log(playerMagicGO.GetComponent<PlayerMagic>().allAbilities.Count());
 
         for (int i = 0; i < playerMagicGO.GetComponent<PlayerMagic>().allAbilities.Count(); i++)
         {
+            Debug.Log(chosenSkill.name);
             if (chosenSkill.name == playerMagicGO.GetComponent<PlayerMagic>().allAbilities[i].Name)
             {                
                 chosenAbilityName = playerMagicGO.GetComponent<PlayerMagic>().allAbilities[i].Name;
             }
 
         }
-        Debug.Log("chosenSkill: " + chosenSkill.name);
-        Debug.Log("chosenAbility: " + chosenAbilityName);
+        //Debug.Log("chosenSkill: " + chosenSkill.name);
+        //Debug.Log("chosenAbility: " + chosenAbilityName);
 
         choseSkill = true;
     }

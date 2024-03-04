@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -10,7 +8,6 @@ public class SocketSkill : MonoBehaviour
     public newSkillTree newSkillTree;
     public newSkillTree.Skill[] socketedSkills = new newSkillTree.Skill[7];
     public Image skillToSocket;
-    PlayerMagic playerMagic;
     public GameObject PMGameobject;
 
     void Start()
@@ -25,22 +22,24 @@ public class SocketSkill : MonoBehaviour
 
     public void Socket()
     {
-        Debug.Log(newSkillTree.socketing);
+        //Debug.Log(newSkillTree.socketing);
         if (newSkillTree.socketing)
         {
             int index = int.Parse(EventSystem.current.currentSelectedGameObject.transform.GetChild(0).name) - 1;
             skillToSocket = transform.GetChild(index).GetChild(0).GetComponent<Image>();
-            Debug.Log("index: " + index);
+            //Debug.Log("index: " + index);
             if (newSkillTree.chosenSkill.unlocked && !socketedSkills.Contains(newSkillTree.chosenSkill))
             {
                 socketedSkills[index] = newSkillTree.chosenSkill;
                 skillToSocket.sprite = newSkillTree.chosenSkill.sprite;
                 for(int i = 0; i < PMGameobject.GetComponent<PlayerMagic>().allAbilities.Count(); i++)
                 {
+                    //Debug.Log(newSkillTree.chosenAbilityName);
+                    //Debug.Log(PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name);
                     if (newSkillTree.chosenAbilityName == PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name)
                     {
-                        Debug.Log(PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name);
-                        Debug.Log(index);
+                        //Debug.Log("Name " + PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name);
+                        //Debug.Log("Index " + index);
                         PMGameobject.GetComponent<PlayerMagic>().abilities[index] = PMGameobject.GetComponent<PlayerMagic>().allAbilities[i];
                     }
                 }

@@ -6,7 +6,6 @@ public class TabMenuScript : MonoBehaviour
 {
     public GameObject Inventory;
     public GameObject SkillTree;
-
     public void Awake()
     {
         SkillTree.SetActive(false);
