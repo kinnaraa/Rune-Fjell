@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WispSystem : MonoBehaviour
@@ -12,38 +11,39 @@ public class WispSystem : MonoBehaviour
     private bool firstPath = false;
     private bool OnFirstPath = false;
     private GameObject CurrentWisp;
-    private int index = 1;
+    private int index;
+
+    public void Start()
+    {
+        index = 0;
+    }
 
     public void Update()
     {
-        if(firstPath)
+        if (firstPath)
         {
-            CurrentWisp = Instantiate(Wisp, FirstSetOfPoints[0].position, FirstSetOfPoints[0].rotation);
+            CurrentWisp = Instantiate(Wisp, FirstSetOfPoints[index].position, FirstSetOfPoints[index].rotation);
             firstPath = false;
             OnFirstPath = true;
         }
 
-        if(OnFirstPath)
+        if (OnFirstPath)
         {
             float distance = Vector3.Distance(Player.transform.position, CurrentWisp.transform.position);
-            //Debug.Log(distance);
-            if(distance <= 4)
+            if (distance <= 4)
             {
                 Destroy(CurrentWisp);
-                CurrentWisp = Instantiate(Wisp, FirstSetOfPoints[index].position, FirstSetOfPoints[index].rotation);
                 index++;
-            }
-            if(index == FirstSetOfPoints.Length + 1)
-            {
-                OnFirstPath = false;
-            }
-        }
-        else
-        {
-            float distance = Vector3.Distance(Player.transform.position, Gnome.transform.position);
-            if(distance <= 10)
-            {
-                StartCoroutine(GM.SaveTheGnome());
+
+                if (index < FirstSetOfPoints.Length)
+                {
+                    CurrentWisp = Instantiate(Wisp, FirstSetOfPoints[index].position, FirstSetOfPoints[index].rotation);
+                }
+                else
+                {
+                    OnFirstPath = false;
+                    StartCoroutine(GM.SaveTheGnome());
+                }
             }
         }
     }
