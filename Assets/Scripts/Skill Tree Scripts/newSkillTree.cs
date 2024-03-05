@@ -98,7 +98,16 @@ public class newSkillTree : MonoBehaviour
                 skillImage = skillType.transform.GetChild(j).GetComponent<Image>();
                 skillImage.sprite = skillList[i][j].sprite;
                 skillImage.name = skillList[i][j].name;
+                if(skillList[i][j].name == "Energy Blast" || skillList[i][j].name == "Shield")
+                {
+                    skillList[i][j].unlocked = true;
+                }
                 if (!skillList[i][j].unlocked)
+                {
+                    string path = "UI/" + skillList[i][j].displayName + "_Default";
+                    skillImage.sprite = Resources.Load<Sprite>(path);
+                }
+                else
                 {
                     string path = "UI/" + skillList[i][j].displayName + "_Activated";
                     skillImage.sprite = Resources.Load<Sprite>(path);

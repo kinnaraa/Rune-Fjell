@@ -47,9 +47,9 @@ public class PlayerMagic : MonoBehaviour
         abilities = new Ability[7];
         abilities[0] = allAbilities[0];
         abilities[1] = allAbilities[0];
-        abilities[2] = allAbilities[0];
+        abilities[2] = allAbilities[14];
         abilities[3] = allAbilities[0];
-        abilities[4] = allAbilities[0];
+        abilities[4] = allAbilities[9];
         abilities[5] = allAbilities[0];
         abilities[6] = allAbilities[0];
 
