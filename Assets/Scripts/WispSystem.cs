@@ -13,6 +13,8 @@ public class WispSystem : MonoBehaviour
     private GameObject CurrentWisp;
     private int index;
 
+    public QuestLog questLog;
+
     public void Start()
     {
         index = 0;
@@ -42,6 +44,12 @@ public class WispSystem : MonoBehaviour
                 else
                 {
                     OnFirstPath = false;
+
+                    Debug.Log("start new Quest");
+                    questLog.allQuests[0].completed = true;
+                    questLog.allQuests[1].isActive = true;
+                    questLog.allQuests[1].currentQuest = true;
+
                     StartCoroutine(GM.SaveTheGnome());
                 }
             }

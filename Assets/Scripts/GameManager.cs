@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Cinemachine;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public Transform TentPos;
     public Transform CampfirePos;
+
+    public QuestLog questLog;
 
     public void Start()
     {
@@ -56,6 +59,9 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartFirstQuest()
     {
         yield return new WaitForSeconds(1f);
+        questLog.allQuests[0].isActive = true;
+        questLog.allQuests[0].currentQuest = true;
+
         WS.StartFirstPath();
     }
 
