@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,10 +23,23 @@ public class GameManager : MonoBehaviour
     public Transform CampfirePos;
 
     public QuestLog questLog;
+    public TabMenuScript TMS;
+
+    public TextMeshProUGUI gnomeTalk;
+    public bool FirstBatDead = false;
 
     public void Start()
     {
         StartCoroutine(OnStart());
+    }
+
+    public void Update()
+    {
+        if(FirstBatDead)
+        {
+            FirstBatDead = false;
+            StartCoroutine(GnomeDialogue());
+        }
     }
 
     public IEnumerator OnStart()
@@ -95,5 +107,26 @@ public class GameManager : MonoBehaviour
 
         GameObject enemy = Instantiate(Bat, BatSpawn.position, BatSpawn.rotation);
 
+    }
+
+    public IEnumerator GnomeDialogue()
+    {
+        gnomeTalk.text = "I came out here looking for adventure and all I found was trouble";
+        yield return new WaitForSeconds(2f);
+        gnomeTalk.text = "Can you help me find my village?";
+        yield return new WaitForSeconds(2f);
+        gnomeTalk.text = "I couldn't get this thing to work, maybe you can?";
+
+        //unlock kenaz rune
+
+        //force open skilltree
+        StartCoroutine(Player.GetComponent<Player>().MenuCooldown());
+        Player.GetComponent<Player>().tabMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Player.GetComponent<Player>().PM.enabled = false;
+        Player.GetComponent<Player>().Magic.enabled = false;
+        Player.GetComponent<Player>().Cam.enabled = false;
+        TMS.OpenSkillTree();
     }
 }

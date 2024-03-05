@@ -40,8 +40,8 @@ public class QuestLog : MonoBehaviour
     {
         allQuests = new List<Quest>()
         {
-            new Quest("Wisps of the Woods", 1, "In the woods, you see floating wisps. Follow them and see where they lead you.", new KeyValuePair<Sprite, int>{}),
-            new Quest("Help the Gnome", 1, "You come across a gnome in the woods crying for help. Help the gnome by slaying the enemy he faces.",  new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/Kenaz_Default"), 1)),
+            new Quest("Follow the Wisps", 1, "The wisps have never led you wrong before.", new KeyValuePair<Sprite, int>{}),
+            new Quest("Help the Gnome", 1, "You come across a gnome in the woods crying for help. Help the gnome by slaying his attacker.",  new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/Kenaz_Default"), 1)),
             new Quest("Find the Gnome Village", 1, "find gnome village info, blah blah, blah", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 1)),
             /*
             new Quest("Good For Nothing Son", 7, "Gnome's mom needs help getting supplies for dinner", stupidSon),

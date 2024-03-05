@@ -637,6 +637,9 @@ MonoBehaviour:
   TentPos: {fileID: 760549866}
   CampfirePos: {fileID: 122290467}
   questLog: {fileID: 813582830}
+  TMS: {fileID: 468194867}
+  gnomeTalk: {fileID: 1958524524}
+  FirstBatDead: 0
 --- !u!4 &440747559
 Transform:
   m_ObjectHideFlags: 0
@@ -657,6 +660,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7807665202042527936, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
   m_PrefabInstance: {fileID: 588281020}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &468194867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5412479019671366149, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
+  m_PrefabInstance: {fileID: 588281020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468194865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274ed412edb2d7b4fa252f5f044f1ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &588281020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7488,7 +7502,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1591741672}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -7580,7 +7594,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -223.7, y: -95.21185, z: -207.88698, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

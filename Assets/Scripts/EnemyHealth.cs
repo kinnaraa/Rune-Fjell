@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
+    private GameManager GM;
 
     void Start()
     {
         currentHealth = maxHealth;
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -33,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         // Handle death, such as playing an animation, spawning particles, etc.
+        GM.FirstBatDead = true;
         Destroy(gameObject);
     }
 }
