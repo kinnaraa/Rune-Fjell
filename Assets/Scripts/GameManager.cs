@@ -1,6 +1,5 @@
 using System.Collections;
 using Cinemachine;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,9 +9,16 @@ public class GameManager : MonoBehaviour
     public GameObject Camera;
     public GameObject Portal;
 
-    void Start()
+    public WispSystem WS;
+
+    public void Start()
     {
         StartCoroutine(OnStart());
+    }
+
+    public void Update()
+    {
+
     }
 
     public IEnumerator OnStart()
@@ -27,5 +33,12 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         Portal.SetActive(false);
+        StartCoroutine(StartFirstQuest());
+    }
+
+    public IEnumerator StartFirstQuest()
+    {
+        yield return new WaitForSeconds(1f);
+        WS.StartFirstPath();
     }
 }

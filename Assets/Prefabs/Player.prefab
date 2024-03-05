@@ -4179,8 +4179,8 @@ Transform:
   m_GameObject: {fileID: 4932643082048221096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8344374947542728025}
@@ -4991,7 +4991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2076704989777490236
 Transform:
   m_ObjectHideFlags: 0
@@ -5032,7 +5032,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
@@ -5044,17 +5044,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5911170087881506298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a86096cf885d6ef4fa2132b2e5bee5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  sprintSpeed: 4
-  groundDrag: 4
-  jumpForce: 6
+  moveSpeed: 5
+  sprintSpeed: 2
+  groundDrag: 1
+  jumpForce: 3
   jumpCooldown: 0.25
-  airMultiplier: 0.4
+  airMultiplier: 0.1
   readyToJump: 0
   jumpKey: 32
   sprintKey: 304
@@ -6816,7 +6816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7422080240123655785
 RectTransform:
   m_ObjectHideFlags: 0
