@@ -38,8 +38,9 @@ public class SocketSkill : MonoBehaviour
                     //Debug.Log(PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name);
                     if (newSkillTree.chosenAbilityName == PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name)
                     {
-                        //Debug.Log("Name " + PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name);
-                        //Debug.Log("Index " + index);
+                        // Debug.Log(newSkillTree.chosenAbilityName);
+                        // Debug.Log("Name " + PMGameobject.GetComponent<PlayerMagic>().allAbilities[i].Name);
+                        // Debug.Log("Index " + index);
                         PMGameobject.GetComponent<PlayerMagic>().abilities[index] = PMGameobject.GetComponent<PlayerMagic>().allAbilities[i];
                     }
                 }

@@ -26,7 +26,7 @@ public class PlayerMagic : MonoBehaviour
         index = 3;
 
         // this is just for me so i can find the right ability to add
-        allAbilities = new Ability[14];
+        allAbilities = new Ability[15];
         allAbilities[0] = gameObject.AddComponent<Null>();
         allAbilities[1] = gameObject.AddComponent<Light>();
         allAbilities[2] = gameObject.AddComponent<FireBlast>();
@@ -41,6 +41,7 @@ public class PlayerMagic : MonoBehaviour
         allAbilities[11] = gameObject.AddComponent<Hail>();
         allAbilities[12] = gameObject.AddComponent<LightningSmites>();
         allAbilities[13] = gameObject.AddComponent<Heal>();
+        allAbilities[14] = gameObject.AddComponent<EnergyBlast>();
 
         //this is the same but the SocketSkill script replaces the abilities with correct ones based on the skill tree
         abilities = new Ability[7];
@@ -80,7 +81,10 @@ public class PlayerMagic : MonoBehaviour
             if(currentAbility.Name != "Null")
             {
                 StartCoroutine(currentAbility.Cast());
-                StartCoroutine(PauseMovement(currentAbility.pauseTime));
+                if(currentAbility.pauseTime != 0)
+                {
+                    StartCoroutine(PauseMovement(currentAbility.pauseTime));
+                }
                 StartCoroutine(CooldownVisual(currentAbility.cooldown));
             }
         }
