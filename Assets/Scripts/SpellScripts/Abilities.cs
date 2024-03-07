@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ability : MonoBehaviour
@@ -23,6 +24,13 @@ public class Ability : MonoBehaviour
     public virtual IEnumerator Cast()
     {
         yield return null;
+    }
+}
+
+public class Null : Ability
+{
+    public Null() : base("Socket", "Socket", 0, 0, "Null", 0)
+    {
     }
 }
 
@@ -317,7 +325,7 @@ public class Light : Ability
 {
     public GameObject LightPrefab;
     private Transform firingPoint;
-    public Light() : base("Kennaz_Default", "Kennaz_Activated", 0, 0, "Light", 0f) // Default values for damage, cooldown, and name
+    public Light() : base("Kenaz_Default", "Kenaz_Activated", 0, 0, "Light", 0f) // Default values for damage, cooldown, and name
     {
     }
     public override IEnumerator Cast()
@@ -513,6 +521,38 @@ public class RadialBlast : Ability
             GameObject radiusBlast = Instantiate(RadiusBlast, spawnPos, RadiusBlast.transform.rotation);
 
             Destroy(radiusBlast, 1f);
+
+            StartCoroutine(Cooldown());
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
+public class Heal : Ability
+{
+    private Player PH;
+    private bool cooldownActive;
+
+    public Heal() : base("Wunjo_Default", "Wunjo_Activated", 0, 5, "Heal", 1f) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        if (!cooldownActive)
+        {
+            cooldownActive = true;
+            
+            PH = GameObject.Find("Player").GetComponent<Player>();
+            PH.PlayerHealth += 10; 
 
             StartCoroutine(Cooldown());
         }

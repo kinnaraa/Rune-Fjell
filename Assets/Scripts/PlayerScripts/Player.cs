@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
                 Cam.enabled = true;
                 PM.enabled = true;
                 Magic.enabled = true;
+                Magic.SetAbilityUI();
             }
             else if(!escMenuOpen)
             {

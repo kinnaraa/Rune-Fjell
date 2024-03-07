@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
@@ -11,6 +12,7 @@ public class PlayerMagic : MonoBehaviour
     
     [Header("Abilities")]
     public Ability[] abilities;
+    public Ability[] allAbilities;
 
     [Header("Keybinds")]
     public KeyCode E = KeyCode.E;
@@ -23,14 +25,33 @@ public class PlayerMagic : MonoBehaviour
     {
         index = 3;
 
+        // this is just for me so i can find the right ability to add
+        allAbilities = new Ability[15];
+        allAbilities[0] = gameObject.AddComponent<Null>();
+        allAbilities[1] = gameObject.AddComponent<Light>();
+        allAbilities[2] = gameObject.AddComponent<FireBlast>();
+        allAbilities[3] = gameObject.AddComponent<Storm>();
+        allAbilities[4] = gameObject.AddComponent<RadialBlast>();
+        allAbilities[5] = gameObject.AddComponent<RadialFireBurst>();
+        allAbilities[6] = gameObject.AddComponent<EarthSpike>();
+        allAbilities[7] = gameObject.AddComponent<Wall>();
+        allAbilities[8] = gameObject.AddComponent<Ice>();
+        allAbilities[9] = gameObject.AddComponent<Shield>();
+        allAbilities[10] = gameObject.AddComponent<Light>();
+        allAbilities[11] = gameObject.AddComponent<Hail>();
+        allAbilities[12] = gameObject.AddComponent<LightningSmites>();
+        allAbilities[13] = gameObject.AddComponent<Heal>();
+        allAbilities[14] = gameObject.AddComponent<EnergyBlast>();
+
+        //this is the same but the SocketSkill script replaces the abilities with correct ones based on the skill tree
         abilities = new Ability[7];
-        abilities[0] = gameObject.AddComponent<EnergyBlast>();
-        abilities[1] = gameObject.AddComponent<FireBlast>();
-        abilities[2] = gameObject.AddComponent<Storm>();
-        abilities[3] = gameObject.AddComponent<RadialBlast>();
-        abilities[4] = gameObject.AddComponent<RadialFireBurst>();
-        abilities[5] = gameObject.AddComponent<EarthSpike>();
-        abilities[6] = gameObject.AddComponent<Wall>();
+        abilities[0] = allAbilities[0];
+        abilities[1] = allAbilities[0];
+        abilities[2] = allAbilities[14];
+        abilities[3] = allAbilities[0];
+        abilities[4] = allAbilities[9];
+        abilities[5] = allAbilities[0];
+        abilities[6] = allAbilities[0];
 
         SetAbilityUI();
     }
@@ -57,16 +78,22 @@ public class PlayerMagic : MonoBehaviour
         //Cast Ability
         if(Input.GetKey(fireKey))
         {
-            StartCoroutine(currentAbility.Cast());
-            StartCoroutine(PauseMovement(currentAbility.pauseTime));
-            StartCoroutine(CooldownVisual(currentAbility.cooldown));
-            Debug.Log(currentAbility.cooldown);
+            if(currentAbility.Name != "Null")
+            {
+                StartCoroutine(currentAbility.Cast());
+                if(currentAbility.pauseTime != 0)
+                {
+                    StartCoroutine(PauseMovement(currentAbility.pauseTime));
+                }
+                StartCoroutine(CooldownVisual(currentAbility.cooldown));
+            }
         }
     }
 
     public IEnumerator PauseMovement(float pauseTime)
     {
         gameObject.GetComponent<PlayerMovement>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(pauseTime);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
     }
@@ -93,7 +120,6 @@ public class PlayerMagic : MonoBehaviour
             cooldownImage.fillAmount = 0f;  // Ensure that the fill amount is set to zero after cooldown
         }
     }
-
 
     public void SetAbilityUI()
     {
