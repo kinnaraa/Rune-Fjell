@@ -54,7 +54,7 @@ public class QuestLog : MonoBehaviour
             */
         };
 
-        Debug.Log(allQuests.Count());
+        //Debug.Log(allQuests.Count());
 
         for (int i = 0; i < allQuests.Count; i++)
         {
@@ -67,7 +67,7 @@ public class QuestLog : MonoBehaviour
             {
                 allQuests[i].questObject.transform.GetChild(3).gameObject.SetActive(true);
                 allQuests[i].questObject.transform.GetChild(5).gameObject.SetActive(true);
-                Debug.Log(allQuests[i].rewardPairs.Key);
+                //Debug.Log(allQuests[i].rewardPairs.Key);
                 allQuests[i].questObject.transform.GetChild(3).GetComponent<Image>().sprite = allQuests[i].rewardPairs.Key;
                 allQuests[i].questObject.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = "x" + allQuests[i].rewardPairs.Value;
             }
