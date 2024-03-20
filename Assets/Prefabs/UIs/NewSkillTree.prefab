@@ -1491,11 +1491,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
+  m_fontSize: 12.15
   m_fontSizeBase: 12
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -3479,10 +3479,10 @@ MonoBehaviour:
   socketing: 0
   index: 0
   skillName: 
-  chosenAbility: {fileID: 0}
+  chosenAbilityName: 
   playerMagic: {fileID: 0}
   infoSection: {fileID: 0}
-  allAbilities: []
+  playerMagicGO: {fileID: 0}
 --- !u!1 &3503865149308540472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5869,10 +5869,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Click on a rune or ability for more info
+  m_text: 'Unknown yet familiar symbols appear to create a tree of sorts.
 
 
-'
+    Maybe
+    some mysterious gnome might have some knowledge to share...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
   m_sharedMaterial: {fileID: 3121742711131630172, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
@@ -6363,6 +6364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSkillTree: {fileID: 6567583975886655857}
   skillToSocket: {fileID: 0}
+  PMGameobject: {fileID: 0}
 --- !u!1 &8047068424756137446
 GameObject:
   m_ObjectHideFlags: 0
