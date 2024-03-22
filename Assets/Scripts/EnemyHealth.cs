@@ -1,7 +1,6 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -20,21 +19,14 @@ public class EnemyHealth : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    private void OnTriggerEnter(Collider collision) 
+    void Update()
     {
-        //Check if the colliding object is on a certain layer
-        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerAbilities"))
-        {
-            // Deduct health (you can adjust the amount)
-            currentHealth -= 20;
-            StartCoroutine(FlashRed());
+        StartCoroutine(FlashRed());
 
-            // Check if the enemy is defeated
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
-            Debug.Log(currentHealth);
+        // Check if the enemy is defeated
+        if (currentHealth <= 0)
+        {
+            Die();
         }
     }
 
@@ -45,7 +37,7 @@ public class EnemyHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator FlashRed()
+    public IEnumerator FlashRed()
     {
         if(!isRed)
         {

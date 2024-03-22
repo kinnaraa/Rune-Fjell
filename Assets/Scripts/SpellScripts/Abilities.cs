@@ -10,8 +10,9 @@ public class Ability : MonoBehaviour
     public float pauseTime = 0;
     public string DefaultIcon;
     public string ActivatedIcon;
+    public int Modifier;
 
-    public Ability(string DefaultIcon, string ActivatedIcon, int damage, float cooldown, string Name, float pauseTime)
+    public Ability(string DefaultIcon, string ActivatedIcon, int damage, float cooldown, string Name, float pauseTime, int Modifier)
     {
         this.damage = damage;
         this.cooldown = cooldown;
@@ -19,6 +20,7 @@ public class Ability : MonoBehaviour
         this.pauseTime = pauseTime;
         this.DefaultIcon = DefaultIcon;
         this.ActivatedIcon = ActivatedIcon;
+        this.Modifier = Modifier;
     }
 
     public virtual IEnumerator Cast()
@@ -29,7 +31,7 @@ public class Ability : MonoBehaviour
 
 public class Null : Ability
 {
-    public Null() : base("Socket", "Socket", 0, 0, "Null", 0)
+    public Null() : base("Socket", "Socket", 0, 0, "Null", 0, 0)
     {
     }
 }
@@ -39,7 +41,7 @@ public class Storm : Ability
     private GameObject storm;
     private bool cooldownActive = false;
 
-    public Storm() : base("Halagaz_Default", "Halagaz_Activated", 10, 1, "Storm", 1) // Default values, adjust as needed
+    public Storm() : base("Halagaz_Default", "Halagaz_Activated", 10, 1, "Storm", 1, 0) // Default values, adjust as needed
     {
     }
 
@@ -122,7 +124,7 @@ public class Ice : Ability
     private Transform firingPoint;
     public GameObject iceBallPrefab;
 
-    public Ice() : base("Isa_Default","Isa_Activated", 10, 1, "Ice", 1) // Default values for damage, cooldown, and name
+    public Ice() : base("Isa_Default","Isa_Activated", 10, 1, "Ice", 1, 2) // Default values for damage, cooldown, and name
     {
     }
 
@@ -160,7 +162,7 @@ public class FireBlast : Ability
     private Transform firingPoint;
     public GameObject fireBlastPrefab;
 
-    public FireBlast() : base("Sowilo_Default", "Sowilo_Activated", 10, 1, "Fire Blast", 1.5f) // Default values for damage, cooldown, and name
+    public FireBlast() : base("Sowilo_Default", "Sowilo_Activated", 10, 1, "Fire Blast", 1.5f, 1) // Default values for damage, cooldown, and name
     {
     }
 
@@ -195,7 +197,7 @@ public class RadialFireBurst : Ability
     private Transform firingPoint;
     public GameObject RadialFireBurstPrefab;
 
-    public RadialFireBurst() : base("ThurisazSowilo_Default", "ThurisazSowilo_Activated", 10, 1, "Radial Fire Burst", 5.5f) // Default values for damage, cooldown, and name
+    public RadialFireBurst() : base("ThurisazSowilo_Default", "ThurisazSowilo_Activated", 10, 1, "Radial Fire Burst", 5.5f, 1) // Default values for damage, cooldown, and name
     {
     }
 
@@ -229,7 +231,7 @@ public class EarthSpike : Ability
     private bool cooldownActive = false;
     public GameObject EarthSpikePrefab;
 
-    public EarthSpike() : base("Ehwaz_Default", "Ehwaz_Activated", 10, 1, "Earth Spike", 1.5f) // Default values for damage, cooldown, and name
+    public EarthSpike() : base("Ehwaz_Default", "Ehwaz_Activated", 10, 1, "Earth Spike", 1.5f, 3) // Default values for damage, cooldown, and name
     {
     }
 
@@ -271,7 +273,7 @@ public class Shield : Ability
 {
     public GameObject ShieldPrefab;
     private Transform firingPoint;
-    public Shield() : base("Algiz_Default", "Algiz_Activated", 0, 0, "Shield", 0f) // Default values for damage, cooldown, and name
+    public Shield() : base("Algiz_Default", "Algiz_Activated", 0, 0, "Shield", 0f, 0) // Default values for damage, cooldown, and name
     {
     }
     public override IEnumerator Cast()
@@ -290,7 +292,7 @@ public class ForceField : Ability
 {
     private bool cooldownActive = false;
     public GameObject forceFieldPrefab;
-    public ForceField() : base("Algiz_Default", "Algiz_Activated", 0, 5, "Force Field", 0.1f) // Default values for damage, cooldown, and name
+    public ForceField() : base("Algiz_Default", "Algiz_Activated", 0, 5, "Force Field", 0.1f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -325,7 +327,7 @@ public class Light : Ability
 {
     public GameObject LightPrefab;
     private Transform firingPoint;
-    public Light() : base("Kenaz_Default", "Kenaz_Activated", 0, 0, "Light", 0f) // Default values for damage, cooldown, and name
+    public Light() : base("Kenaz_Default", "Kenaz_Activated", 0, 0, "Light", 0f, 0) // Default values for damage, cooldown, and name
     {
     }
     public override IEnumerator Cast()
@@ -346,7 +348,7 @@ public class Wall : Ability
     private Transform firingPoint;
     private bool cooldownActive;
 
-    public Wall() : base("IsaEhwaz_Default", "IsaEhwaz_Activated", 0, 0, "Wall", 0f) // Default values for damage, cooldown, and name
+    public Wall() : base("IsaEhwaz_Default", "IsaEhwaz_Activated", 0, 0, "Wall", 0f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -388,7 +390,7 @@ public class Hail : Ability
     private Transform firingPoint;
     private Transform Player;
     private bool cooldownActive;
-    public Hail() : base("IsaHalagaz_Default", "IsaHalagaz_Activated", 0, 5, "Hail", 0f) // Default values for damage, cooldown, and name
+    public Hail() : base("IsaHalagaz_Default", "IsaHalagaz_Activated", 0, 5, "Hail", 0f, 2) // Default values for damage, cooldown, and name
     {
     }
 
@@ -427,7 +429,7 @@ public class LightningSmites : Ability
     private Transform Player;
     private bool cooldownActive;
 
-    public LightningSmites() : base("ThurisazHalagaz_Default", "ThurisazHalagaz_Activated", 0, 5, "Lightning Smites", 0f) // Default values for damage, cooldown, and name
+    public LightningSmites() : base("ThurisazHalagaz_Default", "ThurisazHalagaz_Activated", 0, 5, "Lightning Smites", 0f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -465,7 +467,7 @@ public class EnergyBlast : Ability
     private Transform firingPoint;
     private bool cooldownActive;
 
-    public EnergyBlast() : base("Thurisaz_Default", "Thurisaz_Activated", 0, 1, "Energy Blast", 1f) // Default values for damage, cooldown, and name
+    public EnergyBlast() : base("Thurisaz_Default", "Thurisaz_Activated", 0, 1, "Energy Blast", 1f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -502,7 +504,7 @@ public class RadialBlast : Ability
     public GameObject RadiusBlast;
     private bool cooldownActive;
 
-    public RadialBlast() : base("ThurisazUruz_Default", "ThurisazUruz_Activated", 0, 1, "Radial Blast", 1f) // Default values for damage, cooldown, and name
+    public RadialBlast() : base("ThurisazUruz_Default", "ThurisazUruz_Activated", 0, 1, "Radial Blast", 1f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -541,7 +543,7 @@ public class Heal : Ability
     private Player PH;
     private bool cooldownActive;
 
-    public Heal() : base("Wunjo_Default", "Wunjo_Activated", 0, 5, "Heal", 1f) // Default values for damage, cooldown, and name
+    public Heal() : base("Wunjo_Default", "Wunjo_Activated", 0, 5, "Heal", 1f, 0) // Default values for damage, cooldown, and name
     {
     }
 
