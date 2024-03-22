@@ -33,11 +33,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
     private Player playerScript;
+    private Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        animator = GetComponent<Animator>();
 
         readyToJump = true;
         playerScript = GameObject.Find("Player").GetComponent<Player>();
@@ -56,9 +58,13 @@ public class PlayerMovement : MonoBehaviour
 
         // handle drag
         if (grounded)
+        {
             rb.drag = groundDrag;
+        } 
         else
+        {
             rb.drag = 0;
+        }
     }
 
     private void FixedUpdate()
@@ -87,16 +93,24 @@ public class PlayerMovement : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
+        // Check if the player is moving (not idle)
+        bool isWalking = (horizontalInput != 0 || verticalInput != 0);
+
+        // Set the "IsWalking" parameter of the animator
+        animator.SetBool("IsWalking", isWalking);
+
         // on ground
         if (grounded)
         {
             if (Input.GetKey(sprintKey) && playerScript.PlayerStamina > 5)
             {
                 rb.AddForce(moveDirection.normalized * (moveSpeed * sprintSpeed) * 10f, ForceMode.Force);
+                animator.SetBool("IsRunnin", true);
             }
             else
             {
                 rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+                animator.SetBool("IsRunnin", false);
             }
         }
         // in air
