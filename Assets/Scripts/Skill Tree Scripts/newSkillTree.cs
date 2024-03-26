@@ -44,7 +44,7 @@ public class newSkillTree : MonoBehaviour
         {
             name = skillName;
             displayName = displayname;
-            sprite = Resources.Load<Sprite>("UI/Algiz_Default");
+            sprite = Resources.Load<Sprite>("UI/" + displayname + "_Default");
             isRune = rune;
             unlocked = false;
             infoBlurb = name + "\n\nBlurb about ability and what it does.\n\n...\n\n Damage: \n\nCooldown: \n\n";
@@ -103,19 +103,15 @@ public class newSkillTree : MonoBehaviour
             {
                 skillImage = skillType.transform.GetChild(j).GetComponent<Image>();
                 skillImage.sprite = skillList[i][j].sprite;
-                skillImage.name = skillList[i][j].name;
+                skillImage.name = skillList[i][j].displayName;
                 if(skillList[i][j].name == "Energy Blast" || skillList[i][j].name == "Shield")
                 {
                     skillList[i][j].unlocked = true;
+                    skillList[i][i].sprite = Resources.Load<Sprite>("UI/" + skillList[i][j].displayName + "_Activated");
                 }
                 if (!skillList[i][j].unlocked)
                 {
                     string path = "UI/" + skillList[i][j].displayName + "_Default";
-                    skillImage.sprite = Resources.Load<Sprite>(path);
-                }
-                else
-                {
-                    string path = "UI/" + skillList[i][j].displayName + "_Activated";
                     skillImage.sprite = Resources.Load<Sprite>(path);
                 }
             }
@@ -125,7 +121,7 @@ public class newSkillTree : MonoBehaviour
         {
             skillImage = skillType.transform.GetChild(i).GetComponent<Image>();
             skillImage.sprite = extraList[i].sprite;
-            skillImage.name = extraList[i].name;
+            skillImage.name = extraList[i].displayName;
 
             if (!extraList[i].unlocked)
             {
@@ -194,25 +190,23 @@ public class newSkillTree : MonoBehaviour
         {
             for (int j = 0; j < skillList[i].Count; j++)
             {
-                if (chosenSkill.name == "Blinds" && skillList[i][j].name == chosenSkill.name && skillPoints > 0 && !skillList[i][j].unlocked)
+                if (chosenSkill.displayName == "Blinds" && skillPoints > 0 && !skillList[i][j].unlocked)
                 {
                     if (skillList[0][0].unlocked && skillList[1][0].unlocked)
                     {
                         socketing = false;
                         chosenSkill.unlocked = true;
-                        //Debug.Log("unlocked " + chosenSkill.name);
                         skillPoints--;
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
                         infoSection.transform.GetChild(3).gameObject.SetActive(true);
                     }
                 }
-                else if (chosenSkill.name == "Blasts Back" && skillList[i][j].name == chosenSkill.name && skillPoints > 0 && !skillList[i][j].unlocked)
+                else if (chosenSkill.displayName == "Blasts Back" && skillPoints > 0 && !skillList[i][j].unlocked)
                 {
                     if (skillList[0][2].unlocked && skillList[1][1].unlocked)
                     {
                         socketing = false;
                         chosenSkill.unlocked = true;
-                        //Debug.Log("unlocked " + chosenSkill.name);
                         skillPoints--;
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
                         infoSection.transform.GetChild(3).gameObject.SetActive(true);
@@ -220,13 +214,13 @@ public class newSkillTree : MonoBehaviour
                 }
                 else
                 {
-                    if (skillList[i][j].name == chosenSkill.name && skillPoints > 0 && !skillList[i][j].unlocked)
+                    if (skillList[i][j].displayName == chosenSkill.displayName && skillPoints > 0 && !skillList[i][j].unlocked)
                     {
                         if (!chosenSkill.isRune && (skillList[i][j - 1].unlocked && skillList[i][j + 1].unlocked) || (chosenSkill.isRune))
                         {
                             socketing = false;
                             chosenSkill.unlocked = true;
-                            //Debug.Log("unlocked " + chosenSkill.name);
+
                             skillPoints--;
                             infoSection.transform.GetChild(2).gameObject.SetActive(false);
                             infoSection.transform.GetChild(3).gameObject.SetActive(true);
@@ -248,7 +242,7 @@ public class newSkillTree : MonoBehaviour
         {
             for (int j = 0; j < skillList[i].Count; j++)
             {
-                if (skillList[i][j].name == EventSystem.current.currentSelectedGameObject.name)
+                if (skillList[i][j].displayName == EventSystem.current.currentSelectedGameObject.name)
                 {
                     chosenSkill = skillList[i][j];
                     if(chosenSkill.unlocked)
@@ -261,27 +255,20 @@ public class newSkillTree : MonoBehaviour
                         infoSection.transform.GetChild(3).gameObject.SetActive(false);
                         infoSection.transform.GetChild(2).gameObject.SetActive(true);
                     }   
-                    infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.name;
+                    infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.displayName;
                     infoSection.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = chosenSkill.infoBlurb;
                 }
             }
         }
 
-        
-
-        //Debug.Log(playerMagicGO.GetComponent<PlayerMagic>().allAbilities.Count());
-
         for (int i = 0; i < playerMagic.allAbilities.Count(); i++)
         {
-            Debug.Log(chosenSkill.name);
-            if (chosenSkill.name == playerMagic.allAbilities[i].Name)
+            if (chosenSkill.displayName == playerMagic.allAbilities[i].Name)
             {                
                 chosenAbilityName = playerMagic.allAbilities[i].Name;
             }
 
         }
-        //Debug.Log("chosenSkill: " + chosenSkill.name);
-        //Debug.Log("chosenAbility: " + chosenAbilityName);
 
         choseSkill = true;
     }
