@@ -18,6 +18,10 @@ public class SocketSkill : MonoBehaviour
         {
             transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/transparent");
         }
+
+        transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[0][2].sprite;
+        transform.GetChild(4).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[1][3].sprite;
+
     }
 
     public void Socket()

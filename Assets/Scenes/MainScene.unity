@@ -1205,7 +1205,7 @@ MonoBehaviour:
   TentPos: {fileID: 760549866}
   CampfirePos: {fileID: 122290467}
   questLog: {fileID: 813582830}
-  newSkillTree: {fileID: 0}
+  newSkillTree: {fileID: 1892440097}
   TMS: {fileID: 468194867}
   gnomeTalk: {fileID: 1958524524}
   FirstBatDead: 0
@@ -2105,6 +2105,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2894652416639355859, guid: bee651b89d6b3ef48b19cfe8a4c9fa42, type: 3}
   m_PrefabInstance: {fileID: 823602533}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &823998545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3454303578559452451, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+  m_PrefabInstance: {fileID: 1892440093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945f499044662b146b672e150789f277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &825523986
 GameObject:
   m_ObjectHideFlags: 0
@@ -10524,6 +10535,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4535278321843250597}
     - target: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: socketSkill
+      value: 
+      objectReference: {fileID: 823998545}
+    - target: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
       propertyPath: playerMagicGO
       value: 
       objectReference: {fileID: 2067841055}
@@ -10634,6 +10649,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1110949090959519064, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
   m_PrefabInstance: {fileID: 1892440093}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1892440097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+  m_PrefabInstance: {fileID: 1892440093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842766245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa761f30106acc449f8374f994dcc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1919970967
 GameObject:
   m_ObjectHideFlags: 0
@@ -31729,6 +31755,10 @@ PrefabInstance:
     - target: {fileID: 5911170087881506298, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911170087881506298, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
