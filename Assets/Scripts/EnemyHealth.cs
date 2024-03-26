@@ -20,9 +20,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
     void Update()
-    {
-        StartCoroutine(FlashRed());
-
+    {   
         // Check if the enemy is defeated
         if (currentHealth <= 0)
         {
@@ -37,16 +35,25 @@ public class EnemyHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public bool checkIfRed()
+    {
+        return isRed;
+    }
+
     public IEnumerator FlashRed()
     {
+        //Debug.Log(currentHealth);
         if(!isRed)
         {
             isRed = true;
             List<Material> OGMats = new();
             foreach (var bodyPart in bodyParts)
             {
-                OGMats.Add(bodyPart.material);
-                bodyPart.material = red;
+                if(bodyPart)
+                {
+                    OGMats.Add(bodyPart.material);
+                    bodyPart.material = red;
+                }
             }
             yield return new WaitForSeconds(0.5f);
             for(int i = 0; i < bodyParts.Length; i++)

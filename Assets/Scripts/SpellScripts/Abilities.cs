@@ -130,7 +130,7 @@ public class Ice : Ability
 
     public override IEnumerator Cast()
     {
-        iceBallPrefab = Resources.Load("SpellPrefabs/IceBall") as GameObject;
+        iceBallPrefab = Resources.Load("SpellPrefabs/Ice") as GameObject;
         firingPoint = GameObject.Find("FiringPoint").transform;
         if(!cooldownActive)
         {
@@ -162,7 +162,7 @@ public class FireBlast : Ability
     private Transform firingPoint;
     public GameObject fireBlastPrefab;
 
-    public FireBlast() : base("Sowilo_Default", "Sowilo_Activated", 10, 1, "Fire Blast", 1.5f, 1) // Default values for damage, cooldown, and name
+    public FireBlast() : base("Sowilo_Default", "Sowilo_Activated", 10, 1, "FireBlast", 1.5f, 1) // Default values for damage, cooldown, and name
     {
     }
 
@@ -197,7 +197,7 @@ public class RadialFireBurst : Ability
     private Transform firingPoint;
     public GameObject RadialFireBurstPrefab;
 
-    public RadialFireBurst() : base("ThurisazSowilo_Default", "ThurisazSowilo_Activated", 10, 1, "Radial Fire Burst", 5.5f, 1) // Default values for damage, cooldown, and name
+    public RadialFireBurst() : base("ThurisazSowilo_Default", "ThurisazSowilo_Activated", 10, 1, "RadialFireBurst", 5.5f, 1) // Default values for damage, cooldown, and name
     {
     }
 
@@ -231,7 +231,7 @@ public class EarthSpike : Ability
     private bool cooldownActive = false;
     public GameObject EarthSpikePrefab;
 
-    public EarthSpike() : base("Ehwaz_Default", "Ehwaz_Activated", 10, 1, "Earth Spike", 1.5f, 3) // Default values for damage, cooldown, and name
+    public EarthSpike() : base("Ehwaz_Default", "Ehwaz_Activated", 10, 1, "EarthSpike", 1.5f, 3) // Default values for damage, cooldown, and name
     {
     }
 
@@ -292,7 +292,7 @@ public class ForceField : Ability
 {
     private bool cooldownActive = false;
     public GameObject forceFieldPrefab;
-    public ForceField() : base("Algiz_Default", "Algiz_Activated", 0, 5, "Force Field", 0.1f, 0) // Default values for damage, cooldown, and name
+    public ForceField() : base("Algiz_Default", "Algiz_Activated", 0, 5, "ForceField", 0.1f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -396,7 +396,7 @@ public class Hail : Ability
 
     public override IEnumerator Cast()
     {
-        HailPrefab = Resources.Load("SpellPrefabs/Hail") as GameObject;
+        HailPrefab = Resources.Load("SpellPrefabs/HailCloud") as GameObject;
         firingPoint = GameObject.Find("FiringPoint").transform;
         Player = GameObject.Find("PlayerModel").transform;
         
@@ -429,7 +429,7 @@ public class LightningSmites : Ability
     private Transform Player;
     private bool cooldownActive;
 
-    public LightningSmites() : base("ThurisazHalagaz_Default", "ThurisazHalagaz_Activated", 0, 5, "Lightning Smites", 0f, 0) // Default values for damage, cooldown, and name
+    public LightningSmites() : base("ThurisazHalagaz_Default", "ThurisazHalagaz_Activated", 0, 5, "LightningSmites", 0f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -467,13 +467,13 @@ public class EnergyBlast : Ability
     private Transform firingPoint;
     private bool cooldownActive;
 
-    public EnergyBlast() : base("Thurisaz_Default", "Thurisaz_Activated", 0, 1, "Energy Blast", 1f, 0) // Default values for damage, cooldown, and name
+    public EnergyBlast() : base("Thurisaz_Default", "Thurisaz_Activated", 10, 1, "EnergyBlast", 1f, 0) // Default values for damage, cooldown, and name
     {
     }
 
     public override IEnumerator Cast()
     {
-        Blast = Resources.Load("SpellPrefabs/Blast") as GameObject;
+        Blast = Resources.Load("SpellPrefabs/EnergyBlast") as GameObject;
         firingPoint = GameObject.Find("FiringPoint").transform;
 
         if (!cooldownActive)

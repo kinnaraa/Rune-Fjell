@@ -19,7 +19,7 @@ public class HailScript : MonoBehaviour
 
     public IEnumerator Hailing()
     {
-        hailBall = Resources.Load("SpellPrefabs/IceBall") as GameObject;
+        hailBall = Resources.Load("SpellPrefabs/Hail") as GameObject;
         // Generate a random index within the range of the array length
         int randomIndex = Random.Range(0, starts.Length);
 

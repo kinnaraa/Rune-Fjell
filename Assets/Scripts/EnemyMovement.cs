@@ -36,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
         {
             // Move towards the player using Translate
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            Debug.Log(moveSpeed);
         }
         else if (distanceToPlayer <= stopDistance)
         {
@@ -62,7 +63,6 @@ public class EnemyMovement : MonoBehaviour
 
     public IEnumerator Attack()
     {
-        Debug.Log("Attacking");
         damageCollider.enabled = true;
         batAnimator.SetBool("IsAttacking", true);
         yield return new WaitForSeconds(3f);

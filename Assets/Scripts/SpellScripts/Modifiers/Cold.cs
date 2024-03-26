@@ -5,14 +5,17 @@ public class Cold : MonoBehaviour
 {
     private void Start() 
     {
-        gameObject.GetComponent<EnemyMovement>().moveSpeed /= 2;
-        StartCoroutine(Reset());
+        if(gameObject.GetComponentInParent<EnemyMovement>().moveSpeed > 0.5)
+        {
+            gameObject.GetComponentInParent<EnemyMovement>().moveSpeed /= 2;
+            StartCoroutine(Reset());
+        }
     }
 
     IEnumerator Reset()
     {
-        gameObject.GetComponent<EnemyMovement>().moveSpeed *= 2;
         yield return new WaitForSeconds(3f);
+        gameObject.GetComponentInParent<EnemyMovement>().moveSpeed *= 2;
         Destroy(gameObject);
     }
 }

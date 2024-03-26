@@ -13,7 +13,12 @@ public class OnFire : MonoBehaviour
     {
         for(int i = 0; i <= 5; i++)
         {
+            Debug.Log("Fire Damage");
             gameObject.GetComponentInParent<EnemyHealth>().currentHealth -= 1;
+            if( gameObject.GetComponentInParent<EnemyHealth>().checkIfRed())
+            {
+                StartCoroutine(gameObject.GetComponentInParent<EnemyHealth>().FlashRed());
+            }
             yield return new WaitForSeconds(0.5f);
         }
     }

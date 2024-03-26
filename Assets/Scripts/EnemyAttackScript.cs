@@ -7,7 +7,6 @@ public class EnemyAttackScript : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Attacked");
             other.GetComponent<Player>().PlayerHealth -= 10;
         }
     }

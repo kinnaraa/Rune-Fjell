@@ -1,21 +1,24 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DealDamageAndModifiers : MonoBehaviour
 {
     private PlayerMagic PM;
-    public GameObject[] Modifiers;
+    private List<GameObject> Modifiers = new List<GameObject>();
     public void Start() 
     {
         PM = GameObject.Find("Player").GetComponent<PlayerMagic>();
+        Modifiers.Add(Resources.Load<GameObject>("Modifiers/OnFire"));
+        Modifiers.Add(Resources.Load<GameObject>("Modifiers/Cold"));
     }
-    private void OnTriggerEnter(Collider other) 
-    {
+    public void OnTriggerEnter(Collider other) 
+    {   
         if(other.GetComponent<EnemyHealth>())
         {
-            foreach(Ability a in PM.abilities)
+            foreach(Ability a in PM.allAbilities)
             {
-                if(a.name == gameObject.name)
+                string newName = gameObject.transform.parent.name.Replace("(Clone)", "");
+                if(a.Name == newName)
                 {
                     other.GetComponent<EnemyHealth>().currentHealth -= a.damage;
                     StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed());
@@ -26,15 +29,15 @@ public class DealDamageAndModifiers : MonoBehaviour
                     }
                     else if(a.Modifier == 1)
                     {
-                        Instantiate(Modifiers[1], other.transform.position, Modifiers[1].transform.rotation).transform.parent = other.transform;
+                        Instantiate(Modifiers[0], other.transform.position, Modifiers[0].transform.rotation).transform.parent = other.transform;
                     }
                     else if(a.Modifier == 2)
                     {
-                        Instantiate(Modifiers[2], other.transform.position, Modifiers[2].transform.rotation).transform.parent = other.transform;
+                        Instantiate(Modifiers[1], other.transform.position, Modifiers[1].transform.rotation).transform.parent = other.transform;
                     }
                     else if(a.Modifier == 3)
                     {
-                        Instantiate(Modifiers[3], other.transform.position, Modifiers[3].transform.rotation).transform.parent = other.transform;
+                        Instantiate(Modifiers[2], other.transform.position, Modifiers[2].transform.rotation).transform.parent = other.transform;
                     }
                 }
             }
