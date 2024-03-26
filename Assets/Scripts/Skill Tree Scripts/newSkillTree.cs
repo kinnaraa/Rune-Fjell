@@ -30,7 +30,6 @@ public class newSkillTree : MonoBehaviour
     public PlayerMagic playerMagic;
   
     public GameObject infoSection;
-    public GameObject playerMagicGO;
 
     public class Skill
     {
@@ -272,12 +271,12 @@ public class newSkillTree : MonoBehaviour
 
         //Debug.Log(playerMagicGO.GetComponent<PlayerMagic>().allAbilities.Count());
 
-        for (int i = 0; i < playerMagicGO.GetComponent<PlayerMagic>().allAbilities.Count(); i++)
+        for (int i = 0; i < playerMagic.allAbilities.Count(); i++)
         {
             Debug.Log(chosenSkill.name);
-            if (chosenSkill.name == playerMagicGO.GetComponent<PlayerMagic>().allAbilities[i].Name)
+            if (chosenSkill.name == playerMagic.allAbilities[i].Name)
             {                
-                chosenAbilityName = playerMagicGO.GetComponent<PlayerMagic>().allAbilities[i].Name;
+                chosenAbilityName = playerMagic.allAbilities[i].Name;
             }
 
         }
