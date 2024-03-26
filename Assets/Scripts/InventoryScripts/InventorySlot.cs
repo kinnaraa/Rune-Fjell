@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour, IDropHandler
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public void OnDrop(PointerEventData eventData)
     {
-        
+        if (transform.childCount == 0)
+        {
+            GameObject droppedItem = eventData.pointerDrag;
+            ItemIcon inventoryItemIcon = droppedItem.GetComponent<ItemIcon>();
+            inventoryItemIcon.parentAfterDrag = transform;
+        }
     }
+        /*
+        if (transform.childCount == 0)
+        {
+            ItemIcon inventoryItem = eventData.pointerDrag.GetComponent<ItemIcon>();
+            inventoryItem.parentAfterDrag = transform;
+        }
+        */
+        //throw new System.NotImplementedException();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
