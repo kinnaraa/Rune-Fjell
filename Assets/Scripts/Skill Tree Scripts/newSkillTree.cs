@@ -12,6 +12,7 @@ public class newSkillTree : MonoBehaviour
     private List<Skill> attacksList;
     private List<Skill> utilityList;
     private List<Skill> passiveList;
+    private List<Skill> extraList;
 
     private GameObject skillType;
     private Image skillImage;
@@ -29,7 +30,6 @@ public class newSkillTree : MonoBehaviour
     public PlayerMagic playerMagic;
   
     public GameObject infoSection;
-    public GameObject playerMagicGO;
 
     public class Skill
     {
@@ -69,13 +69,13 @@ public class newSkillTree : MonoBehaviour
 
         utilityList = new List<Skill>()
         {
-            new Skill("Ansuz", "Ansuz", true),
-            new Skill("Heal", "Wunjo", true),
-            new Skill("Heal in Forcefield", "Heal in Forcefield", false),
-            new Skill("Shield", "Algiz", true),
-            new Skill("Damage in Forcefield", "Damage in Forcefield", false),
-            new Skill("Uruz", "Uruz", true),
             new Skill("Light", "Kenaz", true),
+            new Skill("Damage", "Uruz", true),
+            new Skill("Damage in Forcefield", "Damage in Forcefield", false),
+            new Skill("Shield", "Algiz", true),
+            new Skill("Heal in Forcefield", "Heal in Forcefield", false),
+            new Skill("Heal", "Wunjo", true),
+            new Skill("Odin Sight", "Ansuz", true),
         };
 
         passiveList = new List<Skill>()
@@ -85,12 +85,18 @@ public class newSkillTree : MonoBehaviour
             new Skill("Perthro", "Perthro", true),
         };
 
-        skillList = new List<List<Skill>>
+        extraList = new List<Skill>()
         {
-            attacksList, utilityList, passiveList,
+            new Skill("Blasts Back", "Blasts Back", false),
+            new Skill("Blinds", "Blind in Radius", false),
         };
 
-        for (int i = 0; i < 3; i++)
+        skillList = new List<List<Skill>>
+        {
+            attacksList, utilityList, passiveList, extraList,
+        };
+
+        for (int i = 0; i < 4; i++)
         {
             skillType = transform.GetChild(i+1).gameObject;
             for (int j = 0; j < skillList[i].Count; j++)
@@ -114,9 +120,28 @@ public class newSkillTree : MonoBehaviour
                 }
             }
         }
-        skillPointsText = transform.GetChild(4).GetComponent<TMP_Text>();
 
-        infoSection = transform.GetChild(6).gameObject;
+        for (int i = 0; i < 2; i++)
+        {
+            skillImage = skillType.transform.GetChild(i).GetComponent<Image>();
+            skillImage.sprite = extraList[i].sprite;
+            skillImage.name = extraList[i].name;
+
+            if (!extraList[i].unlocked)
+            {
+                string path = "UI/" + extraList[i].displayName + "_Default";
+                skillImage.sprite = Resources.Load<Sprite>(path);
+            }
+            else
+            {
+                string path = "UI/" + extraList[i].displayName + "_Activated";
+                skillImage.sprite = Resources.Load<Sprite>(path);
+            }
+        }
+
+        skillPointsText = transform.GetChild(5).GetComponent<TMP_Text>();
+
+        infoSection = transform.GetChild(7).gameObject;
 
         /*
         allAbilities = new List<Ability>
@@ -165,13 +190,13 @@ public class newSkillTree : MonoBehaviour
 
     public void UnlockSkill()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             for (int j = 0; j < skillList[i].Count; j++)
             {
-                if (skillList[i][j].name == chosenSkill.name && skillPoints > 0 && !skillList[i][j].unlocked)
+                if (chosenSkill.name == "Blinds" && skillList[i][j].name == chosenSkill.name && skillPoints > 0 && !skillList[i][j].unlocked)
                 {
-                    if (!chosenSkill.isRune && (skillList[i][j-1].unlocked && skillList[i][j+1].unlocked) || (chosenSkill.isRune))
+                    if (skillList[0][0].unlocked && skillList[1][0].unlocked)
                     {
                         socketing = false;
                         chosenSkill.unlocked = true;
@@ -179,6 +204,33 @@ public class newSkillTree : MonoBehaviour
                         skillPoints--;
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
                         infoSection.transform.GetChild(3).gameObject.SetActive(true);
+                    }
+                }
+                else if (chosenSkill.name == "Blasts Back" && skillList[i][j].name == chosenSkill.name && skillPoints > 0 && !skillList[i][j].unlocked)
+                {
+                    if (skillList[0][2].unlocked && skillList[1][1].unlocked)
+                    {
+                        socketing = false;
+                        chosenSkill.unlocked = true;
+                        //Debug.Log("unlocked " + chosenSkill.name);
+                        skillPoints--;
+                        infoSection.transform.GetChild(2).gameObject.SetActive(false);
+                        infoSection.transform.GetChild(3).gameObject.SetActive(true);
+                    }
+                }
+                else
+                {
+                    if (skillList[i][j].name == chosenSkill.name && skillPoints > 0 && !skillList[i][j].unlocked)
+                    {
+                        if (!chosenSkill.isRune && (skillList[i][j - 1].unlocked && skillList[i][j + 1].unlocked) || (chosenSkill.isRune))
+                        {
+                            socketing = false;
+                            chosenSkill.unlocked = true;
+                            //Debug.Log("unlocked " + chosenSkill.name);
+                            skillPoints--;
+                            infoSection.transform.GetChild(2).gameObject.SetActive(false);
+                            infoSection.transform.GetChild(3).gameObject.SetActive(true);
+                        }
                     }
                 }
             }
@@ -192,7 +244,7 @@ public class newSkillTree : MonoBehaviour
 
     public void ChooseSkill()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             for (int j = 0; j < skillList[i].Count; j++)
             {
@@ -215,14 +267,16 @@ public class newSkillTree : MonoBehaviour
             }
         }
 
+        
+
         //Debug.Log(playerMagicGO.GetComponent<PlayerMagic>().allAbilities.Count());
 
-        for (int i = 0; i < playerMagicGO.GetComponent<PlayerMagic>().allAbilities.Count(); i++)
+        for (int i = 0; i < playerMagic.allAbilities.Count(); i++)
         {
             Debug.Log(chosenSkill.name);
-            if (chosenSkill.name == playerMagicGO.GetComponent<PlayerMagic>().allAbilities[i].Name)
+            if (chosenSkill.name == playerMagic.allAbilities[i].Name)
             {                
-                chosenAbilityName = playerMagicGO.GetComponent<PlayerMagic>().allAbilities[i].Name;
+                chosenAbilityName = playerMagic.allAbilities[i].Name;
             }
 
         }

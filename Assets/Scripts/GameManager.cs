@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public Transform CampfirePos;
 
     public QuestLog questLog;
+    public newSkillTree newSkillTree;
     public TabMenuScript TMS;
 
     public TextMeshProUGUI gnomeTalk;
@@ -118,6 +119,7 @@ public class GameManager : MonoBehaviour
         gnomeTalk.text = "I couldn't get this thing to work, maybe you can?";
 
         //unlock kenaz rune
+        newSkillTree.skillList[1][0].unlocked = true;
 
         //force open skilltree
         StartCoroutine(Player.GetComponent<Player>().MenuCooldown());
