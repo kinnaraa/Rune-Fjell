@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 880496338667fd2489af64c6ef1934e4
+guid: 4f5434e6df274014889fc99237cd3c8c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DOOR_MAT
-    second: {fileID: 2100000, guid: 8f3aebee7b2812341bc6a3a230967061, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: EDGE_MAT
-    second: {fileID: 2100000, guid: 5fcae7f0215092341bd66b918f6bcf4c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: HOUSE_MAT
-    second: {fileID: 2100000, guid: b98d7b52c83cb094994974d2abe9c573, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: KNOB_MAT
-    second: {fileID: 2100000, guid: 9fc0c8ff0fce160419220be5c56994be, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WINDOW_MAT
-    second: {fileID: 2100000, guid: 606c9745029481546bfbb47a82d8ed1b, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
