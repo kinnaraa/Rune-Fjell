@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     private Player playerScript;
     private Animator animator;
 
+    private bool Healing = true;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -190,6 +192,23 @@ public class PlayerMovement : MonoBehaviour
             {
                 timeThreshold = 5f; // Reset the threshold if the player starts moving
             }
+        }
+    }
+
+    public IEnumerator RegainHealth()
+    {
+        if(Healing)
+        {
+            Healing = false;
+            // Check if the player is not moving and hasn't used stamina recently
+            if (playerScript.PlayerHealth < 100)
+            {
+                // Increment stamina over time
+                playerScript.PlayerHealth += 5f; // Adjust the increment value as needed
+            }
+
+            yield return new WaitForSeconds(1f);
+            Healing = true;
         }
     }
 }

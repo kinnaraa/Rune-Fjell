@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //GM = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         // Handle death, such as playing an animation, spawning particles, etc.
-        GM.FirstBatDead = true;
+        //GM.FirstBatDead = true;
         Destroy(gameObject);
     }
 

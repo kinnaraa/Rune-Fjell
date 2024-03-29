@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
@@ -20,13 +19,14 @@ public class PlayerMagic : MonoBehaviour
     public KeyCode combatCameraMode = KeyCode.Mouse1;
 
     public int index = 0;
+    public int damageModifier = 1;
 
     public void Start()
     {
         index = 3;
 
         // this is just for me so i can find the right ability to add
-        allAbilities = new Ability[15];
+        allAbilities = new Ability[19];
         allAbilities[0] = gameObject.AddComponent<Null>();
         allAbilities[1] = gameObject.AddComponent<Light>();
         allAbilities[2] = gameObject.AddComponent<FireBlast>();
@@ -42,13 +42,17 @@ public class PlayerMagic : MonoBehaviour
         allAbilities[12] = gameObject.AddComponent<LightningSmites>();
         allAbilities[13] = gameObject.AddComponent<Heal>();
         allAbilities[14] = gameObject.AddComponent<EnergyBlast>();
+        allAbilities[15] = gameObject.AddComponent<Sun>();
+        allAbilities[16] = gameObject.AddComponent<HealingForceField>();
+        allAbilities[17] = gameObject.AddComponent<DamageForceField>();
+        allAbilities[18] = gameObject.AddComponent<Damage>();
 
         //this is the same but the SocketSkill script replaces the abilities with correct ones based on the skill tree
         abilities = new Ability[7];
         abilities[0] = allAbilities[0];
         abilities[1] = allAbilities[0];
         abilities[2] = allAbilities[14];
-        abilities[3] = allAbilities[0];
+        abilities[3] = allAbilities[8];
         abilities[4] = allAbilities[9];
         abilities[5] = allAbilities[0];
         abilities[6] = allAbilities[0];

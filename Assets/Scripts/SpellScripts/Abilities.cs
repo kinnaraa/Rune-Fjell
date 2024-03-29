@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -231,7 +232,7 @@ public class EarthSpike : Ability
     private bool cooldownActive = false;
     public GameObject EarthSpikePrefab;
 
-    public EarthSpike() : base("Ehwaz_Default", "Ehwaz_Activated", 10, 1, "EarthSpike", 1.5f, 3) // Default values for damage, cooldown, and name
+    public EarthSpike() : base("Ehwaz_Default", "Ehwaz_Activated", 10, 1, "EarthSpike", 0.5f, 3) // Default values for damage, cooldown, and name
     {
     }
 
@@ -323,6 +324,76 @@ public class ForceField : Ability
     }
 }
 
+public class HealingForceField : Ability
+{
+    private bool cooldownActive = false;
+    public GameObject forceFieldPrefab;
+    public HealingForceField() : base("AlgizWunjo_Default", "AlgizWunjo_Activated", 0, 5, "HealingForceField", 0.1f, 0) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        forceFieldPrefab = Resources.Load("SpellPrefabs/HealingForceField") as GameObject;
+        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f, gameObject.transform.position.z);
+        if(!cooldownActive && gameObject.GetComponent<PlayerMovement>().grounded)
+        {
+            cooldownActive = true;
+            GameObject forceField = Instantiate(forceFieldPrefab, pos, gameObject.transform.rotation);
+            Destroy(forceField, 5f);
+
+            StartCoroutine(Cooldown());
+            yield return null;
+        }
+        else
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
+public class DamageForceField : Ability
+{
+    private bool cooldownActive = false;
+    public GameObject forceFieldPrefab;
+    public DamageForceField() : base("AlgizUruz_Default", "AlgizUruz_Activated", 0, 5, "DamageForceField", 0.1f, 0) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        forceFieldPrefab = Resources.Load("SpellPrefabs/DamageForceField") as GameObject;
+        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f, gameObject.transform.position.z);
+        if(!cooldownActive && gameObject.GetComponent<PlayerMovement>().grounded)
+        {
+            cooldownActive = true;
+            GameObject forceField = Instantiate(forceFieldPrefab, pos, gameObject.transform.rotation);
+            Destroy(forceField, 5f);
+
+            StartCoroutine(Cooldown());
+            yield return null;
+        }
+        else
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
 public class Light : Ability
 {
     public GameObject LightPrefab;
@@ -335,9 +406,9 @@ public class Light : Ability
         LightPrefab = Resources.Load("SpellPrefabs/Light") as GameObject;
         firingPoint = GameObject.Find("FiringPoint").transform;
 
-        GameObject Shield = Instantiate(LightPrefab, firingPoint.position, firingPoint.rotation);
+        GameObject Light = Instantiate(LightPrefab, firingPoint.position, firingPoint.rotation);
 
-        Destroy(Shield, 0.2f);
+        Destroy(Light, 0.2f);
         yield return null;
     }
 }
@@ -543,7 +614,7 @@ public class Heal : Ability
     private Player PH;
     private bool cooldownActive;
 
-    public Heal() : base("Wunjo_Default", "Wunjo_Activated", 0, 5, "Heal", 1f, 0) // Default values for damage, cooldown, and name
+    public Heal() : base("Wunjo_Default", "Wunjo_Activated", 0, 5, "Heal", 0.5f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -560,6 +631,95 @@ public class Heal : Ability
         }
 
         yield return null;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
+public class Damage : Ability
+{
+    private PlayerMagic PH;
+    private bool cooldownActive;
+
+    public Damage() : base("Uruz_Default", "Uruz_Activated", 0, 10, "Damage", 0.5f, 0) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        if (!cooldownActive)
+        {
+            cooldownActive = true;
+            
+            PH = GameObject.Find("Player").GetComponent<PlayerMagic>();
+            PH.damageModifier += 2; 
+
+            StartCoroutine(Cooldown());
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(5f);
+        PH.damageModifier += 0; 
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+        
+    }
+}
+
+public class Sun : Ability
+{
+    public GameObject SunPrefab;
+    private Vector3 firingPoint;
+    private bool cooldownActive;
+    public Sun() : base("SowiloKenaz_Default", "SowiloKenaz_Activated", 0, 4, "Sun", 0.5f, 3) // Default values for damage, cooldown, and name
+    {
+    }
+    public override IEnumerator Cast()
+    {
+        if (!cooldownActive)
+        {
+            SunPrefab = Resources.Load("SpellPrefabs/Sun") as GameObject;
+            firingPoint = GameObject.Find("Player").transform.position;
+
+            Vector3 spawnPosition = firingPoint;
+            spawnPosition.y += 2f;
+
+            GameObject Sun = Instantiate(SunPrefab, spawnPosition, SunPrefab.transform.rotation);
+            Sun.transform.parent = null;
+
+            // Get all colliders within the detection radius of the player
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 10);
+
+            // Iterate through each collider found
+            foreach (Collider collider in colliders)
+            {
+                // Check if the collider has the EnemyHealth script attached
+                EnemyHealth enemyHealth = collider.GetComponent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    Instantiate(Resources.Load<GameObject>("Modifiers/Stunned"), collider.gameObject.transform.position, Resources.Load<GameObject>("Modifiers/Stunned").transform.rotation).transform.parent = collider.gameObject.transform;
+                }
+            }
+
+            StartCoroutine(Cooldown());
+
+            Destroy(Sun, 2f);
+            yield return null;
+        }
     }
 
     public IEnumerator Cooldown()

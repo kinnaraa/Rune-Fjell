@@ -36,7 +36,6 @@ public class EnemyMovement : MonoBehaviour
         {
             // Move towards the player using Translate
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-            Debug.Log(moveSpeed);
         }
         else if (distanceToPlayer <= stopDistance)
         {

@@ -5,11 +5,13 @@ public class DealDamageAndModifiers : MonoBehaviour
 {
     private PlayerMagic PM;
     private List<GameObject> Modifiers = new List<GameObject>();
+
     public void Start() 
     {
         PM = GameObject.Find("Player").GetComponent<PlayerMagic>();
         Modifiers.Add(Resources.Load<GameObject>("Modifiers/OnFire"));
         Modifiers.Add(Resources.Load<GameObject>("Modifiers/Cold"));
+        Modifiers.Add(Resources.Load<GameObject>("Modifiers/Stunned"));
     }
     public void OnTriggerEnter(Collider other) 
     {   
@@ -20,7 +22,7 @@ public class DealDamageAndModifiers : MonoBehaviour
                 string newName = gameObject.transform.parent.name.Replace("(Clone)", "");
                 if(a.Name == newName)
                 {
-                    other.GetComponent<EnemyHealth>().currentHealth -= a.damage;
+                    other.GetComponent<EnemyHealth>().currentHealth -= a.damage * PM.damageModifier;
                     StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed());
 
                     if(a.Modifier == 0)

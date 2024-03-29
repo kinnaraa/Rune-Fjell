@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class Cold : MonoBehaviour
+public class Stunned : MonoBehaviour
 {
     private void Start() 
     {
-        if(gameObject.GetComponentInParent<EnemyMovement>().moveSpeed > 0.5)
+        if(gameObject.GetComponentInParent<EnemyMovement>().enabled)
         {
-            gameObject.GetComponentInParent<EnemyMovement>().moveSpeed /= 2;
+            gameObject.GetComponentInParent<EnemyMovement>().enabled = false;
             StartCoroutine(Reset());
         }
         else
@@ -19,7 +19,7 @@ public class Cold : MonoBehaviour
     IEnumerator Reset()
     {
         yield return new WaitForSeconds(3f);
-        gameObject.GetComponentInParent<EnemyMovement>().moveSpeed *= 2;
+        gameObject.GetComponentInParent<EnemyMovement>().enabled = true;
         Destroy(gameObject);
     }
 }
