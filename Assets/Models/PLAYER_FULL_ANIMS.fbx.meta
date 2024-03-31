@@ -3,7 +3,82 @@ guid: c437f55f1752e7643a080d45d48436a8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ARMGUARDS_MAT
+    second: {fileID: 2100000, guid: 72a5ee0ba70ca0f46b9623743ed0f68e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BOOTFUR_MAT
+    second: {fileID: 2100000, guid: db41e2a4eba93a943a4cc251eb56a246, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BOOTFUR_MAT1
+    second: {fileID: 2100000, guid: 269bf35c19cb84a40b755f1b9a25ebb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BOOTS_MAT
+    second: {fileID: 2100000, guid: 5a98540c731d56f4087349309559f26a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HAIR_MAT
+    second: {fileID: 2100000, guid: c821041c139b9cf44b265570a9c0d085, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAINWAISTSTRAP_MAT
+    second: {fileID: 2100000, guid: 39e29ef84e2b25946afecf2d4da900d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PANTS_MAT
+    second: {fileID: 2100000, guid: 4e1a3fc9ad0123b4382d345480838c13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SHEATH_MAT
+    second: {fileID: 2100000, guid: de3409d028d749f41a198a1687288408, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SHIRT_MAT
+    second: {fileID: 2100000, guid: 2595f298c40075e49b90dd9b22229ce6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SKIN_MAT
+    second: {fileID: 2100000, guid: c158b6bc427ba8f47878740f7f9ee529, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SWORDSLING_MAT
+    second: {fileID: 2100000, guid: 65e09fcc8db8d5a49aacd43ad095c014, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shoulder_pauldrons_and_straps
+    second: {fileID: 2100000, guid: 14d946a7d8bb82844a9ef79b3956ea9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WAISTBANDFUR_MAT
+    second: {fileID: 2100000, guid: 320f0ee1a1fa9a84aadba880f7462d2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WAISTBAND_LEATHER_MAT
+    second: {fileID: 2100000, guid: 6804b4b99d6de6441859b509071bb096, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyes_MAT
+    second: {fileID: 2100000, guid: 58697cd68c9e0044c9802f8c411926af, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -73,7 +148,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -186,7 +261,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
