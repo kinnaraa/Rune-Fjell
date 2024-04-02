@@ -45,7 +45,6 @@ public class WispSystem : MonoBehaviour
                 {
                     OnFirstPath = false;
 
-                    Debug.Log("start new Quest");
                     questLog.allQuests[0].completed = true;
                     questLog.allQuests[1].isActive = true;
                     questLog.allQuests[1].currentQuest = true;
