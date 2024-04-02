@@ -7973,8 +7973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 0}
-  Berry: {fileID: 0}
-  Wood: {fileID: 0}
+  Berry: {fileID: 235451689}
+  Wood: {fileID: 1983578449}
   Player: {fileID: 2067841055}
   Gnome: {fileID: 0}
   questLog: {fileID: 0}
@@ -31854,6 +31854,10 @@ PrefabInstance:
     - target: {fileID: 5911170087881506298, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911170087881506298, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

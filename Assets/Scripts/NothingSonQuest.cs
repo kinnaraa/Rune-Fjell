@@ -20,9 +20,11 @@ public class NothingSonQuest : MonoBehaviour
 
     public void Start()
     {
+        questStarted = true;
         index = 0;
         numBerry = 3;
         numWood = 4;
+        Debug.Log("Quest started is: " + questStarted);
     }
 
     public void Update()
@@ -30,7 +32,22 @@ public class NothingSonQuest : MonoBehaviour
         if (questStarted)
         {
             //float distanceBerry = Vector3.Distance(Player.transform.position, Berry.transform.position);
-            //float distanceWood = Vector3.Distance(Player.transform.position, Berry.transform.position);
+            //float distanceWood = Vector3.Distance(Player.transform.position, Wood.transform.position);
+
+            float distanceWood = Vector3.Distance(Player.transform.position, Wood.transform.position);
+
+            if (distanceWood <= 4)
+            {
+                //Debug.Log("Within DIstance");
+                if (Input.GetKey("E"))
+                {
+                    /*Destroy(Wood);
+                    Debug.Log("wood collect");
+                    numWood--;
+                    Debug.Log("num of wood: " + numWood);*/
+                }
+                
+            }
 
             if (numWood == 0 && numBerry == 0)
             {
@@ -46,13 +63,17 @@ public class NothingSonQuest : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Berry)
+        if (other.tag == "Berry")
         {
+            Debug.Log("berry collect");
             numBerry--;
+            Debug.Log("num of berry: " + numBerry);
         }
-        if(other.gameObject == Wood)
+        if(other.tag == "Wood")
         {
+            Debug.Log("wood collect");
             numWood--;
+            Debug.Log("num of wood: " + numWood);
         }
     }
 
