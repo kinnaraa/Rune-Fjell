@@ -8,6 +8,7 @@ public class LightningSmitesScript : MonoBehaviour
     public Transform[] grounds;
 
     public GameObject lightning;
+    public GameObject lightningSmites;
     public bool firing;
 
     void Update()
@@ -22,6 +23,12 @@ public class LightningSmitesScript : MonoBehaviour
     {
         firing = false;
         lightning = Resources.Load("SpellPrefabs/Lightning") as GameObject;
+        lightningSmites = Resources.Load("SpellPrefabs/LightningSmites") as GameObject;
+
+        for(int i = 0; i < grounds.Length; i++)
+        {
+            Instantiate(lightningSmites, grounds[i].transform.position, grounds[i].transform.rotation).transform.parent = gameObject.transform; 
+        }
 
         for(int i = 0; i < airs.Length; i++)
         {

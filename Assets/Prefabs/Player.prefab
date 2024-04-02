@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7772291273805633332}
   - component: {fileID: 128743026164007109}
   - component: {fileID: 3120964467155100367}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5666839877913028958}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2865812467887444318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 3098430478323254956}
   - component: {fileID: 7658921618456161500}
   - component: {fileID: 5384306329222876937}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4773106532613145151}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 1740016208732912949}
   - component: {fileID: 4149027812262114052}
   - component: {fileID: 2825594582822440267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4464359219538939774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 7366252347480388076}
   - component: {fileID: 7654057298274162248}
   - component: {fileID: 7307277894912805911}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 7060137470966752324}
   - component: {fileID: 4212577067641348026}
   - component: {fileID: 3268090847930093924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077293861687553364}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CurrentQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,6 +562,154 @@ RectTransform:
   m_AnchoredPosition: {x: -372.3, y: 197.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2205406391774441186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2038081803417883578}
+  - component: {fileID: 6655939746561437944}
+  - component: {fileID: 713642473116723273}
+  - component: {fileID: 8293465726458041544}
+  m_Layer: 7
+  m_Name: Monolith Discovered
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2038081803417883578
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205406391774441186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7422080240123655785}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 59.3}
+  m_SizeDelta: {x: 500, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6655939746561437944
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205406391774441186}
+  m_CullTransparentMesh: 1
+--- !u!114 &713642473116723273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205406391774441186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Monolith Discovered
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
+  m_sharedMaterial: {fileID: 3121742711131630172, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 13290186
+  m_fontColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30.6
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8293465726458041544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205406391774441186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0479acdd708e844904e8aae31d1435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 4
 --- !u!1 &2222469961316902291
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,7 +721,7 @@ GameObject:
   - component: {fileID: 4045794219661405753}
   - component: {fileID: 7002358880818014278}
   - component: {fileID: 4946967782719850679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +796,7 @@ GameObject:
   - component: {fileID: 2394071037483817320}
   - component: {fileID: 490049727321791110}
   - component: {fileID: 400375690243850001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2466704059226045091}
   - component: {fileID: 7505272518276312249}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +999,7 @@ GameObject:
   - component: {fileID: 4378158357048951430}
   - component: {fileID: 5682580176137120290}
   - component: {fileID: 2920269673057164783}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +1072,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3556416692251549933}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +1111,7 @@ GameObject:
   - component: {fileID: 1065503400450478654}
   - component: {fileID: 4885779302350476766}
   - component: {fileID: 8281867241167058337}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,7 +1186,7 @@ GameObject:
   - component: {fileID: 1250660265453484926}
   - component: {fileID: 7245652264104756212}
   - component: {fileID: 2237332190061217361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1113,7 +1261,7 @@ GameObject:
   - component: {fileID: 1012808711876135011}
   - component: {fileID: 3971962798447310919}
   - component: {fileID: 1275665241351507906}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,7 +1334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1668030190795709924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1218,7 +1366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5402694647362072814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CombatOrientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8974009164128525716}
   - component: {fileID: 9113789562002161052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1308,7 +1456,7 @@ GameObject:
   - component: {fileID: 613089499815166096}
   - component: {fileID: 1211685590181910026}
   - component: {fileID: 5176346215226658527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,7 +1529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7645676365300494860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FiringPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1414,7 +1562,7 @@ GameObject:
   - component: {fileID: 3677858469746776498}
   - component: {fileID: 6980971278949401154}
   - component: {fileID: 6059584671299063198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1494,13 +1642,13 @@ GameObject:
   - component: {fileID: 7908719745308872750}
   - component: {fileID: 3730638975601659115}
   - component: {fileID: 3408335052957449335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2076704989777490236
 Transform:
   m_ObjectHideFlags: 0
@@ -1542,7 +1690,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
@@ -1554,7 +1702,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5911170087881506298}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a86096cf885d6ef4fa2132b2e5bee5c9, type: 3}
   m_Name: 
@@ -1600,7 +1748,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5911170087881506298}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 595e7786b43799c41b5e3877ced5ba94, type: 3}
   m_Name: 
@@ -1703,7 +1851,7 @@ GameObject:
   - component: {fileID: 241529672045269638}
   - component: {fileID: 3768655585623744971}
   - component: {fileID: 7368873324587429075}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1778,7 +1926,7 @@ GameObject:
   - component: {fileID: 1100403900816276159}
   - component: {fileID: 4276094242573095410}
   - component: {fileID: 8508664637414628183}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1853,7 +2001,7 @@ GameObject:
   - component: {fileID: 6759342544818134091}
   - component: {fileID: 7759366379769329512}
   - component: {fileID: 2427549056385286392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1928,7 +2076,7 @@ GameObject:
   - component: {fileID: 2033098608452797789}
   - component: {fileID: 7018753717304589840}
   - component: {fileID: 95757059355008659}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2001,7 +2149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9032863374023900955}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Abilities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2043,7 +2191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5106436414826124191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2082,7 +2230,7 @@ GameObject:
   - component: {fileID: 3117235052065726421}
   - component: {fileID: 5012382157172824897}
   - component: {fileID: 6525750664278018967}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2157,7 +2305,7 @@ GameObject:
   - component: {fileID: 7547409086762798410}
   - component: {fileID: 367218491022265914}
   - component: {fileID: 2749997276174978401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2232,7 +2380,7 @@ GameObject:
   - component: {fileID: 304655543612904322}
   - component: {fileID: 4331430324325693109}
   - component: {fileID: 896737479182262643}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2308,13 +2456,13 @@ GameObject:
   - component: {fileID: 7249859168576049968}
   - component: {fileID: 9026071254391246148}
   - component: {fileID: 5954747184990488180}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7422080240123655785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2333,6 +2481,7 @@ RectTransform:
   - {fileID: 241529672045269638}
   - {fileID: 243353535517389456}
   - {fileID: 1077293861687553364}
+  - {fileID: 2038081803417883578}
   m_Father: {fileID: 2076704989777490236}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2412,7 +2561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8510085599978568146}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2451,7 +2600,7 @@ GameObject:
   - component: {fileID: 8512832694269743736}
   - component: {fileID: 6188937338973449005}
   - component: {fileID: 4693028109762323005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2526,7 +2675,7 @@ GameObject:
   - component: {fileID: 4529291262213834978}
   - component: {fileID: 7853303097042607028}
   - component: {fileID: 17892606832482182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2660,7 +2809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7245727561144484132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2699,7 +2848,7 @@ GameObject:
   - component: {fileID: 243353535517389456}
   - component: {fileID: 1935641539913603385}
   - component: {fileID: 1795595431730876663}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2775,7 +2924,7 @@ GameObject:
   - component: {fileID: 772317770365450856}
   - component: {fileID: 2007803563660259707}
   - component: {fileID: 4192599250102091290}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2912,7 +3061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c437f55f1752e7643a080d45d48436a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.91
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c437f55f1752e7643a080d45d48436a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2949,6 +3098,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c437f55f1752e7643a080d45d48436a8, type: 3}
       propertyPath: m_Name
       value: PLAYER_FULL_ANIMS
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c437f55f1752e7643a080d45d48436a8, type: 3}
+      propertyPath: m_TagString
+      value: PlayerModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

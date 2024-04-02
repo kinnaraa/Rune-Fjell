@@ -21,8 +21,11 @@ public class PlayerMagic : MonoBehaviour
     public int index = 0;
     public int damageModifier = 1;
 
+    private Animator animator;
+
     public void Start()
     {
+        animator = gameObject.GetComponent<Animator>();
         index = 3;
 
         // this is just for me so i can find the right ability to add
@@ -55,7 +58,7 @@ public class PlayerMagic : MonoBehaviour
         abilities[3] = allAbilities[8];
         abilities[4] = allAbilities[9];
         abilities[5] = allAbilities[11];
-        abilities[6] = allAbilities[0];
+        abilities[6] = allAbilities[12];
 
         SetAbilityUI();
     }
@@ -84,14 +87,21 @@ public class PlayerMagic : MonoBehaviour
         {
             if(currentAbility.Name != "Null")
             {
-                StartCoroutine(currentAbility.Cast());
-                if(currentAbility.pauseTime != 0)
-                {
-                    StartCoroutine(PauseMovement(currentAbility.pauseTime));
-                }
-                StartCoroutine(CooldownVisual(currentAbility.cooldown));
+                animator.SetBool("Attackin", true);
+                StartCoroutine(Wait());
             }
         }
+    }
+
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(currentAbility.Cast());
+        if(currentAbility.pauseTime != 0)
+        {
+            StartCoroutine(PauseMovement(currentAbility.pauseTime));
+        }
+        StartCoroutine(CooldownVisual(currentAbility.cooldown));
     }
 
     public IEnumerator PauseMovement(float pauseTime)
@@ -100,6 +110,7 @@ public class PlayerMagic : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(pauseTime);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
+        animator.SetBool("Attackin", false);
     }
 
     public IEnumerator CooldownVisual(float cooldownLength)

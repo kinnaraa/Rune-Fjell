@@ -5,21 +5,43 @@ public class Cold : MonoBehaviour
 {
     private void Start() 
     {
-        if(gameObject.GetComponentInParent<EnemyMovement>().moveSpeed > 0.5)
+        if(gameObject.GetComponentInParent<EnemyMovement>())
         {
-            gameObject.GetComponentInParent<EnemyMovement>().moveSpeed /= 2;
-            StartCoroutine(Reset());
-        }
-        else
+            if(gameObject.GetComponentInParent<EnemyMovement>().moveSpeed > 0.5)
+            {
+                gameObject.GetComponentInParent<EnemyMovement>().moveSpeed /= 2;
+                StartCoroutine(Reset());
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }   
+        else if (gameObject.GetComponentInParent<PlayerMovement>())
         {
-            Destroy(gameObject);
+            if(gameObject.GetComponentInParent<PlayerMovement>().moveSpeed > 0.5)
+            {
+                gameObject.GetComponentInParent<PlayerMovement>().moveSpeed /= 2;
+                StartCoroutine(Reset());
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     IEnumerator Reset()
     {
         yield return new WaitForSeconds(3f);
-        gameObject.GetComponentInParent<EnemyMovement>().moveSpeed *= 2;
+        if(gameObject.GetComponentInParent<EnemyMovement>())
+        {
+            gameObject.GetComponentInParent<EnemyMovement>().moveSpeed *= 2;
+        }
+        else
+        {
+            gameObject.GetComponentInParent<PlayerMovement>().moveSpeed *= 2;
+        }
         Destroy(gameObject);
     }
 }

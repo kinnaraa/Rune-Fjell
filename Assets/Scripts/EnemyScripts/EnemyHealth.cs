@@ -1,7 +1,6 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -47,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         //Debug.Log(currentHealth);
         if(!isRed)
         {
-            if(bodyParts.Length == 0)
+            if(bodyPartsIce.Length != 0)
             {
                 isRed = true;
                 List<Material> OGMats = new();

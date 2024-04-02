@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1214232251751296577}
   - component: {fileID: 4028916672334820245}
   - component: {fileID: 6353116994671781656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6214502774109035768}
   - component: {fileID: 8328150801364470650}
   - component: {fileID: 7167554775565353382}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.27897194, y: 1.6396911, z: 0.37313053}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: -0.00000017881393, y: 0, z: -0.00000011920929}
 --- !u!114 &7167554775565353382
 MonoBehaviour:
@@ -210,8 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1973888089885329217}
-  - component: {fileID: 2024620864784618145}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IceCreature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 1166283246335237627}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.08150482, y: 0, z: -0.16104126}
+  m_LocalPosition: {x: -0.08150482, y: -1, z: -0.16104126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -236,27 +235,6 @@ Transform:
   - {fileID: 7505931516659701020}
   m_Father: {fileID: 7065129674182197505}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &2024620864784618145
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166283246335237627}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 3.2760909, z: 1}
-  m_Center: {x: 0, y: 2.0989096, z: 0}
 --- !u!1 &1459160256319538370
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +246,7 @@ GameObject:
   - component: {fileID: 2682797921247668880}
   - component: {fileID: 5481661203929288520}
   - component: {fileID: 4558439812682995596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 544858526048677256}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: group1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +366,9 @@ GameObject:
   - component: {fileID: 1873793548250474616}
   - component: {fileID: 967174091420133409}
   - component: {fileID: 7327610114778265774}
-  m_Layer: 0
+  - component: {fileID: 5793235430632972123}
+  - component: {fileID: 1724995899252527753}
+  m_Layer: 10
   m_Name: IceCreature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +453,55 @@ MonoBehaviour:
   stopDistance: 4
   detectionDistance: 15
   Text: {fileID: 9191954081397707508}
-  damageCollider: {fileID: 2024620864784618145}
+  damageCollider: {fileID: 8328150801364470650}
+--- !u!65 &5793235430632972123
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238904129542072294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3.1440525, z: 1}
+  m_Center: {x: 0, y: 1.0720263, z: 0}
+--- !u!54 &1724995899252527753
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238904129542072294}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &3793491513698644011
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +514,7 @@ GameObject:
   - component: {fileID: 438299226041804819}
   - component: {fileID: 5266677602588643264}
   - component: {fileID: 1135433486577132326}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Speech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1}
   m_SizeDelta: {x: 2560, y: 1440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &438299226041804819
@@ -587,7 +615,7 @@ GameObject:
   - component: {fileID: 7505931516659701020}
   - component: {fileID: 924032390005152763}
   - component: {fileID: 2612344053072091506}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +733,7 @@ GameObject:
   - component: {fileID: 3993159370629528940}
   - component: {fileID: 2788737335854259038}
   - component: {fileID: 6749788211732761113}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +816,7 @@ GameObject:
   - component: {fileID: 8188476990186816962}
   - component: {fileID: 872811889557038278}
   - component: {fileID: 6531222727781734641}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +899,7 @@ GameObject:
   - component: {fileID: 2677323218449491197}
   - component: {fileID: 6398893890806670105}
   - component: {fileID: 5083340215400054022}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +983,7 @@ GameObject:
   - component: {fileID: 5925885293784416198}
   - component: {fileID: 8899630071016875264}
   - component: {fileID: 151790251426975463}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Eeek Eek
   m_TagString: Untagged
   m_Icon: {fileID: 0}

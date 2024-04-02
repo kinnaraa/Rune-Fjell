@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ability : MonoBehaviour
@@ -139,7 +137,7 @@ public class Ice : Ability
             GameObject newIceBall = Instantiate(iceBallPrefab, firingPoint.position, firingPoint.rotation);
             Rigidbody iceBallRb = newIceBall.GetComponent<Rigidbody>();
             iceBallRb.velocity = firingPoint.transform.forward * 20;
-            
+
             StartCoroutine(Cooldown());
             yield return null;
         }
@@ -274,7 +272,7 @@ public class Shield : Ability
 {
     public GameObject ShieldPrefab;
     private Transform firingPoint;
-    public Shield() : base("Algiz_Default", "Algiz_Activated", 0, 0, "Shield", 0f, 0) // Default values for damage, cooldown, and name
+    public Shield() : base("Algiz_Default", "Algiz_Activated", 0, 0, "Shield", 0.01f, 0) // Default values for damage, cooldown, and name
     {
     }
     public override IEnumerator Cast()
@@ -398,7 +396,7 @@ public class Light : Ability
 {
     public GameObject LightPrefab;
     private Transform firingPoint;
-    public Light() : base("Kenaz_Default", "Kenaz_Activated", 0, 0, "Light", 0f, 0) // Default values for damage, cooldown, and name
+    public Light() : base("Kenaz_Default", "Kenaz_Activated", 0, 0, "Light", 0.01f, 0) // Default values for damage, cooldown, and name
     {
     }
     public override IEnumerator Cast()
@@ -419,7 +417,7 @@ public class Wall : Ability
     private Transform firingPoint;
     private bool cooldownActive;
 
-    public Wall() : base("IsaEhwaz_Default", "IsaEhwaz_Activated", 0, 0, "Wall", 0f, 0) // Default values for damage, cooldown, and name
+    public Wall() : base("IsaEhwaz_Default", "IsaEhwaz_Activated", 0, 0, "Wall", 0.5f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -461,7 +459,7 @@ public class Hail : Ability
     private Transform firingPoint;
     private Transform Player;
     private bool cooldownActive;
-    public Hail() : base("IsaHalagaz_Default", "IsaHalagaz_Activated", 0, 5, "Hail", 0f, 2) // Default values for damage, cooldown, and name
+    public Hail() : base("IsaHalagaz_Default", "IsaHalagaz_Activated", 0, 5, "Hail", 1f, 2) // Default values for damage, cooldown, and name
     {
     }
 
@@ -475,7 +473,7 @@ public class Hail : Ability
         {
             cooldownActive = true;
             Vector3 pos = new Vector3(Player.position.x, Player.position.y + 10, Player.position.z);
-            Quaternion rot = Quaternion.Euler(50, Player.eulerAngles.y, 0);
+            Quaternion rot = Quaternion.Euler(80, Player.eulerAngles.y, 0);
             GameObject hail = Instantiate(HailPrefab, pos, rot);
             hail.GetComponent<HailScript>().firing = true;
 
@@ -500,20 +498,20 @@ public class LightningSmites : Ability
     private Transform Player;
     private bool cooldownActive;
 
-    public LightningSmites() : base("ThurisazHalagaz_Default", "ThurisazHalagaz_Activated", 0, 5, "LightningSmites", 0f, 0) // Default values for damage, cooldown, and name
+    public LightningSmites() : base("ThurisazHalagaz_Default", "ThurisazHalagaz_Activated", 10, 5, "LightningSmites", 1f, 1) // Default values for damage, cooldown, and name
     {
     }
 
     public override IEnumerator Cast()
     {
-        LightningSmitesPrefab = Resources.Load("SpellPrefabs/LightningSmites") as GameObject;
+        LightningSmitesPrefab = Resources.Load("SpellPrefabs/LightningSmitesSpawner") as GameObject;
         Player = GameObject.Find("PlayerModel").transform;
         
         if(!cooldownActive)
         {
             cooldownActive = true;
-            Vector3 spawnPosition = Player.position + Player.forward * 10;
-            spawnPosition.y--;
+            Vector3 spawnPosition = Player.position + Player.forward * 5;
+            spawnPosition.y -= 2;
             GameObject lightningSmites = Instantiate(LightningSmitesPrefab, spawnPosition, LightningSmitesPrefab.transform.rotation);
             lightningSmites.GetComponent<LightningSmitesScript>().firing = true;
 
