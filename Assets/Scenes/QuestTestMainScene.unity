@@ -24079,6 +24079,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 235451690}
     m_Modifications:
+    - target: {fileID: 2297867583735928906, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4535278321843250598}
     - target: {fileID: 4714289641542955719, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
       propertyPath: m_Name
       value: Berry
