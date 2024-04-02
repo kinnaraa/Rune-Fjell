@@ -7,7 +7,10 @@ public class EnemyAttackScript : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             other.GetComponent<Player>().PlayerHealth -= 10;
-            Instantiate(Resources.Load<GameObject>("Modifiers/Cold"), other.transform.position, Resources.Load<GameObject>("Modifiers/Cold").transform.rotation).transform.parent = other.transform;
+            if(gameObject.transform.parent.name == "IceCreature(Clone)")
+            {
+                Instantiate(Resources.Load<GameObject>("Modifiers/Cold"), other.transform.position, Resources.Load<GameObject>("Modifiers/Cold").transform.rotation).transform.parent = other.transform;
+            }
         }
     }
 
