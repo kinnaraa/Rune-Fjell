@@ -139,7 +139,7 @@ public class Ice : Ability
             GameObject newIceBall = Instantiate(iceBallPrefab, firingPoint.position, firingPoint.rotation);
             Rigidbody iceBallRb = newIceBall.GetComponent<Rigidbody>();
             iceBallRb.velocity = firingPoint.transform.forward * 20;
-
+            
             StartCoroutine(Cooldown());
             yield return null;
         }
@@ -247,7 +247,7 @@ public class EarthSpike : Ability
             Quaternion rot = Quaternion.Euler(-20, Player.eulerAngles.y, 0);
             GameObject EarthSpike = Instantiate(EarthSpikePrefab, pos, rot);
             Rigidbody EarthSpikeRb = EarthSpike.GetComponent<Rigidbody>();
-            EarthSpikeRb.velocity = EarthSpike.transform.forward * 20;
+            EarthSpikeRb.velocity = EarthSpike.transform.forward * 10;
             
             yield return new WaitForSeconds(0.5f); 
 

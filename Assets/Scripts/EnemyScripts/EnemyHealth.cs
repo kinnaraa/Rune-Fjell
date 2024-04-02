@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -9,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
     private GameManager GM;
     public SkinnedMeshRenderer[] bodyParts;
+    public MeshRenderer[] bodyPartsIce;
     public Material red;
 
     private bool isRed = false;
@@ -45,22 +47,44 @@ public class EnemyHealth : MonoBehaviour
         //Debug.Log(currentHealth);
         if(!isRed)
         {
-            isRed = true;
-            List<Material> OGMats = new();
-            foreach (var bodyPart in bodyParts)
+            if(bodyParts.Length == 0)
             {
-                if(bodyPart)
+                isRed = true;
+                List<Material> OGMats = new();
+                foreach (var bodyPart in bodyPartsIce)
                 {
-                    OGMats.Add(bodyPart.material);
-                    bodyPart.material = red;
+                    if(bodyPart)
+                    {
+                        OGMats.Add(bodyPart.material);
+                        bodyPart.material = red;
+                    }
                 }
+                yield return new WaitForSeconds(0.5f);
+                for(int i = 0; i < bodyPartsIce.Length; i++)
+                {
+                    bodyPartsIce[i].material = OGMats[i];
+                }
+                isRed = false;
             }
-            yield return new WaitForSeconds(0.5f);
-            for(int i = 0; i < bodyParts.Length; i++)
+            else
             {
-                bodyParts[i].material = OGMats[i];
+                isRed = true;
+                List<Material> OGMats = new();
+                foreach (var bodyPart in bodyParts)
+                {
+                    if(bodyPart)
+                    {
+                        OGMats.Add(bodyPart.material);
+                        bodyPart.material = red;
+                    }
+                }
+                yield return new WaitForSeconds(0.5f);
+                for(int i = 0; i < bodyParts.Length; i++)
+                {
+                    bodyParts[i].material = OGMats[i];
+                }
+                isRed = false;
             }
-            isRed = false;
         }
     }
 }

@@ -4856,7 +4856,7 @@ MonoBehaviour:
   - {fileID: 8496874282933804189}
   - {fileID: 5886960317312011944}
   - {fileID: 333549753469143480}
-  hailBall: {fileID: 0}
+  hailBall: {fileID: 6295465983525052714, guid: 61d10892a3e921a4cb3a0d4dc0dfa763, type: 3}
   firing: 0
 --- !u!1 &1352877174765438187
 GameObject:
