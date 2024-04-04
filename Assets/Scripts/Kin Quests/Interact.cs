@@ -17,9 +17,13 @@ public class Interact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 1.5)
+        if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 1.5 && thisGuyStinks.canCollect)
         {
             canPickup = true;
+        }
+        else
+        {
+            canPickup = false;
         }
 
         if (canPickup && Input.GetKeyDown(KeyCode.E))
