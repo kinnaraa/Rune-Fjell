@@ -22,8 +22,17 @@ public class DealDamageAndModifiers : MonoBehaviour
                 string newName = gameObject.transform.parent.name.Replace("(Clone)", "");
                 if(a.Name == newName)
                 {
-                    other.GetComponent<EnemyHealth>().currentHealth -= a.damage * PM.damageModifier;
-                    StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed());
+                    if(other.name.Contains("Wrym"))
+                    {
+                        other.GetComponent<WyrmHealth>().currentHealth -= a.damage * PM.damageModifier;
+                        StartCoroutine(other.GetComponent<WyrmHealth>().FlashRed());
+                    }
+                    else
+                    {
+                        other.GetComponent<EnemyHealth>().currentHealth -= a.damage * PM.damageModifier;
+                        StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed());
+                    }
+            
 
                     if(a.Modifier == 0)
                     {
