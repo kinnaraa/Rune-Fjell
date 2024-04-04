@@ -7,24 +7,21 @@ public class NothingSonQuest : MonoBehaviour
     public GameObject Berry;
     public GameObject Wood;
     public GameObject Player;
-    public GameObject Gnome;
-    //public Transform[] FirstSetOfPoints;
+    public GameObject NothingSonGnome;
+    //public Transform[] LocationsOfItems;
     private bool questStarted = false;
-    //private bool OnFirstPath = false;
-    //private GameObject CurrentWisp;
-    private int index;
-    private int numBerry;
-    private int numWood;
+    public int numBerry;
+    public int numWood;
     
     public QuestLog questLog;
 
     public void Start()
     {
         questStarted = true;
-        index = 0;
-        numBerry = 3;
-        numWood = 4;
+        numBerry = 2;
+        numWood = 3;
         Debug.Log("Quest started is: " + questStarted);
+        //Update Quest Log (start)
     }
 
     public void Update()
@@ -36,22 +33,9 @@ public class NothingSonQuest : MonoBehaviour
 
             float distanceWood = Vector3.Distance(Player.transform.position, Wood.transform.position);
 
-            if (distanceWood <= 4)
-            {
-                //Debug.Log("Within DIstance");
-                if (Input.GetKey("E"))
-                {
-                    /*Destroy(Wood);
-                    Debug.Log("wood collect");
-                    numWood--;
-                    Debug.Log("num of wood: " + numWood);*/
-                }
-                
-            }
-
             if (numWood == 0 && numBerry == 0)
             {
-
+                //Update Quest Log (done)
             }
         }
 
@@ -61,7 +45,12 @@ public class NothingSonQuest : MonoBehaviour
         questStarted = true;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void TalkToGnome()
+    {
+
+    }
+
+/*    public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Berry")
         {
@@ -76,7 +65,7 @@ public class NothingSonQuest : MonoBehaviour
             Debug.Log("num of wood: " + numWood);
         }
     }
-
+*/
 
     /*
     public void Start()

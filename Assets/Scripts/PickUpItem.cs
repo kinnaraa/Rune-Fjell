@@ -7,6 +7,7 @@ public class PickUpItem : MonoBehaviour
     //public GameObject item;
     public Player player;
     public bool isGrabbable = false;
+    public NothingSonQuest nothingQuest;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,17 +19,28 @@ public class PickUpItem : MonoBehaviour
     {
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
-        if (distance < 5)
+        if (distance < 2)
         {
             isGrabbable = true;
         }
 
         if(isGrabbable && Input.GetKeyDown(KeyCode.E))
         {
-            Destroy(gameObject);
-            Debug.Log("wood collect");
-            //numWood--;
-            //Debug.Log("num of wood: " + numWood);
+            Debug.Log("pressing E");
+
+            if(gameObject.name == "Wood")
+            {
+                nothingQuest.numWood--;
+                Debug.Log("wood collected: " + nothingQuest.numWood);
+                Destroy(gameObject);
+            }
+            if (gameObject.name == "Berry")
+            {
+                nothingQuest.numBerry--;
+                Debug.Log("berry collected: " + nothingQuest.numBerry);
+                Destroy(gameObject);
+            }
+            
         }
     }
 

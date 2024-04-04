@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8900551817799976523}
   - component: {fileID: 5530561301073207141}
   - component: {fileID: 3264596113351145890}
-  - component: {fileID: 2297867583735928906}
+  - component: {fileID: 2364924212994635794}
   m_Layer: 0
   m_Name: Berry
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2297867583735928906
+--- !u!114 &2364924212994635794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,6 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f26e2c040af50c429cfdedd896caae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
   player: {fileID: 0}
   isGrabbable: 0
+  nothingQuest: {fileID: 0}
