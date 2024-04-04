@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: 63d86f9d289210a44886913797529d55
+guid: 5630c84ea0af20141a1a01a05f32b7d9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BodyColor
-    second: {fileID: 2100000, guid: be2e172feaeeed944bf1cc28ed3051a0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Iris
-    second: {fileID: 2100000, guid: b3f1a8eed94970e4c9e52268ca549928, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Teeth
-    second: {fileID: 2100000, guid: 47ebd27cdab7455459e3b1199a644ecb, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -39,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -48,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Wyrm_idle
+      name: WyrmIdle
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 81
@@ -59,8 +44,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -77,7 +62,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Wyrm_Wiggle
+      name: WyrmWiggle
       takeName: Take 001
       internalID: 9067093048684652814
       firstFrame: 0
@@ -88,8 +73,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -106,7 +91,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Wyrm_StandUp
+      name: WyrmStand
       takeName: Take 001
       internalID: -8481709605947105597
       firstFrame: 81
@@ -135,9 +120,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Wyrm_Attack
+      name: WyrmAttack
       takeName: Take 001
-      internalID: 1178167638873134046
+      internalID: 6641085478485924818
       firstFrame: 111
       lastFrame: 142
       wrapMode: 0
@@ -164,9 +149,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Wyrm_Spit
+      name: WyrmSpit
       takeName: Take 001
-      internalID: 1950896874197824025
+      internalID: -5059006814000262888
       firstFrame: 143
       lastFrame: 170
       wrapMode: 0
@@ -217,7 +202,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 0
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -253,13 +238,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: joint2
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
