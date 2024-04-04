@@ -42,19 +42,15 @@ public class QuestLog : MonoBehaviour
         {
             new Quest("Follow the Wisps", 1, "The wisps have never led you wrong before.", new KeyValuePair<Sprite, int>{}),
             new Quest("Help the Gnome", 1, "You come across a gnome in the woods crying for help. Help the gnome by slaying his attacker.",  new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/Kenaz_Default"), 1)),
-            new Quest("Find the Gnome Village", 1, "find gnome village info, blah blah, blah", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 1)),
+            //new Quest("Find the Gnome Village", 1, "find gnome village info, blah blah, blah", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 1)),
+            new Quest("This Guy Stinks", 10, "Find gnome in town who needs help in weird smokey hut", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 3)),
             /*
             new Quest("Good For Nothing Son", 7, "Gnome's mom needs help getting supplies for dinner", stupidSon),
             new Quest("Pesky Wolves", 5, "Gnome is grumpy about the loud wolves in the area and offered you a reward to get rid of them", peskyWolves),
-            new Quest("This Guy Stinks", 10, "Find gnome in town who needs help in weird smokey hut", thisGuyStinks),
-            new Quest("Cracking the Code", 1, "The seer offered you to try a mushroom, will you accept?", crackingCode),
             new Quest("Where Art Gnome", 3, "Several Gnomes have gone missing in the night!", whereArtGnome),
-            new Quest("Unknown", 1, "Make your way towards the mountains to try and find the beast who stole the gnomes", unknownQuest),
             new Quest("Something Lurking in the Deep", 1, "He�s heard legends of a great worm who would eventually awake to destroy gnomekind. Destroy him before he kills us all.", somethingLurking),
             */
         };
-
-        //Debug.Log(allQuests.Count());
 
         for (int i = 0; i < allQuests.Count; i++)
         {
@@ -67,7 +63,6 @@ public class QuestLog : MonoBehaviour
             {
                 allQuests[i].questObject.transform.GetChild(3).gameObject.SetActive(true);
                 allQuests[i].questObject.transform.GetChild(5).gameObject.SetActive(true);
-                //Debug.Log(allQuests[i].rewardPairs.Key);
                 allQuests[i].questObject.transform.GetChild(3).GetComponent<Image>().sprite = allQuests[i].rewardPairs.Key;
                 allQuests[i].questObject.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = "x" + allQuests[i].rewardPairs.Value;
             }
@@ -90,20 +85,6 @@ public class QuestLog : MonoBehaviour
     {
         for(int i = 0; i < allQuests.Count(); i++)
         {
-            /*if (allQuests[i].isActive && !activeQuests.Contains(allQuests[i]))
-            {
-                activeQuests.Add(allQuests[i]);
-                allQuests[i].questObject.SetActive(true);
-            }
-            else if (!allQuests[i].isActive && activeQuests.Contains(allQuests[i])) 
-            {
-                activeQuests.Remove(allQuests[i]);
-                allQuests[i].questObject.SetActive(false);
-            }else if (!allQuests[i].isActive)
-            {
-                allQuests[i].questObject.SetActive(false);
-            }*/
-
             if (allQuests[i].completed)
             {
                 allQuests[i].isActive = false;
