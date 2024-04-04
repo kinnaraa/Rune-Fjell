@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WrymBehavior : MonoBehaviour
@@ -58,9 +57,9 @@ public class WrymBehavior : MonoBehaviour
     public IEnumerator Attack()
     {
         damageCollider.enabled = true;
-        Animator.SetBool("IsAttacking", true);
+        Animator.SetTrigger("Attack");
         yield return new WaitForSeconds(3f);
-        Animator.SetBool("IsAttacking", false);
+        Animator.SetTrigger("Attack");
         damageCollider.enabled = false;
     }
 }
