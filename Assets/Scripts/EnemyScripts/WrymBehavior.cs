@@ -57,9 +57,8 @@ public class WrymBehavior : MonoBehaviour
     public IEnumerator Attack()
     {
         damageCollider.enabled = true;
-        Animator.SetTrigger("Attack");
+        Animator.SetTrigger("StandAttack");
         yield return new WaitForSeconds(3f);
-        Animator.SetTrigger("Attack");
         damageCollider.enabled = false;
     }
 }
