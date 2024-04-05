@@ -19,7 +19,7 @@ public class PickUpItem : MonoBehaviour
     {
         float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
-        if (distance < 2)
+        if (distance < 2 && nothingQuest.questStarted)
         {
             isGrabbable = true;
         }

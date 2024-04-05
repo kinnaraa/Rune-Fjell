@@ -8,16 +8,20 @@ public class NothingSonQuest : MonoBehaviour
     public GameObject Wood;
     public GameObject Player;
     public GameObject NothingSonGnome;
+    public GameObject GnomeHouse;
     //public Transform[] LocationsOfItems;
-    private bool questStarted = false;
+    public bool questStarted;
     public int numBerry;
     public int numWood;
+    public bool itemsCollected;
     
     public QuestLog questLog;
 
     public void Start()
     {
-        questStarted = true;
+        //questStarted = true;
+        questStarted = false;
+        itemsCollected = false;
         numBerry = 2;
         numWood = 3;
         Debug.Log("Quest started is: " + questStarted);
@@ -26,16 +30,31 @@ public class NothingSonQuest : MonoBehaviour
 
     public void Update()
     {
+        float distanceGnomeHouse = Vector3.Distance(Player.transform.position, GnomeHouse.transform.position);
+        float distanceGnome = Vector3.Distance(Player.transform.position, NothingSonGnome.transform.position);
+
+        if ( distanceGnomeHouse < 2 && Input.GetKeyDown(KeyCode.E))
+        {
+            questStarted = true;
+            //Gnome Dialogue with Player
+            TalkToGnome();
+        }
+
         if (questStarted)
         {
             //float distanceBerry = Vector3.Distance(Player.transform.position, Berry.transform.position);
             //float distanceWood = Vector3.Distance(Player.transform.position, Wood.transform.position);
 
-            float distanceWood = Vector3.Distance(Player.transform.position, Wood.transform.position);
-
             if (numWood == 0 && numBerry == 0)
             {
+                itemsCollected = true;
+                Debug.Log("Quest nearly complete");
                 //Update Quest Log (done)
+            }
+
+            if (itemsCollected && (distanceGnome < 2))
+            {
+
             }
         }
 
@@ -45,7 +64,7 @@ public class NothingSonQuest : MonoBehaviour
         questStarted = true;
     }
 
-    public void TalkToGnome()
+    void TalkToGnome()
     {
 
     }
