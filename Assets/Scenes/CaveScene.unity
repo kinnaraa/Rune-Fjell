@@ -12619,19 +12619,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1086506516982269888, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_Name
-      value: WyrmPrefab
+      value: Wyrm
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478264933591452106, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703951803002924530, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
+      propertyPath: m_Name
+      value: WyrmHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151723348508972549, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8607234825956145796, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -221.83
+      value: -226.14
       objectReference: {fileID: 0}
     - target: {fileID: 8607234825956145796, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.01
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8607234825956145796, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 218.24
+      value: 211.08
       objectReference: {fileID: 0}
     - target: {fileID: 8607234825956145796, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_LocalRotation.w

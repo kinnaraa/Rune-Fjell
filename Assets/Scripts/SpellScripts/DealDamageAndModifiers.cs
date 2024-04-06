@@ -15,14 +15,14 @@ public class DealDamageAndModifiers : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other) 
     {   
-        if(other.GetComponent<EnemyHealth>())
+        if(other.GetComponent<EnemyHealth>() || other.GetComponent<WyrmHealth>())
         {
             foreach(Ability a in PM.allAbilities)
             {
                 string newName = gameObject.transform.parent.name.Replace("(Clone)", "");
                 if(a.Name == newName)
                 {
-                    if(other.name.Contains("Wrym"))
+                    if(other.name == "WyrmHealth")
                     {
                         other.GetComponent<WyrmHealth>().currentHealth -= a.damage * PM.damageModifier;
                         StartCoroutine(other.GetComponent<WyrmHealth>().FlashRed());
