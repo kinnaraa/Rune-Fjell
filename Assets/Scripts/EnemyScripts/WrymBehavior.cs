@@ -44,7 +44,7 @@ public class WrymBehavior : MonoBehaviour
                 if(readyToAttack)
                 {
                     System.Random random = new System.Random();
-                    int AttackChoice = random.Next(0, 1);
+                    int AttackChoice = random.Next(0, 2);
                     if(AttackChoice == 1)
                     {
                         Attacking = true;
