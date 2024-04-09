@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.058731146, g: 0.089167915, b: 0.29262373, a: 1}
+  m_IndirectSpecularColor: {r: 0.058730662, g: 0.08907037, b: 0.292631, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2440,7 +2440,7 @@ MonoBehaviour:
   TentPos: {fileID: 270179454}
   CampfirePos: {fileID: 122290467}
   questManager: {fileID: 813582832}
-  skillTree: {fileID: 0}
+  skillTree: {fileID: 1892440097}
   TMS: {fileID: 468194867}
   gnomeTalk: {fileID: 770625112}
   FirstBatDead: 0
