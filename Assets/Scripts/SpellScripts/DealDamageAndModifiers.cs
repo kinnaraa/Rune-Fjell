@@ -25,7 +25,10 @@ public class DealDamageAndModifiers : MonoBehaviour
                     if(other.name == "WyrmHealth")
                     {
                         other.GetComponent<WyrmHealth>().currentHealth -= a.damage * PM.damageModifier;
-                        StartCoroutine(other.GetComponent<WyrmHealth>().FlashRed());
+                        if(!other.GetComponent<WyrmHealth>().checkIfRed())
+                        {      
+                            StartCoroutine(other.GetComponent<WyrmHealth>().FlashRed());
+                        }
                     }
                     else
                     {

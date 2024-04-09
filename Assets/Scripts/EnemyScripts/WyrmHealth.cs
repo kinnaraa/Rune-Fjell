@@ -39,24 +39,25 @@ public class WyrmHealth : MonoBehaviour
 
     public IEnumerator FlashRed()
     {
-        if(!isRed)
+        
+        isRed = true;
+        List<Material> OGMats = new();
+        foreach (var bodyPart in bodyParts)
         {
-            isRed = true;
-            List<Material> OGMats = new();
-            foreach (var bodyPart in bodyParts)
+            if(bodyPart)
             {
-                if(bodyPart)
-                {
-                    OGMats.Add(bodyPart.material);
-                    bodyPart.material = red;
-                }
+                OGMats.Add(bodyPart.material);
+                bodyPart.material = red;
             }
-            yield return new WaitForSeconds(0.5f);
-            for(int i = 0; i < bodyParts.Length; i++)
+        }
+        yield return new WaitForSeconds(0.5f);
+        for(int i = 0; i < bodyParts.Length; i++)
+        {
+            if(bodyParts[i] != null)
             {
                 bodyParts[i].material = OGMats[i];
             }
-            isRed = false;
         }
+        isRed = false;
     }
 }

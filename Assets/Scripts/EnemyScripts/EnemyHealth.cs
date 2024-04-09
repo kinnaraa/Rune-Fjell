@@ -83,7 +83,10 @@ public class EnemyHealth : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 for(int i = 0; i < bodyParts.Length; i++)
                 {
-                    bodyParts[i].material = OGMats[i];
+                    if(bodyParts[i] != null)
+                    {
+                        bodyParts[i].material = OGMats[i];
+                    }
                 }
                 isRed = false;
             }
