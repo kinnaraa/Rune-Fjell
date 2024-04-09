@@ -13,7 +13,7 @@ public class WispSystem : MonoBehaviour
     private GameObject CurrentWisp;
     private int index;
 
-    public QuestLog questLog;
+    public QuestManager questManager;
 
     public void Start()
     {
@@ -45,8 +45,9 @@ public class WispSystem : MonoBehaviour
                 {
                     OnFirstPath = false;
 
-                    questLog.allQuests["Follow the Wisps"].isActive = false;
-                    questLog.allQuests["Help the Gnome"].isActive = true;
+                    questManager.allQuests["Follow the Wisps"].isActive = false;
+                    questManager.allQuests["Help the Gnome"].isActive = true;
+                    Debug.Log("follow inactive, help active");
 
                     StartCoroutine(GM.SaveTheGnome());
                 }

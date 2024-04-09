@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     public Transform TentPos;
     public Transform CampfirePos;
 
-    public QuestLog questLog;
+    public QuestManager questManager;
     public newSkillTree newSkillTree;
     public TabMenuScript TMS;
 
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartFirstQuest()
     {
         yield return new WaitForSeconds(1f);
-        questLog.allQuests["Follow the Wisps"].isActive = true;
+        questManager.allQuests["Follow the Wisps"].isActive = true;
 
         WS.StartFirstPath();
     }
@@ -119,6 +120,8 @@ public class GameManager : MonoBehaviour
 
         //unlock kenaz rune
         newSkillTree.skillList[1][0].unlocked = true;
+        questManager.allQuests["Help the Gnome"].isActive = false;
+        questManager.allQuests["Find the Gnome Village"].isActive = true;
 
         //force open skilltree
         StartCoroutine(Player.GetComponent<Player>().MenuCooldown());
