@@ -37,6 +37,7 @@ public class NothingSonQuest : MonoBehaviour
         {
             questStarted = true;
             //Gnome Dialogue with Player
+            Debug.Log("Talking to Mom Gnome");
             TalkToGnome();
         }
 
@@ -54,16 +55,19 @@ public class NothingSonQuest : MonoBehaviour
 
             if (itemsCollected && (distanceGnome < 2))
             {
-
+                Debug.Log("Quest Complete!");
             }
         }
 
     }
+
+    //Starting Quest
     public void StartQuest()
     {
         questStarted = true;
     }
 
+    // Logic for Gnome Dialogue
     void TalkToGnome()
     {
 
