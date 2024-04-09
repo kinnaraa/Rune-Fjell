@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public Transform CampfirePos;
 
     public QuestManager questManager;
-    public newSkillTree newSkillTree;
+    public newSkillTree skillTree;
     public TabMenuScript TMS;
 
     public TextMeshProUGUI gnomeTalk;
@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         gnomeTalk.text = "I couldn't get this thing to work, maybe you can?";
 
         //unlock kenaz rune
-        newSkillTree.skillList[1][0].unlocked = true;
+        skillTree.skillList[1][0].unlocked = true;
         questManager.allQuests["Help the Gnome"].isActive = false;
         questManager.allQuests["Find the Gnome Village"].isActive = true;
 

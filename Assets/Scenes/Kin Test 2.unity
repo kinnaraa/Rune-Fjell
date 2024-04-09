@@ -2318,7 +2318,7 @@ MonoBehaviour:
   TentPos: {fileID: 270179454}
   CampfirePos: {fileID: 122290467}
   questManager: {fileID: 813582832}
-  newSkillTree: {fileID: 1892440097}
+  skillTree: {fileID: 1797712338}
   TMS: {fileID: 468194867}
   gnomeTalk: {fileID: 770625112}
   FirstBatDead: 0
@@ -13128,6 +13128,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+--- !u!1 &1543176651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1543176652}
+  m_Layer: 0
+  m_Name: Where Art Gnome
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1543176652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543176651}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -90.28673, y: 18.201649, z: 8.554465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545476313
 GameObject:
   m_ObjectHideFlags: 0
@@ -14457,6 +14488,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7022826003607571425, guid: 2c59246f075efff4eacdd481ad75421a, type: 3}
   m_PrefabInstance: {fileID: 1787127018}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1797712336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1797712337}
+  - component: {fileID: 1797712338}
+  m_Layer: 0
+  m_Name: Skill Tree Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1797712337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797712336}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1995569763}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1797712338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797712336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6f444c0763b4143ae119c0e7a10c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillTree: {fileID: 1892440097}
+  skillType: {fileID: 0}
+  skillImage: {fileID: 0}
+  skillPointsText: {fileID: 0}
+  infoSection: {fileID: 1892440095}
 --- !u!1 &1803727718
 GameObject:
   m_ObjectHideFlags: 0
@@ -15186,10 +15266,82 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 652339622}
     m_Modifications:
+    - target: {fileID: 154819484843295548, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 154819484843295548, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 832744933702098382, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 832744933702098382, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 898938443611911779, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 898938443611911779, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426208924148215959, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 1426208924148215959, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555270637186321038, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 1555270637186321038, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946485853719318152, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 1946485853719318152, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000488078630941637, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 2000488078630941637, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454303578559452451, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: skillTree
+      value: 
+      objectReference: {fileID: 1797712338}
     - target: {fileID: 3454303578559452451, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
       propertyPath: playerMagic
       value: 
       objectReference: {fileID: 4535278321843250597}
+    - target: {fileID: 3454303578559452451, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: newSkillTree
+      value: 
+      objectReference: {fileID: 1892440097}
+    - target: {fileID: 3483232269861164583, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 3483232269861164583, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
     - target: {fileID: 3492810180210288004, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
       propertyPath: m_Name
       value: NewSkillTree
@@ -15198,6 +15350,70 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3953719550871348198, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1892440097}
+    - target: {fileID: 3953719550871348198, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnlockSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979955742502033248, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1892440097}
+    - target: {fileID: 3979955742502033248, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: startSocketing
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748266541775330684, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 4748266541775330684, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752011762836204544, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 4752011762836204544, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363905416314061738, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 5363905416314061738, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479523702546028518, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 5479523702546028518, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179817924117746836, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 6179817924117746836, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: tree
+      value: 
+      objectReference: {fileID: 1797712338}
+    - target: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: skillTree
+      value: 
+      objectReference: {fileID: 1797712338}
     - target: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
       propertyPath: infoSection
       value: 
@@ -15214,6 +15430,18 @@ PrefabInstance:
       propertyPath: playerMagicGO
       value: 
       objectReference: {fileID: 2067841055}
+    - target: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: skillTreeManager
+      value: 
+      objectReference: {fileID: 1797712338}
+    - target: {fileID: 6777629730993565530, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 6777629730993565530, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
     - target: {fileID: 6964276000037885227, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15305,6 +15533,62 @@ PrefabInstance:
     - target: {fileID: 6964276000037885227, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020421554787592992, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 7020421554787592992, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 7204884531453404482, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 7204884531453404482, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259570662026938646, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 7259570662026938646, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046493230950529313, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 8046493230950529313, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060459166311930412, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 8060459166311930412, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219815754228157427, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 8219815754228157427, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572859066339408476, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6567583975886655857, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+    - target: {fileID: 8572859066339408476, guid: 311c933ebe8342b45b274817aef450cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChooseSkill
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15851,6 +16135,7 @@ Transform:
   - {fileID: 440747559}
   - {fileID: 813582831}
   - {fileID: 321262670}
+  - {fileID: 1797712337}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2012741155
@@ -16240,7 +16525,7 @@ PrefabInstance:
     - target: {fileID: 330968460057901623, guid: 3bc735ba17040d148b155cb9f6ff003a, type: 3}
       propertyPath: skillTree
       value: 
-      objectReference: {fileID: 1892440097}
+      objectReference: {fileID: 0}
     - target: {fileID: 330968460057901623, guid: 3bc735ba17040d148b155cb9f6ff003a, type: 3}
       propertyPath: weedGnome
       value: 
@@ -17386,3 +17671,4 @@ SceneRoots:
   - {fileID: 2059744845}
   - {fileID: 1060066321}
   - {fileID: 2077446308}
+  - {fileID: 1543176652}

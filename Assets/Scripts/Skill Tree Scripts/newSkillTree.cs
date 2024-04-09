@@ -138,23 +138,6 @@ public class newSkillTree : MonoBehaviour
         skillPointsText = transform.GetChild(5).GetComponent<TMP_Text>();
 
         infoSection = transform.GetChild(7).gameObject;
-
-        /*
-        allAbilities = new List<Ability>
-        {
-            new Ability("Halagaz_Default", "Halagaz_Activated", 10, 1, "Storm", 1),
-            new Ability("Isa_Default","Isa_Activated", 10, 1, "Ice", 1),
-            new Ability("Sowilo_Default", "Sowilo_Activated", 10, 1, "Fire Blast", 1.5f),
-            new Ability("ThurisazSowilo_Default", "ThurisazSowilo_Activated", 10, 1, "Radial Fire Burst", 5.5f),
-            new Ability("Ehwaz_Default", "Ehwaz_Activated", 10, 1, "Earth Spike", 1.5f),
-            new Ability("Algiz_Default", "Algiz_Activated", 0, 0, "Shield", 0f),
-            new Ability("Kennaz_Default", "Kennaz_Activated", 0, 0, "Light", 0f),
-            new Ability("IsaEhwaz_Default", "IsaEhwaz_Activated", 0, 0, "Wall", 0f),
-            new Ability("IsaHalagaz_Default", "IsaHalagaz_Activated", 0, 5, "Hail", 0f),
-            new Ability("ThurisazHalagaz_Default", "ThurisazHalagaz_Activated", 0, 5, "Lightning Smites", 0f),
-            new Ability("Thurisaz_Default", "Thurisaz_Activated", 0, 1, "Energy Blast", 1f),
-            new Ability("ThurisazUruz_Default", "ThurisazUruz_Activated", 0, 1, "Radial Blast", 1f)
-        };*/
     }
 
     // Update is called once per frame
