@@ -8,7 +8,6 @@ public class EnemyMovement : MonoBehaviour
     public float rotationSpeed = 5f;
     public float stopDistance = 4f;
     public float detectionDistance = 15f;
-    public GameObject Text;
     private bool readyToAttack = true;
     private Animator batAnimator;
     public Collider damageCollider;
@@ -16,7 +15,6 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     { 
         batAnimator = GetComponentInChildren<Animator>();
-        StartCoroutine(EekEekBitch());
     }
 
     void Update()
@@ -48,12 +46,6 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
-    }
-
-    public IEnumerator EekEekBitch()
-    {
-        yield return new WaitForSeconds(10f);
-        Text.SetActive(true);
     }
 
     public IEnumerator Cooldown()
