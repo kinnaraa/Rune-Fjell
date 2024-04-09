@@ -14,14 +14,14 @@ public class EnemyMovement : MonoBehaviour
     public Collider damageCollider;
 
     void Start()
-    {
-        player = GameObject.Find("Player").transform;
+    { 
         batAnimator = GetComponentInChildren<Animator>();
         StartCoroutine(EekEekBitch());
     }
 
     void Update()
     {
+        player = GameObject.Find("Player").transform;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         
         // Calculate direction in local space
