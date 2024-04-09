@@ -30,13 +30,19 @@ public class PickUpItem : MonoBehaviour
 
             if(gameObject.name == "Wood")
             {
-                nothingQuest.numWood--;
+                if(nothingQuest.numWood > 0)
+                {
+                    nothingQuest.numWood--;
+                }
                 Debug.Log("wood collected: " + nothingQuest.numWood);
                 Destroy(gameObject);
             }
             if (gameObject.name == "Berry")
             {
-                nothingQuest.numBerry--;
+                if(nothingQuest.numBerry > 0)
+                {
+                    nothingQuest.numBerry--;
+                }
                 Debug.Log("berry collected: " + nothingQuest.numBerry);
                 Destroy(gameObject);
             }
