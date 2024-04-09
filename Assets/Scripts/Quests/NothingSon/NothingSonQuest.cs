@@ -1,21 +1,27 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using static QuestLog;
 
 public class NothingSonQuest : MonoBehaviour
 {
     public GameManager GM;
+    public QuestManager questManager;
+    public QuestLog questLog;
+    public newSkillTree skillTree;
+
+    public GameObject player;
+    public GameObject momGnome;
+    public GameObject GnomeHouse;
     public GameObject Berry;
     public GameObject Wood;
-    public GameObject Player;
-    public GameObject NothingSonGnome;
-    public GameObject GnomeHouse;
+
     //public Transform[] LocationsOfItems;
     public bool questStarted;
     public int numBerry;
     public int numWood;
     public bool itemsCollected;
     
-    public QuestLog questLog;
 
     public void Start()
     {
@@ -30,15 +36,16 @@ public class NothingSonQuest : MonoBehaviour
 
     public void Update()
     {
-        float distanceGnomeHouse = Vector3.Distance(Player.transform.position, GnomeHouse.transform.position);
-        float distanceGnome = Vector3.Distance(Player.transform.position, NothingSonGnome.transform.position);
+        //float distanceGnomeHouse = Vector3.Distance(player.transform.position, GnomeHouse.transform.position);
+        float distanceGnome = Vector3.Distance(player.transform.position, momGnome.transform.position);
 
-        if ( distanceGnomeHouse < 2 && Input.GetKeyDown(KeyCode.E))
+        if ( distanceGnome < 3 && Input.GetKeyDown(KeyCode.E))
         {
             questStarted = true;
+            questManager.allQuests["Good For Nothing Son"].isActive = true;
             //Gnome Dialogue with Player
-            Debug.Log("Talking to Mom Gnome");
             TalkToGnome();
+            Debug.Log("Talking to Mom Gnome");
         }
 
         if (questStarted)
@@ -46,7 +53,7 @@ public class NothingSonQuest : MonoBehaviour
             //float distanceBerry = Vector3.Distance(Player.transform.position, Berry.transform.position);
             //float distanceWood = Vector3.Distance(Player.transform.position, Wood.transform.position);
 
-            if (numWood == 0 && numBerry == 0)
+            if (numWood <= 0 && numBerry <= 0)
             {
                 itemsCollected = true;
                 Debug.Log("Quest nearly complete");
@@ -56,6 +63,8 @@ public class NothingSonQuest : MonoBehaviour
             if (itemsCollected && (distanceGnome < 2))
             {
                 Debug.Log("Quest Complete!");
+                questManager.allQuests["Good For Nothing Son"].isActive = false;
+                skillTree.skillPoints += 3;
             }
         }
 
@@ -68,9 +77,9 @@ public class NothingSonQuest : MonoBehaviour
     }
 
     // Logic for Gnome Dialogue
-    void TalkToGnome()
+    public void TalkToGnome()
     {
-
+        
     }
 
 /*    public void OnTriggerEnter(Collider other)
@@ -89,52 +98,5 @@ public class NothingSonQuest : MonoBehaviour
         }
     }
 */
-
-    /*
-    public void Start()
-    {
-        index = 0;
-    }
-
-    public void Update()
-    {
-        if (firstPath)
-        {
-            CurrentWisp = Instantiate(Wisp, FirstSetOfPoints[index].position, FirstSetOfPoints[index].rotation);
-            firstPath = false;
-            OnFirstPath = true;
-        }
-
-        if (OnFirstPath)
-        {
-            float distance = Vector3.Distance(Player.transform.position, CurrentWisp.transform.position);
-            if (distance <= 4)
-            {
-                Destroy(CurrentWisp);
-                index++;
-
-                if (index < FirstSetOfPoints.Length)
-                {
-                    CurrentWisp = Instantiate(Wisp, FirstSetOfPoints[index].position, FirstSetOfPoints[index].rotation);
-                }
-                else
-                {
-                    OnFirstPath = false;
-
-                    Debug.Log("start new Quest");
-                    questLog.allQuests[0].completed = true;
-                    questLog.allQuests[1].isActive = true;
-                    questLog.allQuests[1].currentQuest = true;
-
-                    StartCoroutine(GM.SaveTheGnome());
-                }
-            }
-        }
-    }
-    public void StartFirstPath()
-    {
-        firstPath = true;
-    }
-    */
 
 }

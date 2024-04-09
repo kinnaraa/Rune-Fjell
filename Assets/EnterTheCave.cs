@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnterTheCave : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerMovement PM;
+    public ThirdPersonCam Cam;
+    public PlayerMagic Magic;
+
+    public void GoToCave()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Cam.enabled = true;
+        PM.enabled = true;
+        Magic.enabled = true;
+        SceneManager.LoadScene("CaveScene");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Coward()
     {
-        
+        gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Cam.enabled = true;
+        PM.enabled = true;
+        Magic.enabled = true;
     }
 }
