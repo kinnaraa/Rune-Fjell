@@ -149,15 +149,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6832895725392923464, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.7
+      value: 41.94
       objectReference: {fileID: 0}
     - target: {fileID: 6832895725392923464, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.19
+      value: -1.34
       objectReference: {fileID: 0}
     - target: {fileID: 6832895725392923464, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.03
+      value: 9.72
       objectReference: {fileID: 0}
     - target: {fileID: 6832895725392923464, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -198,6 +198,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6832895725392923464, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
   m_PrefabInstance: {fileID: 15131127}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &16347309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7726319287117202508, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
+  m_PrefabInstance: {fileID: 588281020}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa761f30106acc449f8374f994dcc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &37913552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3073533110568743473, guid: d4b955b7eb1827e4e8a46df0894a9b25, type: 3}
@@ -1014,7 +1025,7 @@ MonoBehaviour:
   - {fileID: 894773989}
   - {fileID: 2060220289}
   - {fileID: 2076934193}
-  questLog: {fileID: 813582830}
+  questManager: {fileID: 0}
 --- !u!1001 &322192297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1385,7 +1396,7 @@ MonoBehaviour:
   WS: {fileID: 321262671}
   TentPos: {fileID: 760549866}
   CampfirePos: {fileID: 122290467}
-  questLog: {fileID: 813582830}
+  questManager: {fileID: 0}
   newSkillTree: {fileID: 0}
   TMS: {fileID: 468194867}
   gnomeTalk: {fileID: 1958524524}
@@ -1712,6 +1723,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1068018011435927843, guid: 47b2b07d8fa156845ae0f53420f3bcb3, type: 3}
   m_PrefabInstance: {fileID: 1062785283}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &537813905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537813906}
+  - component: {fileID: 537813907}
+  m_Layer: 0
+  m_Name: InTheDeepSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &537813906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537813905}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 58.52, y: -2.11, z: 10.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 636043590}
+  m_Father: {fileID: 1995569763}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &537813907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537813905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef8d74c14fdb60419b364ffe7b799d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questManager: {fileID: 0}
+  player: {fileID: 0}
+  wyrm: {fileID: 0}
+  caveEntrance: {fileID: 0}
+  crowdOfGnomes: {fileID: 0}
+  deepQuestStart: 0
 --- !u!1001 &583764351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2057,7 +2119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 880496338667fd2489af64c6ef1934e4, type: 3}
       propertyPath: m_Name
-      value: gnomehome
+      value: momGnomeHome
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2296,6 +2358,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1824057589}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &636043590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+  m_PrefabInstance: {fileID: 1477988357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &646803560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2358,7 +2425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb2ec26cfcb285d4588a5463d538429d, type: 3}
       propertyPath: m_Name
-      value: model:Geometry
+      value: momGnome
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2596,8 +2663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fb21fbfe64da646b6085ead95da3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentQuest: {fileID: 1433650609}
   questContent: {fileID: 247949846528460469}
+  questManager: {fileID: 0}
 --- !u!4 &813582831
 Transform:
   m_ObjectHideFlags: 0
@@ -8507,16 +8574,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 0}
+  questManager: {fileID: 0}
+  questLog: {fileID: 0}
+  skillTree: {fileID: 16347309}
+  player: {fileID: 2067841055}
+  momGnome: {fileID: 469439723}
+  GnomeHouse: {fileID: 1835473057}
   Berry: {fileID: 1995963849}
   Wood: {fileID: 1752596934}
-  Player: {fileID: 2067841055}
-  NothingSonGnome: {fileID: 469439723}
-  GnomeHouse: {fileID: 1835473057}
   questStarted: 0
   numBerry: 0
   numWood: 0
   itemsCollected: 0
-  questLog: {fileID: 0}
 --- !u!1001 &1062785283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9641,11 +9710,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1688264139}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1433650609 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1925388255703673039, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
-  m_PrefabInstance: {fileID: 4535278321843250589}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1441350490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9742,6 +9806,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1268817692}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1477988357
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 537813906}
+    m_Modifications:
+    - target: {fileID: 3190470712998540643, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_Name
+      value: Gnome
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088832729291818862, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
 --- !u!1001 &1478331274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11517,6 +11638,7 @@ Transform:
   - {fileID: 813582831}
   - {fileID: 321262670}
   - {fileID: 1040198133}
+  - {fileID: 537813906}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995963849 stripped
@@ -50297,8 +50419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fb21fbfe64da646b6085ead95da3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentQuest: {fileID: 1433650609}
   questContent: {fileID: 0}
+  questManager: {fileID: 0}
 --- !u!1 &8310984314040855837
 GameObject:
   m_ObjectHideFlags: 0

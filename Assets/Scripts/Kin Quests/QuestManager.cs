@@ -45,7 +45,6 @@ public class QuestManager : MonoBehaviour
         {
             if (q.Value.isActive)
             {
-                Debug.Log(q.Value.title);
                 q.Value.questObject.SetActive(true);
                 currentQuest.transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = q.Value.title;
                 currentQuest.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = q.Value.infoText;
