@@ -22,27 +22,30 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         player = GameObject.Find("Player").transform;
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if(player)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         
-        // Calculate direction in local space
-        Vector3 direction = (player.position - transform.position).normalized;
+            // Calculate direction in local space
+            Vector3 direction = (player.position - transform.position).normalized;
 
-        // Rotate towards the player on the y-axis only
-        Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+            // Rotate towards the player on the y-axis only
+            Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
 
 
-        if (distanceToPlayer <= detectionDistance && distanceToPlayer > stopDistance)
-        {
-            // Move towards the player using Translate
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        }
-        else if (distanceToPlayer <= stopDistance)
-        {
-            if(readyToAttack)
+            if (distanceToPlayer <= detectionDistance && distanceToPlayer > stopDistance)
             {
-                StartCoroutine(Attack());
-                StartCoroutine(Cooldown());
+                // Move towards the player using Translate
+                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            }
+            else if (distanceToPlayer <= stopDistance)
+            {
+                if(readyToAttack)
+                {
+                    StartCoroutine(Attack());
+                    StartCoroutine(Cooldown());
+                }
             }
         }
     }
