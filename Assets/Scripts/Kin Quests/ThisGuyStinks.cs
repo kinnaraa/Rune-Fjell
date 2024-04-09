@@ -12,6 +12,8 @@ public class ThisGuyStinks : MonoBehaviour
     public GameObject gnomeHouse;
     public GameObject weedGnome;
     private Transform initialGnomeLocation;
+    public QuestLog questLog;
+    public newSkillTree skillTree;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,7 @@ public class ThisGuyStinks : MonoBehaviour
     {
         if(Vector3.Distance(Player.transform.position, gnomeHouse.transform.position) < 5)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !canCollect)
             {
                 Debug.Log("moving weed gnome");
                 weedGnome.transform.position = new Vector3(-194.17f, 24.80045f, -59.43f); // rotation to 48.562
@@ -35,7 +37,9 @@ public class ThisGuyStinks : MonoBehaviour
             {
                 talkToWeedGnome1();
                 Debug.Log("talking to gnome");
-                // update quest log and active quest info
+
+                questLog.allQuests["This Guy Stinks"].isActive = true;
+
                 weedGnome.transform.position = initialGnomeLocation.position;
                 canCollect = true;
             }
@@ -51,11 +55,14 @@ public class ThisGuyStinks : MonoBehaviour
             //update quest log info and active quest info to tell you to go back to weed gnome
         }
 
-        if(collectedShrooms && Vector3.Distance(Player.transform.position, gnomeHouse.transform.position) < 1.5)
+        if(collectedShrooms && Vector3.Distance(Player.transform.position, gnomeHouse.transform.position) < 5)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("talking to him again");
                 talkToWeedGnome2();
+                // update quest log with quest completed
+                skillTree.skillPoints += 3;
             }
         }
     }

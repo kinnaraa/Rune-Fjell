@@ -7,30 +7,23 @@ using System.Linq;
 
 public class QuestLog : MonoBehaviour
 {
-    public List<Quest> allQuests = new List<Quest>();
-    public List<Quest> activeQuests = new List<Quest>();
-    public List<Quest> completedQuests = new List<Quest>();
-    public GameObject currentQuest;
+    public Dictionary<string, Quest> allQuests = new Dictionary<string, Quest> {};
     public GameObject questContent;
+    public GameObject currentQuest;
 
     public class Quest
     {
         public string title;
         public KeyValuePair<Sprite, int> rewardPairs;
-        public int numNeeds;
         public string infoText;
         public bool isActive = false;
-        public bool completed = false;
         public GameObject questObject;
-        public bool currentQuest;
 
-        public Quest(string questTitle, int needs, string questInfoText, KeyValuePair<Sprite, int> questRewards)
+        public Quest(string questTitle, string questInfoText, KeyValuePair<Sprite, int> questRewards)
         {
             title = questTitle;
             infoText = questInfoText;
-            numNeeds = needs;
             rewardPairs = questRewards;
-            currentQuest = false;
         }
     }
 
@@ -38,70 +31,48 @@ public class QuestLog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        allQuests = new List<Quest>()
-        {
-            new Quest("Follow the Wisps", 1, "The wisps have never led you wrong before.", new KeyValuePair<Sprite, int>{}),
-            new Quest("Help the Gnome", 1, "You come across a gnome in the woods crying for help. Help the gnome by slaying his attacker.",  new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/Kenaz_Default"), 1)),
-            //new Quest("Find the Gnome Village", 1, "find gnome village info, blah blah, blah", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 1)),
-            new Quest("This Guy Stinks", 10, "Find gnome in town who needs help in weird smokey hut", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 3)),
-            /*
-            new Quest("Good For Nothing Son", 7, "Gnome's mom needs help getting supplies for dinner", stupidSon),
-            new Quest("Pesky Wolves", 5, "Gnome is grumpy about the loud wolves in the area and offered you a reward to get rid of them", peskyWolves),
-            new Quest("Where Art Gnome", 3, "Several Gnomes have gone missing in the night!", whereArtGnome),
-            new Quest("Something Lurking in the Deep", 1, "He�s heard legends of a great worm who would eventually awake to destroy gnomekind. Destroy him before he kills us all.", somethingLurking),
-            */
-        };
+        allQuests["Follow the Wisps"] = new Quest("Follow the Wisps", "The wisps have never led you wrong before.", new KeyValuePair<Sprite, int> { });
+        allQuests["Help the Gnome"] = new Quest("Help the Gnome", "You come across a gnome in the woods crying for help. Help the gnome by slaying his attacker.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/Kenaz_Default"), 1));
+        allQuests["Find the Gnome Village"] = new Quest("Find the Gnome Village", "find gnome village info, blah blah, blah", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 1));
+        allQuests["This Guy Stinks"] = new Quest("This Guy Stinks", "An unsual gnome in town has some important info for you. But you must bring him what he wants to learn his secrets.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 3));
+        allQuests["Good For Nothing Son"] = new Quest("Good For Nothing Son", "Gnome's mom needs help getting supplies for dinner", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 3));
+        allQuests["Where Art Gnome"] = new Quest("Where Art Gnome", "Several Gnomes have gone missing in the night!", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 3));
+        allQuests["Something Lurking"] = new Quest("Something Lurking in the Deep", "He�s heard legends of a great worm who would eventually awake to destroy gnomekind. Destroy him before he kills us all.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/socket"), 3));
+        
+        allQuests["Follow the Wisps"].questObject = gameObject.transform.GetChild(0).gameObject;
+        allQuests["Help the Gnome"].questObject = gameObject.transform.GetChild(1).gameObject;
+        allQuests["Find the Gnome Village"].questObject = gameObject.transform.GetChild(2).gameObject;
+        allQuests["Good For Nothing Son"].questObject = gameObject.transform.GetChild(3).gameObject;
+        allQuests["This Guy Stinks"].questObject = gameObject.transform.GetChild(4).gameObject;
+        allQuests["Where Art Gnome"].questObject = gameObject.transform.GetChild(5).gameObject;
+        allQuests["Something Lurking"].questObject = gameObject.transform.GetChild(6).gameObject;
 
-        for (int i = 0; i < allQuests.Count; i++)
+        foreach (var q in allQuests)
         {
-            allQuests[i].questObject = questContent.transform.GetChild(i).gameObject;
-            questContent.transform.GetChild(i).GetChild(0).gameObject.name = allQuests[i].title;
-            allQuests[i].questObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = allQuests[i].title;
-            allQuests[i].questObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = allQuests[i].infoText;
-
-            if (allQuests[i].rewardPairs.Key != null)
-            {
-                allQuests[i].questObject.transform.GetChild(3).gameObject.SetActive(true);
-                allQuests[i].questObject.transform.GetChild(5).gameObject.SetActive(true);
-                allQuests[i].questObject.transform.GetChild(3).GetComponent<Image>().sprite = allQuests[i].rewardPairs.Key;
-                allQuests[i].questObject.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = "x" + allQuests[i].rewardPairs.Value;
-            }
-            else
-            {
-                allQuests[i].questObject.transform.GetChild(3).gameObject.SetActive(false);
-                allQuests[i].questObject.transform.GetChild(5).gameObject.SetActive(false);
-            }
+            q.Value.questObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = q.Value.title;
+            q.Value.questObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = q.Value.infoText;
+            q.Value.questObject.transform.GetChild(3).GetComponent<Image>().sprite = q.Value.rewardPairs.Key;
+            q.Value.questObject.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = q.Value.rewardPairs.Value.ToString();
         }
-
-        allQuests[0].isActive = true;
-
-        activeQuests = new List<Quest>();
-
-        currentQuest.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < allQuests.Count(); i++)
+        Debug.Log(allQuests["Help the Gnome"].isActive);
+
+        foreach (var q in allQuests)
         {
-            if (allQuests[i].completed)
+            if (q.Value.isActive)
             {
-                allQuests[i].isActive = false;
-                allQuests[i].currentQuest = false;
-                allQuests[i].questObject.SetActive(false);
+                Debug.Log(q.Value.title);
+                q.Value.questObject.SetActive(true);
+                currentQuest.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = q.Value.title;
+                currentQuest.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = q.Value.infoText;
             }
-
-            if (allQuests[i].isActive)
+            else
             {
-                allQuests[i].questObject.SetActive(true);
-            }
-
-            if (allQuests[i].currentQuest)
-            {
-                currentQuest.SetActive(true);
-                currentQuest.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = allQuests[i].title;
-                currentQuest.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = allQuests[i].infoText;
+                q.Value.questObject.SetActive(false);
             }
         }
     }

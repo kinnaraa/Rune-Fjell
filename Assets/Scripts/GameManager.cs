@@ -72,8 +72,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartFirstQuest()
     {
         yield return new WaitForSeconds(1f);
-        questLog.allQuests[0].isActive = true;
-        questLog.allQuests[0].currentQuest = true;
+        questLog.allQuests["Follow the Wisps"].isActive = true;
 
         WS.StartFirstPath();
     }

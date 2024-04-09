@@ -45,9 +45,8 @@ public class WispSystem : MonoBehaviour
                 {
                     OnFirstPath = false;
 
-                    questLog.allQuests[0].completed = true;
-                    questLog.allQuests[1].isActive = true;
-                    questLog.allQuests[1].currentQuest = true;
+                    questLog.allQuests["Follow the Wisps"].isActive = false;
+                    questLog.allQuests["Help the Gnome"].isActive = true;
 
                     StartCoroutine(GM.SaveTheGnome());
                 }
