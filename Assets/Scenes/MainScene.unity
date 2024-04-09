@@ -2076,10 +2076,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9323e2c2735ce994ba6ffacbe84ae820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 1510190565}
   Monoliths:
   - {fileID: 1899402323}
   - {fileID: 1196926101}
+  - {fileID: 109167648}
+  - {fileID: 1803727718}
+  - {fileID: 1356822655}
   FoundMonoliths: []
 --- !u!4 &351510298
 Transform:
@@ -17847,6 +17850,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1510190565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2205406391774441186, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+  m_PrefabInstance: {fileID: 4535278321843250589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1525189092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21113,10 +21121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa02ef128b0bb744953a76c6c89de2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AreYouSure: {fileID: 0}
-  PM: {fileID: 0}
-  Cam: {fileID: 0}
-  Magic: {fileID: 0}
+  AreYouSure: {fileID: 2367287155505734881}
+  PM: {fileID: 4535278321843250592}
+  Cam: {fileID: 8257503221171369749}
+  Magic: {fileID: 4535278321843250597}
 --- !u!1 &2067841055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5911170087881506298, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
@@ -21761,6 +21769,62 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1781350998679634585, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781350998679634585, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781350998679634585, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3971400530396760961}
+    - target: {fileID: 1781350998679634585, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781350998679634585, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToCave
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781350998679634585, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnterTheCave, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781350998679634585, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532492021299511987, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532492021299511987, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532492021299511987, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3971400530396760961}
+    - target: {fileID: 2532492021299511987, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532492021299511987, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Coward
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532492021299511987, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnterTheCave, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532492021299511987, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4524713120549076117, guid: 6aee5bbddf1be39498947817445aa8dc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -21966,6 +22030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffba9300bdf488a4396d5d53deb6aa03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PM: {fileID: 4535278321843250592}
+  Cam: {fileID: 8257503221171369749}
+  Magic: {fileID: 4535278321843250597}
 --- !u!224 &4197316759860334107 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4197316759119520268, guid: 6a5301506cab4ef4cb3fe0b773c2e4cc, type: 3}
@@ -22074,6 +22141,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5402694647362072814, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
   m_PrefabInstance: {fileID: 4535278321843250589}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4535278321843250592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 155473427994191146, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+  m_PrefabInstance: {fileID: 4535278321843250589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067841055}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86096cf885d6ef4fa2132b2e5bee5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &4535278321843250596 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7343058938632044760, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}

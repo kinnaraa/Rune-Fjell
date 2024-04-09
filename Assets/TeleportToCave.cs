@@ -11,12 +11,12 @@ public class TeleportToCave : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             AreYouSure.SetActive(true);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
-            Cam.enabled = true;
-            PM.enabled = true;
-            Magic.enabled = true;
+            PM.enabled = false;
+            Magic.enabled = false;
+            Cam.enabled = false;
         }
     }
 }
