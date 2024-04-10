@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public int DamageIncrease;    
     public int SkillPoints;
     public int Coins;
+    public Transform spawn;
 
     public GameObject tabMenu;
     public GameObject escMenu;
@@ -32,6 +33,11 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        if(PlayerHealth <= 0)
+        {
+            Kill();
+        }
+
         Image health = GameObject.Find("Health").GetComponent<Image>();
         health.fillAmount = PlayerHealth/100;
 
@@ -127,5 +133,10 @@ public class Player : MonoBehaviour
         canOpenMenu = false;
         yield return new WaitForSeconds(0.25f);
         canOpenMenu = true;
+    }
+
+    public void Kill()
+    {
+        transform.position = spawn.position;
     }
 }

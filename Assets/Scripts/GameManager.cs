@@ -119,7 +119,6 @@ public class GameManager : MonoBehaviour
         gnomeTalk.text = "I couldn't get this thing to work, maybe you can?";
 
         //unlock kenaz rune
-        skillTree.skillList[1][0].unlocked = true;
         questManager.allQuests["Help the Gnome"].isActive = false;
         questManager.allQuests["Find the Gnome Village"].isActive = true;
 
@@ -132,5 +131,6 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<Player>().Magic.enabled = false;
         Player.GetComponent<Player>().Cam.enabled = false;
         TMS.OpenSkillTree();
+        skillTree.skillList[1][0].unlocked = true;
     }
 }
