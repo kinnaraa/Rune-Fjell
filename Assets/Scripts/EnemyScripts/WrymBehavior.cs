@@ -13,14 +13,22 @@ public class WrymBehavior : MonoBehaviour
     public Collider damageCollider;
     private bool Attacking;
 
+    public Vector3 spawn;
+
     void Start()
     {
         player = GameObject.Find("Player").transform;
         Animator = GetComponentInChildren<Animator>();
+        spawn = transform.position;
     }
 
     void Update()
     {
+        if(transform.position.y <= -2)
+        {
+            transform.position = spawn;
+        }
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         
         // Calculate direction in local space
