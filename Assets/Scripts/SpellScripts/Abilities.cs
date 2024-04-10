@@ -639,6 +639,44 @@ public class Heal : Ability
     }
 }
 
+public class StamRegen : Ability
+{
+    private Player PH;
+    private bool cooldownActive;
+
+    public StamRegen() : base("Nauthiz_Default", "Nauthiz_Activated", 0, 5, "StamRegen", 0.5f, 0) // Default values for damage, cooldown, and name
+    {
+    }
+
+    public override IEnumerator Cast()
+    {
+        if (!cooldownActive)
+        {
+            cooldownActive = true;
+            
+            PH = GameObject.Find("Player").GetComponent<Player>();
+            PH.StamRegenRate += 20; 
+
+
+            StartCoroutine(Cooldown());
+        }
+
+        yield return null;
+    }
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2f);
+        PH.StamRegenRate -= 20;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        cooldownActive = true;
+        yield return new WaitForSeconds(cooldown);
+        cooldownActive = false;
+    }
+}
+
 public class Damage : Ability
 {
     private PlayerMagic PH;
