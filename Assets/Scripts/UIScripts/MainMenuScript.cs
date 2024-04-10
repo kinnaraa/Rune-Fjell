@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class MainMenuScript : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void EnterTheArena()
+    {
+        SceneManager.LoadScene("ArenaScene");
     }
 
     public void CloseCredits()
