@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gnomeTalk;
     public bool FirstBatDead = false;
 
+    public bool finishedQuest = false;
+
+    public FindGnomeVillageQuest findVillageQuest;
+
     public void Start()
     {
         StartCoroutine(OnStart());
@@ -131,6 +135,8 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<Player>().Magic.enabled = false;
         Player.GetComponent<Player>().Cam.enabled = false;
         TMS.OpenSkillTree();
-        skillTree.skillList[1][0].unlocked = true;
+        finishedQuest = true;
+
+        findVillageQuest.StartPath();
     }
 }

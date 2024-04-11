@@ -9,7 +9,7 @@ public class FindGnomeVillageQuest : MonoBehaviour
     public Transform[] path;
     public bool OnFirstPath = false;
     private int index;
-    public QuestLog questLog;
+    public QuestManager questManager;
 
     public void Start()
     {
@@ -30,6 +30,10 @@ public class FindGnomeVillageQuest : MonoBehaviour
                     {
                         MoveToNextWaypoint();
                     }
+                    else
+                    {
+                        questManager.allQuests["Find the Gnome Village"].isActive = true;
+                    }
                 }
             }
         }
@@ -43,6 +47,8 @@ public class FindGnomeVillageQuest : MonoBehaviour
 
     public void StartPath()
     {
+        questManager.allQuests["Find the Gnome Village"].isActive = true;
+        
         OnFirstPath = true;
         // Start moving towards the first waypoint
         Gnome.SetDestination(path[index].position);

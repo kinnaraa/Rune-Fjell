@@ -31,6 +31,8 @@ public class newSkillTree : MonoBehaviour
   
     public GameObject infoSection;
 
+    public GameManager gm;
+
     public class Skill
     {
         public string name;
@@ -143,6 +145,11 @@ public class newSkillTree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gm.finishedQuest)
+        {
+            skillList[1][0].unlocked = true;
+        }
+
         for (int i = 0; i < 3; i++)
         {
             skillType = transform.GetChild(i+1).gameObject;
