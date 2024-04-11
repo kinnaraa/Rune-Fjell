@@ -15,7 +15,7 @@ public class PlayerMagic : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode E = KeyCode.E;
-    public KeyCode fireKey = KeyCode.Q;
+    public KeyCode fireKey = KeyCode.Mouse0;
     public KeyCode combatCameraMode = KeyCode.Mouse1;
 
     public int index = 0;

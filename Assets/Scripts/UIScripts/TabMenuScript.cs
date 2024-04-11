@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TabMenuScript : MonoBehaviour
 {
-    public GameObject Inventory;
+    public GameObject Map;
     public GameObject SkillTree;
     public GameObject QuestLog;
 
@@ -12,25 +10,25 @@ public class TabMenuScript : MonoBehaviour
     {
         SkillTree.SetActive(false);
         QuestLog.SetActive(false);
-        Inventory.SetActive(true);
+        Map.SetActive(true);
     }
-    public void OpenInventory()
+    public void OpenMap()
     {
         SkillTree.SetActive(false);
         QuestLog.SetActive(false);
-        Inventory.SetActive(true);
+        Map.SetActive(true);
     }
 
     public void OpenSkillTree()
     {
-        Inventory.SetActive(false);
+        Map.SetActive(false);
         QuestLog.SetActive(false);
         SkillTree.SetActive(true);
     }
 
     public void OpenQuestLog()
     {
-        Inventory.SetActive(false);
+        Map.SetActive(false);
         SkillTree.SetActive(false);
         QuestLog.SetActive(true);
     }

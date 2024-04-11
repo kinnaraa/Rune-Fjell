@@ -6,10 +6,12 @@ public class Monolith : MonoBehaviour
     private MonolithManager MM;
     private bool Found;
     private GameObject text;
+    private AudioSource AS;
 
     void Start()
     {
         MM = GameObject.Find("Monoliths").GetComponent<MonolithManager>();
+        AS = GetComponent<AudioSource>(); 
         text = MM.text;
     }
 
@@ -26,6 +28,7 @@ public class Monolith : MonoBehaviour
                     MM.FoundMonoliths.Add(gameObject);
                     text.GetComponent<MonolithTextFade>().StartFade();
                     Found = true;
+                    AS.Play();
                 }
             }
         }
