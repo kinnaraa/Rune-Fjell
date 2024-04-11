@@ -1397,7 +1397,7 @@ MonoBehaviour:
   TentPos: {fileID: 760549866}
   CampfirePos: {fileID: 122290467}
   questManager: {fileID: 0}
-  newSkillTree: {fileID: 0}
+  skillTree: {fileID: 0}
   TMS: {fileID: 468194867}
   gnomeTalk: {fileID: 1958524524}
   FirstBatDead: 0
@@ -24778,11 +24778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6832895725392923464, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.7
+      value: 44.45
       objectReference: {fileID: 0}
     - target: {fileID: 6832895725392923464, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.19
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 6832895725392923464, guid: 07a8c6dfa4ef51246bd981f08f72ed8d, type: 3}
       propertyPath: m_LocalPosition.z
