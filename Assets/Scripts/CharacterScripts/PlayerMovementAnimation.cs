@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementAnimation : MonoBehaviour
 {
+    public PlayerMovement grounded;
     Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -18,14 +19,14 @@ public class PlayerMovementAnimation : MonoBehaviour
         bool forwardPress = Input.GetKey("w");
 
         // Player uses W key to move forward
-        if (forwardPress)
+        if (forwardPress && grounded.grounded)
         {
             // Set animator "isWalking" bool to true
             animator.SetBool("isWalking", true);
         }
 
         // Player is NOT pressing W key
-        if(!forwardPress)
+        if(!forwardPress || !grounded.grounded)
         {
             animator.SetBool("isWalking", false);
         }
