@@ -7,12 +7,11 @@ public class NothingSonQuest : MonoBehaviour
 {
     public GameManager GM;
     public QuestManager questManager;
-    public QuestLog questLog;
+    //public QuestLog questLog;
     public newSkillTree skillTree;
 
-    public GameObject player;
-    public GameObject momGnome;
-    public GameObject GnomeHouse;
+    public GameObject Player;
+    public GameObject MomGnome;
     public GameObject Berry;
     public GameObject Wood;
 
@@ -37,7 +36,7 @@ public class NothingSonQuest : MonoBehaviour
     public void Update()
     {
         //float distanceGnomeHouse = Vector3.Distance(player.transform.position, GnomeHouse.transform.position);
-        float distanceGnome = Vector3.Distance(player.transform.position, momGnome.transform.position);
+        float distanceGnome = Vector3.Distance(Player.transform.position, MomGnome.transform.position);
 
         if ( distanceGnome < 3 && Input.GetKeyDown(KeyCode.E))
         {

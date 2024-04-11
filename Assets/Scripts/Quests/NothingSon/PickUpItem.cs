@@ -6,12 +6,12 @@ public class PickUpItem : MonoBehaviour
 {
     //public GameObject item;
     public Player player;
-    public bool isGrabbable = false;
+    public bool isGrabbable;
     public NothingSonQuest nothingQuest;
     // Start is called before the first frame update
     void Start()
     {
-        //isGrabbable = false;
+        isGrabbable = false;
     }
 
     // Update is called once per frame
