@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private bool readyToAttack = true;
     private Animator batAnimator;
     public Collider damageCollider;
+    public AudioSource attackSound;
 
     void Start()
     { 
@@ -62,5 +63,6 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(3f);
         batAnimator.SetBool("IsAttacking", false);
         damageCollider.enabled = false;
+        attackSound.Play();
     }
 }

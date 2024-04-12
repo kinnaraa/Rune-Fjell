@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     public SkinnedMeshRenderer[] bodyParts;
     public MeshRenderer[] bodyPartsIce;
     public Material red;
+    public AudioSource deathSound;
+
 
     private bool isRed = false;
 
@@ -36,8 +38,11 @@ public class EnemyHealth : MonoBehaviour
         {
             GM.FirstBatDead = true;
         }
+        deathSound.Play();
         Destroy(gameObject);
     }
+
+   
 
     public bool checkIfRed()
     {
