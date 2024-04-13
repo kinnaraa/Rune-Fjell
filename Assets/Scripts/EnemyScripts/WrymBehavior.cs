@@ -24,7 +24,7 @@ public class WrymBehavior : MonoBehaviour
 
     void Update()
     {
-        if(transform.position.y <= -2)
+        if(transform.position.y <= -5)
         {
             transform.position = spawn;
         }
