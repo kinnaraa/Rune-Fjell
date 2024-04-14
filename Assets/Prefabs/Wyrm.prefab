@@ -75,6 +75,7 @@ MonoBehaviour:
   stopDistance: 10
   detectionDistance: 50
   damageCollider: {fileID: 1814182231926453212}
+  spawn: {x: 0, y: 0, z: 0}
 --- !u!54 &5850977087420639890
 Rigidbody:
   m_ObjectHideFlags: 0
