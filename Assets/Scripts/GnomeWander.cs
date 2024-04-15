@@ -1,39 +1,40 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
+
 public class GnomeWander : MonoBehaviour
 {
-    public Transform pointA;
-    public Transform pointB;
-    public Transform destination;
-    public float moveSpeed = 1;
+    NavMeshAgent agent;
+    public Transform[] points;
+    int index;
+    Vector3 target;
     // Start is called before the first frame update
     void Start()
     {
-        destination = pointA;
+        agent = GetComponent<NavMeshAgent>();
+        UpdateDestination();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Moving forward
-        transform.position = Vector3.Lerp(transform.position, destination.position, Time.deltaTime * moveSpeed);
-
-        // Check if position is reached
-        float dist = Vector3.Distance(transform.position, destination.position);
-
-        if (dist <= 1)
+        if(Vector3.Distance(transform.position, target) < 1)
         {
-            // Changes position
-            if (destination == pointA)
-            {
-                destination = pointB;
-                transform.eulerAngles = new Vector3(0, 180, 0);
-            }
-            else
-            {
-                destination = pointA;
-                transform.eulerAngles = new Vector3(0, 0, 0);
-            }
+            IterateIndex();
+            UpdateDestination();
+        }
+    }
+    void UpdateDestination()
+    {
+        target = points[index].position;
+        agent.SetDestination(target);
+    }
+    void IterateIndex()
+    {
+        index++;
+        if(index == points.Length)
+        {
+            index = 0;
         }
     }
 }

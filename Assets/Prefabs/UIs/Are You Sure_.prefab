@@ -381,8 +381,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This Cave is pretty spooky, you might want to be a higher level, are you
-    sure you want to continue?
+  m_text: This cave is pretty spooky, you might want to be a bit more prepared, are
+    you sure you want to continue?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
   m_sharedMaterial: {fileID: 3121742711131630172, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yeah lets fucking do this
+  m_text: Venture Forth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
   m_sharedMaterial: {fileID: 3121742711131630172, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nah imma coward, imma turn round
+  m_text: Leave, For Now
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
   m_sharedMaterial: {fileID: 3121742711131630172, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
