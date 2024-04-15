@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
 using TMPro;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class ArenaMenu : MonoBehaviour
@@ -10,6 +6,7 @@ public class ArenaMenu : MonoBehaviour
     public PlayerMovement PM;
     public ThirdPersonCam Cam;
     public PlayerMagic Magic;
+    public Player player;
 
     public GameObject Bat;
     public GameObject IceCreature;
@@ -79,6 +76,7 @@ public class ArenaMenu : MonoBehaviour
         Cam.enabled = true;
         PM.enabled = true;
         Magic.enabled = true;
+        player.enabled = true;
 
         for(int i = 0; i < numOfBats; i++)
         {

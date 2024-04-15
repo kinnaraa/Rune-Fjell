@@ -23,11 +23,9 @@ public class Player : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode TabMenu = KeyCode.Tab;
     public KeyCode EscMenu = KeyCode.Escape;
-    public KeyCode MapMenu = KeyCode.M;
 
     private bool tabMenuOpen;
     private bool escMenuOpen;
-    private bool mapMenuOpen;
 
     private bool canOpenMenu = true;
 
@@ -46,7 +44,6 @@ public class Player : MonoBehaviour
 
         tabMenuOpen = tabMenu.activeSelf;
         escMenuOpen = escMenu.activeSelf;
-        mapMenuOpen = mapMenu.activeSelf;
 
         if(Input.GetKeyDown(TabMenu) && canOpenMenu)
         {
@@ -62,7 +59,7 @@ public class Player : MonoBehaviour
                 Magic.enabled = true;
                 Magic.SetAbilityUI();
             }
-            else if(!escMenuOpen && !mapMenuOpen)
+            else if(!escMenuOpen)
             {
                 StartCoroutine(MenuCooldown());
                 tabMenu.SetActive(true);
@@ -88,36 +85,10 @@ public class Player : MonoBehaviour
                 PM.enabled = true;
                 Magic.enabled = true;
             }
-            else if(!tabMenuOpen && !mapMenuOpen) 
+            else if(!tabMenuOpen) 
             {
                 StartCoroutine(MenuCooldown());
                 escMenu.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-
-                PM.enabled = false;
-                Magic.enabled = false;
-                Cam.enabled = false;
-            }
-        }
-
-        if(Input.GetKeyDown(MapMenu) && canOpenMenu)
-        {
-            if(mapMenuOpen)
-            {
-                StartCoroutine(MenuCooldown());
-                mapMenu.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-
-                Cam.enabled = true;
-                PM.enabled = true;
-                Magic.enabled = true;
-            }
-            else if(!escMenuOpen && !tabMenuOpen)
-            {
-                StartCoroutine(MenuCooldown());
-                mapMenu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
 
@@ -138,5 +109,7 @@ public class Player : MonoBehaviour
     public void Kill()
     {
         transform.position = spawn.position;
+        PlayerHealth = 100;
+        PlayerStamina = 100;
     }
 }

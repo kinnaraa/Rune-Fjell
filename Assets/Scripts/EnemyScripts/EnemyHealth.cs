@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -19,7 +20,10 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if(SceneManager.GetActiveScene().name == "MainScene")
+        {
+            GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
     }
 
     void Update()
@@ -34,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         // Handle death, such as playing an animation, spawning particles, etc.
-        if(gameObject.name == "Bat(Clone)")
+        if(gameObject.name == "Bat(Clone)" && SceneManager.GetActiveScene().name == "MainScene")
         {
             GM.FirstBatDead = true;
         }

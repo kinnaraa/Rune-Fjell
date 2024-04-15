@@ -5538,7 +5538,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3310733534792602597}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 1
   m_Drag: 5
   m_AngularDrag: 5
   m_CenterOfMass: {x: 0, y: -2, z: 0}
@@ -5619,7 +5619,6 @@ MonoBehaviour:
   bodyPartsIce: []
   red: {fileID: 2100000, guid: c334c07911722e84dadd91dc05a07465, type: 2}
   deathSound: {fileID: 8712450207246276368}
-  SoundToPlay: {fileID: 0}
 --- !u!82 &8712450207246276368
 AudioSource:
   m_ObjectHideFlags: 0
