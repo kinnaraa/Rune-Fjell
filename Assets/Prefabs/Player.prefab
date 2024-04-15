@@ -1760,15 +1760,14 @@ MonoBehaviour:
   DamageIncrease: 0
   SkillPoints: 0
   Coins: 0
+  spawn: {fileID: 0}
   tabMenu: {fileID: 0}
   escMenu: {fileID: 0}
-  mapMenu: {fileID: 0}
   PM: {fileID: 155473427994191146}
   Cam: {fileID: 0}
   Magic: {fileID: 7908719745308872750}
   TabMenu: 9
   EscMenu: 27
-  MapMenu: 109
 --- !u!114 &7908719745308872750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1794,7 +1793,7 @@ MonoBehaviour:
   abilities: []
   allAbilities: []
   E: 101
-  fireKey: 113
+  fireKey: 323
   combatCameraMode: 324
   index: 0
   damageModifier: 1
