@@ -1660,9 +1660,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3190470712998540643, guid: 283dbe3c5d82d594ea357b55f2394abb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1676611055}
-    - targetCorrespondingSourceObject: {fileID: 3190470712998540643, guid: 283dbe3c5d82d594ea357b55f2394abb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1676611057}
     - targetCorrespondingSourceObject: {fileID: 3190470712998540643, guid: 283dbe3c5d82d594ea357b55f2394abb, type: 3}
       insertIndex: -1
@@ -3861,23 +3858,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3190470712998540643, guid: 283dbe3c5d82d594ea357b55f2394abb, type: 3}
   m_PrefabInstance: {fileID: 516493233}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1676611055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676611054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 046115c667fe7bd45be3bb9a77bd138d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1966968625}
-  - {fileID: 246558227}
-  - {fileID: 2051367675}
-  - {fileID: 35816931}
 --- !u!95 &1676611057
 Animator:
   serializedVersion: 5
