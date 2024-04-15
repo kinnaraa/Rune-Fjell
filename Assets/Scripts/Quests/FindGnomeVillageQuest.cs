@@ -30,10 +30,6 @@ public class FindGnomeVillageQuest : MonoBehaviour
                     {
                         MoveToNextWaypoint();
                     }
-                    else
-                    {
-                        questManager.allQuests["Find the Gnome Village"].isActive = true;
-                    }
                 }
             }
         }

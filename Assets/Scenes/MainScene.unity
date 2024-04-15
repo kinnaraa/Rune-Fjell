@@ -3047,7 +3047,7 @@ MonoBehaviour:
   gnomeTalk: {fileID: 770625112}
   FirstBatDead: 0
   finishedQuest: 0
-  findVillageQuest: {fileID: 0}
+  findVillageQuest: {fileID: 1025091729}
 --- !u!4 &440747559
 Transform:
   m_ObjectHideFlags: 0
@@ -3536,6 +3536,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4281353953521340373, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 440747558}
     - target: {fileID: 4281353953521340373, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: playerMagic
       value: 
@@ -11009,7 +11013,7 @@ MonoBehaviour:
   - {fileID: 870595863}
   - {fileID: 1604673187}
   OnFirstPath: 0
-  questManager: {fileID: 0}
+  questManager: {fileID: 813582832}
 --- !u!1001 &1039003198
 PrefabInstance:
   m_ObjectHideFlags: 0
