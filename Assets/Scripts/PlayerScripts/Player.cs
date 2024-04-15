@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
 
     public GameObject tabMenu;
     public GameObject escMenu;
-    public GameObject mapMenu;
     public PlayerMovement PM;
     public ThirdPersonCam Cam;
     public PlayerMagic Magic;

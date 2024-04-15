@@ -17,24 +17,23 @@ public class Monolith : MonoBehaviour
 
     void Update()
     {
-        player = GameObject.Find("Player").transform;
-        if(player)
+        if(GameObject.Find("Player"))
         {
-            float distance = Vector3.Distance(transform.position, player.transform.position);
-            if(distance < 2)
+            player = GameObject.Find("Player").transform;
+            if(player)
             {
-                if(!Found)
+                float distance = Vector3.Distance(transform.position, player.transform.position);
+                if(distance < 2)
                 {
-                    MM.FoundMonoliths.Add(gameObject);
-                    text.GetComponent<MonolithTextFade>().StartFade();
-                    Found = true;
-                    AS.Play();
+                    if(!Found)
+                    {
+                        MM.FoundMonoliths.Add(gameObject);
+                        text.GetComponent<MonolithTextFade>().StartFade();
+                        Found = true;
+                        AS.Play();
+                    }
                 }
             }
-        }
-        else
-        {
-            Debug.Log("FUCK WHERES THE PLAYER");
         }
     }
 }

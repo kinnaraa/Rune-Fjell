@@ -54,9 +54,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Player.SetActive(true);
         yield return new WaitForSeconds(2f);
-        Player.GetComponent<Rigidbody>().useGravity = true;
-        Player.GetComponent<PlayerMovement>().enabled = true;
-        Player.GetComponent<Player>().enabled = true;
+        Player.GetComponentInParent<Rigidbody>().useGravity = true;
+        Player.GetComponentInParent<PlayerMovement>().enabled = true;
+        Player.GetComponentInParent<Player>().enabled = true;
         Camera.GetComponent<CinemachineBrain>().enabled = true;
         PlayerUI.SetActive(true);
 
@@ -127,13 +127,13 @@ public class GameManager : MonoBehaviour
         questManager.allQuests["Find the Gnome Village"].isActive = true;
 
         //force open skilltree
-        StartCoroutine(Player.GetComponent<Player>().MenuCooldown());
-        Player.GetComponent<Player>().tabMenu.SetActive(true);
+        StartCoroutine(Player.GetComponentInParent<Player>().MenuCooldown());
+        Player.GetComponentInParent<Player>().tabMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Player.GetComponent<Player>().PM.enabled = false;
-        Player.GetComponent<Player>().Magic.enabled = false;
-        Player.GetComponent<Player>().Cam.enabled = false;
+        Player.GetComponentInParent<Player>().PM.enabled = false;
+        Player.GetComponentInParent<Player>().Magic.enabled = false;
+        Player.GetComponentInParent<Player>().Cam.enabled = false;
         TMS.OpenSkillTree();
         finishedQuest = true;
 
