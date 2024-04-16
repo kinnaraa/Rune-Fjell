@@ -4027,7 +4027,8 @@ MonoBehaviour:
   triggerCutsene: {fileID: 1024654302}
   Player: {fileID: 2067841055}
   mainCamera: {fileID: 1547335397}
-  targetPosition: {fileID: 1024654302}
+  targetPosition: {fileID: 1493548464}
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
   moveDuration: 2
 --- !u!1 &618209024
 GameObject:
