@@ -29,7 +29,6 @@ public class NothingSonQuest : MonoBehaviour
         itemsCollected = false;
         numBerry = 2;
         numWood = 3;
-        Debug.Log("Quest started is: " + questStarted);
         //Update Quest Log (start)
     }
 
