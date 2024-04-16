@@ -98,7 +98,7 @@ public class PlayerMagic : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(currentAbility.Cast());
-        if(currentAbility.pauseTime != 0)
+        if(currentAbility.pauseTime != 0.0f)
         {
             StartCoroutine(PauseMovement(currentAbility.pauseTime));
         }

@@ -30,22 +30,22 @@ public class EnemyHealth : MonoBehaviour
         // Check if the enemy is defeated
         if (currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    void Die()
+    public IEnumerator Die()
     {
         // Handle death, such as playing an animation, spawning particles, etc.
         if(gameObject.name == "Bat(Clone)" && SceneManager.GetActiveScene().name == "MainScene")
         {
             GM.FirstBatDead = true;
         }
+        GetComponent<EnemyMovement>().enabled = false;
         deathSound.Play();
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
-
-   
 
     public bool checkIfRed()
     {

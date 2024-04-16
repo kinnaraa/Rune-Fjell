@@ -272,7 +272,7 @@ public class Shield : Ability
 {
     public GameObject ShieldPrefab;
     private Transform firingPoint;
-    public Shield() : base("Algiz_Default", "Algiz_Activated", 0, 0, "Shield", 0.01f, 0) // Default values for damage, cooldown, and name
+    public Shield() : base("Algiz_Default", "Algiz_Activated", 0, 0, "Shield", 0.0f, 0) // Default values for damage, cooldown, and name
     {
     }
     public override IEnumerator Cast()
@@ -396,7 +396,7 @@ public class Light : Ability
 {
     public GameObject LightPrefab;
     private Transform firingPoint;
-    public Light() : base("Kenaz_Default", "Kenaz_Activated", 0, 0, "Light", 0.01f, 0) // Default values for damage, cooldown, and name
+    public Light() : base("Kenaz_Default", "Kenaz_Activated", 0, 0, "Light", 0.0f, 0) // Default values for damage, cooldown, and name
     {
     }
     public override IEnumerator Cast()
