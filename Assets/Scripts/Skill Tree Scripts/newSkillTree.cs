@@ -18,7 +18,7 @@ public class newSkillTree : MonoBehaviour
     private GameObject skillType;
     private Image skillImage;
     private TMP_Text skillPointsText;
-    public int skillPoints = 20;
+    public int skillPoints = 0;
 
     public bool choseSkill = false;
     public bool socketing = false;
