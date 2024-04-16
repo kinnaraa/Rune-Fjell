@@ -60,9 +60,9 @@ public class EnemyMovement : MonoBehaviour
     {
         damageCollider.enabled = true;
         batAnimator.SetBool("IsAttacking", true);
+        attackSound.Play();
         yield return new WaitForSeconds(3f);
         batAnimator.SetBool("IsAttacking", false);
         damageCollider.enabled = false;
-        attackSound.Play();
     }
 }

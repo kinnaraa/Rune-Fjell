@@ -31,6 +31,12 @@ public class QuestManager : MonoBehaviour
 
         foreach (var q in allQuests)
         {
+            if(q.Key == "Follow the Wisps")
+            {
+                q.Value.questObject.transform.GetChild(3).GetComponent<Image>().sprite = q.Value.rewardPairs.Key;
+                q.Value.questObject.transform.GetChild(3).gameObject.SetActive(false);
+                q.Value.questObject.transform.GetChild(5).gameObject.SetActive(false);
+            }
             q.Value.questObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = q.Value.title;
             q.Value.questObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = q.Value.infoText;
             q.Value.questObject.transform.GetChild(3).GetComponent<Image>().sprite = q.Value.rewardPairs.Key;

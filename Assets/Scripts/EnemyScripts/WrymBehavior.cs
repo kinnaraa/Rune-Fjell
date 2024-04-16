@@ -12,6 +12,11 @@ public class WrymBehavior : MonoBehaviour
     private Animator Animator;
     public Collider damageCollider;
     private bool Attacking;
+    public AudioSource attackSound;
+    public AudioSource spitSound;
+    public AudioSource enterSound;
+
+
 
     public Vector3 spawn;
 
@@ -20,6 +25,7 @@ public class WrymBehavior : MonoBehaviour
         player = GameObject.Find("Player").transform;
         Animator = GetComponentInChildren<Animator>();
         spawn = transform.position;
+        StartCoroutine("WhoAreYou");
     }
 
     void Update()
@@ -70,6 +76,14 @@ public class WrymBehavior : MonoBehaviour
         }
     }
 
+    public IEnumerator WhoAreYou() {
+
+        yield return new WaitForSeconds(7f);
+        enterSound.Play();
+
+    }
+
+
     public IEnumerator Cooldown()
     {
         readyToAttack = false;
@@ -82,6 +96,7 @@ public class WrymBehavior : MonoBehaviour
         Animator.SetTrigger("StandAttack");
         damageCollider.enabled = true;
         yield return new WaitForSeconds(2.5f);
+        attackSound.Play();
         transform.Translate(Vector3.forward * 100f * Time.deltaTime);
         yield return new WaitForSeconds(1f);
         damageCollider.enabled = false;
@@ -92,6 +107,7 @@ public class WrymBehavior : MonoBehaviour
     {
         Animator.SetTrigger("SpitAttack");
         yield return new WaitForSeconds(2.5f);
+        spitSound.Play();
         GameObject spitball = Instantiate(Resources.Load<GameObject>("SpellPrefabs/SpitBall"), transform.position, Resources.Load<GameObject>("SpellPrefabs/SpitBall").transform.rotation);
         spitball.GetComponent<Rigidbody>().velocity = transform.forward * 20;
         Attacking = false;
