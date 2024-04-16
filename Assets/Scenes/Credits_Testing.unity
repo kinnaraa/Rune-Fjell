@@ -4701,74 +4701,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Chrys Woehler
-
-    Modeling | Programming | Animation
-
-
-    Miles Haase
-
-    Programming
-    | Build Master | Wizard
-
-
-    Bruno Dede
-
-    Programming
-
-
-    Kinnara Bosworth
-
-    Programming
-
-
-    Kelly
-    Beaudrot
-
-    Concept and 2D Art | Animation | Music
-
-
-
-
-
-
-
-
-
-    SiriusBizdness
-
-    dheming
-
-    Roovy
-
-    Zulfish
-
-    pfannkuchn
-
-    auxide_audio
-
-    soundholder
-
-    edmondsr
-
-    meaganlongley
-
-    fredzed
-
-    juskiddink
-
-    keweldog
-
-
-
-
-    Polytope
-    Studio
-
-
-
-
-    Mr. Karlson '
+  m_text: "Chrys Woehler\nModeling | Programming | Animation\n\nMiles Haase\nProgramming
+    | Historian | Wizard\n\nBruno Dede\nProgramming | System Sorcerer\n\nKinnara
+    Bosworth\nProgramming | Dev Wizard\n\nKelly Beaudrot\nConcept and 2D Art | Animation
+    | Music\n\n\n\nVictoria, Marlow, Conroy, Sawyer\n\n\n\n\nSiriusBizdness\ndheming\nRoovy\nZulfish\npfannkuchn\nauxide_audio\nsoundholder\nedmondsr\nmeaganlongley\nfredzed\njuskiddink\nkeweldog\n\n\n\nPolytope
+    Studio\n\n\n\n\nMr. Karlson \nBeau "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d7b5a11612a0cb9449b8626ae8a5c327, type: 2}
   m_sharedMaterial: {fileID: 2698196538611504448, guid: d7b5a11612a0cb9449b8626ae8a5c327, type: 2}
@@ -4914,6 +4851,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raidoUnlocked: 0
+  ehwazUnlocked: 0
+  halagazUnlocked: 0
+  isaUnlocked: 0
+  sowiloUnlocked: 0
+  skillTree: {fileID: 0}
 --- !u!65 &892415732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7759,6 +7702,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raidoUnlocked: 0
+  ehwazUnlocked: 0
+  halagazUnlocked: 0
+  isaUnlocked: 0
+  sowiloUnlocked: 0
+  skillTree: {fileID: 0}
 --- !u!65 &1504711247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8843,6 +8792,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raidoUnlocked: 0
+  ehwazUnlocked: 0
+  halagazUnlocked: 0
+  isaUnlocked: 0
+  sowiloUnlocked: 0
+  skillTree: {fileID: 0}
 --- !u!65 &1695207543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9038,7 +8993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A Game by \nGo Big or Go Gnome\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlayTesters\n\n\nSound
+  m_text: "A Game by \nGo Big or Go Gnome\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlayTesters\n\n\n\nSound
     Assets\n\n\n\n\n\n\n\n\n\n\n\n\nModeling Assets\n\n\n\nSpecial Thanks\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d7b5a11612a0cb9449b8626ae8a5c327, type: 2}
@@ -10381,6 +10336,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raidoUnlocked: 0
+  ehwazUnlocked: 0
+  halagazUnlocked: 0
+  isaUnlocked: 0
+  sowiloUnlocked: 0
+  skillTree: {fileID: 0}
 --- !u!65 &1896553212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10697,6 +10658,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raidoUnlocked: 0
+  ehwazUnlocked: 0
+  halagazUnlocked: 0
+  isaUnlocked: 0
+  sowiloUnlocked: 0
+  skillTree: {fileID: 0}
 --- !u!65 &1935735823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19514,6 +19481,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.41
       objectReference: {fileID: 0}
+    - target: {fileID: 5209035143296456450, guid: 5c58aa6d061b88e45b25d083c05cd08c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6322431500292202112, guid: 5c58aa6d061b88e45b25d083c05cd08c, type: 3}
       propertyPath: field of view
       value: 50
@@ -19559,6 +19530,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6650149547757319344, guid: 5c58aa6d061b88e45b25d083c05cd08c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8257503221171369755}
+    - targetCorrespondingSourceObject: {fileID: 6650149547757319344, guid: 5c58aa6d061b88e45b25d083c05cd08c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8257503221171369762}
   m_SourcePrefab: {fileID: 100100000, guid: 5c58aa6d061b88e45b25d083c05cd08c, type: 3}
 --- !u!114 &8257503221171369755
 MonoBehaviour:
@@ -19591,6 +19565,102 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 6322431500292202112, guid: 5c58aa6d061b88e45b25d083c05cd08c, type: 3}
   m_PrefabInstance: {fileID: 8257503221171369748}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &8257503221171369762
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547335397}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d4a52e03b38bae94bb9013ae1a285de7, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.753
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8296370362538278780
 GameObject:
   m_ObjectHideFlags: 0
