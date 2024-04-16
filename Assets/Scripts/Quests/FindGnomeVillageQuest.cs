@@ -32,7 +32,8 @@ public class FindGnomeVillageQuest : MonoBehaviour
                     }
                     else
                     {
-                        //end quests
+                        Debug.Log("End find village quest");
+                        questManager.allQuests["Find the Gnome Village"].isActive = false;
                     }
                 }
             }

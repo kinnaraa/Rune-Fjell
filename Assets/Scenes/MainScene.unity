@@ -2425,14 +2425,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 9048275722857624915, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
+    - {fileID: 167082163231649809, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
+    - {fileID: 4554925997016438502, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
+    - {fileID: 2638305837766760539, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
+    - {fileID: 4704583950214874549, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2072303458887797985, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 400969429}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4554925997016438502, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1794813752}
     - targetCorrespondingSourceObject: {fileID: 7750804098949422534, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1987948661}
@@ -24097,34 +24098,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.95100003, y: 0.70400006, z: 0.116000004}
   m_TimeToStationary: 0.5
---- !u!1 &1794813750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4554925997016438502, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
-  m_PrefabInstance: {fileID: 319708015}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1794813752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794813750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!1 &1803727718
 GameObject:
   m_ObjectHideFlags: 0
