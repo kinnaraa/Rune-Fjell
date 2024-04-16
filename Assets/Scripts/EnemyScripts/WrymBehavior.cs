@@ -16,7 +16,7 @@ public class WrymBehavior : MonoBehaviour
     public AudioSource spitSound;
     public AudioSource enterSound;
 
-
+    public Transform spitPos;
 
     public Vector3 spawn;
 
@@ -108,7 +108,7 @@ public class WrymBehavior : MonoBehaviour
         Animator.SetTrigger("SpitAttack");
         yield return new WaitForSeconds(2.5f);
         spitSound.Play();
-        GameObject spitball = Instantiate(Resources.Load<GameObject>("SpellPrefabs/SpitBall"), transform.position, Resources.Load<GameObject>("SpellPrefabs/SpitBall").transform.rotation);
+        GameObject spitball = Instantiate(Resources.Load<GameObject>("SpellPrefabs/SpitBall"), spitPos.position, Resources.Load<GameObject>("SpellPrefabs/SpitBall").transform.rotation);
         spitball.GetComponent<Rigidbody>().velocity = transform.forward * 20;
         Attacking = false;
     }

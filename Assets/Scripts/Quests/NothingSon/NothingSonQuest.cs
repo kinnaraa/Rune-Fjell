@@ -20,6 +20,7 @@ public class NothingSonQuest : MonoBehaviour
     public int numBerry;
     public int numWood;
     public bool itemsCollected;
+    bool questDone = false;
     
 
     public void Start()
@@ -37,10 +38,9 @@ public class NothingSonQuest : MonoBehaviour
         //float distanceGnomeHouse = Vector3.Distance(player.transform.position, GnomeHouse.transform.position);
         float distanceGnome = Vector3.Distance(Player.transform.position, MomGnome.transform.position);
 
-        if ( distanceGnome < 3 && Input.GetKeyDown(KeyCode.E))
+        if ( distanceGnome < 3 && Input.GetKeyDown(KeyCode.E) && !questStarted)
         {
             questStarted = true;
-            questManager.allQuests["Good For Nothing Son"].isActive = true;
             //Gnome Dialogue with Player
             TalkToGnome();
             Debug.Log("Talking to Mom Gnome");
@@ -58,11 +58,13 @@ public class NothingSonQuest : MonoBehaviour
                 //Update Quest Log (done)
             }
 
-            if (itemsCollected && (distanceGnome < 2))
+            if (itemsCollected && (distanceGnome < 2) && !questDone)
             {
                 Debug.Log("Quest Complete!");
+                questDone = true;
                 questManager.allQuests["Good For Nothing Son"].isActive = false;
                 skillTree.skillPoints += 3;
+                questManager.allQuests["This Guy Stinks"].isActive = true;
             }
         }
 
