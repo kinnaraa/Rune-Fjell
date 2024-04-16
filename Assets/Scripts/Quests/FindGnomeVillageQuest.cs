@@ -30,6 +30,10 @@ public class FindGnomeVillageQuest : MonoBehaviour
                     {
                         MoveToNextWaypoint();
                     }
+                    else
+                    {
+                        //end quests
+                    }
                 }
             }
         }

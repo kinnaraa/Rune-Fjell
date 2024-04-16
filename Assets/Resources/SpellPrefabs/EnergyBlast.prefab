@@ -3624,7 +3624,7 @@ ParticleSystem:
     serializedVersion: 4
     type: 1
     collisionMode: 0
-    colliderForce: 100
+    colliderForce: 50
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 1
     multiplyColliderForceByCollisionAngle: 1

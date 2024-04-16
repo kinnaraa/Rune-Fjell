@@ -53,13 +53,13 @@ public class PlayerMagic : MonoBehaviour
         //this is the same but the SocketSkill script replaces the abilities with correct ones based on the skill tree
         abilities = new Ability[7];
         
-        abilities[0] = allAbilities[3];
-        abilities[1] = allAbilities[6];
+        abilities[0] = allAbilities[0];
+        abilities[1] = allAbilities[0];
         abilities[2] = allAbilities[14];
-        abilities[3] = allAbilities[8];
+        abilities[3] = allAbilities[0];
         abilities[4] = allAbilities[9];
-        abilities[5] = allAbilities[11];
-        abilities[6] = allAbilities[12];
+        abilities[5] = allAbilities[0];
+        abilities[6] = allAbilities[0];
 
         SetAbilityUI();
     }

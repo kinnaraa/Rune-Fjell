@@ -14,7 +14,6 @@ public class EnemyHealth : MonoBehaviour
     public Material red;
     public AudioSource deathSound;
 
-
     private bool isRed = false;
 
     void Start()

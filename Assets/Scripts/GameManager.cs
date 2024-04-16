@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +33,21 @@ public class GameManager : MonoBehaviour
 
     public bool finishedQuest = false;
 
+    public KeyCode EKey = KeyCode.E;
+
+    public float distance;
+    public GameObject[] currentSpeaker;
+
     public FindGnomeVillageQuest findVillageQuest;
+    private List<string> dialogue = new List<string>
+    {
+        "I came out here looking for adventure and all I found was trouble",
+        "Can you help me find my village?",
+        "I couldn't get this thing to work, maybe you can?",
+        "Follow me!"
+    };
+    private int index = 0;
+    private bool secondQuestBegan = true;
 
     public void Start()
     {
@@ -41,10 +56,22 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if(FirstBatDead)
+        distance = Vector3.Distance(Player.transform.position, currentSpeaker[0].transform.position);
+        if(FirstBatDead && secondQuestBegan)
         {
-            FirstBatDead = false;
-            StartCoroutine(GnomeDialogue());
+            if (distance <= 5f)
+            {
+                GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(1, 1, 1);
+                if (Input.GetKeyDown(EKey))
+                {
+                    FirstGnomeConvo();
+                    index++;
+                }
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(0, 0, 0);
+            }
         }
     }
 
@@ -110,33 +137,37 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        GameObject enemy = Instantiate(Bat, BatSpawn.position, BatSpawn.rotation);
+        Instantiate(Bat, BatSpawn.position, BatSpawn.rotation);
 
     }
 
-    public IEnumerator GnomeDialogue()
+    public void FirstGnomeConvo()
     {
-        gnomeTalk.text = "I came out here looking for adventure and all I found was trouble";
-        yield return new WaitForSeconds(2f);
-        gnomeTalk.text = "Can you help me find my village?";
-        yield return new WaitForSeconds(2f);
-        gnomeTalk.text = "I couldn't get this thing to work, maybe you can?";
+        if(index < dialogue.Count)
+        {
+            gnomeTalk.text = dialogue[index];
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(0, 0, 0);
+            secondQuestBegan = false;
+            index = 0;
+            //unlock kenaz rune
+            questManager.allQuests["Help the Gnome"].isActive = false;
+            questManager.allQuests["Find the Gnome Village"].isActive = true;
 
-        //unlock kenaz rune
-        questManager.allQuests["Help the Gnome"].isActive = false;
-        questManager.allQuests["Find the Gnome Village"].isActive = true;
+            //force open skilltree
+            StartCoroutine(Player.GetComponentInParent<Player>().MenuCooldown());
+            Player.GetComponentInParent<Player>().tabMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Player.GetComponentInParent<Player>().PM.enabled = false;
+            Player.GetComponentInParent<Player>().Magic.enabled = false;
+            Player.GetComponentInParent<Player>().Cam.enabled = false;
+            TMS.OpenSkillTree();
+            finishedQuest = true;
 
-        //force open skilltree
-        StartCoroutine(Player.GetComponentInParent<Player>().MenuCooldown());
-        Player.GetComponentInParent<Player>().tabMenu.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        Player.GetComponentInParent<Player>().PM.enabled = false;
-        Player.GetComponentInParent<Player>().Magic.enabled = false;
-        Player.GetComponentInParent<Player>().Cam.enabled = false;
-        TMS.OpenSkillTree();
-        finishedQuest = true;
-
-        findVillageQuest.StartPath();
+            findVillageQuest.StartPath();
+        }
     }
 }

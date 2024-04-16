@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class ResetInOcean : MonoBehaviour
 {
     public GameObject Player;
@@ -10,6 +7,10 @@ public class ResetInOcean : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Player.GetComponent<Player>().Kill();
+        }
+        if(other.gameObject.GetComponent<EnemyHealth>())
+        {
+            other.gameObject.GetComponent<EnemyHealth>().currentHealth = 0;
         }
     }
 }
