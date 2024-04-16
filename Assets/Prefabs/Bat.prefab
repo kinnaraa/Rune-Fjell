@@ -5595,7 +5595,7 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 3
   rotationSpeed: 5
-  stopDistance: 4
+  stopDistance: 2
   detectionDistance: 50
   damageCollider: {fileID: 130334197400446721}
   attackSound: {fileID: 1595362822383608267}
