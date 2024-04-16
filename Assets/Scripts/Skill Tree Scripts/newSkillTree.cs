@@ -64,13 +64,13 @@ public class newSkillTree : MonoBehaviour
         attacksList = new List<Skill>()
         {
             new Skill("FireBlast", "Sowilo", true),
-            new Skill("RadialFireBurst", "Radial Fire Blast", false),
+            new Skill("RadialFireBurst", "ThurisazSowilo", false),
             new Skill("EnergyBlast", "Thurisaz", true),
-            new Skill("LightningSmites", "Lightning Smites", false),
+            new Skill("LightningSmites", "ThurisazHalagaz", false),
             new Skill("Storm", "Halagaz", true),
-            new Skill("Hail", "Hail", false),
+            new Skill("Hail", "IsaHalagaz", false),
             new Skill("Ice", "Isa", true),
-            new Skill("Wall", "Wall", false),
+            new Skill("Wall", "IsaEhwaz", false),
             new Skill("EarthSpike", "Ehwaz", true),
         };
 
@@ -78,9 +78,9 @@ public class newSkillTree : MonoBehaviour
         {
             new Skill("Light", "Kenaz", true),
             new Skill("Damage", "Uruz", true),
-            new Skill("DamageForceField", "Damage in Forcefield", false),
+            new Skill("DamageForceField", "UruzAlgiz", false),
             new Skill("Shield", "Algiz", true),
-            new Skill("HealingForceField", "Heal in Forcefield", false),
+            new Skill("HealingForceField", "WunjoAlgiz", false),
             new Skill("Heal", "Wunjo", true),
             new Skill("Odin Sight", "Ansuz", true),
         };
@@ -94,8 +94,8 @@ public class newSkillTree : MonoBehaviour
 
         extraList = new List<Skill>()
         {
-            new Skill("Radial Blast", "Blasts Back", false),
-            new Skill("Sun", "Blind in Radius", false),
+            new Skill("Radial Blast", "ThurisazUruz", false),
+            new Skill("Sun", "SowiloKenaz", false),
         };
 
         skillList = new List<List<Skill>>
