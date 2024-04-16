@@ -32,8 +32,8 @@ public class FindGnomeVillageQuest : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("End find village quest");
                         questManager.allQuests["Find the Gnome Village"].isActive = false;
+                        questManager.allQuests["Good For Nothing Son"].isActive = true;
                     }
                 }
             }
