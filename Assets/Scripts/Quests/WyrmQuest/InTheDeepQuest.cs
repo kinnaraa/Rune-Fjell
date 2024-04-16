@@ -9,13 +9,11 @@ public class InTheDeepQuest : MonoBehaviour
 
     public GameObject player;
     public GameObject wyrm;
+    public GameObject gnomeMayor;
     
     public Transform caveEntrance;
-    public Transform crowdOfGnomes;
 
     public bool deepQuestStart;
-    //public bool questStarted;
-    //public 
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +24,9 @@ public class InTheDeepQuest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distanceCrowdOfGnomes = Vector3.Distance(player.transform.position, crowdOfGnomes.transform.position);
+        float distanceGnomesMayor = Vector3.Distance(player.transform.position, gnomeMayor.transform.position);
 
-        if (distanceCrowdOfGnomes < 3 && Input.GetKeyDown(KeyCode.E))
+        if (distanceGnomesMayor < 3 && Input.GetKeyDown(KeyCode.E))
         {
             deepQuestStart = true;
             questManager.allQuests["In The Deep"].isActive = true;
