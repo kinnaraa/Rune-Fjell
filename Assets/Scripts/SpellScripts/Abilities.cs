@@ -326,7 +326,7 @@ public class HealingForceField : Ability
 {
     private bool cooldownActive = false;
     public GameObject forceFieldPrefab;
-    public HealingForceField() : base("AlgizWunjo_Default", "AlgizWunjo_Activated", 0, 5, "HealingForceField", 0.1f, 0) // Default values for damage, cooldown, and name
+    public HealingForceField() : base("WunjoAlgiz_Default", "WunjoAlgiz_Activated", 0, 5, "HealingForceField", 0.1f, 0) // Default values for damage, cooldown, and name
     {
     }
 
@@ -361,7 +361,7 @@ public class DamageForceField : Ability
 {
     private bool cooldownActive = false;
     public GameObject forceFieldPrefab;
-    public DamageForceField() : base("AlgizUruz_Default", "AlgizUruz_Activated", 0, 5, "DamageForceField", 0.1f, 0) // Default values for damage, cooldown, and name
+    public DamageForceField() : base("UruzAlgiz_Default", "UruzAlgiz_Activated", 0, 5, "DamageForceField", 0.1f, 0) // Default values for damage, cooldown, and name
     {
     }
 
