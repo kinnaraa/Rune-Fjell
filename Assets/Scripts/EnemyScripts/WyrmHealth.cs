@@ -10,6 +10,7 @@ public class WyrmHealth : MonoBehaviour
     public int currentHealth;
     public SkinnedMeshRenderer[] bodyParts;
     public Material red;
+    public AudioSource deathSound;
 
     private bool isRed = false;
 
@@ -27,8 +28,11 @@ public class WyrmHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    public IEnumerator Die()
     {
+        GetComponent<EnemyMovement>().enabled = false;
+        deathSound.Play();
+        yield return new WaitForSeconds(3f);
         Destroy(Wrym);
     }
 
