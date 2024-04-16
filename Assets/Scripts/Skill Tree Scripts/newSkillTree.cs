@@ -13,11 +13,12 @@ public class newSkillTree : MonoBehaviour
     private List<Skill> utilityList;
     private List<Skill> passiveList;
     private List<Skill> extraList;
+    public Skill nullSkill;
 
     private GameObject skillType;
     private Image skillImage;
     private TMP_Text skillPointsText;
-    public int skillPoints = 20;
+    public int skillPoints = 0;
 
     public bool choseSkill = false;
     public bool socketing = false;
@@ -56,41 +57,44 @@ public class newSkillTree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nullSkill = new Skill("Null", "Null", true);
+        nullSkill.sprite = Resources.Load<Sprite>("UI/transparent");
+
         attacksList = new List<Skill>()
         {
-            new Skill("Fire Blast", "Sowilo", true),
-            new Skill("Radial Fire Burst", "Radial Fire Blast", false),
-            new Skill("Energy Blast", "Thurisaz", true),
-            new Skill("Lightning Smites", "Lightning Smites", false),
+            new Skill("FireBlast", "Sowilo", true),
+            new Skill("RadialFireBurst", "Radial Fire Blast", false),
+            new Skill("EnergyBlast", "Thurisaz", true),
+            new Skill("LightningSmites", "Lightning Smites", false),
             new Skill("Storm", "Halagaz", true),
             new Skill("Hail", "Hail", false),
             new Skill("Ice", "Isa", true),
             new Skill("Wall", "Wall", false),
-            new Skill("Earth Spike", "Ehwaz", true),
+            new Skill("EarthSpike", "Ehwaz", true),
         };
 
         utilityList = new List<Skill>()
         {
             new Skill("Light", "Kenaz", true),
             new Skill("Damage", "Uruz", true),
-            new Skill("Damage in Forcefield", "Damage in Forcefield", false),
+            new Skill("DamageForceField", "Damage in Forcefield", false),
             new Skill("Shield", "Algiz", true),
-            new Skill("Heal in Forcefield", "Heal in Forcefield", false),
+            new Skill("HealingForceField", "Heal in Forcefield", false),
             new Skill("Heal", "Wunjo", true),
             new Skill("Odin Sight", "Ansuz", true),
         };
 
         passiveList = new List<Skill>()
         {
-            new Skill("Nauthiz", "Nauthiz", true),
+            new Skill("StamRegen", "Nauthiz", true),
             new Skill("Raidho", "Raidho", true),
             new Skill("Perthro", "Perthro", true),
         };
 
         extraList = new List<Skill>()
         {
-            new Skill("Blasts Back", "Blasts Back", false),
-            new Skill("Blinds", "Blind in Radius", false),
+            new Skill("Radial Blast", "Blasts Back", false),
+            new Skill("Sun", "Blind in Radius", false),
         };
 
         skillList = new List<List<Skill>>
@@ -106,7 +110,7 @@ public class newSkillTree : MonoBehaviour
                 skillImage = skillType.transform.GetChild(j).GetComponent<Image>();
                 skillImage.sprite = skillList[i][j].sprite;
                 skillImage.name = skillList[i][j].displayName;
-                if(skillList[i][j].name == "Energy Blast" || skillList[i][j].name == "Shield")
+                if(skillList[i][j].name == "EnergyBlast" || skillList[i][j].name == "Shield")
                 {
                     skillList[i][j].unlocked = true;
                     skillList[i][i].sprite = Resources.Load<Sprite>("UI/" + skillList[i][j].displayName + "_Activated");
@@ -180,7 +184,7 @@ public class newSkillTree : MonoBehaviour
         {
             for (int j = 0; j < skillList[i].Count; j++)
             {
-                if (chosenSkill.displayName == "Blinds" && skillPoints > 0 && !skillList[i][j].unlocked)
+                if (chosenSkill.displayName == "Sun" && skillPoints > 0 && !skillList[i][j].unlocked)
                 {
                     if (skillList[0][0].unlocked && skillList[1][0].unlocked)
                     {
@@ -189,9 +193,10 @@ public class newSkillTree : MonoBehaviour
                         skillPoints--;
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
                         infoSection.transform.GetChild(3).gameObject.SetActive(true);
+                        infoSection.transform.GetChild(4).GetComponent<Image>().sprite = chosenSkill.sprite;
                     }
                 }
-                else if (chosenSkill.displayName == "Blasts Back" && skillPoints > 0 && !skillList[i][j].unlocked)
+                else if (chosenSkill.displayName == "Radial Blast" && skillPoints > 0 && !skillList[i][j].unlocked)
                 {
                     if (skillList[0][2].unlocked && skillList[1][1].unlocked)
                     {
@@ -200,6 +205,7 @@ public class newSkillTree : MonoBehaviour
                         skillPoints--;
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
                         infoSection.transform.GetChild(3).gameObject.SetActive(true);
+                        infoSection.transform.GetChild(4).GetComponent<Image>().sprite = chosenSkill.sprite;
                     }
                 }
                 else
@@ -214,6 +220,7 @@ public class newSkillTree : MonoBehaviour
                             skillPoints--;
                             infoSection.transform.GetChild(2).gameObject.SetActive(false);
                             infoSection.transform.GetChild(3).gameObject.SetActive(true);
+                            infoSection.transform.GetChild(4).GetComponent<Image>().sprite = chosenSkill.sprite;
                         }
                     }
                 }

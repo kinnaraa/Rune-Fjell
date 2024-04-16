@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ThisGuyStinks : MonoBehaviour
 {
@@ -14,6 +16,12 @@ public class ThisGuyStinks : MonoBehaviour
     private Transform initialGnomeLocation;
     public QuestManager questManager;
     public newSkillTree skillTree;
+
+    public Image blackScreen;
+    public float fadeDuration = 1f;
+    public GameObject cutsceneText;
+
+    public WhereArtGnome WAG;
 
     // Start is called before the first frame update
     void Start()
@@ -57,11 +65,11 @@ public class ThisGuyStinks : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("talking to him again");
                 talkToWeedGnome2();
 
                 questManager.allQuests["This Guy Stinks"].isActive = false;
                 skillTree.skillPoints += 3;
+                startCutscene();
             }
         }
     }
@@ -74,5 +82,50 @@ public class ThisGuyStinks : MonoBehaviour
     void talkToWeedGnome2()
     {
         // dialogue telling you thank you and then explains bind runes to you
+    }
+
+    void startCutscene()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeOut()
+    {
+        questManager.allQuests["Where Art Gnome"].isActive = true;
+
+        float elapsedTime = 0f;
+        Color currentColor = blackScreen.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            currentColor.a = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+            blackScreen.color = currentColor;
+            yield return null;
+        }
+
+        cutsceneText.SetActive(true);
+
+        yield return new WaitForSeconds(5f); // Wait for 3 seconds
+
+        cutsceneText.SetActive(false);
+
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+        Color currentColor = blackScreen.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            currentColor.a = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            blackScreen.color = currentColor;
+            yield return null;
+        }
+
+        WAG.StartQuest();
     }
 }

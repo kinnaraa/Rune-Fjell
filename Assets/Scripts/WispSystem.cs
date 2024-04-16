@@ -47,7 +47,6 @@ public class WispSystem : MonoBehaviour
 
                     questManager.allQuests["Follow the Wisps"].isActive = false;
                     questManager.allQuests["Help the Gnome"].isActive = true;
-                    Debug.Log("follow inactive, help active");
 
                     StartCoroutine(GM.SaveTheGnome());
                 }
