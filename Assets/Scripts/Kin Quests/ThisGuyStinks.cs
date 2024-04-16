@@ -21,6 +21,8 @@ public class ThisGuyStinks : MonoBehaviour
     public float fadeDuration = 1f;
     public GameObject cutsceneText;
 
+    public WhereArtGnome WAG;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,7 +109,6 @@ public class ThisGuyStinks : MonoBehaviour
         yield return new WaitForSeconds(5f); // Wait for 3 seconds
 
         cutsceneText.SetActive(false);
-        //Instantiate gnomes in village
 
         StartCoroutine(FadeIn());
     }
@@ -124,5 +125,7 @@ public class ThisGuyStinks : MonoBehaviour
             blackScreen.color = currentColor;
             yield return null;
         }
+
+        WAG.StartQuest();
     }
 }
