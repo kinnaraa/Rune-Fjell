@@ -12618,6 +12618,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 36630128880108400, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
+      propertyPath: spitPos
+      value: 
+      objectReference: {fileID: 1383606848}
     - target: {fileID: 1086506516982269888, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_Name
       value: Wyrm
@@ -12667,6 +12671,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
+--- !u!4 &1383606848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 247704144486728733, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
+  m_PrefabInstance: {fileID: 1383606847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1386245640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1d320ed13358eac41b28f482ddd6e170, type: 3}
