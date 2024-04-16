@@ -33,6 +33,7 @@ public class newSkillTree : MonoBehaviour
     public GameObject infoSection;
 
     public GameManager gm;
+    public Monolith monolith;
 
     public class Skill
     {
@@ -152,6 +153,31 @@ public class newSkillTree : MonoBehaviour
         if (gm.finishedQuest)
         {
             skillList[1][0].unlocked = true;
+        }
+
+        if (monolith.raidoUnlocked)
+        {
+            skillList[2][1].unlocked = true;
+        }
+
+        if (monolith.sowiloUnlocked)
+        {
+            skillList[0][0].unlocked = true;
+        }
+
+        if (monolith.isaUnlocked)
+        {
+            skillList[0][6].unlocked = true;
+        }
+
+        if (monolith.halagazUnlocked)
+        {
+            skillList[0][4].unlocked = true;
+        }
+
+        if (monolith.ehwazUnlocked)
+        {
+            skillList[0][8].unlocked = true;
         }
 
         for (int i = 0; i < 3; i++)

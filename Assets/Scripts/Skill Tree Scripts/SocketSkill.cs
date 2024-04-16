@@ -22,21 +22,21 @@ public class SocketSkill : MonoBehaviour
 
         if (!gameStart)
         {
+            transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = newSkillTree.nullSkill.sprite;
+            transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = newSkillTree.nullSkill.sprite;
             transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[0][2].sprite;
+            transform.GetChild(3).GetChild(0).GetComponent<Image>().sprite = newSkillTree.nullSkill.sprite;
             transform.GetChild(4).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[1][3].sprite;
-            transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[0][4].sprite;
-            transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[0][8].sprite;
-            transform.GetChild(3).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[0][6].sprite;
-            transform.GetChild(5).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[0][5].sprite;
-            transform.GetChild(6).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[0][3].sprite;
+            transform.GetChild(5).GetChild(0).GetComponent<Image>().sprite = newSkillTree.nullSkill.sprite;
+            transform.GetChild(6).GetChild(0).GetComponent<Image>().sprite = newSkillTree.nullSkill.sprite;
 
-            socketedSkills[0] = newSkillTree.skillList[0][4]; //storm
-            socketedSkills[1] = newSkillTree.skillList[0][8]; // earthspike
+            socketedSkills[0] = newSkillTree.nullSkill; //storm
+            socketedSkills[1] = newSkillTree.nullSkill;
             socketedSkills[2] = newSkillTree.skillList[0][2]; // energyblast
-            socketedSkills[3] = newSkillTree.skillList[0][6]; // ice
+            socketedSkills[3] = newSkillTree.nullSkill;
             socketedSkills[4] = newSkillTree.skillList[1][3]; // shield
-            socketedSkills[5] = newSkillTree.skillList[0][5]; // hail
-            socketedSkills[6] = newSkillTree.skillList[0][3]; // lightning smites
+            socketedSkills[5] = newSkillTree.nullSkill;
+            socketedSkills[6] = newSkillTree.nullSkill;
             gameStart = true;
         }
         
