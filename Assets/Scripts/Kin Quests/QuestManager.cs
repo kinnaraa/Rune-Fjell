@@ -24,7 +24,7 @@ public class QuestManager : MonoBehaviour
         allQuests["Find the Gnome Village"] = new QuestLog.Quest("Find the Gnome Village", "Follow the gnome as he leads you to his village.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 2));
         allQuests["This Guy Stinks"] = new QuestLog.Quest("This Guy Stinks", "An unsual gnome in a smokey hut has some important info for you. But you must bring him what he wants to learn his secrets.\nMushrooms: " + TGS.mushroomCount + " / 10", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 3));
         allQuests["Good For Nothing Son"] = new QuestLog.Quest("Good For Nothing Son", "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 1 berry.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 2));
-        allQuests["Where Art Gnome"] = new QuestLog.Quest("Where Art Gnome", "Several Gnomes have gone missing in the night!", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 6));
+        allQuests["Where Art Gnome"] = new QuestLog.Quest("Where Art Gnome", "You hear loud commotion coming from the gnome town square.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 6));
         allQuests["Something Lurking"] = new QuestLog.Quest("Something Lurking in the Deep", "He?s heard legends of a great worm who would eventually awake to destroy gnomekind. Destroy him before he kills us all.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 3));
 
         allQuests["Follow the Wisps"].questObject = questContent.transform.GetChild(0).gameObject;
@@ -42,6 +42,9 @@ public class QuestManager : MonoBehaviour
         TGSinfo = "An unsual gnome in a smokey hut has some important info for you. But you must bring him what he wants to learn his secrets.\nMushrooms: " + TGS.mushroomCount + " / 10";
         GFNSinfo = "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 1 berry.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3";
 
+        allQuests["This Guy Stinks"].infoText = TGSinfo;
+        allQuests["Good For Nothing Son"].infoText = GFNSinfo;
+
         foreach (var q in allQuests)
         {
             if (q.Key == "Follow the Wisps")
@@ -50,6 +53,7 @@ public class QuestManager : MonoBehaviour
                 q.Value.questObject.transform.GetChild(3).gameObject.SetActive(false);
                 q.Value.questObject.transform.GetChild(5).gameObject.SetActive(false);
             }
+
             q.Value.questObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = q.Value.title;
             q.Value.questObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = q.Value.infoText;
             q.Value.questObject.transform.GetChild(3).GetComponent<Image>().sprite = q.Value.rewardPairs.Key;

@@ -12,7 +12,7 @@ public class FindGnomeVillageQuest : MonoBehaviour
     public bool OnFirstPath = false;
     private int index;
     public QuestManager questManager;
-    private bool foundVillage = false;
+    public bool foundVillage = false;
 
     public NothingSonQuest nothingSonQuest;
 
