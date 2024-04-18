@@ -120,6 +120,7 @@ public class ThisGuyStinks : MonoBehaviour
 
             if (dialogueCount >= 7 && !questOver)
             {
+                weedGnomeSpeech.text = "";
                 EButton.SetActive(false);
                 questManager.allQuests["This Guy Stinks"].isActive = false;
                 skillTree.skillPoints += 3;

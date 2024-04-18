@@ -30,6 +30,8 @@ public class NothingSonQuest : MonoBehaviour
     public GameObject EButton;
     private int dialogueCount = 0;
 
+    public FindGnomeVillageQuest FGV;
+
     public void Start()
     {
         //questStarted = true;
@@ -44,7 +46,7 @@ public class NothingSonQuest : MonoBehaviour
         dialogue[2] = "I'm sorry my son doesn't know any better, he really needs to get his life together.";
         dialogue[3] = "Would you mind helping me get supplies for dinner sine my son seems to be good for nothing?";
         dialogue[4] = "I just need 2 berries for my meal and 3 wood stacks for my fire.";
-        dialogue[5] = "There should be some by the glade just down the hill. It's always glowing down there, you can't miss it!";
+        dialogue[5] = "There should be some by the glade just down the way you came and to the left.";
 
         dialogue2[0] = "Thank you so much, this is exactly what I needed!";
         dialogue2[1] = "I see my son gave you that interesting little rock he had.";
@@ -57,7 +59,7 @@ public class NothingSonQuest : MonoBehaviour
         //float distanceGnomeHouse = Vector3.Distance(player.transform.position, GnomeHouse.transform.position);
         float distanceGnome = Vector3.Distance(Player.transform.position, MomGnome.transform.position);
 
-        if ( distanceGnome < 3 && !questStarted)
+        if ( distanceGnome < 3 && !questStarted && FGV.foundVillage)
         {
             //Gnome Dialogue with Player
             EButton.transform.localScale = new Vector3(0, 0, 0);
@@ -121,12 +123,6 @@ public class NothingSonQuest : MonoBehaviour
     public void StartQuest()
     {
         questStarted = true;
-    }
-
-    // Logic for Gnome Dialogue
-    public void TalkToGnome()
-    {
-        
     }
 
 /*    public void OnTriggerEnter(Collider other)
