@@ -1,10 +1,8 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class EscMenuScript : MonoBehaviour
+public class DontDestroyOnLoad : MonoBehaviour
 {
-    // Static reference to the player instance
-    public static EscMenuScript Instance { get; private set; }
+   public static DontDestroyOnLoad Instance { get; private set; }
 
     // Optional: Add any player-specific variables or methods here
 
@@ -23,16 +21,5 @@ public class EscMenuScript : MonoBehaviour
 
         // Make the player object persist between scenes
         DontDestroyOnLoad(gameObject);
-        gameObject.SetActive(false);
-    }
-
-    // Optional: Add any player-specific initialization logic here
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenuScene");
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

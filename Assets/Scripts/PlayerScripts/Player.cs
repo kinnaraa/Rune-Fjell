@@ -1,9 +1,33 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    // Static reference to the player instance
+    public static Player Instance { get; private set; }
+
+    // Optional: Add any player-specific variables or methods here
+
+    private void Awake()
+    {
+        // Check if an instance already exists
+        if (Instance != null && Instance != this)
+        {
+            // If an instance already exists, destroy this instance
+            Destroy(gameObject);
+            return;
+        }
+
+        // Set the instance to this object
+        Instance = this;
+
+        // Make the player object persist between scenes
+        DontDestroyOnLoad(gameObject);
+    }
+
+    // Optional: Add any player-specific initialization logic here
     public float PlayerHealth;
     public float PlayerStamina;
     public int HealthRegenRate;
@@ -28,8 +52,23 @@ public class Player : MonoBehaviour
 
     private bool canOpenMenu = true;
 
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Unsubscribe from the sceneLoaded event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        // Set the player's position and rotation after the scene has loaded
+        gameObject.SetActive(false);
+        transform.localPosition = new Vector3(-144.960007f,20.7600002f,65.3499985f);
+        transform.localScale = new Vector3(1.80072713f,1.80072713f,1.80072713f);
+        gameObject.SetActive(true);
+        PlayerStamina = 100;
+        PlayerHealth = 100;
+    }
+
     public void Update()
     {
+        Cam = GameObject.Find("Main Camera").GetComponent<ThirdPersonCam>();
         if(PlayerHealth <= 0)
         {
             Kill();

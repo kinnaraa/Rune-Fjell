@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ThirdPersonCam : MonoBehaviour
@@ -20,6 +18,12 @@ public class ThirdPersonCam : MonoBehaviour
 
     private void Update()
     {
+        orientation = GameObject.Find("Orientation").transform;
+        player = GameObject.Find("Player").transform;
+        playerObj = player.GetChild(0).transform;
+        rb = GameObject.Find("Player").GetComponent<Rigidbody>();
+        combatLookAt = orientation.GetChild(0).transform;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         
