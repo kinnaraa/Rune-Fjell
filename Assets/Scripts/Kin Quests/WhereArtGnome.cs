@@ -50,9 +50,7 @@ public class WhereArtGnome : MonoBehaviour
     {
         if (startedQuest && Vector3.Distance(Player.transform.position, triggerCutsene.transform.position) < 10.0f)
         {
-            Player.GetComponent<PlayerMovement>().enabled = false;
-
-            EButton.transform.localScale = new Vector3(0, 0, 0);
+            EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
 
             mayorSpeech.text = dialogue[dialogueCount];
@@ -66,7 +64,6 @@ public class WhereArtGnome : MonoBehaviour
             if(dialogueCount >= 3)
             {
                 EButton.SetActive(false);
-                Player.GetComponent<PlayerMovement>().enabled = true;
                 canTalkToMayor = true;
             }
             
@@ -96,9 +93,6 @@ public class WhereArtGnome : MonoBehaviour
             blackScreen.color = currentColor;
             yield return null;
         }
-
-        // move camera
-        
 
         yield return new WaitForSeconds(1f);
 
