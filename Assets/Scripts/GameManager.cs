@@ -152,7 +152,8 @@ public class GameManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(0, 0, 0);
             secondQuestBegan = false;
             index = 0;
-            //unlock kenaz rune
+
+            //unlock kenaz rune and finish/start quests
             questManager.allQuests["Help the Gnome"].isActive = false;
             questManager.allQuests["Find the Gnome Village"].isActive = true;
 
@@ -166,6 +167,7 @@ public class GameManager : MonoBehaviour
             Player.GetComponentInParent<Player>().Cam.enabled = false;
             TMS.OpenSkillTree();
             finishedQuest = true;
+            // is there a way to make the kenaz rune selected?
 
             findVillageQuest.StartPath();
         }
