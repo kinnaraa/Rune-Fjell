@@ -27,11 +27,11 @@ public class WhereArtGnome : MonoBehaviour
     public TextMeshProUGUI mayorSpeech;
 
     public GameObject EButton;
-    public bool mayorRadius = false;
     private float fadeDuration = 1.0f;
     private int dialogueCount = 0;
 
     private bool canTalkToMayor = false;
+    public 
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +48,7 @@ public class WhereArtGnome : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startedQuest && Vector3.Distance(Player.transform.position, triggerCutsene.transform.position) < 10.0f)
+        if (startedQuest && Vector3.Distance(Player.transform.position, triggerCutsene.transform.position) < 10.0f && !canTalkToMayor)
         {
             EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
@@ -61,13 +61,14 @@ public class WhereArtGnome : MonoBehaviour
 
             Debug.Log(dialogueCount);
 
-            if(dialogueCount >= 3)
+            if(dialogueCount >= 4)
             {
                 EButton.SetActive(false);
                 canTalkToMayor = true;
-            }
-            
+            }  
         }
+
+        //if(canTalkToMayor && Vector3.Distance(Player.transform.position, ))
     }
 
     public void StartQuest()
@@ -114,7 +115,4 @@ public class WhereArtGnome : MonoBehaviour
             yield return null;
         }
     }
-
-    // what happens after
-    
 }

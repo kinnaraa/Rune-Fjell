@@ -13,6 +13,9 @@ public class QuestManager : MonoBehaviour
     public ThisGuyStinks TGS;
     public NothingSonQuest GFNS;
 
+    private string TGSinfo;
+    private string GFNSinfo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,9 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TGSinfo = "An unsual gnome in a smokey hut has some important info for you. But you must bring him what he wants to learn his secrets.\nMushrooms: " + TGS.mushroomCount + " / 10";
+        GFNSinfo = "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 1 berry.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3";
+
         foreach (var q in allQuests)
         {
             if (q.Key == "Follow the Wisps")
