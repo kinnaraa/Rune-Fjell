@@ -12634,11 +12634,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 36630128880108400, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-<<<<<<< Updated upstream
-      propertyPath: spitPos
-      value: 
-      objectReference: {fileID: 1383606848}
-=======
       propertyPath: spitSound
       value: 
       objectReference: {fileID: 75912724}
@@ -12650,7 +12645,6 @@ PrefabInstance:
       propertyPath: attackSound
       value: 
       objectReference: {fileID: 75912727}
->>>>>>> Stashed changes
     - target: {fileID: 1086506516982269888, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_Name
       value: Wyrm
