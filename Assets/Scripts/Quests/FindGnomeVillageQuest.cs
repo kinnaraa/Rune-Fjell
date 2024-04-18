@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+using TMPro;
 
 public class FindGnomeVillageQuest : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class FindGnomeVillageQuest : MonoBehaviour
     public bool OnFirstPath = false;
     private int index;
     public QuestManager questManager;
+    private bool foundVillage = false;
+
+    public NothingSonQuest nothingSonQuest;
 
     public void Start()
     {
@@ -32,8 +37,13 @@ public class FindGnomeVillageQuest : MonoBehaviour
                     }
                     else
                     {
-                        questManager.allQuests["Find the Gnome Village"].isActive = false;
-                        questManager.allQuests["Good For Nothing Son"].isActive = true;
+                        if (!foundVillage)
+                        {
+                            questManager.allQuests["Find the Gnome Village"].isActive = false;
+                            questManager.allQuests["Good For Nothing Son"].isActive = true;
+                            GM.gnomeTalk.text = "";
+                        }
+                        foundVillage = true;
                     }
                 }
             }

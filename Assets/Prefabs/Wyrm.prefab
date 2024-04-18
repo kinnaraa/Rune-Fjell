@@ -82,6 +82,7 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   spitSound: {fileID: 0}
   enterSound: {fileID: 0}
+  spitPos: {fileID: 0}
   spawn: {x: 0, y: 0, z: 0}
 --- !u!54 &5850977087420639890
 Rigidbody:
@@ -91,7 +92,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086506516982269888}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

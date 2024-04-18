@@ -1,6 +1,8 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using static QuestLog;
 
 public class NothingSonQuest : MonoBehaviour
@@ -21,16 +23,33 @@ public class NothingSonQuest : MonoBehaviour
     public int numWood;
     public bool itemsCollected;
     bool questDone = false;
-    
+
+    private string[] dialogue = new string[6];
+    private string[] dialogue2 = new string[4];
+    public TextMeshProUGUI momSpeech;
+    public GameObject EButton;
+    private int dialogueCount = 0;
 
     public void Start()
     {
         //questStarted = true;
         questStarted = false;
         itemsCollected = false;
-        numBerry = 2;
-        numWood = 3;
+        numBerry = 0;
+        numWood = 0;
         //Update Quest Log (start)
+
+        dialogue[0] = "My son! I was so worried for you, don't ever leave me like that again!";
+        dialogue[1] = "Thank you for helping him home.";
+        dialogue[2] = "I'm sorry my son doesn't know any better, he really needs to get his life together.";
+        dialogue[3] = "Would you mind helping me get supplies for dinner sine my son seems to be good for nothing?";
+        dialogue[4] = "I just need 2 berries for my meal and 3 wood stacks for my fire.";
+        dialogue[5] = "There should be some by the glade just down the hill. It's always glowing down there, you can't miss it!";
+
+        dialogue2[0] = "Thank you so much, this is exactly what I needed!";
+        dialogue2[1] = "I see my son gave you that interesting little rock he had.";
+        dialogue2[2] = "If you're looking to learn more about it, I can point you in the right direction...";
+        dialogue2[3] = "I would take that to the gnome in the smokey hut in the back of town. He'll have some info for you.";
     }
 
     public void Update()
@@ -38,12 +57,26 @@ public class NothingSonQuest : MonoBehaviour
         //float distanceGnomeHouse = Vector3.Distance(player.transform.position, GnomeHouse.transform.position);
         float distanceGnome = Vector3.Distance(Player.transform.position, MomGnome.transform.position);
 
-        if ( distanceGnome < 3 && Input.GetKeyDown(KeyCode.E) && !questStarted)
+        if ( distanceGnome < 3 && !questStarted)
         {
-            questStarted = true;
             //Gnome Dialogue with Player
-            TalkToGnome();
-            Debug.Log("Talking to Mom Gnome");
+            EButton.transform.localScale = new Vector3(0, 0, 0);
+            EButton.SetActive(true);
+
+            momSpeech.text = dialogue[dialogueCount];
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                dialogueCount++;
+            }
+
+            if (dialogueCount >= 6)
+            {
+                EButton.SetActive(false);
+                dialogueCount = 0;
+                momSpeech.text = "";
+                questStarted = true;
+            }
+
         }
 
         if (questStarted)
@@ -51,20 +84,34 @@ public class NothingSonQuest : MonoBehaviour
             //float distanceBerry = Vector3.Distance(Player.transform.position, Berry.transform.position);
             //float distanceWood = Vector3.Distance(Player.transform.position, Wood.transform.position);
 
-            if (numWood <= 0 && numBerry <= 0)
+            if (numWood >= 3 && numBerry >= 2)
             {
                 itemsCollected = true;
-                Debug.Log("Quest nearly complete");
                 //Update Quest Log (done)
             }
 
             if (itemsCollected && (distanceGnome < 2) && !questDone)
             {
-                Debug.Log("Quest Complete!");
-                questDone = true;
-                questManager.allQuests["Good For Nothing Son"].isActive = false;
-                skillTree.skillPoints += 3;
-                questManager.allQuests["This Guy Stinks"].isActive = true;
+                EButton.transform.localScale = new Vector3(0, 0, 0);
+                EButton.SetActive(true);
+
+                momSpeech.text = dialogue2[dialogueCount];
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    dialogueCount++;
+                }
+
+                if (dialogueCount >= 4)
+                {
+                    EButton.SetActive(false);
+                    momSpeech.text = "";
+
+                    questDone = true;
+
+                    questManager.allQuests["Good For Nothing Son"].isActive = false;
+                    skillTree.skillPoints += 3;
+                    questManager.allQuests["This Guy Stinks"].isActive = true;
+                }
             }
         }
 
