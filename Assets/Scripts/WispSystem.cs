@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class WispSystem : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class WispSystem : MonoBehaviour
     public GameObject Player;
     public GameObject Gnome;
     public Transform[] FirstSetOfPoints;
+    public string[] WispText = new string[5];
     private bool firstPath = false;
     private bool OnFirstPath = false;
     private GameObject CurrentWisp;
@@ -25,6 +27,7 @@ public class WispSystem : MonoBehaviour
         if (firstPath)
         {
             CurrentWisp = Instantiate(Wisp, FirstSetOfPoints[index].position, FirstSetOfPoints[index].rotation);
+            CurrentWisp.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = WispText[index];
             firstPath = false;
             OnFirstPath = true;
         }
@@ -40,6 +43,7 @@ public class WispSystem : MonoBehaviour
                 if (index < FirstSetOfPoints.Length)
                 {
                     CurrentWisp = Instantiate(Wisp, FirstSetOfPoints[index].position, FirstSetOfPoints[index].rotation);
+                    CurrentWisp.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().text = WispText[index];
                 }
                 else
                 {
