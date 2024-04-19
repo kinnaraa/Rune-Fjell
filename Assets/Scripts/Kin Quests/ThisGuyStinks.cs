@@ -37,9 +37,9 @@ public class ThisGuyStinks : MonoBehaviour
     void Start()
     {
         initialGnomeLocation = weedGnome.transform;
-        dialogue[0] = "I've been expecting you...";
-        dialogue[1] = "I know what you have, and I know that you don't know what you have. *snickers*";
-        dialogue[2] = "That thing you have may unlock a whole magical world for you traveler.";
+        dialogue[0] = "Ahhh, yes. It's you. I've been expecting you...";
+        dialogue[1] = "I know what you have... and I know you don't know what it is. *snickers*";
+        dialogue[2] = "That thing you have may unlock a whole magical world for you, traveler.";
         dialogue[3] = "How about this? Find me 10 mushrooms for my... studies... and I'll tell you some of my secrets.";
         dialogue[4] = "There should be some if you follow the path straight when leaving town.";
         dialogue[5] = "";

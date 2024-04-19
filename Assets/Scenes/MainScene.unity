@@ -9039,9 +9039,11 @@ MonoBehaviour:
   mayorSpeech: {fileID: 919652582}
   EButton: {fileID: 318535165}
   NormalMayorGnome: {fileID: 123777284}
-  secondDialogue: {fileID: 1475504982}
+  normalMayorDialogue: {fileID: 1475504982}
   normalMayorEButton: {fileID: 1556364626}
   bigBoys: {fileID: 1624770025}
+  fightingCreatures: 0
+  questManager: {fileID: 813582832}
 --- !u!1 &618209024
 GameObject:
   m_ObjectHideFlags: 0
@@ -14059,6 +14061,8 @@ MonoBehaviour:
   currentQuest: {fileID: 1433650609}
   TGS: {fileID: 944333296}
   GFNS: {fileID: 580793206}
+  WAGinfo: 
+  WAG: {fileID: 605559192}
 --- !u!1001 &823602533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40786,8 +40790,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1053931588}
   - {fileID: 1146608110}
+  - {fileID: 1053931588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1625640187 stripped

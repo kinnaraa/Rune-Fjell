@@ -15,6 +15,9 @@ public class QuestManager : MonoBehaviour
 
     private string TGSinfo;
     private string GFNSinfo;
+    public string WAGinfo;
+
+    public WhereArtGnome WAG;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +44,16 @@ public class QuestManager : MonoBehaviour
     {
         TGSinfo = "An unsual gnome in a smokey hut has some important info for you. But you must bring him what he wants to learn his secrets.\nMushrooms: " + TGS.mushroomCount + " / 10";
         GFNSinfo = "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 1 berry.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3";
+        WAGinfo = "You hear loud commotion coming from the gnome town square.";
+
+        if (WAG.fightingCreatures)
+        {
+            WAGinfo = "The Gnome Leader has tasked you to defeat surrounding enemies in search of a clue to the gnomes disappearances.\nMega Bats: 1\nDark Ice Creatures: 1";
+        }
 
         allQuests["This Guy Stinks"].infoText = TGSinfo;
         allQuests["Good For Nothing Son"].infoText = GFNSinfo;
+        allQuests["Where Art Gnome"].infoText = WAGinfo;
 
         foreach (var q in allQuests)
         {
