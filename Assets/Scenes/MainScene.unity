@@ -9044,6 +9044,7 @@ MonoBehaviour:
   bigBoys: {fileID: 1624770025}
   fightingCreatures: 0
   questManager: {fileID: 813582832}
+  skillTree: {fileID: 1892440097}
 --- !u!1 &618209024
 GameObject:
   m_ObjectHideFlags: 0
