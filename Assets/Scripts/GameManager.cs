@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public float distance;
     public GameObject[] currentSpeaker;
 
+    AudioSource GnomeVoice;
+
     public FindGnomeVillageQuest findVillageQuest;
     private List<string> dialogue = new List<string>
     {
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        GnomeVoice = currentSpeaker[0].GetComponent<AudioSource>();
         distance = Vector3.Distance(Player.transform.position, currentSpeaker[0].transform.position);
         if(FirstBatDead && secondQuestBegan)
         {
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(0, 0, 0);
+                GnomeVoice.Stop();
             }
         }
     }
@@ -145,6 +149,13 @@ public class GameManager : MonoBehaviour
     {
         if(index < dialogue.Count)
         {
+            //makes the loop re-start if you click
+            if (GnomeVoice.isPlaying)
+            {
+                GnomeVoice.Stop();
+            }
+            GnomeVoice.Play();
+
             gnomeTalk.text = dialogue[index];
         }
         else
