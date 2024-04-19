@@ -8,6 +8,8 @@ public class EnterTheCave : MonoBehaviour
     public PlayerMagic Magic;
     public Player Player;
 
+    public AudioClip[] sounds;
+
     public static EnterTheCave Instance { get; private set; }
 
     // Optional: Add any player-specific variables or methods here
@@ -38,6 +40,10 @@ public class EnterTheCave : MonoBehaviour
         Cam.enabled = true;
         PM.enabled = true;
         Magic.enabled = true;
+
+        //changhe to cave music
+        AudioSource source = GameObject.Find("PlayerAudio").GetComponent<AudioSource>();
+        source.clip = sounds[1];
 
         // Subscribe to the sceneLoaded event
         SceneManager.sceneLoaded += Player.OnSceneLoaded;

@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     public PlayerMovement PM;
     public ThirdPersonCam Cam;
     public PlayerMagic Magic;
+    
 
     [Header("Keybinds")]
     public KeyCode TabMenu = KeyCode.Tab;
@@ -51,6 +52,10 @@ public class Player : MonoBehaviour
     private bool escMenuOpen;
 
     private bool canOpenMenu = true;
+
+    public AudioClip deathSound;
+    private AudioSource SpecialSounds;
+
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -68,6 +73,7 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        SpecialSounds = GameObject.Find("SpecialPlayerAudio").GetComponent<AudioSource>();
         Cam = GameObject.Find("Main Camera").GetComponent<ThirdPersonCam>();
         if(PlayerHealth <= 0)
         {
@@ -146,8 +152,12 @@ public class Player : MonoBehaviour
 
     public void Kill()
     {
+
+        SpecialSounds.clip = deathSound;
+        SpecialSounds.Play();
         transform.position = spawn.position;
         PlayerHealth = 100;
         PlayerStamina = 100;
+        GameObject.Find("Player").GetComponent<PlayerMovement>().stepCoolDown = 0;
     }
 }

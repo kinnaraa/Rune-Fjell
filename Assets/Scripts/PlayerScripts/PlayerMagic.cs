@@ -23,6 +23,10 @@ public class PlayerMagic : MonoBehaviour
 
     private Animator animator;
 
+    public AudioClip magicSound;
+    private AudioSource SpecialSounds;
+
+
     public void Start()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -62,6 +66,8 @@ public class PlayerMagic : MonoBehaviour
         abilities[6] = allAbilities[0];
 
         SetAbilityUI();
+
+        SpecialSounds = GameObject.Find("SpecialPlayerAudio").GetComponent<AudioSource>();
     }
 
     public void Update() 
@@ -88,6 +94,8 @@ public class PlayerMagic : MonoBehaviour
         {
             if(currentAbility.Name != "Null")
             {
+                SpecialSounds.clip = magicSound;
+                SpecialSounds.Play();
                 animator.SetBool("Attackin", true);
                 StartCoroutine(Wait());
             }
@@ -111,6 +119,7 @@ public class PlayerMagic : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(pauseTime);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
+        GameObject.Find("Player").GetComponent<PlayerMovement>().stepCoolDown = 0;
         animator.SetBool("Attackin", false);
     }
 

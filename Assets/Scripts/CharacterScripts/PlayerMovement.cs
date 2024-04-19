@@ -37,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool Healing = true;
 
+    public AudioClip walkingSound;
+    private AudioSource SpecialSounds;
+    public float stepCoolDown;
+    public float stepRate = 0.1f;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -48,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
 
         StartCoroutine(DeductStam());
         StartCoroutine(RegainStam());
+
+        SpecialSounds = GameObject.Find("SpecialPlayerAudio").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -89,6 +97,11 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
+    public IEnumerator soundDelay()
+    {
+        SpecialSounds.Play();
+        yield return new WaitForSeconds(SpecialSounds.clip.length);
+    }
 
     private void MovePlayer()
     {
@@ -100,6 +113,24 @@ public class PlayerMovement : MonoBehaviour
 
         // Set the "IsWalking" parameter of the animator
         animator.SetBool("IsWalking", isWalking);
+        if (isWalking && stepCoolDown <= 0f)
+        {
+            if(((SpecialSounds.clip.name == "Player_DeathV1" || SpecialSounds.clip.name == "Player_Magic") && !SpecialSounds.isPlaying) || (SpecialSounds.clip.name == "Player_Footsteps" && !SpecialSounds.isPlaying)) {
+                SpecialSounds.clip = walkingSound;
+                SpecialSounds.Play();
+                stepCoolDown = 500f;
+            }
+            
+        }
+        else if (!isWalking && SpecialSounds.clip.name == "Player_Footsteps")
+        {
+            SpecialSounds.Stop();
+            stepCoolDown = 0;
+        }
+        else
+        {
+            stepCoolDown = stepCoolDown - stepRate;
+        }
 
         // on ground
         if (grounded)
@@ -108,11 +139,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(moveDirection.normalized * (moveSpeed * sprintSpeed) * 10f, ForceMode.Force);
                 animator.SetBool("IsRunnin", true);
+                if (stepCoolDown <= 0f)
+                {
+                    SpecialSounds.clip = walkingSound;
+                    SpecialSounds.Play();
+                    stepCoolDown = 500f;
+                }
             }
             else
             {
                 rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
                 animator.SetBool("IsRunnin", false);
+                
             }
         }
         // in air
