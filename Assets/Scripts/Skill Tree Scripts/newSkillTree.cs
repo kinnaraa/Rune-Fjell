@@ -280,6 +280,7 @@ public class newSkillTree : MonoBehaviour
                     }   
                     infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.displayName;
                     infoSection.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = chosenSkill.infoBlurb;
+                    infoSection.transform.GetChild(4).GetComponent<Image>().sprite = chosenSkill.sprite;
                 }
             }
         }
