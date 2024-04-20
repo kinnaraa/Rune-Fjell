@@ -1,4 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.EventSystems;
+using System.Linq;
+using System.IO;
 
 public class TabMenuScript : MonoBehaviour
 {
@@ -7,6 +13,8 @@ public class TabMenuScript : MonoBehaviour
     public GameObject Map;
     public GameObject SkillTree;
     public GameObject QuestLog;
+
+    public newSkillTree skillTree;
 
     // Optional: Add any player-specific variables or methods here
 
@@ -44,7 +52,15 @@ public class TabMenuScript : MonoBehaviour
     {
         Map.SetActive(false);
         QuestLog.SetActive(false);
+
+        skillTree.infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Skill Tree";
+        skillTree.infoSection.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Unlock Runes at Monoliths around the island or through major quest rewards.\n\nBind runes are abilities located between Runes and require both of their surrounding Runes to be unlocked before being able to unlock the Bindrune.\n\nUnlock Bindrunes through skill points which are gained through quest completion.";
+        skillTree.infoSection.transform.GetChild(3).gameObject.SetActive(false);
+        skillTree.infoSection.transform.GetChild(2).gameObject.SetActive(false);
+
         SkillTree.SetActive(true);
+        
+        //skillTree.infoSection.transform.GetChild(4).GetComponent<Image>().sprite = skillTree.nullSkill.sprite;
     }
 
     public void OpenQuestLog()

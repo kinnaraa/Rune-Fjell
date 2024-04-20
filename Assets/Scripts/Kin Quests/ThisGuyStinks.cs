@@ -46,11 +46,12 @@ public class ThisGuyStinks : MonoBehaviour
 
         dialogue2[0] = "Ahh, you're back. I can smell the mushrooms on you, hand them over.";
         dialogue2[1] = "Thank you very much. Now let me explain to you this little rock here that you have.";
-        dialogue2[2] = "Explain 1";
-        dialogue2[3] = "Explain 2";
-        dialogue2[4] = "Explain 3";
-        dialogue2[5] = "Explain 4";
-        dialogue2[6] = "Anyways , it's getting late, come stay with me for the night.";
+        dialogue2[2] = "Long ago there were rocks inscribed with nordic runes, giving them unbelievable powers.";
+        dialogue2[3] = "Many are lost, but even those that were found could not be weilded by any soul who tried.";
+        dialogue2[4] = "There must be something special about you, traveler.";
+        dialogue2[5] = "There are monoliths around this island engraved with the missing runes which only began glowing once you arrived.";
+        dialogue2[6] = "Once you multiple runes, you may even be able to combine them into \"bind runes\"...";
+        dialogue2[7] = "Anyways, it's getting late, come stay with me for the night.";
     }
 
     // Update is called once per frame
@@ -118,7 +119,7 @@ public class ThisGuyStinks : MonoBehaviour
 
             Debug.Log(dialogueCount);
 
-            if (dialogueCount >= 7 && !questOver)
+            if (dialogueCount >= 8 && !questOver)
             {
                 weedGnomeSpeech.text = "";
                 EButton.SetActive(false);
