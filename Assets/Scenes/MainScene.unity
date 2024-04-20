@@ -643,12 +643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 1892440097}
 --- !u!65 &109167651
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3340,6 +3334,11 @@ MonoBehaviour:
   - {fileID: 1803727718}
   - {fileID: 1356822655}
   FoundMonoliths: []
+  raidoUnlocked: 0
+  ehwazUnlocked: 0
+  halagazUnlocked: 0
+  isaUnlocked: 0
+  sowiloUnlocked: 0
 --- !u!4 &351510298
 Transform:
   m_ObjectHideFlags: 0
@@ -8689,7 +8688,7 @@ PrefabInstance:
     - target: {fileID: 4281353953521340373, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: monolith
       value: 
-      objectReference: {fileID: 1356822657}
+      objectReference: {fileID: 351510297}
     - target: {fileID: 4281353953521340373, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: playerMagic
       value: 
@@ -27044,12 +27043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 1892440097}
 --- !u!65 &1196926103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37415,12 +37408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 1892440097}
 --- !u!65 &1356822658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42518,12 +42505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 1892440097}
 --- !u!65 &1803727721
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47708,12 +47689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 1892440097}
 --- !u!65 &1899402325
 BoxCollider:
   m_ObjectHideFlags: 0

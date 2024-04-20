@@ -33,7 +33,7 @@ public class newSkillTree : MonoBehaviour
     public GameObject infoSection;
 
     public GameManager gm;
-    public Monolith monolith;
+    public MonolithManager monolith;
 
     public class Skill
     {
