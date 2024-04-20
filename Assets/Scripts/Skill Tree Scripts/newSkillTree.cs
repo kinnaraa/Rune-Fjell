@@ -43,6 +43,7 @@ public class newSkillTree : MonoBehaviour
         public bool isRune;
         public bool unlocked;
         public string infoBlurb;
+        public string bindRuneName;
 
         public Skill(string skillName, string displayname, bool rune)
         {
@@ -74,6 +75,21 @@ public class newSkillTree : MonoBehaviour
             new Skill("EarthSpike", "Ehwaz", true),
         };
 
+        attacksList[1].bindRuneName = "Radial Fire Burst";
+        attacksList[3].bindRuneName = "Lightning Smites";
+        attacksList[5].bindRuneName = "Hail";
+        attacksList[7].bindRuneName = "Wall";
+
+        attacksList[0].infoBlurb = "The sun, Success, Goals, Realized, Honor.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[1].infoBlurb = "The combined powers of Sowilo and Thurisaz.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[2].infoBlurb = "Thorn, Reactive, Force, Defense, Conflict.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[3].infoBlurb = "The combined powers of Thurisaz and Halagaz.\n\nDamage: 10\n\nCooldown: 5 seconds";
+        attacksList[4].infoBlurb = "Hail, Wrath of Nature, Uncontrolled Forces.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        attacksList[5].infoBlurb = "The combined powers of Halagaz and Isa.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[6].infoBlurb = "Ice, Challenge, Frustration, Psychological Blocks.\n\nDamage: 10\n\nCooldown: seconds";
+        attacksList[7].infoBlurb = "The combined powers of Isa and Ehwaz.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[6].infoBlurb = "Yew Tree, Strength, Reliability, Trustworthiness.\n\nDamage: 10\n\nCooldown: 5 seconds";
+
         utilityList = new List<Skill>()
         {
             new Skill("Light", "Kenaz", true),
@@ -85,6 +101,17 @@ public class newSkillTree : MonoBehaviour
             new Skill("Odin Sight", "Ansuz", true),
         };
 
+        utilityList[2].bindRuneName = "Damage Forcefield";
+        utilityList[4].bindRuneName = "Healing Forcefield";
+
+        utilityList[0].infoBlurb = "Torch, Vision, Revelation, Creativity, Technical Ability.\n\nDamage: 0\n\nCooldown: 0 seconds";
+        utilityList[1].infoBlurb = "A wild ox, Physical Strength, Speed, Untamed Potential.\n\nDamage: 0\n\nCooldown: 10 second";
+        utilityList[2].infoBlurb = "The combined powers of Uruz and Algiz.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        utilityList[3].infoBlurb = "The Elk, Protection, Sheild, Ward Off Evil.\n\nDamage: 0\n\nCooldown: 0 seconds";
+        utilityList[4].infoBlurb = "The combined powers of Algiz and Wunjo.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        utilityList[5].infoBlurb = "Joy, Comfort, Pleasure.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        utilityList[6].infoBlurb = "Odin, Insight, Communication, Inspiration, True Vision.\n\nDamage: 0\n\nCooldown: 20 seconds";
+
         passiveList = new List<Skill>()
         {
             new Skill("StamRegen", "Nauthiz", true),
@@ -92,11 +119,21 @@ public class newSkillTree : MonoBehaviour
             new Skill("Perthro", "Perthro", true),
         };
 
+        passiveList[0].infoBlurb = "Need, Self Reliance, Endurance, Survival.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        passiveList[1].infoBlurb = "Chariot, Travel, Journey, Evolution.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        passiveList[2].infoBlurb = "Die Cup, Mysteries, Secrets, Occulat Abilities.\n\nDamage: 0\n\nCooldown: 5 seconds";
+
         extraList = new List<Skill>()
         {
             new Skill("Radial Blast", "ThurisazUruz", false),
             new Skill("Sun", "SowiloKenaz", false),
         };
+
+        extraList[0].bindRuneName = "Radial Blast";
+        extraList[1].bindRuneName = "Sun";
+
+        extraList[0].infoBlurb = "The combined powers of Thurisaz and Uruz.\n\nDamage: 0\n\nCooldown: 1 second";
+        extraList[1].infoBlurb = "The combined powers of Sowilo and Kenaz.\n\nDamage: 10\n\nCooldown: 1 second";
 
         skillList = new List<List<Skill>>
         {
@@ -277,8 +314,17 @@ public class newSkillTree : MonoBehaviour
                     {
                         infoSection.transform.GetChild(3).gameObject.SetActive(false);
                         infoSection.transform.GetChild(2).gameObject.SetActive(true);
-                    }   
-                    infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.displayName;
+                    }
+                    
+                    if(chosenSkill.isRune == false)
+                    {
+                        infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.bindRuneName;
+                    }
+                    else
+                    {
+                        infoSection.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = chosenSkill.displayName;
+                    }
+                    
                     infoSection.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = chosenSkill.infoBlurb;
                     infoSection.transform.GetChild(4).GetComponent<Image>().sprite = chosenSkill.sprite;
                 }
