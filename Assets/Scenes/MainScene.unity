@@ -60288,10 +60288,6 @@ PrefabInstance:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 1f9e863b02a3b56428097cc006da9a93, type: 3}
-    - target: {fileID: 1925388255703673039, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2076704989777490236, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_LocalPosition.x
       value: -144.04732
