@@ -50,7 +50,7 @@ public class ThisGuyStinks : MonoBehaviour
         dialogue2[3] = "Many are lost, but even those that were found could not be weilded by any soul who tried.";
         dialogue2[4] = "There must be something special about you, traveler.";
         dialogue2[5] = "There are monoliths around this island engraved with the missing runes which only began glowing once you arrived.";
-        dialogue2[6] = "Once you multiple runes, you may even be able to combine them into \"bind runes\"...";
+        dialogue2[6] = "Once you unlock multiple runes, you may even be able to combine them into \"bind runes\"...";
         dialogue2[7] = "Anyways, it's getting late, come stay with me for the night.";
     }
 
@@ -70,7 +70,7 @@ public class ThisGuyStinks : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && !knocked)
             {
-                weedGnome.transform.position = new Vector3(-194.17f, 24.80045f, -59.43f);
+                weedGnome.transform.position = new Vector3(-194.58f, 24.80045f, -58.64f);
                 knocked = true;
             }
             

@@ -15,6 +15,7 @@ public class FindGnomeVillageQuest : MonoBehaviour
     public bool foundVillage = false;
 
     public NothingSonQuest nothingSonQuest;
+    public newSkillTree skillTree;
 
     public void Start()
     {
@@ -42,6 +43,7 @@ public class FindGnomeVillageQuest : MonoBehaviour
                             questManager.allQuests["Find the Gnome Village"].isActive = false;
                             questManager.allQuests["Good For Nothing Son"].isActive = true;
                             GM.gnomeTalk.text = "";
+                            skillTree.skillPoints += 2;
                         }
                         foundVillage = true;
                     }

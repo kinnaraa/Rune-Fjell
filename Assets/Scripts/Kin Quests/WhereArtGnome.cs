@@ -102,6 +102,8 @@ public class WhereArtGnome : MonoBehaviour
             {
                 EButton.SetActive(false);
                 canTalkToMayor = true;
+                dialogueCount = 0;
+                mayorSpeech.text = "";
                 StartCoroutine(FadeOut());
             }  
         }
@@ -157,8 +159,6 @@ public class WhereArtGnome : MonoBehaviour
             {
                 dialogueCount++;
             }
-
-            Debug.Log(dialogueCount);
 
             if (dialogueCount >= 7)
             {
