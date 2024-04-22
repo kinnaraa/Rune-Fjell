@@ -11909,7 +11909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7807665202042527936, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7808451586639598751, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: m_fontSize
@@ -12425,6 +12425,7 @@ MonoBehaviour:
   fightingCreatures: 0
   megaBatDead: 0
   bigIceBoyDead: 0
+  bigIceBoy: {fileID: 1303345724}
   skillTree: {fileID: 1892440097}
   questManager: {fileID: 813582832}
   healingUnlocked: 0
@@ -33687,6 +33688,11 @@ CanvasRenderer:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6212946751040913908, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
   m_PrefabInstance: {fileID: 588281020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1303345724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2238904129542072294, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+  m_PrefabInstance: {fileID: 1420227978}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1304316445
 GameObject:
@@ -55088,7 +55094,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 821879747688491458, guid: 4dbe758717371c943b9a2494cdfeb520, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1904032792113464782, guid: 4dbe758717371c943b9a2494cdfeb520, type: 3}
       propertyPath: m_Type

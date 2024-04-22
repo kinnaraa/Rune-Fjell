@@ -64,8 +64,8 @@ public class WhereArtGnome : MonoBehaviour
     private GameObject clue2Popup;
 
     public GameObject thoughtTexts;
-    private TextMeshPro firstClueThoughts;
-    private TextMeshPro secondClueThoughts;
+    private TextMeshProUGUI firstClueThoughts;
+    private TextMeshProUGUI secondClueThoughts;
 
     // Start is called before the first frame update
     void Start()
@@ -102,8 +102,8 @@ public class WhereArtGnome : MonoBehaviour
         clue1Popup = clue1.transform.GetChild(0).gameObject;
         clue2Popup = clue2.transform.GetChild(0).gameObject;
 
-        firstClueThoughts = thoughtTexts.transform.GetChild(0).GetComponent<TextMeshPro>();
-        secondClueThoughts = thoughtTexts.transform.GetChild(1).GetComponent<TextMeshPro>();
+        firstClueThoughts = thoughtTexts.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        secondClueThoughts = thoughtTexts.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -111,7 +111,7 @@ public class WhereArtGnome : MonoBehaviour
     {
         //initial dialogue at meeting of gnomes
 
-        if (startedQuest && Vector3.Distance(Player.transform.position, triggerCutsene.transform.position) < 10.0f && !canTalkToMayor)
+        if (startedQuest && Vector3.Distance(Player.transform.position, triggerCutsene.transform.position) < 10.0f && !canTalkToMayor && !bigIceBoyDead && !megaBatDead)
         {
             EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
@@ -178,10 +178,11 @@ public class WhereArtGnome : MonoBehaviour
                 dialogueCount = 0;
                 bigBoys.SetActive(true);
                 fightingCreatures = true;
+                canTalkToMayor = false;
             }
         }
 
-        if (fightingCreatures && clueCount < 2)
+        if (fightingCreatures)
         {
             if (!megaBat)
             {
@@ -192,15 +193,15 @@ public class WhereArtGnome : MonoBehaviour
                 bigIceBoyDead = true;
             }
 
-            if(clue1 && Vector3.Distance(Player.transform.position, clue1.transform.position) < 5.0f)
+            if (clue1 && Vector3.Distance(Player.transform.position, clue1.transform.position) < 5.0f)
             {
                 clue1Popup.SetActive(true);
                 clue2Popup.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Destroy(clue1);
-                    StartCoroutine(FadeOutThoughts());
                     clueCount++;
+                    StartCoroutine(FadeOutThoughts());
                 }
             }
             if (clue2 && Vector3.Distance(Player.transform.position, clue2.transform.position) < 5.0f)
@@ -209,9 +210,14 @@ public class WhereArtGnome : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Destroy(clue2);
-                    StartCoroutine(FadeOutThoughts());
                     clueCount++;
+                    StartCoroutine(FadeOutThoughts());
                 }
+            }
+
+            if (bigIceBoyDead && megaBatDead && clueCount >= 2)
+            {
+                fightingCreatures = false;
             }
         }
 
@@ -307,7 +313,7 @@ public class WhereArtGnome : MonoBehaviour
         }
     }
 
-    IEnumerator FadeInThoughts(TextMeshPro text)
+    IEnumerator FadeInThoughts(TextMeshProUGUI text)
     {
         float elapsedTime = 0f;
 
@@ -327,7 +333,7 @@ public class WhereArtGnome : MonoBehaviour
 
     IEnumerator FadeOutThoughts()
     {
-        TextMeshPro text = firstClueThoughts;
+        TextMeshProUGUI text = firstClueThoughts;
         if(clueCount == 1)
         {
             text = firstClueThoughts;

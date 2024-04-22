@@ -67,6 +67,11 @@ public class QuestManager : MonoBehaviour
             WAGinfo = "The Gnome Leader has tasked you to defeat surrounding enemies in search of a clue to the gnomes disappearances.\nDefeat 1 Megabat and 1 Dark Ice Creature: " + killedMonsters + "/ 2\nFind clues: " + WAG.clueCount + " / 2";
         }
 
+        if(WAG.bigIceBoyDead && WAG.megaBatDead)
+        {
+            WAGinfo = "The Gnome Leader has tasked you to defeat surrounding enemies in search of a clue to the gnomes disappearances.\nDefeat 1 Megabat and 1 Dark Ice Creature: 2 / 2\nFind clues: " + WAG.clueCount + " / 2";
+        }
+
         if (TGS.canCollect)
         {
             TGSinfo = TGSinfo = "Bring the unusual gnome what he wants to learn his secrets.\nMushrooms: " + TGS.mushroomCount + " / 10";
