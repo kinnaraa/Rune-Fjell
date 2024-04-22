@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
 
     public GameObject tabMenu;
     public GameObject escMenu;
+    public GameObject EnterCaveMenu;
     public PlayerMovement PM;
     public ThirdPersonCam Cam;
     public PlayerMagic Magic;
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour
         gameObject.SetActive(true);
         PlayerStamina = 100;
         PlayerHealth = 100;
+        spawn = gameObject.transform;
     }
 
     public void Update()
@@ -88,57 +90,59 @@ public class Player : MonoBehaviour
 
         tabMenuOpen = tabMenu.activeSelf;
         escMenuOpen = escMenu.activeSelf;
-
-        if(Input.GetKeyDown(TabMenu) && canOpenMenu)
+        if(EnterCaveMenu && !EnterCaveMenu.activeSelf)
         {
-            if(tabMenuOpen)
+            if(Input.GetKeyDown(TabMenu) && canOpenMenu )
             {
-                StartCoroutine(MenuCooldown());
-                tabMenu.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                if(tabMenuOpen)
+                {
+                    StartCoroutine(MenuCooldown());
+                    tabMenu.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
 
-                Cam.enabled = true;
-                PM.enabled = true;
-                Magic.enabled = true;
-                Magic.SetAbilityUI();
+                    Cam.enabled = true;
+                    PM.enabled = true;
+                    Magic.enabled = true;
+                    Magic.SetAbilityUI();
+                }
+                else if(!escMenuOpen)
+                {
+                    StartCoroutine(MenuCooldown());
+                    tabMenu.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+
+                    PM.enabled = false;
+                    Magic.enabled = false;
+                    Cam.enabled = false;
+                }
             }
-            else if(!escMenuOpen)
+
+            if(Input.GetKeyDown(EscMenu) && canOpenMenu)
             {
-                StartCoroutine(MenuCooldown());
-                tabMenu.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                if(escMenuOpen)
+                {
+                    StartCoroutine(MenuCooldown());
+                    escMenu.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
 
-                PM.enabled = false;
-                Magic.enabled = false;
-                Cam.enabled = false;
-            }
-        }
+                    Cam.enabled = true;
+                    PM.enabled = true;
+                    Magic.enabled = true;
+                }
+                else if(!tabMenuOpen) 
+                {
+                    StartCoroutine(MenuCooldown());
+                    escMenu.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
 
-        if(Input.GetKeyDown(EscMenu) && canOpenMenu)
-        {
-            if(escMenuOpen)
-            {
-                StartCoroutine(MenuCooldown());
-                escMenu.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-
-                Cam.enabled = true;
-                PM.enabled = true;
-                Magic.enabled = true;
-            }
-            else if(!tabMenuOpen) 
-            {
-                StartCoroutine(MenuCooldown());
-                escMenu.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-
-                PM.enabled = false;
-                Magic.enabled = false;
-                Cam.enabled = false;
+                    PM.enabled = false;
+                    Magic.enabled = false;
+                    Cam.enabled = false;
+                }
             }
         }
     }
@@ -152,10 +156,9 @@ public class Player : MonoBehaviour
 
     public void Kill()
     {
-
         SpecialSounds.clip = deathSound;
         SpecialSounds.Play();
-        transform.position = spawn.position;
+        gameObject.transform.position = spawn.position;
         PlayerHealth = 100;
         PlayerStamina = 100;
         GameObject.Find("Player").GetComponent<PlayerMovement>().stepCoolDown = 0;
