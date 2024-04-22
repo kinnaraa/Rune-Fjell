@@ -110,17 +110,25 @@ public class WhereArtGnome : MonoBehaviour
     void Update()
     {
         //initial dialogue at meeting of gnomes
+        GnomeVoice = GameObject.Find("Mayor").GetComponent<AudioSource>();
+        GameObject Mayor = GameObject.Find("Mayor");
 
         if (startedQuest && Vector3.Distance(Player.transform.position, triggerCutsene.transform.position) < 10.0f && !canTalkToMayor && !bigIceBoyDead && !megaBatDead)
         {
+
             EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
 
-            if (!GnomeVoice.isPlaying)
+            if (dialogueCount == 0)
             {
-                GnomeVoice.Play();
+                if (!GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Play();
+                }
             }
             mayorSpeech.text = dialogue[dialogueCount];
+
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueCount++;
@@ -132,7 +140,7 @@ public class WhereArtGnome : MonoBehaviour
                 GnomeVoice.Play();
             }
 
-            Debug.Log(dialogueCount);
+            Debug.Log(GnomeVoice.isPlaying);
 
             if(dialogueCount >= 3)
             {
@@ -149,12 +157,17 @@ public class WhereArtGnome : MonoBehaviour
 
         if(canTalkToMayor && !fightingCreatures && Vector3.Distance(Player.transform.position, NormalMayorGnome.transform.position) < 5.0f)
         {
+
+            Mayor.GetComponent<GnomeWander>().agent.speed = 0;
             normalMayorEButton.transform.localScale = new Vector3(1, 1, 1);
             normalMayorEButton.SetActive(true);
 
-            if (!GnomeVoice.isPlaying)
+            if (dialogueCount == 0)
             {
-                GnomeVoice.Play();
+                if (!GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Play();
+                }
             }
             normalMayorDialogue.text = dialogue2[dialogueCount];
 
@@ -172,6 +185,7 @@ public class WhereArtGnome : MonoBehaviour
 
             if (dialogueCount >= 4)
             {
+                Mayor.GetComponent<GnomeWander>().UpdateDestination();
                 normalMayorEButton.SetActive(false);
                 normalMayorDialogue.text = "";
                 GnomeVoice.Stop();
@@ -228,9 +242,12 @@ public class WhereArtGnome : MonoBehaviour
             normalMayorEButton.transform.localScale = new Vector3(1, 1, 1);
             normalMayorEButton.SetActive(true);
 
-            if (!GnomeVoice.isPlaying)
+            if (dialogueCount == 0)
             {
-                GnomeVoice.Play();
+                if (!GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Play();
+                }
             }
             normalMayorDialogue.text = endDialogue[dialogueCount];
 

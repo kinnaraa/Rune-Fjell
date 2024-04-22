@@ -114,10 +114,16 @@ public class NothingSonQuest : MonoBehaviour
 
             if (itemsCollected && (distanceGnome < 2) && !questDone)
             {
-                EButton.transform.localScale = new Vector3(0, 0, 0);
+                EButton.transform.localScale = new Vector3(1, 1, 1);
                 EButton.SetActive(true);
 
-                
+                if (dialogueCount == 0)
+                {
+                    if (!GnomeVoice.isPlaying)
+                    {
+                        GnomeVoice.Play();
+                    }
+                }
 
                 momSpeech.text = dialogue2[dialogueCount];
                 if (Input.GetKeyDown(KeyCode.E))
@@ -133,6 +139,8 @@ public class NothingSonQuest : MonoBehaviour
 
                 if (dialogueCount >= 4)
                 {
+                    EButton.transform.localScale = new Vector3(0, 0, 0);
+
                     EButton.SetActive(false);
                     momSpeech.text = "";
                     GnomeVoice.Stop();
@@ -142,6 +150,7 @@ public class NothingSonQuest : MonoBehaviour
                     questManager.allQuests["Good For Nothing Son"].isActive = false;
                     skillTree.skillPoints += 3;
                     questManager.allQuests["This Guy Stinks"].isActive = true;
+
                 }
             }
         }
