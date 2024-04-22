@@ -52,7 +52,7 @@ public class WhereArtGnome : MonoBehaviour
     public newSkillTree skillTree;
 
     public QuestManager questManager;
-    public bool healingUnlocked;
+    public bool healingUnlocked = false;
     public bool damageUnlocked = false;
 
     // Start is called before the first frame update
