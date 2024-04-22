@@ -245,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.PlayerHealth += 5f; // Adjust the increment value as needed
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             Healing = true;
         }
     }

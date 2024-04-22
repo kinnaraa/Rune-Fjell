@@ -10,7 +10,7 @@ public class ForceFieldHealing : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if(distance < 4)
+        if(distance < 10)
         {
             StartCoroutine(player.GetComponent<PlayerMovement>().RegainHealth());
         }
