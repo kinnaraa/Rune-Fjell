@@ -15,6 +15,7 @@ public class FindGnomeVillageQuest : MonoBehaviour
     public bool foundVillage = false;
 
     public NothingSonQuest nothingSonQuest;
+    public newSkillTree skillTree;
 
     public void Start()
     {
@@ -39,9 +40,11 @@ public class FindGnomeVillageQuest : MonoBehaviour
                     {
                         if (!foundVillage)
                         {
-                            Debug.Log("index >= path length");
+                            skillTree.skillPoints += 2;
+
                             questManager.allQuests["Find the Gnome Village"].isActive = false;
                             questManager.allQuests["Good For Nothing Son"].isActive = true;
+
                             GM.gnomeTalk.text = "";
 
                         }

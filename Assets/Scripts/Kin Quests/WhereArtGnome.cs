@@ -40,11 +40,11 @@ public class WhereArtGnome : MonoBehaviour
 
     public bool fightingCreatures = false;
 
-    private bool megaBatDead = false;
-    private bool bigIceBoyDead = false;
+    public bool megaBatDead = false;
+    public bool bigIceBoyDead = false;
 
     private GameObject megaBat;
-    private GameObject bigIceBoy;
+    public GameObject bigIceBoy;
 
     private string[] endDialogue = new string[7];
     private bool WAGfinished = false;
@@ -56,6 +56,16 @@ public class WhereArtGnome : MonoBehaviour
     public bool damageUnlocked = false;
 
     AudioSource GnomeVoice;
+    public int clueCount = 0;
+    private GameObject clue1;
+    private GameObject clue2;
+
+    private GameObject clue1Popup;
+    private GameObject clue2Popup;
+
+    public GameObject thoughtTexts;
+    private TextMeshPro firstClueThoughts;
+    private TextMeshPro secondClueThoughts;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +95,15 @@ public class WhereArtGnome : MonoBehaviour
 
         megaBat = bigBoys.transform.GetChild(0).gameObject;
         bigIceBoy = bigBoys.transform.GetChild(1).gameObject;
+
+        clue1 = bigBoys.transform.GetChild(2).gameObject;
+        clue2 = bigBoys.transform.GetChild(3).gameObject;
+
+        clue1Popup = clue1.transform.GetChild(0).gameObject;
+        clue2Popup = clue2.transform.GetChild(0).gameObject;
+
+        firstClueThoughts = thoughtTexts.transform.GetChild(0).GetComponent<TextMeshPro>();
+        secondClueThoughts = thoughtTexts.transform.GetChild(1).GetComponent<TextMeshPro>();
     }
 
     // Update is called once per frame
@@ -162,7 +181,7 @@ public class WhereArtGnome : MonoBehaviour
             }
         }
 
-        if (fightingCreatures)
+        if (fightingCreatures && clueCount < 2)
         {
             if (!megaBat)
             {
@@ -171,6 +190,28 @@ public class WhereArtGnome : MonoBehaviour
             if (!bigIceBoy)
             {
                 bigIceBoyDead = true;
+            }
+
+            if(clue1 && Vector3.Distance(Player.transform.position, clue1.transform.position) < 5.0f)
+            {
+                clue1Popup.SetActive(true);
+                clue2Popup.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Destroy(clue1);
+                    StartCoroutine(FadeOutThoughts());
+                    clueCount++;
+                }
+            }
+            if (clue2 && Vector3.Distance(Player.transform.position, clue2.transform.position) < 5.0f)
+            {
+                clue2Popup.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Destroy(clue2);
+                    StartCoroutine(FadeOutThoughts());
+                    clueCount++;
+                }
             }
         }
 
@@ -264,5 +305,52 @@ public class WhereArtGnome : MonoBehaviour
             blackScreen.color = currentColor;
             yield return null;
         }
+    }
+
+    IEnumerator FadeInThoughts(TextMeshPro text)
+    {
+        float elapsedTime = 0f;
+
+        Color originalColor = text.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+
+            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, newAlpha);
+            text.color = newColor;
+
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeOutThoughts()
+    {
+        TextMeshPro text = firstClueThoughts;
+        if(clueCount == 1)
+        {
+            text = firstClueThoughts;
+        }else if (clueCount == 2)
+        {
+            text = secondClueThoughts;
+        }
+
+        float elapsedTime = 0f;
+
+        Color originalColor = text.color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+
+            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, newAlpha);
+            text.color = newColor;
+
+            yield return null;
+        }
+
+        StartCoroutine(FadeInThoughts(text));
     }
 }

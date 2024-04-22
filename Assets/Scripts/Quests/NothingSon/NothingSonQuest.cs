@@ -55,12 +55,12 @@ public class NothingSonQuest : MonoBehaviour
         dialogue2[1] = "I see my son gave you that interesting little rock he had.";
         dialogue2[2] = "If you're looking to learn more about it, I can point you in the right direction...";
         dialogue2[3] = "I would take that to the gnome in the smokey hut in the back of town. He'll have some info for you.";
+
+        GnomeVoice = GameObject.Find("MomGnome").GetComponent<AudioSource>();
     }
 
     public void Update()
     {
-
-        GnomeVoice = GameObject.Find("MomGnome").GetComponent<AudioSource>();
 
         //float distanceGnomeHouse = Vector3.Distance(player.transform.position, GnomeHouse.transform.position);
         float distanceGnome = Vector3.Distance(Player.transform.position, MomGnome.transform.position);
@@ -70,9 +70,6 @@ public class NothingSonQuest : MonoBehaviour
             //Gnome Dialogue with Player
             EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
-
-
-
 
             momSpeech.text = dialogue[dialogueCount];
             if (dialogueCount == 0)
@@ -104,7 +101,7 @@ public class NothingSonQuest : MonoBehaviour
 
         }
 
-        if (questStarted)
+        if (questStarted && !questDone)
         {
             //float distanceBerry = Vector3.Distance(Player.transform.position, Berry.transform.position);
             //float distanceWood = Vector3.Distance(Player.transform.position, Wood.transform.position);

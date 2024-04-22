@@ -226,7 +226,7 @@ public class newSkillTree : MonoBehaviour
 
         if (WAG.damageUnlocked)
         {
-            skillList[1][2].unlocked = true;
+            skillList[1][1].unlocked = true;
         }
 
         for (int i = 0; i < 3; i++)
