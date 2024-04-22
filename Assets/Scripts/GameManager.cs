@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public float distance;
     public GameObject[] currentSpeaker;
+    bool HelpOver = false;
 
     AudioSource GnomeVoice;
 
@@ -62,7 +63,14 @@ public class GameManager : MonoBehaviour
         distance = Vector3.Distance(Player.transform.position, currentSpeaker[0].transform.position);
         if(FirstBatDead && secondQuestBegan)
         {
-            
+            if (!HelpOver)
+            {
+                gnomeTalk.text = "Thank you for the help!";
+               
+                 GnomeVoice.Play();
+                
+                HelpOver = true;
+            }
             if (distance <= 5f)
             {
                 GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(1, 1, 1);

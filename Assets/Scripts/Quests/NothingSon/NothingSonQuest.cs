@@ -47,7 +47,7 @@ public class NothingSonQuest : MonoBehaviour
         dialogue[0] = "My son! I was so worried for you, don't ever leave me like that again!";
         dialogue[1] = "Thank you for helping him home.";
         dialogue[2] = "I'm sorry my son doesn't know any better, he really needs to get his life together.";
-        dialogue[3] = "Would you mind helping me get supplies for dinner sine my son seems to be good for nothing?";
+        dialogue[3] = "Would you mind helping me get supplies for dinner since my son seems to be good for nothing?";
         dialogue[4] = "I just need 2 berries for my meal and 3 wood stacks for my fire.";
         dialogue[5] = "There should be some by the glade just down the way you came and to the left.";
 
@@ -68,7 +68,7 @@ public class NothingSonQuest : MonoBehaviour
         if ( distanceGnome < 3 && !questStarted && FGV.foundVillage)
         {
             //Gnome Dialogue with Player
-            EButton.transform.localScale = new Vector3(0, 0, 0);
+            EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
 
 
