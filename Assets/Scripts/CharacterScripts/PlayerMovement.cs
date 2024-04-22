@@ -35,8 +35,6 @@ public class PlayerMovement : MonoBehaviour
     private Player playerScript;
     private Animator animator;
 
-    private bool Healing = true;
-
     public AudioClip walkingSound;
     private AudioSource SpecialSounds;
     public float stepCoolDown;
@@ -207,46 +205,28 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator RegainStam()
     {
-        //if the player has been standing still for a while or hasnt used any stam in a bit, start to slowly regain stam over time
-        float timeThreshold = 5f; // Adjust this threshold based on your game's needs
+        float timeSinceLastSprint = 0f; // Track time since the last sprint key press
 
         while (true)
         {
-            // Check if the player is not moving and hasn't used stamina recently
-            if ((horizontalInput == 0 && verticalInput == 0) && playerScript.PlayerStamina < 100)
+            // Check if the player has not used the sprint key recently
+            if (!Input.GetKey(sprintKey))
+            {
+                timeSinceLastSprint += Time.deltaTime;
+            }
+            else
+            {
+                timeSinceLastSprint = 0f; // Reset the timer if the sprint key is pressed
+            }
+
+            // Check if the player has not used the sprint key for a while and their stamina is below 100
+            if (timeSinceLastSprint > 3f && playerScript.PlayerStamina < 100)
             {
                 // Increment stamina over time
                 playerScript.PlayerStamina += 5f; // Adjust the increment value as needed
             }
 
-            yield return new WaitForSeconds(1f);
-
-            // If the player is still not moving after a certain time, increase the stamina regain rate
-            if ((horizontalInput == 0 && verticalInput == 0) && timeThreshold > 0)
-            {
-                timeThreshold -= 1f;
-            }
-            else
-            {
-                timeThreshold = 5f; // Reset the threshold if the player starts moving
-            }
-        }
-    }
-
-    public IEnumerator RegainHealth()
-    {
-        if(Healing)
-        {
-            Healing = false;
-            // Check if the player is not moving and hasn't used stamina recently
-            if (playerScript.PlayerHealth < 100)
-            {
-                // Increment stamina over time
-                playerScript.PlayerHealth += 5f; // Adjust the increment value as needed
-            }
-
-            yield return new WaitForSeconds(0.5f);
-            Healing = true;
+            yield return null;
         }
     }
 }

@@ -60,7 +60,7 @@ public class PlayerMagic : MonoBehaviour
         abilities[0] = allAbilities[0];
         abilities[1] = allAbilities[0];
         abilities[2] = allAbilities[14];
-        abilities[3] = allAbilities[16];
+        abilities[3] = allAbilities[8];
         abilities[4] = allAbilities[9];
         abilities[5] = allAbilities[0];
         abilities[6] = allAbilities[0];
@@ -96,7 +96,6 @@ public class PlayerMagic : MonoBehaviour
             {
                 SpecialSounds.clip = magicSound;
                 SpecialSounds.Play();
-                animator.SetTrigger("Attackin");
                 StartCoroutine(Wait());
             }
         }
@@ -104,13 +103,12 @@ public class PlayerMagic : MonoBehaviour
 
     public IEnumerator Wait()
     {
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine(currentAbility.Cast());
-        if(currentAbility.pauseTime != 0.0f)
+        animator.SetTrigger("Attackin");
+        yield return StartCoroutine(currentAbility.Cast()); // Wait for ability casting to finish
+        if (currentAbility.pauseTime != 0.0f)
         {
             StartCoroutine(PauseMovement(currentAbility.pauseTime));
         }
-        StartCoroutine(CooldownVisual(currentAbility.cooldown));
     }
 
     public IEnumerator PauseMovement(float pauseTime)
@@ -123,27 +121,36 @@ public class PlayerMagic : MonoBehaviour
     }
 
     public IEnumerator CooldownVisual(float cooldownLength)
+{
+    Image cooldownImage = AbilityUI[index]
+        .GetComponentsInChildren<Image>()
+        .FirstOrDefault(child => child.name == "Cooldown");
+
+    if (cooldownImage != null)
     {
-        Image cooldownImage = AbilityUI[index]
-            .GetComponentsInChildren<Image>()
-            .FirstOrDefault(child => child.name == "Cooldown");
+        float elapsedTime = 0f;
 
-        if (cooldownImage != null)
+        while (elapsedTime < cooldownLength)
         {
-            float elapsedTime = 0f;
+            float fillAmount = 1 - (elapsedTime / cooldownLength);
+            cooldownImage.fillAmount = fillAmount;
 
-            while (elapsedTime < cooldownLength)
+            elapsedTime += Time.deltaTime;
+
+            // Check if the ability has been activated again while the cooldown is active
+            if (elapsedTime >= cooldownLength)
             {
-                float fillAmount = 1 - (elapsedTime / cooldownLength);
-                cooldownImage.fillAmount = fillAmount;
-
-                elapsedTime += Time.deltaTime;
-                yield return null;
+                // Reset the cooldown visual and exit the coroutine if the ability has been activated again
+                cooldownImage.fillAmount = 0f;
+                yield break;
             }
 
-            cooldownImage.fillAmount = 0f;  // Ensure that the fill amount is set to zero after cooldown
+            yield return null;
         }
+
+        cooldownImage.fillAmount = 0f;  // Ensure that the fill amount is set to zero after cooldown
     }
+}
 
     public void SetAbilityUI()
     {
