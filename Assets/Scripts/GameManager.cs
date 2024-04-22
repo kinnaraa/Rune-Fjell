@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         distance = Vector3.Distance(Player.transform.position, currentSpeaker[0].transform.position);
         if(FirstBatDead && secondQuestBegan)
         {
-            gnomeTalk.text = "";
+            
             if (distance <= 5f)
             {
                 GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(1, 1, 1);
