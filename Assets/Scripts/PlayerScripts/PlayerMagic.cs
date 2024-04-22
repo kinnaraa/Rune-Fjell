@@ -96,7 +96,6 @@ public class PlayerMagic : MonoBehaviour
             {
                 SpecialSounds.clip = magicSound;
                 SpecialSounds.Play();
-                animator.SetTrigger("Attackin");
                 StartCoroutine(Wait());
             }
         }
@@ -104,6 +103,7 @@ public class PlayerMagic : MonoBehaviour
 
     public IEnumerator Wait()
     {
+        animator.SetTrigger("Attackin");
         yield return StartCoroutine(currentAbility.Cast()); // Wait for ability casting to finish
         if (currentAbility.pauseTime != 0.0f)
         {
