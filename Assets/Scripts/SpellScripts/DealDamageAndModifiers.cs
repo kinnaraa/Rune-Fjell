@@ -13,6 +13,7 @@ public class DealDamageAndModifiers : MonoBehaviour
         Modifiers.Add(Resources.Load<GameObject>("Modifiers/Cold"));
         Modifiers.Add(Resources.Load<GameObject>("Modifiers/Stunned"));
     }
+
     public void OnTriggerEnter(Collider other) 
     {   
         if(other.GetComponent<EnemyHealth>() || other.GetComponent<WyrmHealth>())
@@ -22,7 +23,7 @@ public class DealDamageAndModifiers : MonoBehaviour
                 string newName = gameObject.transform.parent.name.Replace("(Clone)", "");
                 if(a.Name == newName)
                 {
-                    if(other.name == "WyrmHealth")
+                    if(other.GetComponent<WyrmHealth>())
                     {
                         other.GetComponent<WyrmHealth>().currentHealth -= a.damage * PM.damageModifier;
                         if(!other.GetComponent<WyrmHealth>().checkIfRed())
@@ -33,7 +34,10 @@ public class DealDamageAndModifiers : MonoBehaviour
                     else
                     {
                         other.GetComponent<EnemyHealth>().currentHealth -= a.damage * PM.damageModifier;
-                        StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed());
+                        if(!other.GetComponent<EnemyHealth>().checkIfRed())
+                        {      
+                            StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed());
+                        }
                     }
             
 
