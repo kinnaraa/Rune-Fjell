@@ -12,13 +12,15 @@ public class EnemyHealth : MonoBehaviour
     public SkinnedMeshRenderer[] bodyParts;
     public MeshRenderer[] bodyPartsIce;
     public Material red;
-    public AudioSource deathSound;
+    private AudioSource sounds;
+    public AudioClip deathSound;
 
     private bool isRed = false;
 
     void Start()
     {
         currentHealth = maxHealth;
+        sounds = gameObject.GetComponent <AudioSource>();
         if(SceneManager.GetActiveScene().name == "MainScene")
         {
             GM = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -42,8 +44,9 @@ public class EnemyHealth : MonoBehaviour
             GM.FirstBatDead = true;
         }
         GetComponent<EnemyMovement>().enabled = false;
-        deathSound.Play();
-        yield return new WaitForSeconds(3f);
+        sounds.Play();
+        yield return new WaitForSeconds(sounds.clip.length);
+        sounds.Stop();
         Destroy(gameObject);
     }
 

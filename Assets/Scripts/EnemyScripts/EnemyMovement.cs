@@ -11,11 +11,14 @@ public class EnemyMovement : MonoBehaviour
     private bool readyToAttack = true;
     private Animator batAnimator;
     public Collider damageCollider;
-    public AudioSource attackSound;
+    private AudioSource sounds;
+    public AudioClip attackSound;
 
     void Start()
     { 
         batAnimator = GetComponentInChildren<Animator>();
+        sounds = gameObject.GetComponent<AudioSource>();
+
     }
 
     void Update()
@@ -60,8 +63,9 @@ public class EnemyMovement : MonoBehaviour
     {
         damageCollider.enabled = true;
         batAnimator.SetBool("IsAttacking", true);
-        attackSound.Play();
-        yield return new WaitForSeconds(3f);
+        sounds.Play();
+        yield return new WaitForSeconds(sounds.clip.length);
+        sounds.Stop();
         batAnimator.SetBool("IsAttacking", false);
         damageCollider.enabled = false;
     }
