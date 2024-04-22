@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
     private int index = 0;
     private bool secondQuestBegan = true;
 
+    public GameObject runeCollected;
+    private float fadeDuration = 1.0f;
+
     public void Start()
     {
         StartCoroutine(OnStart());
@@ -183,7 +186,7 @@ public class GameManager : MonoBehaviour
             questManager.allQuests["Find the Gnome Village"].isActive = true;
 
             //force open skilltree
-            StartCoroutine(Player.GetComponentInParent<Player>().MenuCooldown());
+            /*StartCoroutine(Player.GetComponentInParent<Player>().MenuCooldown());
             Player.GetComponentInParent<Player>().tabMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -191,8 +194,11 @@ public class GameManager : MonoBehaviour
             Player.GetComponentInParent<Player>().Magic.enabled = false;
             Player.GetComponentInParent<Player>().Cam.enabled = false;
             TMS.OpenSkillTree();
+            */
+            runeCollected.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Kenaz_Activated");
+            StartCoroutine(FadeOut());
+
             finishedQuest = true;
-            // is there a way to make the kenaz rune selected?
 
             gnomeTalk.text = dialogue[dialogue.Count - 1];
             findVillageQuest.StartPath();
@@ -200,6 +206,38 @@ public class GameManager : MonoBehaviour
             {
                 GnomeVoice.Stop();
             }
+        }
+    }
+
+    IEnumerator FadeOut()
+    {
+        float elapsedTime = 0f;
+        Color currentColor = runeCollected.GetComponent<Image>().color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            currentColor.a = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+            runeCollected.GetComponent<Image>().color = currentColor;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+        Color currentColor = runeCollected.GetComponent<Image>().color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            currentColor.a = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            runeCollected.GetComponent<Image>().color = currentColor;
+            yield return null;
         }
     }
 }

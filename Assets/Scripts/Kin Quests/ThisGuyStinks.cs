@@ -34,6 +34,7 @@ public class ThisGuyStinks : MonoBehaviour
     private bool questOver = false;
 
     AudioSource GnomeVoice;
+    public TabMenuScript TMS;
 
     // Start is called before the first frame update
     void Start()
@@ -101,8 +102,6 @@ public class ThisGuyStinks : MonoBehaviour
                     GnomeVoice.Play();
                 }
 
-                Debug.Log(dialogueCount);
-
                 if (dialogueCount >= 6)
                 {
                     EButton.SetActive(false);
@@ -137,6 +136,10 @@ public class ThisGuyStinks : MonoBehaviour
             weedGnomeSpeech.text = dialogue2[dialogueCount];
             if (Input.GetKeyDown(KeyCode.E) && !questOver)
             {
+                if (dialogueCount == 6)
+                {
+                    OpenSkillTree();
+                }
                 dialogueCount++;
                 if (GnomeVoice.isPlaying)
                 {
@@ -144,8 +147,6 @@ public class ThisGuyStinks : MonoBehaviour
                 }
                 GnomeVoice.Play();
             }
-
-            Debug.Log(dialogueCount);
 
             if (dialogueCount >= 8 && !questOver)
             {
@@ -202,5 +203,17 @@ public class ThisGuyStinks : MonoBehaviour
         }
 
         WAG.StartQuest();
+    }
+
+    private void OpenSkillTree()
+    {
+        StartCoroutine(Player.GetComponentInParent<Player>().MenuCooldown());
+        Player.GetComponentInParent<Player>().tabMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Player.GetComponentInParent<Player>().PM.enabled = false;
+        Player.GetComponentInParent<Player>().Magic.enabled = false;
+        Player.GetComponentInParent<Player>().Cam.enabled = false;
+        TMS.OpenSkillTree();
     }
 }
