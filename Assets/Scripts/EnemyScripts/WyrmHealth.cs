@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,32 +40,37 @@ public class WyrmHealth : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
-    public bool checkIfRed()
+    public bool CheckIfRed()
     {
         return isRed;
     }
 
-    public IEnumerator FlashRed()
+    public IEnumerator FlashRed(Action coroutineEnded)
     {
-        
-        isRed = true;
-        List<Material> OGMats = new();
-        foreach (var bodyPart in bodyParts)
+        if (!isRed)
         {
-            if(bodyPart)
+            isRed = true;
+            List<Material> OGMats = new();
+            foreach (var bodyPart in bodyParts)
             {
-                OGMats.Add(bodyPart.material);
-                bodyPart.material = red;
+                if(bodyPart)
+                {
+                    OGMats.Add(bodyPart.material);
+                    bodyPart.material = red;
+                }
             }
-        }
-        yield return new WaitForSeconds(0.5f);
-        for(int i = 0; i < bodyParts.Length; i++)
-        {
-            if(bodyParts[i] != null)
+            yield return new WaitForSeconds(0.1f);
+            for(int i = 0; i < bodyParts.Length; i++)
             {
-                bodyParts[i].material = OGMats[i];
+                if(bodyParts[i] != null)
+                {
+                    bodyParts[i].material = OGMats[i];
+                }
             }
+            
+            isRed = false;
+            // Invoke the callback to notify that the coroutine has ended
+            coroutineEnded?.Invoke();
         }
-        isRed = false;
     }
 }

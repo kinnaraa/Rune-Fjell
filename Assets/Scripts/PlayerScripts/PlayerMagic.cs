@@ -60,7 +60,7 @@ public class PlayerMagic : MonoBehaviour
         abilities[0] = allAbilities[0];
         abilities[1] = allAbilities[0];
         abilities[2] = allAbilities[14];
-        abilities[3] = allAbilities[10];
+        abilities[3] = allAbilities[16];
         abilities[4] = allAbilities[9];
         abilities[5] = allAbilities[0];
         abilities[6] = allAbilities[0];
@@ -149,12 +149,13 @@ public class PlayerMagic : MonoBehaviour
     {
         for(int i = 0; i < AbilityUI.Length; i++)
         {
-            AbilityUI[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, AbilityUI[i].GetComponent<RectTransform>().anchoredPosition.y);
             string path = "UI/" + abilities[i].DefaultIcon;
+            AbilityUI[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, AbilityUI[i].GetComponent<RectTransform>().anchoredPosition.y);
             if(AbilityUI[i].GetComponentInChildren<Image>().name == "Icon")
             {
                 AbilityUI[i].GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>(path);
             }
+            AbilityUI[i].GetComponentsInChildren<Image>().FirstOrDefault(child => child.name == "Cooldown").sprite = Resources.Load<Sprite>(path);
         }
         AbilityUI[index].GetComponent<RectTransform>().anchoredPosition = new Vector2(-25, AbilityUI[index].GetComponent<RectTransform>().anchoredPosition.y);
         string path2 = "UI/" + abilities[index].ActivatedIcon;

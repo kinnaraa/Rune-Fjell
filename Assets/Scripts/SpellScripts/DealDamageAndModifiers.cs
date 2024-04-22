@@ -5,6 +5,7 @@ public class DealDamageAndModifiers : MonoBehaviour
 {
     private PlayerMagic PM;
     private List<GameObject> Modifiers = new List<GameObject>();
+    private Coroutine flashingCoroutine;
 
     public void Start() 
     {
@@ -13,7 +14,6 @@ public class DealDamageAndModifiers : MonoBehaviour
         Modifiers.Add(Resources.Load<GameObject>("Modifiers/Cold"));
         Modifiers.Add(Resources.Load<GameObject>("Modifiers/Stunned"));
     }
-
     public void OnTriggerEnter(Collider other) 
     {   
         if(other.GetComponent<EnemyHealth>() || other.GetComponent<WyrmHealth>())
@@ -23,20 +23,28 @@ public class DealDamageAndModifiers : MonoBehaviour
                 string newName = gameObject.transform.parent.name.Replace("(Clone)", "");
                 if(a.Name == newName)
                 {
-                    if(other.GetComponent<WyrmHealth>())
+                    if(other.name == "WyrmHealth")
                     {
                         other.GetComponent<WyrmHealth>().currentHealth -= a.damage * PM.damageModifier;
-                        if(!other.GetComponent<WyrmHealth>().checkIfRed())
+                        if (!other.GetComponent<WyrmHealth>().CheckIfRed() && flashingCoroutine == null)
                         {      
-                            StartCoroutine(other.GetComponent<WyrmHealth>().FlashRed());
+                            flashingCoroutine = StartCoroutine(other.GetComponent<WyrmHealth>().FlashRed(() =>
+                            {
+                                // This is the callback function, it will be invoked when the coroutine ends
+                                flashingCoroutine = null; // Reset the coroutine state
+                            }));
                         }
                     }
                     else
                     {
                         other.GetComponent<EnemyHealth>().currentHealth -= a.damage * PM.damageModifier;
-                        if(!other.GetComponent<EnemyHealth>().checkIfRed())
+                        if (!other.GetComponent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
                         {      
-                            StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed());
+                            flashingCoroutine = StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed(() =>
+                            {
+                                // This is the callback function, it will be invoked when the coroutine ends
+                                flashingCoroutine = null; // Reset the coroutine state
+                            }));
                         }
                     }
             

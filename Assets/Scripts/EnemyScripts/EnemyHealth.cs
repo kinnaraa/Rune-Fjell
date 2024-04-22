@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,61 +47,64 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<EnemyMovement>().enabled = false;
         sounds.Play();
         yield return new WaitForSeconds(sounds.clip.length);
-        sounds.Stop();
         Destroy(gameObject);
     }
 
-    public bool checkIfRed()
+    public bool CheckIfRed()
     {
         return isRed;
     }
 
-    public IEnumerator FlashRed()
+    public IEnumerator FlashRed(Action coroutineEnded)
     {
-        //Debug.Log(currentHealth);
-        if(!isRed)
+        if (!isRed)
         {
-            if(bodyPartsIce.Length != 0)
+            isRed = true;
+
+            if (bodyPartsIce.Length != 0)
             {
-                isRed = true;
-                List<Material> OGMats = new();
+                List<Material> originalMats = new();
                 foreach (var bodyPart in bodyPartsIce)
                 {
-                    if(bodyPart)
+                    if (bodyPart)
                     {
-                        OGMats.Add(bodyPart.material);
+                        originalMats.Add(bodyPart.material);
                         bodyPart.material = red;
                     }
                 }
-                yield return new WaitForSeconds(0.5f);
-                for(int i = 0; i < bodyPartsIce.Length; i++)
+                yield return new WaitForSeconds(0.1f);
+                for (int i = 0; i < bodyPartsIce.Length; i++)
                 {
-                    bodyPartsIce[i].material = OGMats[i];
+                    if (bodyPartsIce[i] != null)
+                    {
+                        bodyPartsIce[i].material = originalMats[i];
+                    }
                 }
-                isRed = false;
             }
             else
             {
-                isRed = true;
-                List<Material> OGMats = new();
+                List<Material> originalMats = new();
                 foreach (var bodyPart in bodyParts)
                 {
-                    if(bodyPart)
+                    if (bodyPart)
                     {
-                        OGMats.Add(bodyPart.material);
+                        originalMats.Add(bodyPart.material);
                         bodyPart.material = red;
                     }
                 }
                 yield return new WaitForSeconds(0.5f);
-                for(int i = 0; i < bodyParts.Length; i++)
+                for (int i = 0; i < bodyParts.Length; i++)
                 {
-                    if(bodyParts[i] != null)
+                    if (bodyParts[i] != null)
                     {
-                        bodyParts[i].material = OGMats[i];
+                        bodyParts[i].material = originalMats[i];
                     }
                 }
-                isRed = false;
             }
+
+            isRed = false;
+            // Invoke the callback to notify that the coroutine has ended
+            coroutineEnded?.Invoke();
         }
     }
 }
