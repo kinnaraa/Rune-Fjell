@@ -33,9 +33,12 @@ public class ThisGuyStinks : MonoBehaviour
     private int dialogueCount = 0;
     private bool questOver = false;
 
+    AudioSource GnomeVoice;
+
     // Start is called before the first frame update
     void Start()
     {
+
         initialGnomeLocation = weedGnome.transform;
         dialogue[0] = "Ahhh, yes. It's you. I've been expecting you...";
         dialogue[1] = "I know what you have... and I know you don't know what it is. *snickers*";
@@ -46,11 +49,15 @@ public class ThisGuyStinks : MonoBehaviour
 
         dialogue2[0] = "Ahh, you're back. I can smell the mushrooms on you, hand them over.";
         dialogue2[1] = "Thank you very much. Now let me explain to you this little rock here that you have.";
-        dialogue2[2] = "Explain 1";
-        dialogue2[3] = "Explain 2";
-        dialogue2[4] = "Explain 3";
-        dialogue2[5] = "Explain 4";
-        dialogue2[6] = "Anyways , it's getting late, come stay with me for the night.";
+        dialogue2[2] = "Long ago there were rocks inscribed with nordic runes, giving them unbelievable powers.";
+        dialogue2[3] = "Many are lost, but even those that were found could not be weilded by any soul who tried.";
+        dialogue2[4] = "There must be something special about you, traveler.";
+        dialogue2[5] = "There are monoliths around this island engraved with the missing runes which only began glowing once you arrived.";
+        dialogue2[6] = "Once you unlock multiple runes, you may even be able to combine them into \"bind runes\"...";
+        dialogue2[7] = "Anyways, it's getting late, come stay with me for the night.";
+
+        GnomeVoice = GameObject.Find("weed gnome").GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -69,7 +76,7 @@ public class ThisGuyStinks : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && !knocked)
             {
-                weedGnome.transform.position = new Vector3(-194.17f, 24.80045f, -59.43f);
+                weedGnome.transform.position = new Vector3(-194.58f, 24.80045f, -58.64f);
                 knocked = true;
             }
             
@@ -78,10 +85,20 @@ public class ThisGuyStinks : MonoBehaviour
                 EButton.transform.localScale = new Vector3(1, 1, 1);
                 EButton.SetActive(true);
 
+                if (!GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Play();
+                }
                 weedGnomeSpeech.text = dialogue[dialogueCount];
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     dialogueCount++;
+                    //makes the loop re-start if you click
+                    if (GnomeVoice.isPlaying)
+                    {
+                        GnomeVoice.Stop();
+                    }
+                    GnomeVoice.Play();
                 }
 
                 Debug.Log(dialogueCount);
@@ -94,6 +111,8 @@ public class ThisGuyStinks : MonoBehaviour
                     questManager.allQuests["This Guy Stinks"].isActive = true;
 
                     weedGnome.transform.position = initialGnomeLocation.position;
+                    GnomeVoice.Stop();
+
                     canCollect = true;
                     dialogueCount = 0;
                 }
@@ -110,19 +129,30 @@ public class ThisGuyStinks : MonoBehaviour
             EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
 
+
+            if (!GnomeVoice.isPlaying)
+            {
+                GnomeVoice.Play();
+            }
             weedGnomeSpeech.text = dialogue2[dialogueCount];
             if (Input.GetKeyDown(KeyCode.E) && !questOver)
             {
                 dialogueCount++;
+                if (GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Stop();
+                }
+                GnomeVoice.Play();
             }
 
             Debug.Log(dialogueCount);
 
-            if (dialogueCount >= 7 && !questOver)
+            if (dialogueCount >= 8 && !questOver)
             {
                 weedGnomeSpeech.text = "";
                 EButton.SetActive(false);
                 questManager.allQuests["This Guy Stinks"].isActive = false;
+                GnomeVoice.Stop();
                 skillTree.skillPoints += 3;
                 questOver = true;
                 startCutscene();

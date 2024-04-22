@@ -37,6 +37,8 @@ public class QuestManager : MonoBehaviour
         allQuests["This Guy Stinks"].questObject = questContent.transform.GetChild(4).gameObject;
         allQuests["Where Art Gnome"].questObject = questContent.transform.GetChild(5).gameObject;
         allQuests["Something Lurking"].questObject = questContent.transform.GetChild(6).gameObject;
+
+        currentQuest.SetActive(false);
     }
 
     // Update is called once per frame
@@ -71,6 +73,7 @@ public class QuestManager : MonoBehaviour
 
             if (q.Value.isActive)
             {
+                currentQuest.SetActive(true);
                 q.Value.questObject.SetActive(true);
                 currentQuest.transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = q.Value.title;
                 currentQuest.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = q.Value.infoText;

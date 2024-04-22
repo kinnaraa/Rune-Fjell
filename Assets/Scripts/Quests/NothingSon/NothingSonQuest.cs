@@ -32,6 +32,9 @@ public class NothingSonQuest : MonoBehaviour
 
     public FindGnomeVillageQuest FGV;
 
+    AudioSource GnomeVoice;
+
+
     public void Start()
     {
         //questStarted = true;
@@ -56,6 +59,9 @@ public class NothingSonQuest : MonoBehaviour
 
     public void Update()
     {
+
+        GnomeVoice = GameObject.Find("MomGnome").GetComponent<AudioSource>();
+
         //float distanceGnomeHouse = Vector3.Distance(player.transform.position, GnomeHouse.transform.position);
         float distanceGnome = Vector3.Distance(Player.transform.position, MomGnome.transform.position);
 
@@ -65,10 +71,26 @@ public class NothingSonQuest : MonoBehaviour
             EButton.transform.localScale = new Vector3(0, 0, 0);
             EButton.SetActive(true);
 
+
+
+
             momSpeech.text = dialogue[dialogueCount];
+            if (dialogueCount == 0)
+            {
+                if (!GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Play();
+                }
+            }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueCount++;
+                //makes the loop re-start if you click
+                if (GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Stop();
+                }
+                GnomeVoice.Play();
             }
 
             if (dialogueCount >= 6)
@@ -76,6 +98,7 @@ public class NothingSonQuest : MonoBehaviour
                 EButton.SetActive(false);
                 dialogueCount = 0;
                 momSpeech.text = "";
+                GnomeVoice.Stop();
                 questStarted = true;
             }
 
@@ -97,16 +120,25 @@ public class NothingSonQuest : MonoBehaviour
                 EButton.transform.localScale = new Vector3(0, 0, 0);
                 EButton.SetActive(true);
 
+                
+
                 momSpeech.text = dialogue2[dialogueCount];
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     dialogueCount++;
+                    //makes the loop re-start if you click
+                    if (GnomeVoice.isPlaying)
+                    {
+                        GnomeVoice.Stop();
+                    }
+                    GnomeVoice.Play();
                 }
 
                 if (dialogueCount >= 4)
                 {
                     EButton.SetActive(false);
                     momSpeech.text = "";
+                    GnomeVoice.Stop();
 
                     questDone = true;
 

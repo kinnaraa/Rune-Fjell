@@ -39,9 +39,11 @@ public class FindGnomeVillageQuest : MonoBehaviour
                     {
                         if (!foundVillage)
                         {
+                            Debug.Log("index >= path length");
                             questManager.allQuests["Find the Gnome Village"].isActive = false;
                             questManager.allQuests["Good For Nothing Son"].isActive = true;
                             GM.gnomeTalk.text = "";
+
                         }
                         foundVillage = true;
                     }

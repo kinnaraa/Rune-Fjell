@@ -49,8 +49,13 @@ public class WhereArtGnome : MonoBehaviour
     private string[] endDialogue = new string[7];
     private bool WAGfinished = false;
 
-    public QuestManager questManager;
     public newSkillTree skillTree;
+
+    public QuestManager questManager;
+    public bool healingUnlocked = false;
+    public bool damageUnlocked = false;
+
+    AudioSource GnomeVoice;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +81,8 @@ public class WhereArtGnome : MonoBehaviour
         endDialogue[5] = "Please, find the passage into the depths of the mountain... that is where the real monster lies.";
         endDialogue[6] = "Here, take these. I have kept them safe, waiting for this moment. These will help you to face the beast.";
 
+        GnomeVoice = GameObject.Find("Mayor").GetComponent<AudioSource>();
+
         megaBat = bigBoys.transform.GetChild(0).gameObject;
         bigIceBoy = bigBoys.transform.GetChild(1).gameObject;
     }
@@ -90,10 +97,20 @@ public class WhereArtGnome : MonoBehaviour
             EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
 
+            if (!GnomeVoice.isPlaying)
+            {
+                GnomeVoice.Play();
+            }
             mayorSpeech.text = dialogue[dialogueCount];
             if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueCount++;
+                //makes the loop re-start if you click
+                if (GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Stop();
+                }
+                GnomeVoice.Play();
             }
 
             Debug.Log(dialogueCount);
@@ -102,6 +119,9 @@ public class WhereArtGnome : MonoBehaviour
             {
                 EButton.SetActive(false);
                 canTalkToMayor = true;
+                dialogueCount = 0;
+                mayorSpeech.text = "";
+                GnomeVoice.Stop();
                 StartCoroutine(FadeOut());
             }  
         }
@@ -113,11 +133,20 @@ public class WhereArtGnome : MonoBehaviour
             normalMayorEButton.transform.localScale = new Vector3(1, 1, 1);
             normalMayorEButton.SetActive(true);
 
+            if (!GnomeVoice.isPlaying)
+            {
+                GnomeVoice.Play();
+            }
             normalMayorDialogue.text = dialogue2[dialogueCount];
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueCount++;
+                if (GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Stop();
+                }
+                GnomeVoice.Play();
             }
 
             Debug.Log(dialogueCount);
@@ -126,6 +155,7 @@ public class WhereArtGnome : MonoBehaviour
             {
                 normalMayorEButton.SetActive(false);
                 normalMayorDialogue.text = "";
+                GnomeVoice.Stop();
                 dialogueCount = 0;
                 bigBoys.SetActive(true);
                 fightingCreatures = true;
@@ -151,28 +181,37 @@ public class WhereArtGnome : MonoBehaviour
             normalMayorEButton.transform.localScale = new Vector3(1, 1, 1);
             normalMayorEButton.SetActive(true);
 
+            if (!GnomeVoice.isPlaying)
+            {
+                GnomeVoice.Play();
+            }
             normalMayorDialogue.text = endDialogue[dialogueCount];
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 dialogueCount++;
+                if (GnomeVoice.isPlaying)
+                {
+                    GnomeVoice.Stop();
+                }
+                GnomeVoice.Play();
             }
-
-            Debug.Log(dialogueCount);
 
             if (dialogueCount >= 7)
             {
                 normalMayorEButton.SetActive(false);
                 normalMayorDialogue.text = "";
+                GnomeVoice.Stop();
                 WAGfinished = true;
                 questManager.allQuests["Where Art Gnome"].isActive = false;
                 questManager.allQuests["Something Lurking"].isActive = true;
 
                 //unlock healing and damage runes
+                healingUnlocked = true;
+                damageUnlocked = true;
 
+                // add skill points
                 skillTree.skillPoints += 6;
-
-                //start something lurking quest
             }
         }
     }

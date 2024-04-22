@@ -8,11 +8,14 @@ public class PickUpItem : MonoBehaviour
     public GameObject player;
     public bool isGrabbable;
     public NothingSonQuest nothingQuest;
+    private GameObject EtoInteract;
+
     // Start is called before the first frame update
     void Start()
     {
         isGrabbable = false;
         player = GameObject.Find("Player");
+        EtoInteract = gameObject.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -22,7 +25,12 @@ public class PickUpItem : MonoBehaviour
 
         if (distance < 2 && nothingQuest.questStarted)
         {
+            EtoInteract.SetActive(true);
             isGrabbable = true;
+        }
+        else
+        {
+            EtoInteract.SetActive(false);
         }
 
         if(isGrabbable && Input.GetKeyDown(KeyCode.E))

@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         distance = Vector3.Distance(Player.transform.position, currentSpeaker[0].transform.position);
         if(FirstBatDead && secondQuestBegan)
         {
+            
             if (distance <= 5f)
             {
                 GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(1, 1, 1);
@@ -142,6 +143,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Instantiate(Bat, BatSpawn.position, BatSpawn.rotation);
+        if (!GnomeVoice.isPlaying)
+        {
+            GnomeVoice.Play();
+        }
 
     }
 
@@ -161,6 +166,7 @@ public class GameManager : MonoBehaviour
         else
         {
             GameObject.FindGameObjectWithTag("EButton").transform.localScale = new Vector3(0, 0, 0);
+
             secondQuestBegan = false;
             index = 0;
 
@@ -181,6 +187,10 @@ public class GameManager : MonoBehaviour
             // is there a way to make the kenaz rune selected?
 
             findVillageQuest.StartPath();
+            if (GnomeVoice.isPlaying)
+            {
+                GnomeVoice.Stop();
+            }
         }
     }
 }

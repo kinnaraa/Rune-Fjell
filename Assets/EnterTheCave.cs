@@ -43,18 +43,21 @@ public class EnterTheCave : MonoBehaviour
 
         //changhe to cave music
         AudioSource source = GameObject.Find("PlayerAudio").GetComponent<AudioSource>();
-        source.clip = sounds[1];
+        source.clip = sounds[0];
 
         // Subscribe to the sceneLoaded event
         SceneManager.sceneLoaded += Player.OnSceneLoaded;
-        
+
         // Load the scene
+        Debug.Log("Enter Cave");
         SceneManager.LoadScene("CaveScene");
         gameObject.SetActive(false);
     }
 
     public void Coward()
     {
+        Debug.Log("Coward");
+
         gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

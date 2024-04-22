@@ -6,7 +6,7 @@ public class GnomeWander : MonoBehaviour
 {
     NavMeshAgent agent;
     public Transform[] points;
-    int index;
+    public int index;
     Vector3 target;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class GnomeWander : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, target) < 1)
+        if(Vector3.Distance(transform.position, target) < 2)
         {
             IterateIndex();
             UpdateDestination();
