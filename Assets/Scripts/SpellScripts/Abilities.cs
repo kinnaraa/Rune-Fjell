@@ -112,6 +112,7 @@ public class Storm : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -150,6 +151,7 @@ public class Ice : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -185,6 +187,8 @@ public class FireBlast : Ability
 
     public IEnumerator Cooldown()
     {
+        cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -220,6 +224,8 @@ public class RadialFireBurst : Ability
 
     public IEnumerator Cooldown()
     {
+        cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -263,6 +269,8 @@ public class EarthSpike : Ability
 
     public IEnumerator Cooldown()
     {
+        cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -317,6 +325,7 @@ public class ForceField : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -352,6 +361,7 @@ public class HealingForceField : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -387,6 +397,7 @@ public class DamageForceField : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -448,6 +459,7 @@ public class Wall : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -487,6 +499,7 @@ public class Hail : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -525,6 +538,7 @@ public class LightningSmites : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -562,6 +576,7 @@ public class EnergyBlast : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -602,6 +617,7 @@ public class RadialBlast : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -634,6 +650,7 @@ public class Heal : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -672,6 +689,7 @@ public class StamRegen : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
@@ -710,6 +728,7 @@ public class Damage : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
         
@@ -761,6 +780,7 @@ public class Sun : Ability
     public IEnumerator Cooldown()
     {
         cooldownActive = true;
+        StartCoroutine(gameObject.GetComponent<PlayerMagic>().CooldownVisual(cooldown));
         yield return new WaitForSeconds(cooldown);
         cooldownActive = false;
     }
