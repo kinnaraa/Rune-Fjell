@@ -35,6 +35,8 @@ public class newSkillTree : MonoBehaviour
     public GameManager gm;
     public MonolithManager monolith;
 
+    public WhereArtGnome WAG;
+
     public class Skill
     {
         public string name;
@@ -215,6 +217,16 @@ public class newSkillTree : MonoBehaviour
         if (monolith.ehwazUnlocked)
         {
             skillList[0][8].unlocked = true;
+        }
+
+        if (WAG.healingUnlocked)
+        {
+            skillList[1][5].unlocked = true;
+        }
+
+        if (WAG.damageUnlocked)
+        {
+            skillList[1][2].unlocked = true;
         }
 
         for (int i = 0; i < 3; i++)

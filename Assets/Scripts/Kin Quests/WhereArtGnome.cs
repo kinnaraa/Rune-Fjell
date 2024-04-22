@@ -49,8 +49,11 @@ public class WhereArtGnome : MonoBehaviour
     private string[] endDialogue = new string[7];
     private bool WAGfinished = false;
 
-    public QuestManager questManager;
     public newSkillTree skillTree;
+
+    public QuestManager questManager;
+    public bool healingUnlocked;
+    public bool damageUnlocked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -169,10 +172,11 @@ public class WhereArtGnome : MonoBehaviour
                 questManager.allQuests["Something Lurking"].isActive = true;
 
                 //unlock healing and damage runes
+                healingUnlocked = true;
+                damageUnlocked = true;
 
+                // add skill points
                 skillTree.skillPoints += 6;
-
-                //start something lurking quest
             }
         }
     }
