@@ -181,8 +181,6 @@ public class WhereArtGnome : MonoBehaviour
                 GnomeVoice.Play();
             }
 
-            Debug.Log(dialogueCount);
-
             if (dialogueCount >= 4)
             {
                 Mayor.GetComponent<GnomeWander>().UpdateDestination();
