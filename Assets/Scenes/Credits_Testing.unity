@@ -1139,6 +1139,11 @@ MonoBehaviour:
   - {fileID: 1935735821}
   - {fileID: 1695207541}
   FoundMonoliths: []
+  raidoUnlocked: 0
+  ehwazUnlocked: 0
+  halagazUnlocked: 0
+  isaUnlocked: 0
+  sowiloUnlocked: 0
 --- !u!4 &162327060
 Transform:
   m_ObjectHideFlags: 0
@@ -4704,7 +4709,7 @@ MonoBehaviour:
   m_text: "Chrys Woehler\nModeling | Programming | Animation\n\nMiles Haase\nProgramming
     | Historian | Wizard\n\nBruno Dede\nProgramming | System Sorcerer\n\nKinnara
     Bosworth\nProgramming | Dev Wizard\n\nKelly Beaudrot\nConcept and 2D Art | Animation
-    | Music\n\n\n\nVictoria, Marlow, Conroy, Sawyer\n\n\n\n\nSiriusBizdness\ndheming\nRoovy\nZulfish\npfannkuchn\nauxide_audio\nsoundholder\nedmondsr\nmeaganlongley\nfredzed\njuskiddink\nkeweldog\n\n\n\nPolytope
+    | Music\n\n\n\nVictoria, Marlow, Conroy, Sawyer\n\n\n\n\nSiriusBizdness\ndheming\nRoovy\nZulfish\npfannkuchn\nauxide_audio\nsoundholder\nedmondsr\nmeaganlongley\nfredzed\njuskiddink\nkeweldog\nRICHERlandTV\nSnowFightStudios\nsoundmary\n\n\n\nPolytope
     Studio\n\n\n\n\nMr. Karlson \nBeau "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d7b5a11612a0cb9449b8626ae8a5c327, type: 2}
@@ -4851,12 +4856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 0}
 --- !u!65 &892415732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7702,12 +7701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 0}
 --- !u!65 &1504711247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8792,12 +8785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 0}
 --- !u!65 &1695207543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8994,7 +8981,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "A Game by \nGo Big or Go Gnome\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlayTesters\n\n\n\nSound
-    Assets\n\n\n\n\n\n\n\n\n\n\n\n\nModeling Assets\n\n\n\nSpecial Thanks\n\n"
+    Assets\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModeling Assets\n\n\n\nSpecial Thanks\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d7b5a11612a0cb9449b8626ae8a5c327, type: 2}
   m_sharedMaterial: {fileID: 2698196538611504448, guid: d7b5a11612a0cb9449b8626ae8a5c327, type: 2}
@@ -9860,6 +9847,9 @@ MonoBehaviour:
   - {fileID: 466888128}
   OnFirstPath: 0
   questManager: {fileID: 0}
+  foundVillage: 0
+  nothingSonQuest: {fileID: 0}
+  skillTree: {fileID: 0}
 --- !u!4 &1845096313
 Transform:
   m_ObjectHideFlags: 0
@@ -10336,12 +10326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 0}
 --- !u!65 &1896553212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10658,12 +10642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidoUnlocked: 0
-  ehwazUnlocked: 0
-  halagazUnlocked: 0
-  isaUnlocked: 0
-  sowiloUnlocked: 0
-  skillTree: {fileID: 0}
 --- !u!65 &1935735823
 BoxCollider:
   m_ObjectHideFlags: 0
