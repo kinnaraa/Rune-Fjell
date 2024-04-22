@@ -96,7 +96,7 @@ public class PlayerMagic : MonoBehaviour
             {
                 SpecialSounds.clip = magicSound;
                 SpecialSounds.Play();
-                animator.SetBool("Attackin", true);
+                animator.SetTrigger("Attackin");
                 StartCoroutine(Wait());
             }
         }
@@ -120,7 +120,6 @@ public class PlayerMagic : MonoBehaviour
         yield return new WaitForSeconds(pauseTime);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
         GameObject.Find("Player").GetComponent<PlayerMovement>().stepCoolDown = 0;
-        animator.SetBool("Attackin", false);
     }
 
     public IEnumerator CooldownVisual(float cooldownLength)

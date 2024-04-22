@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
 
     public void FirstGnomeConvo()
     {
-        if(index < dialogue.Count)
+        if(index < dialogue.Count - 1)
         {
             //makes the loop re-start if you click
             if (GnomeVoice.isPlaying)
@@ -194,6 +194,7 @@ public class GameManager : MonoBehaviour
             finishedQuest = true;
             // is there a way to make the kenaz rune selected?
 
+            gnomeTalk.text = dialogue[dialogue.Count - 1];
             findVillageQuest.StartPath();
             if (GnomeVoice.isPlaying)
             {

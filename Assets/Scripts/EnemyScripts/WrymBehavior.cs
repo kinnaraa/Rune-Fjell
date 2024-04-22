@@ -25,7 +25,7 @@ public class WrymBehavior : MonoBehaviour
         player = GameObject.Find("Player").transform;
         Animator = GetComponentInChildren<Animator>();
         spawn = transform.position;
-        StartCoroutine("WhoAreYou");
+        StartCoroutine(WhoAreYou());
     }
 
     void Update()
