@@ -26,7 +26,7 @@ public class QuestManager : MonoBehaviour
         allQuests["Help the Gnome"] = new QuestLog.Quest("Help the Gnome", "You come across a gnome in the woods crying for help. Help the gnome by slaying his attacker.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/Kenaz_Default"), 1));
         allQuests["Find the Gnome Village"] = new QuestLog.Quest("Find the Gnome Village", "Follow the gnome as he leads you to his village.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 2));
         allQuests["This Guy Stinks"] = new QuestLog.Quest("This Guy Stinks", "An unsual gnome in a smokey hut has some important info for you. But you must bring him what he wants to learn his secrets.\nMushrooms: " + TGS.mushroomCount + " / 10", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 3));
-        allQuests["Good For Nothing Son"] = new QuestLog.Quest("Good For Nothing Son", "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 1 berry.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 2));
+        allQuests["Good For Nothing Son"] = new QuestLog.Quest("Good For Nothing Son", "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 2 berries.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 2));
         allQuests["Where Art Gnome"] = new QuestLog.Quest("Where Art Gnome", "You hear loud commotion coming from the gnome town square.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 6));
         allQuests["Something Lurking"] = new QuestLog.Quest("Something Lurking in the Deep", "He has heard legends of a great monster who would eventually awake to destroy gnomekind. Destroy him before he kills them all.", new KeyValuePair<Sprite, int>(Resources.Load<Sprite>("UI/skill_point_icon"), 3));
 
@@ -45,7 +45,7 @@ public class QuestManager : MonoBehaviour
     void Update()
     {
         TGSinfo = "An unsual gnome in a smokey hut has some important info for you.";
-        GFNSinfo = "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 1 berry.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3";
+        GFNSinfo = "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 2 berries.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3";
         WAGinfo = "You hear loud commotion coming from the gnome town square.";
 
         if (WAG.fightingCreatures)
