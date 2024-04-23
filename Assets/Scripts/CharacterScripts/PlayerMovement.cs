@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(sprintKey))
         {
-            rb.AddForce(transform.up * (jumpForce*2), ForceMode.Impulse);
+            rb.AddForce(transform.up * (jumpForce*1.2f), ForceMode.Impulse);
         }
         else
         {

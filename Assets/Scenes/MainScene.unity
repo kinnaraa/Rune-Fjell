@@ -40940,6 +40940,7 @@ GameObject:
   - component: {fileID: 1399689649}
   - component: {fileID: 1399689648}
   - component: {fileID: 1399689651}
+  - component: {fileID: 1399689652}
   m_Layer: 6
   m_Name: Terrain_(-273.26, -0.46, -547.89)
   m_TagString: Untagged
@@ -41052,6 +41053,18 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 83bcc174eb9c9e341a67c6bbb8d5d887, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1399689652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399689647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7156278547397439556408f6892264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1411131294
 GameObject:
   m_ObjectHideFlags: 0
@@ -62061,7 +62074,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 5.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -62671,6 +62684,14 @@ PrefabInstance:
     - target: {fileID: 17892606832482182, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 155473427994191146, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 155473427994191146, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: groundDrag
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 713642473116723273, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_fontSize

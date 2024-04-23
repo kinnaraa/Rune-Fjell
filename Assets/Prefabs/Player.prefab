@@ -710,6 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 4
+  runeCollected: {fileID: 0}
 --- !u!1 &2222469961316902291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,14 +1435,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8974009164128525716}
-  - component: {fileID: 9113789562002161052}
   m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8974009164128525716
 Transform:
   m_ObjectHideFlags: 0
@@ -1459,29 +1459,6 @@ Transform:
   - {fileID: 5802430977702916575}
   m_Father: {fileID: 2076704989777490236}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &9113789562002161052
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4932643082048221096}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2053282
-  m_Height: 0.89218545
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.5517293, z: 0}
 --- !u!1 &5152508903751556880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,8 +1782,8 @@ GameObject:
   - component: {fileID: 1508375728973835454}
   - component: {fileID: 1834310436364747758}
   - component: {fileID: 7908719745308872750}
-  - component: {fileID: 3730638975601659115}
   - component: {fileID: 3408335052957449335}
+  - component: {fileID: 1259558011172884372}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1969,27 +1946,6 @@ MonoBehaviour:
   index: 0
   damageModifier: 1
   magicSound: {fileID: 8300000, guid: 652630ab486816644b01c13235e15a8c, type: 3}
---- !u!135 &3730638975601659115
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5911170087881506298}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.644402
-  m_Center: {x: -0, y: 0.14440209, z: 0}
 --- !u!95 &3408335052957449335
 Animator:
   serializedVersion: 5
@@ -2011,6 +1967,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &1259558011172884372
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911170087881506298}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.39
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!1 &5979900384912829280
 GameObject:
   m_ObjectHideFlags: 0
