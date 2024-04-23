@@ -124,7 +124,7 @@ public class Ice : Ability
     private Transform firingPoint;
     public GameObject iceBallPrefab;
 
-    public Ice() : base("Isa_Default","Isa_Activated", 10, 1, "Ice", 1, 2) // Default values for damage, cooldown, and name
+    public Ice() : base("Isa_Default","Isa_Activated", 20, 1, "Ice", 1, 2) // Default values for damage, cooldown, and name
     {
     }
 

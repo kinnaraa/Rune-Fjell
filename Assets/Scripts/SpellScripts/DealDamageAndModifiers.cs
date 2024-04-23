@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DealDamageAndModifiers : MonoBehaviour
@@ -19,24 +18,24 @@ public class DealDamageAndModifiers : MonoBehaviour
     {   
         foreach(Ability a in PM.allAbilities)
         {
-            if(GameObject.Find("Wyrm").GetComponent<WyrmHealth>())
+            if (other.GetComponent<EnemyHealth>())
             {
-                GameObject.Find("Wyrm").GetComponent<WyrmHealth>().currentHealth -= a.damage * PM.damageModifier;
-                if (!GameObject.Find("Wyrm").GetComponent<WyrmHealth>().CheckIfRed() && flashingCoroutine == null)
+                other.GetComponent<EnemyHealth>().currentHealth -= a.damage * PM.damageModifier;
+                if (!other.GetComponent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
                 {      
-                    flashingCoroutine = StartCoroutine(GameObject.Find("Wyrm").GetComponent<WyrmHealth>().FlashRed(() =>
+                    flashingCoroutine = StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed(() =>
                     {
                         // This is the callback function, it will be invoked when the coroutine ends
                         flashingCoroutine = null; // Reset the coroutine state
                     }));
                 }
             }
-            else if (other.GetComponent<EnemyHealth>())
+            else if(GameObject.Find("Wyrm").GetComponent<WyrmHealth>())
             {
-                other.GetComponent<EnemyHealth>().currentHealth -= a.damage * PM.damageModifier;
-                if (!other.GetComponent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
+                GameObject.Find("Wyrm").GetComponent<WyrmHealth>().currentHealth -= a.damage * PM.damageModifier;
+                if (!GameObject.Find("Wyrm").GetComponent<WyrmHealth>().CheckIfRed() && flashingCoroutine == null)
                 {      
-                    flashingCoroutine = StartCoroutine(other.GetComponent<EnemyHealth>().FlashRed(() =>
+                    flashingCoroutine = StartCoroutine(GameObject.Find("Wyrm").GetComponent<WyrmHealth>().FlashRed(() =>
                     {
                         // This is the callback function, it will be invoked when the coroutine ends
                         flashingCoroutine = null; // Reset the coroutine state
