@@ -36,6 +36,7 @@ public class newSkillTree : MonoBehaviour
     public MonolithManager monolith;
 
     public WhereArtGnome WAG;
+    public GameObject notUnlocked;
 
     public class Skill
     {
@@ -82,15 +83,15 @@ public class newSkillTree : MonoBehaviour
         attacksList[5].bindRuneName = "Hail";
         attacksList[7].bindRuneName = "Wall";
 
-        attacksList[0].infoBlurb = "The sun, Success, Goals, Realized, Honor.\n\nDamage: 10\n\nCooldown: 1 second";
-        attacksList[1].infoBlurb = "The combined powers of Sowilo and Thurisaz.\n\nDamage: 10\n\nCooldown: 1 second";
-        attacksList[2].infoBlurb = "Thorn, Reactive, Force, Defense, Conflict.\n\nDamage: 10\n\nCooldown: 1 second";
-        attacksList[3].infoBlurb = "The combined powers of Thurisaz and Halagaz.\n\nDamage: 10\n\nCooldown: 5 seconds";
-        attacksList[4].infoBlurb = "Hail, Wrath of Nature, Uncontrolled Forces.\n\nDamage: 0\n\nCooldown: 5 seconds";
-        attacksList[5].infoBlurb = "The combined powers of Halagaz and Isa.\n\nDamage: 10\n\nCooldown: 1 second";
-        attacksList[6].infoBlurb = "Ice, Challenge, Frustration, Psychological Blocks.\n\nDamage: 10\n\nCooldown: seconds";
-        attacksList[7].infoBlurb = "The combined powers of Isa and Ehwaz.\n\nDamage: 10\n\nCooldown: 1 second";
-        attacksList[8].infoBlurb = "Yew Tree, Strength, Reliability, Trustworthiness.\n\nDamage: 10\n\nCooldown: 5 seconds";
+        attacksList[0].infoBlurb = "The sun, Success, Goals, Realized, Honor.\n\nShoot fiery flames in front of you.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[1].infoBlurb = "The combined powers of Sowilo and Thurisaz.\n\nBlast fire in a radius around yourself.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[2].infoBlurb = "Thorn, Reactive, Force, Defense, Conflict.\n\nShoot out energy orbs that send enemies flying back.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[3].infoBlurb = "The combined powers of Thurisaz and Halagaz.\n\nConjure lightning strikes at a distance.\n\nDamage: 10\n\nCooldown: 5 seconds";
+        attacksList[4].infoBlurb = "Hail, Wrath of Nature, Uncontrolled Forces.\n\nSummon a tornado around yourself to push enemies back.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        attacksList[5].infoBlurb = "The combined powers of Halagaz and Isa.\n\nSend hail falling from the sky on your enemy.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[6].infoBlurb = "Ice, Challenge, Frustration, Psychological Blocks.\n\nCast out icey projectiles.\n\nDamage: 10\n\nCooldown: seconds";
+        attacksList[7].infoBlurb = "The combined powers of Isa and Ehwaz.\n\nConjure a wall from the earth that hits and stops enemies.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[8].infoBlurb = "Yew Tree, Strength, Reliability, Trustworthiness.\n\nSend a large tree stump shooting out of the earth at your foes.\n\nDamage: 10\n\nCooldown: 5 seconds";
 
         utilityList = new List<Skill>()
         {
@@ -106,13 +107,13 @@ public class newSkillTree : MonoBehaviour
         utilityList[2].bindRuneName = "Damage Forcefield";
         utilityList[4].bindRuneName = "Healing Forcefield";
 
-        utilityList[0].infoBlurb = "Torch, Vision, Revelation, Creativity, Technical Ability.\n\nDamage: 0\n\nCooldown: 0 seconds";
-        utilityList[1].infoBlurb = "A wild ox, Physical Strength, Speed, Untamed Potential.\n\nDamage: 0\n\nCooldown: 10 second";
-        utilityList[2].infoBlurb = "The combined powers of Uruz and Algiz.\n\nDamage: 0\n\nCooldown: 5 seconds";
-        utilityList[3].infoBlurb = "The Elk, Protection, Sheild, Ward Off Evil.\n\nDamage: 0\n\nCooldown: 0 seconds";
-        utilityList[4].infoBlurb = "The combined powers of Algiz and Wunjo.\n\nDamage: 0\n\nCooldown: 5 seconds";
-        utilityList[5].infoBlurb = "Joy, Comfort, Pleasure.\n\nDamage: 0\n\nCooldown: 5 seconds";
-        utilityList[6].infoBlurb = "Odin, Insight, Communication, Inspiration, True Vision.\n\nDamage: 0\n\nCooldown: 20 seconds";
+        utilityList[0].infoBlurb = "Torch, Vision, Revelation, Creativity, Technical Ability.\n\nSummon a light orb to help light your way.\n\nDamage: 0\n\nCooldown: 0 seconds";
+        utilityList[1].infoBlurb = "A wild ox, Physical Strength, Speed, Untamed Potential.\n\nGain a multiplier to your damage for a short amount of time.\n\nDamage: 0\n\nCooldown: 10 second";
+        utilityList[2].infoBlurb = "The combined powers of Uruz and Algiz.\n\nConjure a forcefield that gives you a damage multiplier while inside of it.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        utilityList[3].infoBlurb = "The Elk, Protection, Sheild, Ward Off Evil.\n\nConjure a shield in front of you to block enemy attacks.\n\nDamage: 0\n\nCooldown: 0 seconds";
+        utilityList[4].infoBlurb = "The combined powers of Algiz and Wunjo.\n\nSummon a forcefield that heals you when inside of it.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        utilityList[5].infoBlurb = "Joy, Comfort, Pleasure.\n\nHeal yourself to regain health.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        utilityList[6].infoBlurb = "Odin, Insight, Communication, Inspiration, True Vision.\n\n\n\n\n\nAvailable in future updates...";
 
         passiveList = new List<Skill>()
         {
@@ -121,9 +122,9 @@ public class newSkillTree : MonoBehaviour
             new Skill("Perthro", "Perthro", true),
         };
 
-        passiveList[0].infoBlurb = "Need, Self Reliance, Endurance, Survival.\n\nDamage: 0\n\nCooldown: 5 seconds";
-        passiveList[1].infoBlurb = "Chariot, Travel, Journey, Evolution.\n\nDamage: 0\n\nCooldown: 5 seconds";
-        passiveList[2].infoBlurb = "Die Cup, Mysteries, Secrets, Occulat Abilities.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        passiveList[0].infoBlurb = "Need, Self Reliance, Endurance, Survival.\n\n\n\n\n\nAvailable in future updates...";
+        passiveList[1].infoBlurb = "Chariot, Travel, Journey, Evolution.\n\nDamage: 0\n\nOnce unlocked, you can click on the Rune icons for which you have already visited on the map to teleport to their locations.\n\nCooldown: 5 seconds";
+        passiveList[2].infoBlurb = "Die Cup, Mysteries, Secrets, Occulat Abilities.\n\n\n\n\n\nAvailable in future updates...";
 
         extraList = new List<Skill>()
         {
@@ -134,8 +135,8 @@ public class newSkillTree : MonoBehaviour
         extraList[0].bindRuneName = "Radial Blast";
         extraList[1].bindRuneName = "Sun";
 
-        extraList[0].infoBlurb = "The combined powers of Thurisaz and Uruz.\n\nDamage: 0\n\nCooldown: 1 second";
-        extraList[1].infoBlurb = "The combined powers of Sowilo and Kenaz.\n\nDamage: 10\n\nCooldown: 1 second";
+        extraList[0].infoBlurb = "The combined powers of Thurisaz and Uruz.\n\nSend a blast of energy orbs around you to push enemies away.\n\nDamage: 0\n\nCooldown: 1 second";
+        extraList[1].infoBlurb = "The combined powers of Sowilo and Kenaz.\n\nConjure a figment of the sun above you to damage surrounding enemies.\n\nDamage: 10\n\nCooldown: 1 second";
 
         skillList = new List<List<Skill>>
         {
@@ -321,11 +322,23 @@ public class newSkillTree : MonoBehaviour
                     {
                         infoSection.transform.GetChild(3).gameObject.SetActive(true);
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
+                        notUnlocked.SetActive(false);
+                    }
+                    else if (chosenSkill.displayName == "Ansuz" || chosenSkill.displayName == "Nauthiz" || chosenSkill.displayName == "Perthro")
+                    {
+                        infoSection.transform.GetChild(3).gameObject.SetActive(false);
+                        infoSection.transform.GetChild(2).gameObject.SetActive(false);
+                    }else if (chosenSkill.displayName == "Sowilo" || chosenSkill.displayName == "Ehwaz" || chosenSkill.displayName == "Raidho" || chosenSkill.displayName == "Isa" || chosenSkill.displayName == "Halagaz" || chosenSkill.displayName == "Uruz" || chosenSkill.displayName == "Wunjo" || chosenSkill.displayName == "Kenaz")
+                    {
+                        infoSection.transform.GetChild(3).gameObject.SetActive(false);
+                        infoSection.transform.GetChild(2).gameObject.SetActive(false);
+                        notUnlocked.SetActive(true);
                     }
                     else
                     {
                         infoSection.transform.GetChild(3).gameObject.SetActive(false);
                         infoSection.transform.GetChild(2).gameObject.SetActive(true);
+                        notUnlocked.SetActive(false);
                     }
                     
                     if(chosenSkill.isRune == false)
