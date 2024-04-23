@@ -155,13 +155,13 @@ public class Player : MonoBehaviour
 
     public void Kill()
     {
-        GameObject.GetComponent<Animator>().enabled = false;
+        //GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = false;
         SpecialSounds.clip = deathSound;
         SpecialSounds.Play();
         gameObject.transform.position = spawn.position;
         PlayerHealth = 100;
         PlayerStamina = 100;
         GameObject.Find("Player").GetComponent<PlayerMovement>().stepCoolDown = 0;
-        GameObject.GetComponent<Animator>().enabled = false;
+        //GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true;
     }
 }

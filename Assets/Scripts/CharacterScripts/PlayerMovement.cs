@@ -224,6 +224,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 // Increment stamina over time
                 playerScript.PlayerStamina += 5f; // Adjust the increment value as needed
+                timeSinceLastSprint = 0f;
             }
 
             yield return null;
