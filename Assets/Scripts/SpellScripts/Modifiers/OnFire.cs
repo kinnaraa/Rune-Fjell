@@ -14,15 +14,31 @@ public class OnFire : MonoBehaviour
     {
         for(int i = 0; i <= 5; i++)
         {
-            gameObject.GetComponentInParent<EnemyHealth>().currentHealth -= 1;
-            if (!gameObject.GetComponentInParent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
-            {      
-                flashingCoroutine = StartCoroutine(gameObject.GetComponentInParent<EnemyHealth>().FlashRed(() =>
-                {
-                    // This is the callback function, it will be invoked when the coroutine ends
-                    flashingCoroutine = null; // Reset the coroutine state
-                }));
+            if(gameObject.GetComponentInParenr<WyrmHealth>())
+            {
+                gameObject.GetComponentInParent<EnemyHealth>().currentHealth -= 1;
+                if (!gameObject.GetComponentInParent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
+                {      
+                    flashingCoroutine = StartCoroutine(gameObject.GetComponentInParent<EnemyHealth>().FlashRed(() =>
+                    {
+                        // This is the callback function, it will be invoked when the coroutine ends
+                        flashingCoroutine = null; // Reset the coroutine state
+                    }));
+                }
             }
+            else
+            {
+                gameObject.GetComponentInParent<EnemyHealth>().currentHealth -= 1;
+                if (!gameObject.GetComponentInParent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
+                {      
+                    flashingCoroutine = StartCoroutine(gameObject.GetComponentInParent<EnemyHealth>().FlashRed(() =>
+                    {
+                        // This is the callback function, it will be invoked when the coroutine ends
+                        flashingCoroutine = null; // Reset the coroutine state
+                    }));
+                }
+            }
+
             yield return new WaitForSeconds(0.5f);
         }
     }
