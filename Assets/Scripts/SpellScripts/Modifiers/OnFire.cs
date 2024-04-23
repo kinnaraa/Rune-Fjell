@@ -14,7 +14,7 @@ public class OnFire : MonoBehaviour
     {
         for(int i = 0; i <= 5; i++)
         {
-            if(gameObject.GetComponentInParenr<WyrmHealth>())
+            if(gameObject.GetComponentInParent<WyrmHealth>())
             {
                 gameObject.GetComponentInParent<EnemyHealth>().currentHealth -= 1;
                 if (!gameObject.GetComponentInParent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
