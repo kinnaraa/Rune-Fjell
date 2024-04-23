@@ -13,6 +13,7 @@ public class WyrmHealth : MonoBehaviour
     public SkinnedMeshRenderer[] bodyParts;
     public Material red;
     public AudioSource deathSound;
+    public Coroutine flashingCoroutine;
 
     private bool isRed = false;
 

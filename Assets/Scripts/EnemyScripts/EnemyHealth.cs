@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     public Material red;
     private AudioSource sounds;
     public AudioClip deathSound;
+    public Coroutine flashingCoroutine;
 
     private bool isRed = false;
 
@@ -107,7 +108,7 @@ public class EnemyHealth : MonoBehaviour
                 }
             }
 
-            isRed = false;
+            isRed = false; // Reset the red state after flashing
             // Invoke the callback to notify that the coroutine has ended
             coroutineEnded?.Invoke();
         }
