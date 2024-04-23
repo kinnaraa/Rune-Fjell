@@ -30,7 +30,7 @@ public class WhereArtGnome : MonoBehaviour
     private float fadeDuration = 1.0f;
     private int dialogueCount = 0;
 
-    private bool canTalkToMayor = false;
+    public bool canTalkToMayor = false;
     public GameObject NormalMayorGnome;
     public TextMeshProUGUI normalMayorDialogue;
     public GameObject normalMayorEButton;

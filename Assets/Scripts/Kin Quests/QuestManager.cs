@@ -48,6 +48,11 @@ public class QuestManager : MonoBehaviour
         GFNSinfo = "The lost gnome's mother needs help getting supplies for dinner. Find her 3 wood and 2 berries.\nBerries: " + GFNS.numBerry + "/ 2\nWood: " + GFNS.numWood + " / 3";
         WAGinfo = "You hear loud commotion coming from the gnome town square.";
 
+        if(WAG.canTalkToMayor && !WAG.fightingCreatures)
+        {
+            WAGinfo = "Talk to the gnome leader to learn more about the situation and how you can help.";
+        }
+
         if (WAG.fightingCreatures)
         {
             int killedMonsters = 0;
@@ -64,17 +69,17 @@ public class QuestManager : MonoBehaviour
                 killedMonsters = 2;
             }
 
-            WAGinfo = "The Gnome Leader has tasked you to defeat surrounding enemies in search of a clue to the gnomes disappearances.\nDefeat 1 Megabat and 1 Dark Ice Creature: " + killedMonsters + "/ 2\nFind clues: " + WAG.clueCount + " / 2";
+            WAGinfo = "The Gnome Leader has asked you to defeat surrounding enemies in search of a clue to the gnomes disappearances. Defeat the Megabat and Dark Ice Creature near the mountain to the east.\nSlain enemies: " + killedMonsters + "/ 2\nClues: " + WAG.clueCount + " / 2";
         }
 
         if(WAG.bigIceBoyDead && WAG.megaBatDead)
         {
-            WAGinfo = "The Gnome Leader has tasked you to defeat surrounding enemies in search of a clue to the gnomes disappearances.\nDefeat 1 Megabat and 1 Dark Ice Creature: 2 / 2\nFind clues: " + WAG.clueCount + " / 2";
+            WAGinfo = "The Gnome Leader has asked you to defeat surrounding enemies in search of a clue to the gnomes disappearances. Defeat the Megabat and Dark Ice Creature near the mountain to the east.\nSlain enemies: 2 / 2\nClues: " + WAG.clueCount + " / 2";
         }
 
         if (TGS.canCollect)
         {
-            TGSinfo = TGSinfo = "Bring the unusual gnome what he wants to learn his secrets.\nMushrooms: " + TGS.mushroomCount + " / 10";
+            TGSinfo = TGSinfo = "Bring the unusual gnome what he wants to learn his secrets. There should be some mushrooms if you follow the path straight when leaving town\nMushrooms: " + TGS.mushroomCount + " / 10";
         }
 
         allQuests["This Guy Stinks"].infoText = TGSinfo;
