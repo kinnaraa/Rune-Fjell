@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -49,6 +50,8 @@ public class Player : MonoBehaviour
     public KeyCode TabMenu = KeyCode.Tab;
     public KeyCode EscMenu = KeyCode.Escape;
 
+    public KeyCode ResetPlayer = KeyCode.Delete;
+
     private bool tabMenuOpen;
     private bool escMenuOpen;
 
@@ -75,6 +78,11 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        if(Input.GetKeyDown(ResetPlayer))
+        {
+            StartCoroutine(Kill());
+        }
+
         SpecialSounds = GameObject.Find("SpecialPlayerAudio").GetComponent<AudioSource>();
         Cam = GameObject.Find("Main Camera").GetComponent<ThirdPersonCam>();
         if(PlayerHealth <= 0)

@@ -63006,6 +63006,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 468194865}
     - target: {fileID: 1834310436364747758, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: ResetPlayer
+      value: 127
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834310436364747758, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: EnterCaveMenu
       value: 
       objectReference: {fileID: 2156609000403228640}
