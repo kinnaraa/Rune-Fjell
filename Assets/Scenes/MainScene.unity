@@ -35911,7 +35911,9 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8781387489092792892, guid: 46f8d17b9eeef754ebc1008196f84bdd, type: 3}
+    - {fileID: 7471486200458557985, guid: 46f8d17b9eeef754ebc1008196f84bdd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
