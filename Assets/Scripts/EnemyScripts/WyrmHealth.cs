@@ -38,7 +38,7 @@ public class WyrmHealth : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Destroy(Wrym);
         
-        GameObject.Find("Player").setActive(false);
+        GameObject.Find("Player").SetActive(false);
         SceneManager.LoadScene("Credits");
     }
 

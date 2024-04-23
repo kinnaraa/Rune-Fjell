@@ -73,11 +73,15 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = 0;
         }
-    }
 
-    private void FixedUpdate()
-    {
-        MovePlayer();
+        if(!playerScript.dead)
+        {
+            MovePlayer();
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 
     private void MyInput()

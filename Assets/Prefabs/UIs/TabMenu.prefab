@@ -2758,6 +2758,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5001306300482894655}
     m_Modifications:
+    - target: {fileID: 268829999912721018, guid: 95b9ef2ace0d4454cbac05c67377863b, type: 3}
+      propertyPath: tabMenu
+      value: 
+      objectReference: {fileID: 7807665202042527936}
     - target: {fileID: 777267652944581509, guid: 95b9ef2ace0d4454cbac05c67377863b, type: 3}
       propertyPath: m_Name
       value: MapMenu

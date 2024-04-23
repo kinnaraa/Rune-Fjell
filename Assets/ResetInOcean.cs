@@ -6,7 +6,7 @@ public class ResetInOcean : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Player.GetComponent<Player>().Kill();
+            StartCoroutine(Player.GetComponent<Player>().Kill());
         }
         if(other.gameObject.GetComponent<EnemyHealth>())
         {

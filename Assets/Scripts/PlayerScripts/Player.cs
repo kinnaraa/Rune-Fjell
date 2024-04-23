@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
 
     public AudioClip deathSound;
     private AudioSource SpecialSounds;
+    public bool dead = false;
 
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -78,7 +79,8 @@ public class Player : MonoBehaviour
         Cam = GameObject.Find("Main Camera").GetComponent<ThirdPersonCam>();
         if(PlayerHealth <= 0)
         {
-            Kill();
+            dead = true;
+            StartCoroutine(Kill());
         }
 
         Image health = GameObject.Find("Health").GetComponent<Image>();
@@ -153,15 +155,20 @@ public class Player : MonoBehaviour
         canOpenMenu = true;
     }
 
-    public void Kill()
+    public void Respawn()
     {
-        //GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = false;
-        SpecialSounds.clip = deathSound;
-        SpecialSounds.Play();
         gameObject.transform.position = spawn.position;
         PlayerHealth = 100;
         PlayerStamina = 100;
-        GameObject.Find("Player").GetComponent<PlayerMovement>().stepCoolDown = 0;
-        //GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true;
+        GetComponent<PlayerMovement>().stepCoolDown = 0;
+        dead = false;
+    }
+
+    public IEnumerator Kill()
+    {
+        SpecialSounds.clip = deathSound;
+        SpecialSounds.Play();
+        yield return new WaitForSeconds(1f);
+        Respawn();
     }
 }
