@@ -223,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
             if (timeSinceLastSprint > 3f && playerScript.PlayerStamina < 100)
             {
                 // Increment stamina over time
-                playerScript.PlayerStamina += 5f; // Adjust the increment value as needed
+                playerScript.PlayerStamina += 15f; // Adjust the increment value as needed
                 timeSinceLastSprint = 0f;
             }
 
