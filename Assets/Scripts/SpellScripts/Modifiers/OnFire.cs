@@ -14,7 +14,7 @@ public class OnFire : MonoBehaviour
     {
         for(int i = 0; i <= 5; i++)
         {
-            if(gameObject.GetComponentInParent<WyrmHealth>())
+            if(gameObject.GetComponentInParent<EnemyHealth>())
             {
                 gameObject.GetComponentInParent<EnemyHealth>().currentHealth -= 1;
                 if (!gameObject.GetComponentInParent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
@@ -28,10 +28,10 @@ public class OnFire : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponentInParent<EnemyHealth>().currentHealth -= 1;
-                if (!gameObject.GetComponentInParent<EnemyHealth>().CheckIfRed() && flashingCoroutine == null)
+                GameObject.Find("Wrym").GetComponent<WyrmHealth>().currentHealth -= 1;
+                if (!GameObject.Find("Wrym").GetComponent<WyrmHealth>().CheckIfRed() && flashingCoroutine == null)
                 {      
-                    flashingCoroutine = StartCoroutine(gameObject.GetComponentInParent<EnemyHealth>().FlashRed(() =>
+                    flashingCoroutine = StartCoroutine(GameObject.Find("Wrym").GetComponent<WyrmHealth>().FlashRed(() =>
                     {
                         // This is the callback function, it will be invoked when the coroutine ends
                         flashingCoroutine = null; // Reset the coroutine state

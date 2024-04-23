@@ -34,12 +34,15 @@ public class ThisGuyStinks : MonoBehaviour
     private bool questOver = false;
 
     AudioSource GnomeVoice;
+    AudioSource Knocker;
+    public AudioClip knock;
     public TabMenuScript TMS;
     public NothingSonQuest GFNS;
 
     // Start is called before the first frame update
     void Start()
     {
+        
 
         initialGnomeLocation = weedGnome.transform;
         dialogue[0] = "Ahhh, yes. It's you. I've been expecting you...";
@@ -59,6 +62,9 @@ public class ThisGuyStinks : MonoBehaviour
         dialogue2[7] = "Anyways, it's getting late, come stay with me for the night.";
 
         GnomeVoice = GameObject.Find("weed gnome").GetComponent<AudioSource>();
+        Knocker = GameObject.Find("smokey hut").GetComponent<AudioSource>();
+
+        Knocker.clip = knock;
 
     }
 
@@ -79,6 +85,7 @@ public class ThisGuyStinks : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && !knocked)
             {
                 weedGnome.transform.position = new Vector3(-194.58f, 24.80045f, -58.64f);
+                Knocker.Play();
                 knocked = true;
             }
             

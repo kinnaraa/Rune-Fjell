@@ -32,7 +32,7 @@ public class WyrmHealth : MonoBehaviour
 
     public IEnumerator Die()
     {
-        GetComponent<EnemyMovement>().enabled = false;
+        GetComponent<WrymBehavior>().enabled = false;
         deathSound.Play();
         yield return new WaitForSeconds(3f);
         Destroy(Wrym);

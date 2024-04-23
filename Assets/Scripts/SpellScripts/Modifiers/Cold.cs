@@ -17,11 +17,11 @@ public class Cold : MonoBehaviour
                 Destroy(gameObject);
             }
         }   
-        else if (gameObject.GetComponentInParent<WrymBehavior>())
+        else if (gameObject.GetComponentInParent<PlayerMovement>())
         {
-            if(gameObject.GetComponentInParent<WrymBehavior>().moveSpeed > 0.5)
+            if(gameObject.GetComponentInParent<PlayerMovement>().moveSpeed > 0.5)
             {
-                gameObject.GetComponentInParent<WrymBehavior>().moveSpeed /= 2;
+                gameObject.GetComponentInParent<PlayerMovement>().moveSpeed /= 2;
                 StartCoroutine(Reset());
             }
             else
@@ -29,11 +29,11 @@ public class Cold : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if (gameObject.GetComponentInParent<PlayerMovement>())
+        else if (GameObject.Find("Wrym").GetComponent<WrymBehavior>())
         {
-            if(gameObject.GetComponentInParent<PlayerMovement>().moveSpeed > 0.5)
+            if(GameObject.Find("Wrym").GetComponent<WrymBehavior>().moveSpeed > 0.5)
             {
-                gameObject.GetComponentInParent<PlayerMovement>().moveSpeed /= 2;
+                GameObject.Find("Wrym").GetComponent<WrymBehavior>().moveSpeed /= 2;
                 StartCoroutine(Reset());
             }
             else
@@ -50,9 +50,9 @@ public class Cold : MonoBehaviour
         {
             gameObject.GetComponentInParent<EnemyMovement>().moveSpeed *= 2;
         }
-        else if(gameObject.GetComponentInParent<WrymBehavior>())
+        else if(GameObject.Find("Wrym").GetComponent<WrymBehavior>())
         {
-            gameObject.GetComponentInParent<WrymBehavior>().moveSpeed *= 2;
+            GameObject.Find("Wrym").GetComponent<WrymBehavior>().moveSpeed *= 2;
         }
         else
         {
