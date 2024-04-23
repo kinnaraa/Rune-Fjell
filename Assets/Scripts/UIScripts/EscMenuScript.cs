@@ -29,6 +29,7 @@ public class EscMenuScript : MonoBehaviour
     // Optional: Add any player-specific initialization logic here
     public void MainMenu()
     {
+        gameObject.SetActive(false);
         SceneManager.LoadScene("MainMenuScene");
     }
     public void QuitGame()

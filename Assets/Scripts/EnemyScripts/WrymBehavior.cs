@@ -63,13 +63,11 @@ public class WrymBehavior : MonoBehaviour
                     {
                         Attacking = true;
                         StartCoroutine(Attack());
-                        StartCoroutine(Cooldown());
                     }
                     else
                     {
                         Attacking = true;
                         StartCoroutine(Spit());
-                        StartCoroutine(Cooldown());
                     }
                 }
             }
@@ -95,12 +93,11 @@ public class WrymBehavior : MonoBehaviour
     {
         Animator.SetTrigger("StandAttack");
         damageCollider.enabled = true;
-        yield return new WaitForSeconds(2.5f);
         attackSound.Play();
-        transform.Translate(Vector3.forward * 100f * Time.deltaTime);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         damageCollider.enabled = false;
         Attacking = false;
+        StartCoroutine(Cooldown());
     }
 
     public IEnumerator Spit()
@@ -108,8 +105,12 @@ public class WrymBehavior : MonoBehaviour
         Animator.SetTrigger("SpitAttack");
         yield return new WaitForSeconds(2.5f);
         spitSound.Play();
+        // Calculate the direction towards the player
+        Vector3 direction = (player.position - spitPos.position).normalized;
         GameObject spitball = Instantiate(Resources.Load<GameObject>("SpellPrefabs/SpitBall"), spitPos.position, Resources.Load<GameObject>("SpellPrefabs/SpitBall").transform.rotation);
-        spitball.GetComponent<Rigidbody>().velocity = transform.forward * 20;
+        
+        spitball.GetComponent<Rigidbody>().velocity = direction * 20;
         Attacking = false;
+        StartCoroutine(Cooldown());
     }
 }
