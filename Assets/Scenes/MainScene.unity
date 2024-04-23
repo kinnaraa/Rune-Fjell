@@ -9734,7 +9734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1238905205226309463, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
       propertyPath: m_Volume
-      value: 0.347
+      value: 0.563
       objectReference: {fileID: 0}
     - target: {fileID: 3190470712998540643, guid: a564d798bc27ba248b0685cd9c6780eb, type: 3}
       propertyPath: m_Name
@@ -10215,6 +10215,10 @@ PrefabInstance:
       propertyPath: questManager
       value: 
       objectReference: {fileID: 813582832}
+    - target: {fileID: 7030686810475189664, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
+      propertyPath: tabMenu
+      value: 
+      objectReference: {fileID: 468194865}
     - target: {fileID: 7807665202042527936, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: m_Name
       value: TabMenu
@@ -42866,6 +42870,10 @@ PrefabInstance:
     - target: {fileID: 7065129674182197505, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858978639898206212, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Volume
+      value: 0.67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

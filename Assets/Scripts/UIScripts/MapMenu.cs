@@ -12,6 +12,8 @@ public class MapMenu : MonoBehaviour
     private ThirdPersonCam Cam;
     private PlayerMagic Magic;
 
+    public GameObject tabMenu;
+
     private void Awake() 
     {
         MM = GameObject.Find("Monoliths").GetComponent<MonolithManager>();
@@ -44,7 +46,7 @@ public class MapMenu : MonoBehaviour
     {
         foreach (GameObject obj in MM.FoundMonoliths)
         {
-            if(buttonName == obj.name)
+            if(buttonName == obj.name && MM.raidoUnlocked)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -57,8 +59,9 @@ public class MapMenu : MonoBehaviour
                 GameObject particles = Instantiate(Resources.Load<GameObject>("SpellPrefabs/TeleportParticles"), SpawnPos, Resources.Load<Transform>("SpellPrefabs/TeleportParticles").rotation); // Use Quaternion.identity for rotation
                 particles.transform.parent = player.transform;
                 particles.GetComponentInChildren<PortalAnimationForTeleport>().Animate(obj);
-                
-                gameObject.SetActive(false);
+
+                // close tab menu
+                tabMenu.SetActive(false);
             }
         }
     }

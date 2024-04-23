@@ -90,7 +90,7 @@ public class newSkillTree : MonoBehaviour
         attacksList[5].infoBlurb = "The combined powers of Halagaz and Isa.\n\nDamage: 10\n\nCooldown: 1 second";
         attacksList[6].infoBlurb = "Ice, Challenge, Frustration, Psychological Blocks.\n\nDamage: 10\n\nCooldown: seconds";
         attacksList[7].infoBlurb = "The combined powers of Isa and Ehwaz.\n\nDamage: 10\n\nCooldown: 1 second";
-        attacksList[6].infoBlurb = "Yew Tree, Strength, Reliability, Trustworthiness.\n\nDamage: 10\n\nCooldown: 5 seconds";
+        attacksList[8].infoBlurb = "Yew Tree, Strength, Reliability, Trustworthiness.\n\nDamage: 10\n\nCooldown: 5 seconds";
 
         utilityList = new List<Skill>()
         {
