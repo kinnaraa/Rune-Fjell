@@ -155,20 +155,16 @@ public class Player : MonoBehaviour
         canOpenMenu = true;
     }
 
-    public void Respawn()
-    {
-        gameObject.transform.position = spawn.position;
-        PlayerHealth = 100;
-        PlayerStamina = 100;
-        GetComponent<PlayerMovement>().stepCoolDown = 0;
-        dead = false;
-    }
-
     public IEnumerator Kill()
     {
         SpecialSounds.clip = deathSound;
         SpecialSounds.Play();
         yield return new WaitForSeconds(1f);
-        Respawn();
+        dead = true;
+        yield return new WaitForSeconds(1f);
+        PlayerHealth = 100;
+        PlayerStamina = 100;
+        GetComponent<PlayerMovement>().stepCoolDown = 0;
+        dead = false;
     }
 }

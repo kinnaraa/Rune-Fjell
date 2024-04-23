@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -58,11 +59,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(!playerScript.dead)
+        {
+            MovePlayer();
+            MyInput();
+            SpeedControl();
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+            transform.position = playerScript.spawn.position;
+        }
+
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-
-        MyInput();
-        SpeedControl();
 
         // handle drag
         if (grounded)
@@ -72,15 +82,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.drag = 0;
-        }
-
-        if(!playerScript.dead)
-        {
-            MovePlayer();
-        }
-        else
-        {
-            rb.velocity = Vector3.zero;
         }
     }
 
@@ -111,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // Check if the player is moving (not idle)
-        bool isWalking = (horizontalInput != 0 || verticalInput != 0);
+        bool isWalking = horizontalInput != 0 || verticalInput != 0;
 
         // Set the "IsWalking" parameter of the animator
         animator.SetBool("IsWalking", isWalking);
@@ -139,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(sprintKey) && playerScript.PlayerStamina > 5)
             {
-                rb.AddForce(moveDirection.normalized * (moveSpeed * sprintSpeed) * 10f, ForceMode.Force);
+                rb.AddForce(moveSpeed * sprintSpeed * 10f * moveDirection.normalized, ForceMode.Force);
                 animator.SetBool("IsRunnin", true);
                 if (stepCoolDown <= 0f)
                 {
@@ -150,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+                rb.AddForce(10f * moveSpeed * moveDirection.normalized, ForceMode.Force);
                 animator.SetBool("IsRunnin", false);
                 
             }
@@ -158,12 +159,12 @@ public class PlayerMovement : MonoBehaviour
         // in air
         else if (!grounded)
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(10f * airMultiplier * moveSpeed * moveDirection.normalized, ForceMode.Force);
         }
     }
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        Vector3 flatVel = new(rb.velocity.x, 0f, rb.velocity.z);
 
         // limit velocity if needed
         if(flatVel.magnitude > moveSpeed)
