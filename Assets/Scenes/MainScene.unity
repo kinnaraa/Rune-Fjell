@@ -3099,6 +3099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NothingSonSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 1166515081026085677, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
+      propertyPath: m_SpotAngle
+      value: 76.38872
+      objectReference: {fileID: 0}
     - target: {fileID: 1511518102072480382, guid: 81754638fd440454dba3cf2e771023ae, type: 3}
       propertyPath: GM
       value: 
