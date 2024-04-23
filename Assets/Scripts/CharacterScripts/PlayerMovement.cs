@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(sprintKey) && playerScript.PlayerStamina > 5)
             {
-                rb.AddForce(moveSpeed * sprintSpeed * 10f * moveDirection.normalized, ForceMode.Force);
+                rb.AddForce(moveDirection.normalized * (moveSpeed * sprintSpeed) * 10f, ForceMode.Force);
                 animator.SetBool("IsRunnin", true);
                 if (stepCoolDown <= 0f)
                 {
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                rb.AddForce(10f * moveSpeed * moveDirection.normalized, ForceMode.Force);
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
                 animator.SetBool("IsRunnin", false);
                 
             }
@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
         // in air
         else if (!grounded)
         {
-            rb.AddForce(10f * airMultiplier * moveSpeed * moveDirection.normalized, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
     }
     private void SpeedControl()
