@@ -22,7 +22,7 @@ public class NothingSonQuest : MonoBehaviour
     public int numBerry;
     public int numWood;
     public bool itemsCollected;
-    bool questDone = false;
+    public bool questDone = false;
 
     private string[] dialogue = new string[6];
     private string[] dialogue2 = new string[4];
@@ -33,7 +33,6 @@ public class NothingSonQuest : MonoBehaviour
     public FindGnomeVillageQuest FGV;
 
     AudioSource GnomeVoice;
-
 
     public void Start()
     {
