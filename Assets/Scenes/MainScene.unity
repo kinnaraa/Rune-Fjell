@@ -61487,6 +61487,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 605559192}
     - target: {fileID: 330968460057901623, guid: 3bc735ba17040d148b155cb9f6ff003a, type: 3}
+      propertyPath: GFNS
+      value: 
+      objectReference: {fileID: 580793206}
+    - target: {fileID: 330968460057901623, guid: 3bc735ba17040d148b155cb9f6ff003a, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 2067841055}

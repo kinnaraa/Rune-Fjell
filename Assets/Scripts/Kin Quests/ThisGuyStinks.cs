@@ -35,6 +35,7 @@ public class ThisGuyStinks : MonoBehaviour
 
     AudioSource GnomeVoice;
     public TabMenuScript TMS;
+    public NothingSonQuest GFNS;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +65,7 @@ public class ThisGuyStinks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(Player.transform.position, gnomeHouse.transform.position) < 5)
+        if(Vector3.Distance(Player.transform.position, gnomeHouse.transform.position) < 5.0f && GFNS.questDone)
         {
             if (!knocked)
             {
