@@ -594,7 +594,7 @@ public class RadialBlast : Ability
 
     public override IEnumerator Cast()
     {
-        RadiusBlast = Resources.Load("SpellPrefabs/RadiusBlast") as GameObject;
+        RadiusBlast = Resources.Load("SpellPrefabs/RadialBlast") as GameObject;
         playerTransform = GameObject.Find("PlayerModel").transform;
 
         if (!cooldownActive)
