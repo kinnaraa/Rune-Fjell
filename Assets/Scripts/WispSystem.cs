@@ -35,7 +35,7 @@ public class WispSystem : MonoBehaviour
         if (OnFirstPath)
         {
             float distance = Vector3.Distance(Player.transform.position, CurrentWisp.transform.position);
-            if (distance <= 4)
+            if (distance <= 2)
             {
                 Destroy(CurrentWisp);
                 index++;

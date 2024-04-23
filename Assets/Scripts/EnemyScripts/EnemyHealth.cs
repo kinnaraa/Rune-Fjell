@@ -45,7 +45,12 @@ public class EnemyHealth : MonoBehaviour
             GM.FirstBatDead = true;
         }
         GetComponent<EnemyMovement>().enabled = false;
+        sounds.clip = deathSound;
         sounds.Play();
+        Debug.Log(sounds.isPlaying);
+        Debug.Log(sounds.volume);
+        Debug.Log(sounds.clip);
+
         yield return new WaitForSeconds(sounds.clip.length);
         Destroy(gameObject);
     }

@@ -5597,7 +5597,7 @@ MonoBehaviour:
   stopDistance: 2
   detectionDistance: 50
   damageCollider: {fileID: 130334197400446721}
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 90556f80cbb5ac247a6a5b5f4a9cc741, type: 3}
 --- !u!114 &8207156999971430688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5617,7 +5617,7 @@ MonoBehaviour:
   - {fileID: 1542350838604287428}
   bodyPartsIce: []
   red: {fileID: 2100000, guid: c334c07911722e84dadd91dc05a07465, type: 2}
-  deathSound: {fileID: 8712450207246276368}
+  deathSound: {fileID: 8300000, guid: ddebf14847df6684eaca557e21ce02e5, type: 3}
 --- !u!82 &8712450207246276368
 AudioSource:
   m_ObjectHideFlags: 0
