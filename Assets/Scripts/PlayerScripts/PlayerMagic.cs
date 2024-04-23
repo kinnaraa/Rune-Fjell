@@ -103,17 +103,21 @@ public class PlayerMagic : MonoBehaviour
 
     public IEnumerator Wait()
     {
-        animator.SetTrigger("Attackin");
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            gameObject.GetComponent<PlayerMovement>().enabled = false;
+            animator.SetTrigger("Attackin");
+        }
+        yield return new WaitForSeconds(1f);
         yield return StartCoroutine(currentAbility.Cast()); // Wait for ability casting to finish
         if (currentAbility.pauseTime != 0.0f)
         {
-            StartCoroutine(PauseMovement(currentAbility.pauseTime));
+            StartCoroutine(PauseMovement(currentAbility.pauseTime-0.2f));
         }
     }
 
     public IEnumerator PauseMovement(float pauseTime)
     {
-        gameObject.GetComponent<PlayerMovement>().enabled = false;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(pauseTime);
         gameObject.GetComponent<PlayerMovement>().enabled = true;
