@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Monolith : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class Monolith : MonoBehaviour
                     if(!Found)
                     {
                         MM.FoundMonoliths.Add(gameObject);
+                        text.GetComponent<MonolithTextFade>().runeCollected.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/" + gameObject.name + "_Activated");
                         text.GetComponent<MonolithTextFade>().StartFade();
                         Found = true;
 

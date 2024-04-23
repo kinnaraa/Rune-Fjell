@@ -67,6 +67,10 @@ public class WhereArtGnome : MonoBehaviour
     private TextMeshProUGUI firstClueThoughts;
     private TextMeshProUGUI secondClueThoughts;
 
+    public GameObject collectedRunes;
+    private GameObject Rune1;
+    private GameObject Rune2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,6 +108,9 @@ public class WhereArtGnome : MonoBehaviour
 
         firstClueThoughts = thoughtTexts.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         secondClueThoughts = thoughtTexts.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        Rune1 = collectedRunes.gameObject;
+        Rune2 = collectedRunes.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -272,6 +279,11 @@ public class WhereArtGnome : MonoBehaviour
                 healingUnlocked = true;
                 damageUnlocked = true;
 
+                Rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Wunjo_Activated");
+                Rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Uruz_Activated");
+
+                StartCoroutine(displayRunes());
+
                 // add skill points
                 skillTree.skillPoints += 6;
             }
@@ -373,5 +385,45 @@ public class WhereArtGnome : MonoBehaviour
         }
 
         StartCoroutine(FadeInThoughts(text));
+    }
+
+    IEnumerator displayRunes()
+    {
+        Debug.Log("Fade out");
+
+        float elapsedTime = 0f;
+        Color currentColor = Rune1.GetComponent<Image>().color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            currentColor.a = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+            Rune1.GetComponent<Image>().color = currentColor;
+            Rune2.GetComponent<Image>().color = currentColor;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(displayRunes2());
+    }
+
+    IEnumerator displayRunes2()
+    {
+        float elapsedTime = 0f;
+
+        Color originalColor = Rune1.GetComponent<Image>().color;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+
+            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, newAlpha);
+            Rune1.GetComponent<Image>().color = newColor;
+            Rune2.GetComponent<Image>().color = newColor;
+
+            yield return null;
+        }
     }
 }

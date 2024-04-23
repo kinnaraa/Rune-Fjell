@@ -1230,7 +1230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33, y: 100}
+  m_AnchoredPosition: {x: -42, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159598778
@@ -2149,14 +2149,14 @@ RectTransform:
   m_GameObject: {fileID: 257529054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 0.88603204, y: 0.88603204, z: 0.88603204}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 163925190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 76}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257529056
@@ -10545,6 +10545,7 @@ MonoBehaviour:
   damageUnlocked: 0
   clueCount: 0
   thoughtTexts: {fileID: 33831674}
+  collectedRunes: {fileID: 159598776}
 --- !u!1 &607213535
 GameObject:
   m_ObjectHideFlags: 0
@@ -62630,6 +62631,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 713642473116723273, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 713642473116723273, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 713642473116723273, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 713642473116723273, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 713642473116723273, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 13290186
+      objectReference: {fileID: 0}
     - target: {fileID: 1834310436364747758, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: Cam
       value: 
@@ -62650,6 +62671,10 @@ PrefabInstance:
       propertyPath: EnterCaveMenu
       value: 
       objectReference: {fileID: 2156609000403228640}
+    - target: {fileID: 2038081803417883578, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2076704989777490236, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_LocalPosition.x
       value: -144.04732
@@ -62694,6 +62719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8293465726458041544, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: runeCollected
+      value: 
+      objectReference: {fileID: 257529054}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
