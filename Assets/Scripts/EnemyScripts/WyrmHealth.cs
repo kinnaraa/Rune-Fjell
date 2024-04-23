@@ -26,7 +26,7 @@ public class WyrmHealth : MonoBehaviour
         // Check if the enemy is defeated
         if (currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
