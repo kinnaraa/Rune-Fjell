@@ -17,6 +17,18 @@ public class Cold : MonoBehaviour
                 Destroy(gameObject);
             }
         }   
+        else if (gameObject.GetComponentInParent<WyrmBehavior>())
+        {
+            if(gameObject.GetComponentInParent<WyrmBehavior>().moveSpeed > 0.5)
+            {
+                gameObject.GetComponentInParent<WyrmBehavior>().moveSpeed /= 2;
+                StartCoroutine(Reset());
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
         else if (gameObject.GetComponentInParent<PlayerMovement>())
         {
             if(gameObject.GetComponentInParent<PlayerMovement>().moveSpeed > 0.5)
@@ -37,6 +49,10 @@ public class Cold : MonoBehaviour
         if(gameObject.GetComponentInParent<EnemyMovement>())
         {
             gameObject.GetComponentInParent<EnemyMovement>().moveSpeed *= 2;
+        }
+        else if(gameObject.GetComponentInParent<WyrmBehavior>())
+        {
+            gameObject.GetComponentInParent<WyrmBehavior>().moveSpeed *= 2;
         }
         else
         {
