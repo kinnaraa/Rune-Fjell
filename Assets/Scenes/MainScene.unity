@@ -62691,7 +62691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 155473427994191146, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: groundDrag
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 713642473116723273, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_fontSize
