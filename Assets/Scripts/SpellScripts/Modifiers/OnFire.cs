@@ -26,7 +26,7 @@ public class OnFire : MonoBehaviour
                     }));
                 }
             }
-            else
+            else if (GameObject.Find("Wrym"))
             {
                 GameObject.Find("Wrym").GetComponent<WyrmHealth>().currentHealth -= 1;
                 if (!GameObject.Find("Wrym").GetComponent<WyrmHealth>().CheckIfRed() && flashingCoroutine == null)

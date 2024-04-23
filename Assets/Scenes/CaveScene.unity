@@ -4118,10 +4118,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wyrm
       objectReference: {fileID: 0}
-    - target: {fileID: 5850977087420639890, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-      propertyPath: m_AngularDrag
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8607234825956145796, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -222.07

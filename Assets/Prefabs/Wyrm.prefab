@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -6294716034201277261}
   - component: {fileID: -6180761481069382525}
   - component: {fileID: 6532520887598087724}
+  - component: {fileID: 2586394414014438426}
   m_Layer: 0
   m_Name: Wyrm
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 1cab47a0e094bf045a4d37f3c2a90398, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -188,7 +189,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -589,6 +590,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2586394414014438426
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086506516982269888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3646291962942698218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,6 +623,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47ebd27cdab7455459e3b1199a644ecb, type: 2}
+    - target: {fileID: -9054357265648601497, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
       propertyPath: m_LocalScale.x
       value: 40
@@ -693,6 +719,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47ebd27cdab7455459e3b1199a644ecb, type: 2}
+    - target: {fileID: -6680434477314984183, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6497938736824528088, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -741,6 +771,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47ebd27cdab7455459e3b1199a644ecb, type: 2}
+    - target: {fileID: -2862667632832426845, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2714443891995278582, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -789,10 +823,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: WyrmHealth
       objectReference: {fileID: 0}
+    - target: {fileID: -496962172593081493, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -414566642021798305, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47ebd27cdab7455459e3b1199a644ecb, type: 2}
+    - target: {fileID: -243350312014243009, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -181845759906389297, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -801,6 +843,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47ebd27cdab7455459e3b1199a644ecb, type: 2}
+    - target: {fileID: 838733692360035285, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
       propertyPath: m_Name
       value: WyrmV2
@@ -909,6 +955,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47ebd27cdab7455459e3b1199a644ecb, type: 2}
+    - target: {fileID: 5511695137227026678, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5536268321186127462, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -945,6 +995,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47ebd27cdab7455459e3b1199a644ecb, type: 2}
+    - target: {fileID: 7507793258525172824, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7628412975128086635, guid: 8959daa6fd4370d40b0044b85ef7a949, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
