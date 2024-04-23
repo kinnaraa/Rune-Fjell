@@ -62,17 +62,14 @@ public class Player : MonoBehaviour
     {
         // Unsubscribe from the sceneLoaded event
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        if(scene.name == "CaveScene")
-        {
-            // Set the player's position and rotation after the scene has loaded
-            gameObject.SetActive(false);
-            transform.localPosition = new Vector3(-144.960007f,20.7600002f,65.3499985f);
-            transform.localScale = new Vector3(1.80072713f,1.80072713f,1.80072713f);
-            gameObject.SetActive(true);
-            PlayerStamina = 100;
-            PlayerHealth = 100;
-            spawn = gameObject.transform;
-        }
+        // Set the player's position and rotation after the scene has loaded
+        gameObject.SetActive(false);
+        transform.localPosition = new Vector3(-144.960007f,20.7600002f,65.3499985f);
+        transform.localScale = new Vector3(1.80072713f,1.80072713f,1.80072713f);
+        gameObject.SetActive(true);
+        PlayerStamina = 100;
+        PlayerHealth = 100;
+        spawn = gameObject.transform;
     }
 
     public void Update()
