@@ -10,6 +10,11 @@ public class Stunned : MonoBehaviour
             gameObject.GetComponentInParent<EnemyMovement>().enabled = false;
             StartCoroutine(Reset());
         }
+        else if(gameObject.GetComponentInParnet<WyrmBehavior>().enabled)
+        {
+            gameObject.GetComponentInParent<WyrmBehavior>().enabled = false;
+            StartCoroutine(Reset());
+        }
         else
         {
             Destroy(gameObject);
@@ -19,7 +24,14 @@ public class Stunned : MonoBehaviour
     IEnumerator Reset()
     {
         yield return new WaitForSeconds(3f);
-        gameObject.GetComponentInParent<EnemyMovement>().enabled = true;
+        if(gameObject.GetComponentInParent<EnemyMovement>())
+        {
+            gameObject.GetComponentInParent<EnemyMovement>().enabled = true;
+        }
+        else if(gameObject.GetComponentInParent<WyrmBehavior>())
+        {
+            gameObject.GetComponentInParent<WyrmBehavior>().enabled = true;
+        }
         Destroy(gameObject);
     }
 }
