@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04092861, g: 0.088152416, b: 0.11273771, a: 1}
+  m_IndirectSpecularColor: {r: 0.040929668, g: 0.0880634, b: 0.11274069, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4114,29 +4114,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 36630128880108400, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-      propertyPath: spitPos
-      value: 
-      objectReference: {fileID: 834057316}
-    - target: {fileID: 36630128880108400, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-      propertyPath: spitSound
-      value: 
-      objectReference: {fileID: 834057313}
-    - target: {fileID: 36630128880108400, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-      propertyPath: enterSound
-      value: 
-      objectReference: {fileID: 834057314}
-    - target: {fileID: 36630128880108400, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-      propertyPath: attackSound
-      value: 
-      objectReference: {fileID: 834057315}
     - target: {fileID: 1086506516982269888, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_Name
       value: Wyrm
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887811971892515195, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8607234825956145796, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4178,32 +4158,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -7426782958970284390, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
---- !u!82 &834057313 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: -6180761481069382525, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-  m_PrefabInstance: {fileID: 834057312}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &834057314 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: -6294716034201277261, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-  m_PrefabInstance: {fileID: 834057312}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &834057315 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: -8665192397846536319, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-  m_PrefabInstance: {fileID: 834057312}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &834057316 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7143465302199565309, guid: 0f892f262a1e34044bad54bdfa364c0b, type: 3}
-  m_PrefabInstance: {fileID: 834057312}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &846714001
 PrefabInstance:
   m_ObjectHideFlags: 0
