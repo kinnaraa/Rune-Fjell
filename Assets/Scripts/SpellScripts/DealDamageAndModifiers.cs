@@ -30,7 +30,7 @@ public class DealDamageAndModifiers : MonoBehaviour
                     }));
                 }
             }
-            else if(GameObject.Find("Wyrm").GetComponent<WyrmHealth>())
+            else if(GameObject.Find("Wyrm"))
             {
                 GameObject.Find("Wyrm").GetComponent<WyrmHealth>().currentHealth -= a.damage * PM.damageModifier;
                 if (!GameObject.Find("Wyrm").GetComponent<WyrmHealth>().CheckIfRed() && flashingCoroutine == null)
