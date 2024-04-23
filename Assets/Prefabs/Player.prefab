@@ -1852,8 +1852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   sprintSpeed: 4
-  groundDrag: 1
-  jumpForce: 3
+  groundDrag: 6
+  jumpForce: 5
   jumpCooldown: 0.25
   airMultiplier: 0.1
   readyToJump: 0
