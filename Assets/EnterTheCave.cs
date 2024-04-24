@@ -49,7 +49,6 @@ public class EnterTheCave : MonoBehaviour
         SceneManager.sceneLoaded += Player.OnSceneLoaded;
 
         // Load the scene
-        Debug.Log("Enter Cave");
         SceneManager.LoadScene("CaveScene");
         gameObject.SetActive(false);
     }
