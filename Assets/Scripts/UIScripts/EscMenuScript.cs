@@ -1,8 +1,15 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Cinemachine;
 
 public class EscMenuScript : MonoBehaviour
 {
+    public PlayerMovement PM;
+    public ThirdPersonCam Cam;
+    public PlayerMagic Magic;
+    public CinemachineBrain cinemachine;
+
+
     // Static reference to the player instance
     public static EscMenuScript Instance { get; private set; }
     private void Awake()
@@ -37,5 +44,19 @@ public class EscMenuScript : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Resume()
+    {
+        gameObject.SetActive(false);
+
+        cinemachine.enabled = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        Cam.enabled = true;
+        PM.enabled = true;
+        Magic.enabled = true;
     }
 }
