@@ -90,7 +90,7 @@ public class newSkillTree : MonoBehaviour
         attacksList[4].infoBlurb = "Hail, Wrath of Nature, Uncontrolled Forces.\n\nSummon a tornado around yourself to push enemies back.\n\nDamage: 0\n\nCooldown: 5 seconds";
         attacksList[5].infoBlurb = "The combined powers of Halagaz and Isa.\n\nSend hail falling from the sky on your enemy.\n\nDamage: 10\n\nCooldown: 1 second";
         attacksList[6].infoBlurb = "Ice, Challenge, Frustration, Psychological Blocks.\n\nCast out icey projectiles.\n\nDamage: 10\n\nCooldown: seconds";
-        attacksList[7].infoBlurb = "The combined powers of Isa and Ehwaz.\n\nConjure a wall from the earth that hits and stops enemies.\n\nDamage: 10\n\nCooldown: 1 second";
+        attacksList[7].infoBlurb = "The combined powers of Isa and Ehwaz.\n\n\n\n\n\nAvailable in future updates...";
         attacksList[8].infoBlurb = "Yew Tree, Strength, Reliability, Trustworthiness.\n\nSend a large tree stump shooting out of the earth at your foes.\n\nDamage: 10\n\nCooldown: 5 seconds";
 
         utilityList = new List<Skill>()
@@ -324,7 +324,7 @@ public class newSkillTree : MonoBehaviour
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
                         notUnlocked.SetActive(false);
                     }
-                    else if (chosenSkill.displayName == "Ansuz" || chosenSkill.displayName == "Nauthiz" || chosenSkill.displayName == "Perthro")
+                    else if (chosenSkill.displayName == "Ansuz" || chosenSkill.displayName == "Nauthiz" || chosenSkill.displayName == "Perthro" || chosenSkill.displayName == "IsaEhwaz")
                     {
                         infoSection.transform.GetChild(3).gameObject.SetActive(false);
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);

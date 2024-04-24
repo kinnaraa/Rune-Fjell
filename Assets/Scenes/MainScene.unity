@@ -10197,15 +10197,15 @@ PrefabInstance:
       objectReference: {fileID: 4535278321843250597}
     - target: {fileID: 5001306300482894655, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.80552
+      value: 1.0001336
       objectReference: {fileID: 0}
     - target: {fileID: 5001306300482894655, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.80552
+      value: 1.0001336
       objectReference: {fileID: 0}
     - target: {fileID: 5001306300482894655, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.80552
+      value: 1.0001336
       objectReference: {fileID: 0}
     - target: {fileID: 5412479019671366149, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: tpcam
