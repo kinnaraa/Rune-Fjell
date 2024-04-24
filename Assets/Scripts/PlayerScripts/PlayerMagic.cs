@@ -103,7 +103,6 @@ public class PlayerMagic : MonoBehaviour
 
     public IEnumerator Wait()
     {
-        Debug.Log("waiting");
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") && currentAbility.pauseTime != 0.0f)
         {
             gameObject.GetComponent<PlayerMovement>().enabled = false;
