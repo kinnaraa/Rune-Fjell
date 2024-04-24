@@ -14,11 +14,14 @@ public class WyrmHealth : MonoBehaviour
     public Material red;
     public AudioSource deathSound;
     public Coroutine flashingCoroutine;
+    public GameObject AreYouSure;
 
     private bool isRed = false;
 
     void Start()
     {
+        AreYouSure = GameObject.Find("Are You Sure?");
+        AreYouSure.SetActive(false);
         currentHealth = maxHealth;
     }
 
@@ -40,6 +43,7 @@ public class WyrmHealth : MonoBehaviour
 
         GameObject.Find("Player").GetComponent<Player>().escMenu.SetActive(true);
         GameObject.Find("Player").GetComponent<Player>().tabMenu.SetActive(true);
+        AreYouSure.SetActive(true);
         
         SceneManager.LoadScene("Credits");
     }

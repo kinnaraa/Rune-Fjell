@@ -28,6 +28,10 @@ public class EscMenuScript : MonoBehaviour
     {
         gameObject.SetActive(true);
         GameObject.Find("Player").GetComponent<Player>().tabMenu.SetActive(true);
+        if(GameObject.Find("Are You Sure"))
+        {
+            GameObject.Find("Are You Sure").SetActive(true);
+        }
         SceneManager.LoadScene("MainMenuScene");
     }
     public void QuitGame()
