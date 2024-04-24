@@ -22,6 +22,11 @@ public class ArenaMenu : MonoBehaviour
     public TextMeshProUGUI iceCreatureCount;
     public TextMeshProUGUI wyrmCount;
 
+    public GameObject SpawnPanel;
+    public GameObject AbilitiesPanel;
+
+    public TMP_InputField[] Inputs; 
+
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -36,6 +41,28 @@ public class ArenaMenu : MonoBehaviour
         batCount.text = numOfBats.ToString();
         iceCreatureCount.text = numOfIceCreatures.ToString();
         wyrmCount.text = numOfWyrms.ToString();
+
+        if(AbilitiesPanel.activeSelf)
+        {
+            Debug.Log("Abilties Being Picked");
+            for(int i = 0; i < Inputs.Length; i++)
+            {
+                Debug.Log("1");
+                foreach (Ability a in Magic.allAbilities)
+                {
+                    Debug.Log("2");
+                    if(Inputs[i].text == a.Name)
+                    {
+                        Debug.Log("3");
+                        Magic.abilities[i] = Magic.allAbilities[i];
+                    }
+                    else
+                    {
+                        Magic.abilities[i] =  Magic.allAbilities[0];
+                    }
+                }
+            }
+        }
     }
 
     public void AddBats()
@@ -48,7 +75,10 @@ public class ArenaMenu : MonoBehaviour
     }
     public void AddWyrms()
     {
-        numOfWyrms++;
+        if(numOfWyrms < 1)
+        {
+            numOfWyrms++;
+        }
     }
 
     public void RemoveBats()
@@ -65,6 +95,12 @@ public class ArenaMenu : MonoBehaviour
     {
         if(numOfWyrms !< 0)
             numOfWyrms--;
+    }
+
+    public void OpenAbiltiies()
+    {
+        SpawnPanel.SetActive(false);
+        AbilitiesPanel.SetActive(true);
     }
 
     public void Spawn()

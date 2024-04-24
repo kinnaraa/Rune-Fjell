@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
     public KeyCode ResetPlayer = KeyCode.Delete;
 
-    private bool tabMenuOpen;
+    public bool tabMenuOpen;
     private bool escMenuOpen;
 
     private bool canOpenMenu = true;
@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
     public AudioClip deathSound;
     private AudioSource SpecialSounds;
     public bool dead = false;
-
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -99,7 +98,7 @@ public class Player : MonoBehaviour
 
         tabMenuOpen = tabMenu.activeSelf;
         escMenuOpen = escMenu.activeSelf;
-        if(EnterCaveMenu && !EnterCaveMenu.activeSelf)
+        if(EnterCaveMenu && !EnterCaveMenu.activeSelf && SceneManager.GetActiveScene().name != "ArenaScene")
         {
             if(Input.GetKeyDown(TabMenu) && canOpenMenu )
             {
@@ -167,12 +166,12 @@ public class Player : MonoBehaviour
     {
         SpecialSounds.clip = deathSound;
         SpecialSounds.Play();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         dead = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         PlayerHealth = 100;
         PlayerStamina = 100;
-        GetComponent<PlayerMovement>().stepCoolDown = 0;
+        //GetComponent<PlayerMovement>().stepCoolDown = 0;
         dead = false;
     }
 }
