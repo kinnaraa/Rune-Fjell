@@ -84,7 +84,7 @@ public class ThisGuyStinks : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && !knocked)
             {
-                weedGnome.transform.position = new Vector3(-194.58f, 24.80045f, -58.64f);
+                weedGnome.transform.position = new Vector3(-196.4001f, 24.58658f, -57.40451f);
                 Knocker.Play();
                 knocked = true;
             }
