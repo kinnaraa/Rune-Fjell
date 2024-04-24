@@ -37,8 +37,10 @@ public class WyrmHealth : MonoBehaviour
         deathSound.Play();
         yield return new WaitForSeconds(3f);
         Destroy(Wrym);
+
+        GameObject.Find("Player").GetComponent<Player>().escMenu.SetActive(true);
+        GameObject.Find("Player").GetComponent<Player>().tabMenu.SetActive(true);
         
-        GameObject.Find("Player").SetActive(false);
         SceneManager.LoadScene("Credits");
     }
 
