@@ -5,9 +5,6 @@ public class EscMenuScript : MonoBehaviour
 {
     // Static reference to the player instance
     public static EscMenuScript Instance { get; private set; }
-
-    // Optional: Add any player-specific variables or methods here
-
     private void Awake()
     {
         // Check if an instance already exists
@@ -29,7 +26,8 @@ public class EscMenuScript : MonoBehaviour
     // Optional: Add any player-specific initialization logic here
     public void MainMenu()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        GameObject.Find("Player").GetComponent<Player>().tabMenu.SetActive(true);
         SceneManager.LoadScene("MainMenuScene");
     }
     public void QuitGame()

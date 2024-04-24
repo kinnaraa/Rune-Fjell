@@ -1,10 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.EventSystems;
-using System.Linq;
-using System.IO;
+using UnityEngine.SceneManagement;
 
 public class TabMenuScript : MonoBehaviour
 {
@@ -19,9 +15,6 @@ public class TabMenuScript : MonoBehaviour
     public bool somethingIsOpen = false;
     public Player player;
     public ThirdPersonCam tpcam;
-
-    // Optional: Add any player-specific variables or methods here
-
     private void Awake()
     {
         // Check if an instance already exists

@@ -44,19 +44,19 @@ public class ArenaMenu : MonoBehaviour
 
         if(AbilitiesPanel.activeSelf)
         {
-            Debug.Log("Abilties Being Picked");
+            Magic.enabled = true;
             for(int i = 0; i < Inputs.Length; i++)
             {
-                Debug.Log("1");
                 foreach (Ability a in Magic.allAbilities)
                 {
-                    Debug.Log("2");
+                    Debug.Log(Inputs[i].text);
+                    Debug.Log(a.Name);
+                    
                     if(Inputs[i].text == a.Name)
                     {
-                        Debug.Log("3");
-                        Magic.abilities[i] = Magic.allAbilities[i];
+                        Magic.abilities[i] = a;
                     }
-                    else
+                    else if(Inputs[i].text == "")
                     {
                         Magic.abilities[i] =  Magic.allAbilities[0];
                     }

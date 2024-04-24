@@ -29,7 +29,7 @@ public class Cold : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if (GameObject.Find("Wrym").GetComponent<WrymBehavior>())
+        else if (GameObject.Find("Wrym"))
         {
             if(GameObject.Find("Wrym").GetComponent<WrymBehavior>().moveSpeed > 0.5)
             {
