@@ -79,6 +79,8 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+        Cam = GameObject.Find("Main Camera").GetComponent<ThirdPersonCam>();
+        cinemachine = Cam.GetComponent<CinemachineBrain>();
         if(Input.GetKeyDown(ResetPlayer))
         {
             StartCoroutine(Kill());

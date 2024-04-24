@@ -24,5 +24,9 @@ public class ResetGame : MonoBehaviour
         {
             Destroy(GameObject.Find("EscMenu"));
         }
+        if(GameObject.Find("Are You Sure?"))
+        {
+            Destroy(GameObject.Find("Are You Sure?"));
+        }
     }
 }

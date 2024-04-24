@@ -50,7 +50,6 @@ public class EnterTheCave : MonoBehaviour
 
         // Load the scene
         SceneManager.LoadScene("CaveScene");
-        gameObject.SetActive(false);
     }
 
     public void Coward()
