@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
         tabMenuOpen = tabMenu.activeSelf;
         escMenuOpen = escMenu.activeSelf;
-        if(EnterCaveMenu && !EnterCaveMenu.activeSelf)
+        if(EnterCaveMenu && !EnterCaveMenu.activeSelf && SceneManager.GetActiveScene().name != "ArenaScene")
         {
             if(Input.GetKeyDown(TabMenu) && canOpenMenu )
             {

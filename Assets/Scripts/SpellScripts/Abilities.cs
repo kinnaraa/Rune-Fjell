@@ -428,7 +428,7 @@ public class Wall : Ability
     private Transform firingPoint;
     private bool cooldownActive;
 
-    public Wall() : base("IsaEhwaz_Default", "IsaEhwaz_Activated", 0, 0, "Wall", 0.5f, 0) // Default values for damage, cooldown, and name
+    public Wall() : base("IsaEhwaz_Default", "IsaEhwaz_Activated", 0, 5, "Wall", 0.5f, 0) // Default values for damage, cooldown, and name
     {
     }
 
