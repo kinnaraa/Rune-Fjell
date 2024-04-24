@@ -16,6 +16,10 @@ public class TabMenuScript : MonoBehaviour
 
     public newSkillTree skillTree;
 
+    public bool somethingIsOpen = false;
+    public Player player;
+    public ThirdPersonCam tpcam;
+
     // Optional: Add any player-specific variables or methods here
 
     private void Awake()
@@ -59,8 +63,6 @@ public class TabMenuScript : MonoBehaviour
         skillTree.infoSection.transform.GetChild(2).gameObject.SetActive(false);
 
         SkillTree.SetActive(true);
-        
-        //skillTree.infoSection.transform.GetChild(4).GetComponent<Image>().sprite = skillTree.nullSkill.sprite;
     }
 
     public void OpenQuestLog()
