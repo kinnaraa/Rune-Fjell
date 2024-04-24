@@ -98,7 +98,7 @@ public class EnemyHealth : MonoBehaviour
                         bodyPart.material = red;
                     }
                 }
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.25f);
                 for (int i = 0; i < bodyParts.Length; i++)
                 {
                     if (bodyParts[i] != null)
