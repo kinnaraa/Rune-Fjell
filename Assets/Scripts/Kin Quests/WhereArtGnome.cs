@@ -165,7 +165,7 @@ public class WhereArtGnome : MonoBehaviour
         if(canTalkToMayor && !fightingCreatures && Vector3.Distance(Player.transform.position, NormalMayorGnome.transform.position) < 5.0f)
         {
 
-            Mayor.GetComponent<GnomeWander>().agent.speed = 0;
+            //Mayor.GetComponent<GnomeWander>().agent.speed = 0;
             normalMayorEButton.transform.localScale = new Vector3(1, 1, 1);
             normalMayorEButton.SetActive(true);
 
