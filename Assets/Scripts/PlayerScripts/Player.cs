@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class Player : MonoBehaviour
     private AudioSource SpecialSounds;
     public bool dead = false;
 
+    public CinemachineBrain cinemachine;
+
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Unsubscribe from the sceneLoaded event
@@ -106,6 +109,9 @@ public class Player : MonoBehaviour
                 {
                     StartCoroutine(MenuCooldown());
                     tabMenu.SetActive(false);
+
+                    cinemachine.enabled = true;
+
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
 
@@ -117,6 +123,9 @@ public class Player : MonoBehaviour
                 else if(!escMenuOpen)
                 {
                     StartCoroutine(MenuCooldown());
+
+                    cinemachine.enabled = false;
+
                     tabMenu.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
@@ -132,6 +141,9 @@ public class Player : MonoBehaviour
                 if(escMenuOpen)
                 {
                     StartCoroutine(MenuCooldown());
+
+                    cinemachine.enabled = true;
+
                     escMenu.SetActive(false);
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
@@ -143,6 +155,9 @@ public class Player : MonoBehaviour
                 else if(!tabMenuOpen) 
                 {
                     StartCoroutine(MenuCooldown());
+
+                    cinemachine.enabled = false;
+
                     escMenu.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
