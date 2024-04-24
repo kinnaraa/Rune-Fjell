@@ -52,7 +52,7 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log(sounds.volume);
         Debug.Log(sounds.clip);
 
-        yield return new WaitForSeconds(sounds.clip.length);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 

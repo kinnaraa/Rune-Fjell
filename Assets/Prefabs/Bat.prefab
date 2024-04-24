@@ -5617,7 +5617,7 @@ MonoBehaviour:
   - {fileID: 1542350838604287428}
   bodyPartsIce: []
   red: {fileID: 2100000, guid: c334c07911722e84dadd91dc05a07465, type: 2}
-  deathSound: {fileID: 8300000, guid: ddebf14847df6684eaca557e21ce02e5, type: 3}
+  deathSound: {fileID: 8300000, guid: 7b9ae011648225d4aabf4bfdde9961d8, type: 3}
 --- !u!82 &8712450207246276368
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5636,7 +5636,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 153
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
