@@ -1134,9 +1134,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1624770026}
     m_Modifications:
+    - target: {fileID: 1542350838604287428, guid: 6e7b5469a25ea0f41bdc1c48de2a0ddc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1eff2761fae0fda449a31a28928a1e1b, type: 2}
     - target: {fileID: 3310733534792602597, guid: 6e7b5469a25ea0f41bdc1c48de2a0ddc, type: 3}
       propertyPath: m_Name
       value: MegaBat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436013633504543474, guid: 6e7b5469a25ea0f41bdc1c48de2a0ddc, type: 3}
+      propertyPath: m_Color.b
+      value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436013633504543474, guid: 6e7b5469a25ea0f41bdc1c48de2a0ddc, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3668534
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436013633504543474, guid: 6e7b5469a25ea0f41bdc1c48de2a0ddc, type: 3}
+      propertyPath: m_Color.r
+      value: 0.1490196
       objectReference: {fileID: 0}
     - target: {fileID: 5357029085569591617, guid: 6e7b5469a25ea0f41bdc1c48de2a0ddc, type: 3}
       propertyPath: m_LocalScale.x
@@ -1190,6 +1206,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9008423167825248213, guid: 6e7b5469a25ea0f41bdc1c48de2a0ddc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4d4251fe466add4e8199ef142808f88, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42220,14 +42240,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1624770026}
     m_Modifications:
+    - target: {fileID: 924032390005152763, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 924032390005152763, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.17599149
+      objectReference: {fileID: 0}
+    - target: {fileID: 924032390005152763, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.13029547
+      objectReference: {fileID: 0}
     - target: {fileID: 2238904129542072294, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
       propertyPath: m_Name
       value: Big Ice Boy
       objectReference: {fileID: 0}
+    - target: {fileID: 4558439812682995596, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aca803cfcdd7c84d94304922dee8ca8, type: 2}
+    - target: {fileID: 5083340215400054022, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aca803cfcdd7c84d94304922dee8ca8, type: 2}
     - target: {fileID: 5669636232283392977, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6214502774109035768, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aca803cfcdd7c84d94304922dee8ca8, type: 2}
+    - target: {fileID: 6353116994671781656, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aca803cfcdd7c84d94304922dee8ca8, type: 2}
+    - target: {fileID: 6531222727781734641, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aca803cfcdd7c84d94304922dee8ca8, type: 2}
+    - target: {fileID: 6749788211732761113, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aca803cfcdd7c84d94304922dee8ca8, type: 2}
     - target: {fileID: 7065129674182197505, guid: 52ab3008db9938848a7ed80a878fe10f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.179993
@@ -45511,7 +45567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1624770026
 Transform:
   m_ObjectHideFlags: 0
