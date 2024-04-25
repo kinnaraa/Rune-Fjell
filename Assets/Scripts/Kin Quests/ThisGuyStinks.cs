@@ -138,6 +138,7 @@ public class ThisGuyStinks : MonoBehaviour
         if(skillTreeOpen && Input.GetKeyDown(KeyCode.Tab))
         {
             skillTreeOpen = false;
+            cinemachine.enabled = true;
         }
 
         if(collectedShrooms && Vector3.Distance(Player.transform.position, gnomeHouse.transform.position) < 5 && !questOver)
@@ -232,7 +233,7 @@ public class ThisGuyStinks : MonoBehaviour
         Player.GetComponentInParent<Player>().Magic.enabled = false;
         Player.GetComponentInParent<Player>().Cam.enabled = false;
 
-        //cinemachine.enabled = false;
+        cinemachine.enabled = false;
 
         TMS.OpenSkillTree();
     }
