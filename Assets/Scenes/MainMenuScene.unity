@@ -590,19 +590,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655632993185545288, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.8464396
+      value: 2.7812452
       objectReference: {fileID: 0}
     - target: {fileID: 655632993185545288, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.850192
+      value: 4.9531684
       objectReference: {fileID: 0}
     - target: {fileID: 655632993185545288, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4929437
+      value: 0.35643283
       objectReference: {fileID: 0}
     - target: {fileID: 655632993185545288, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -501.35364
+      value: -505.6737
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175480571854365084, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
+      propertyPath: creditsMenu
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2933481621054408544, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_Name
@@ -626,7 +630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3961151422195203196, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -343.3263
+      value: -379
       objectReference: {fileID: 0}
     - target: {fileID: 5174199175798182698, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_SizeDelta.y
@@ -638,7 +642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5174199175798182698, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.850192
+      value: 8.401075
       objectReference: {fileID: 0}
     - target: {fileID: 5174199175798182698, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_LocalScale.z
@@ -646,7 +650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5174199175798182698, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -202.8534
+      value: -221
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068231624624705428, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
+      propertyPath: m_text
+      value: Experimental Arena
       objectReference: {fileID: 0}
     - target: {fileID: 6068231624624705428, guid: d993f1d107d2e9444984b8de843f4617, type: 3}
       propertyPath: m_fontSize

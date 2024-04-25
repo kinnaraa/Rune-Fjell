@@ -88,9 +88,9 @@ public class ThisGuyStinks : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && !knocked)
             {
-                weedGnome.transform.position = new Vector3(-196.4001f, 24.58658f, -57.40451f);
                 Knocker.Play();
-                knocked = true;
+                StartCoroutine(WaitForKnock());
+
             }
             
             if (Input.GetKeyDown(KeyCode.E) && knocked && !canCollect)
@@ -182,6 +182,15 @@ public class ThisGuyStinks : MonoBehaviour
     void startCutscene()
     {
         StartCoroutine(FadeOut());
+    }
+
+    IEnumerator WaitForKnock()
+    {
+        yield return new WaitForSeconds(1f);
+        weedGnome.transform.position = new Vector3(-196.4001f, 24.58658f, -57.40451f);
+        knocked = true;
+        EButton.transform.localScale = new Vector3(1, 1, 1);
+        EButton.SetActive(true);
     }
 
     IEnumerator FadeOut()
