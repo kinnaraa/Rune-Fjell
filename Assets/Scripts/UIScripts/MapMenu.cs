@@ -70,14 +70,16 @@ public class MapMenu : MonoBehaviour
                 particles.GetComponentInChildren<PortalAnimationForTeleport>().Animate(obj);
 
                 // close tab menu
-                tabMenu.SetActive(false);
 
-                yield return new WaitForSeconds(1.0f);
+                yield return new WaitForSeconds(3.5f);
+                Debug.Log("waited");
 
                 Cam.enabled = true;
                 PM.enabled = true;
                 Magic.enabled = true;
                 cine.enabled = true;
+
+                tabMenu.SetActive(false);
             }
         }
     }
