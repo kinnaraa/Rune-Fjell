@@ -230,7 +230,7 @@ public class newSkillTree : MonoBehaviour
             skillList[1][1].unlocked = true;
         }
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             skillType = transform.GetChild(i+1).gameObject;
             for (int j = 0; j < skillList[i].Count; j++)
@@ -265,6 +265,7 @@ public class newSkillTree : MonoBehaviour
                     if (skillList[0][0].unlocked && skillList[1][0].unlocked)
                     {
                         socketing = false;
+                        extraList[1].unlocked = true;
                         chosenSkill.unlocked = true;
                         skillPoints--;
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
@@ -277,6 +278,7 @@ public class newSkillTree : MonoBehaviour
                     if (skillList[0][2].unlocked && skillList[1][1].unlocked)
                     {
                         socketing = false;
+                        extraList[0].unlocked = true;
                         chosenSkill.unlocked = true;
                         skillPoints--;
                         infoSection.transform.GetChild(2).gameObject.SetActive(false);
