@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
 
     private bool canOpenMenu = true;
 
+    public GameObject specialPlayerAudio;
     public AudioClip deathSound;
     private AudioSource SpecialSounds;
     public bool dead = false;
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
             StartCoroutine(Kill());
         }
 
-        SpecialSounds = GameObject.Find("SpecialPlayerAudio").GetComponent<AudioSource>();
+        SpecialSounds = specialPlayerAudio.GetComponent<AudioSource>();
         Cam = GameObject.Find("Main Camera").GetComponent<ThirdPersonCam>();
         if(PlayerHealth <= 0)
         {

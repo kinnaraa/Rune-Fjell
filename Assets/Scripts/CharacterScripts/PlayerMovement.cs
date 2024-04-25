@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     public float sprintSpeed;
+    public GameObject Player;
 
     public float groundDrag;
 
@@ -36,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     private Player playerScript;
     private Animator animator;
 
+    public GameObject specialPlayerAudio;
+
     public AudioClip walkingSound;
     private AudioSource SpecialSounds;
     public float stepCoolDown;
@@ -49,12 +52,12 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         readyToJump = true;
-        playerScript = GameObject.Find("Player").GetComponent<Player>();
+        playerScript = Player.GetComponent<Player>();
 
         StartCoroutine(DeductStam());
         StartCoroutine(RegainStam());
 
-        SpecialSounds = GameObject.Find("SpecialPlayerAudio").GetComponent<AudioSource>();
+        SpecialSounds = specialPlayerAudio.GetComponent<AudioSource>();
     }
 
     private void Update()
