@@ -46,9 +46,10 @@ public class FindGnomeVillageQuest : MonoBehaviour
                             questManager.allQuests["Good For Nothing Son"].isActive = true;
 
                             GM.gnomeTalk.text = "";
-
+                            
                         }
                         foundVillage = true;
+                        
                     }
                 }
             }
