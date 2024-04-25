@@ -2003,7 +2003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   sprintSpeed: 4
-  groundDrag: 6
+  groundDrag: 5
   jumpForce: 5
   jumpCooldown: 0.25
   airMultiplier: 0.1
@@ -2048,8 +2048,10 @@ MonoBehaviour:
   TabMenu: 9
   EscMenu: 27
   ResetPlayer: 127
+  tabMenuOpen: 0
   deathSound: {fileID: 8300000, guid: 1f9e863b02a3b56428097cc006da9a93, type: 3}
   dead: 0
+  cinemachine: {fileID: 0}
 --- !u!114 &1508375728973835454
 MonoBehaviour:
   m_ObjectHideFlags: 0

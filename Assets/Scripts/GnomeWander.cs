@@ -5,7 +5,9 @@ using UnityEngine.AI;
 public class GnomeWander : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public bool firstPointSetOn = true;
     public Transform[] points;
+    public Transform[] points2;
     public int index;
     Vector3 target;
     // Start is called before the first frame update
@@ -27,15 +29,52 @@ public class GnomeWander : MonoBehaviour
     }
     public void UpdateDestination()
     {
-        target = points[index].position;
-        agent.SetDestination(target);
+        if (firstPointSetOn)
+        {
+            if (points.Length > 1)
+            {
+                target = points[index].position;
+                agent.SetDestination(target);
+            }
+            else
+            {
+                agent.SetDestination(points[0].position);
+            }
+        }
+        else
+        {
+            target = points2[index].position;
+            agent.SetDestination(target);
+        }
     }
     void IterateIndex()
     {
-        index++;
-        if(index == points.Length)
+        if (firstPointSetOn)
         {
-            index = 0;
+            if (points.Length > 1)
+            {
+                index++;
+            }
+        }
+        else
+        {
+            if (points2.Length > 1)
+            {
+                index++;
+            }
+        }
+
+        if(firstPointSetOn){
+            if (index == points.Length)
+            {
+                index = 0;
+            }
+        }
+        else {
+            if(index == points2.Length)
+            {
+                index = 0;
+            }
         }
     }
 }

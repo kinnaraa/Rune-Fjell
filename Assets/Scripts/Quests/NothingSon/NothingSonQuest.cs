@@ -16,6 +16,7 @@ public class NothingSonQuest : MonoBehaviour
     public GameObject MomGnome;
     public GameObject Berry;
     public GameObject Wood;
+    public GameObject SonGnome;
 
     //public Transform[] LocationsOfItems;
     public bool questStarted;
@@ -43,7 +44,7 @@ public class NothingSonQuest : MonoBehaviour
         numWood = 0;
         //Update Quest Log (start)
 
-        dialogue[0] = "My son! I was so worried for you, don't ever leave me like that again!";
+        dialogue[0] = "Gleebel! I was so worried for you, don't ever leave me like that again!";
         dialogue[1] = "Thank you for helping him home.";
         dialogue[2] = "I'm sorry my son doesn't know any better, he really needs to get his life together.";
         dialogue[3] = "Would you mind helping me get supplies for dinner since my son seems to be good for nothing?";
@@ -96,6 +97,11 @@ public class NothingSonQuest : MonoBehaviour
                 momSpeech.text = "";
                 GnomeVoice.Stop();
                 questStarted = true;
+                SonGnome.GetComponent<GnomeWander>().firstPointSetOn = false;
+                SonGnome.GetComponent<GnomeWander>().enabled = true;
+                SonGnome.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = 2;
+
+
             }
 
         }
@@ -149,6 +155,7 @@ public class NothingSonQuest : MonoBehaviour
                     questManager.allQuests["Good For Nothing Son"].isActive = false;
                     skillTree.skillPoints += 3;
                     questManager.allQuests["This Guy Stinks"].isActive = true;
+                    MomGnome.GetComponent<GnomeWander>().firstPointSetOn = false;
 
                 }
             }

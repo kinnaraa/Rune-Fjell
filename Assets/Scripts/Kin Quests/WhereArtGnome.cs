@@ -32,6 +32,9 @@ public class WhereArtGnome : MonoBehaviour
 
     public bool canTalkToMayor = false;
     public GameObject NormalMayorGnome;
+    public GameObject MeetingMayorGnome;
+    public GameObject CurrentMayor;
+
     public TextMeshProUGUI normalMayorDialogue;
     public GameObject normalMayorEButton;
 
@@ -74,6 +77,7 @@ public class WhereArtGnome : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CurrentMayor = NormalMayorGnome;
         targetPosition.position = new Vector3(-152.15f, 30.169f, -46.43f);
         Vector3 rotationAngles = new Vector3(7.651f, -59.951f, -3.315f);
         targetRotation = Quaternion.Euler(rotationAngles);
@@ -117,11 +121,12 @@ public class WhereArtGnome : MonoBehaviour
     void Update()
     {
         //initial dialogue at meeting of gnomes
-        GnomeVoice = GameObject.Find("Mayor").GetComponent<AudioSource>();
-        GameObject Mayor = GameObject.Find("Mayor");
+       
 
         if (startedQuest && Vector3.Distance(Player.transform.position, triggerCutsene.transform.position) < 10.0f && !canTalkToMayor && !bigIceBoyDead && !megaBatDead)
         {
+            CurrentMayor = MeetingMayorGnome;
+            GnomeVoice = CurrentMayor.GetComponent<AudioSource>();
 
             EButton.transform.localScale = new Vector3(1, 1, 1);
             EButton.SetActive(true);
@@ -164,8 +169,9 @@ public class WhereArtGnome : MonoBehaviour
 
         if(canTalkToMayor && !fightingCreatures && Vector3.Distance(Player.transform.position, NormalMayorGnome.transform.position) < 5.0f)
         {
+            CurrentMayor = NormalMayorGnome;
+            GnomeVoice = CurrentMayor.GetComponent<AudioSource>();
 
-            Mayor.GetComponent<GnomeWander>().agent.speed = 0;
             normalMayorEButton.transform.localScale = new Vector3(1, 1, 1);
             normalMayorEButton.SetActive(true);
 
@@ -190,7 +196,6 @@ public class WhereArtGnome : MonoBehaviour
 
             if (dialogueCount >= 4)
             {
-                Mayor.GetComponent<GnomeWander>().UpdateDestination();
                 normalMayorEButton.SetActive(false);
                 normalMayorDialogue.text = "";
                 GnomeVoice.Stop();

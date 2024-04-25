@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StartFirstQuest()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         questManager.allQuests["Follow the Wisps"].isActive = true;
 
         WS.StartFirstPath();
@@ -201,6 +201,7 @@ public class GameManager : MonoBehaviour
             finishedQuest = true;
 
             gnomeTalk.text = dialogue[dialogue.Count - 1];
+            currentSpeaker[0].GetComponent<GnomeWander>().enabled = false;
             findVillageQuest.StartPath();
             if (GnomeVoice.isPlaying)
             {
