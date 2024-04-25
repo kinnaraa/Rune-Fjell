@@ -46,17 +46,22 @@ public class MapMenu : MonoBehaviour
     // Modify Teleport to take the name of the button as a parameter
     public void Teleport(string buttonName)
     {
+        StartCoroutine(WaitAMin(buttonName));
+    }
+
+    IEnumerator WaitAMin(string buttonName)
+    {
         foreach (GameObject obj in MM.FoundMonoliths)
         {
-            if(buttonName == obj.name && MM.raidoUnlocked)
+            if (buttonName == obj.name && MM.raidoUnlocked)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                Cam.enabled = true;
+                Cam.enabled = false;
                 PM.enabled = false;
-                Magic.enabled = true;
-                cine.enabled = true;
-                
+                Magic.enabled = false;
+                cine.enabled = false;
+
 
                 Vector3 SpawnPos = player.transform.position;
                 SpawnPos.y -= 1;
@@ -66,7 +71,13 @@ public class MapMenu : MonoBehaviour
 
                 // close tab menu
                 tabMenu.SetActive(false);
+
+                yield return new WaitForSeconds(1.0f);
+
+                Cam.enabled = true;
                 PM.enabled = true;
+                Magic.enabled = true;
+                cine.enabled = true;
             }
         }
     }
