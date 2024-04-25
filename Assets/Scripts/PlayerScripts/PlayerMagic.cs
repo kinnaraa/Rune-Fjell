@@ -8,6 +8,8 @@ public class PlayerMagic : MonoBehaviour
     public Player player;
     public Ability currentAbility;
     public GameObject[] AbilityUI;
+
+    public GameObject specialPlayerAudio;
     
     [Header("Abilities")]
     public Ability[] abilities;
@@ -67,7 +69,7 @@ public class PlayerMagic : MonoBehaviour
 
         SetAbilityUI();
 
-        SpecialSounds = GameObject.Find("SpecialPlayerAudio").GetComponent<AudioSource>();
+        SpecialSounds = specialPlayerAudio.GetComponent<AudioSource>();
     }
 
     public void Update() 

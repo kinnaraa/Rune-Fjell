@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.058730662, g: 0.08907037, b: 0.292631, a: 1}
+  m_IndirectSpecularColor: {r: 0.0026689947, g: 0.005777852, b: 0.06830829, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2496,6 +2496,11 @@ Transform:
   - {fileID: 1283316438}
   m_Father: {fileID: 744776805}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &277836935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5851623269427062017, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+  m_PrefabInstance: {fileID: 4535278321843250589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &279985252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2212725596608615959, guid: 3bc735ba17040d148b155cb9f6ff003a, type: 3}
@@ -10656,10 +10661,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7030686810475189664, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
-      propertyPath: cine
-      value: 
-      objectReference: {fileID: 8257503221171369751}
     - target: {fileID: 7030686810475189664, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: tabMenu
       value: 
@@ -64300,6 +64301,10 @@ PrefabInstance:
       propertyPath: groundDrag
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 155473427994191146, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: specialPlayerAudio
+      value: 
+      objectReference: {fileID: 277836935}
     - target: {fileID: 241529672045269638, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.45163
@@ -64456,6 +64461,10 @@ PrefabInstance:
       propertyPath: EnterCaveMenu
       value: 
       objectReference: {fileID: 2156609000403228640}
+    - target: {fileID: 1834310436364747758, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: specialPlayerAudio
+      value: 
+      objectReference: {fileID: 277836935}
     - target: {fileID: 1925388255703673039, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -64584,6 +64593,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -243
       objectReference: {fileID: 0}
+    - target: {fileID: 7908719745308872750, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
+      propertyPath: specialPlayerAudio
+      value: 
+      objectReference: {fileID: 277836935}
     - target: {fileID: 8293465726458041544, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: runeCollected
       value: 
