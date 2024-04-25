@@ -20,8 +20,8 @@ public class SocketSkill : MonoBehaviour
             transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/transparent");
         }
 
-        if (!gameStart)
-        {
+        //if (!gameStart)
+        //{
             transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = newSkillTree.nullSkill.sprite;
             transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = newSkillTree.nullSkill.sprite;
             transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = newSkillTree.skillList[0][2].sprite;
@@ -38,7 +38,7 @@ public class SocketSkill : MonoBehaviour
             socketedSkills[5] = newSkillTree.nullSkill;
             socketedSkills[6] = newSkillTree.nullSkill;
             gameStart = true;
-        }
+        //}
         
     }
 
