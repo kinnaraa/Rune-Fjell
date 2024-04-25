@@ -58,8 +58,6 @@ public class EndingManager : MonoBehaviour
             yield return null;
         }
 
-        AreYouSure = GameObject.Find("Are You Sure?");
-
         escScreen = escMenu.transform.GetChild(5).gameObject;
         tabScreen = tabMenu.transform.GetChild(1).gameObject;
 

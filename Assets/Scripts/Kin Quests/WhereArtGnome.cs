@@ -220,7 +220,7 @@ public class WhereArtGnome : MonoBehaviour
             if (clue1 && Vector3.Distance(Player.transform.position, clue1.transform.position) < 5.0f)
             {
                 clue1Popup.SetActive(true);
-                clue2Popup.SetActive(true);
+                //clue2Popup.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Destroy(clue1);
