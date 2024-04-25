@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class MapMenu : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MapMenu : MonoBehaviour
     private PlayerMagic Magic;
 
     public GameObject tabMenu;
+    public CinemachineBrain cine;
 
     private void Awake() 
     {
@@ -51,8 +53,10 @@ public class MapMenu : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 Cam.enabled = true;
-                PM.enabled = true;
+                PM.enabled = false;
                 Magic.enabled = true;
+                cine.enabled = true;
+                
 
                 Vector3 SpawnPos = player.transform.position;
                 SpawnPos.y -= 1;
@@ -62,6 +66,7 @@ public class MapMenu : MonoBehaviour
 
                 // close tab menu
                 tabMenu.SetActive(false);
+                PM.enabled = true;
             }
         }
     }
