@@ -1474,7 +1474,7 @@ RectTransform:
   m_GameObject: {fileID: 438989438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.182318, y: 0.182318, z: 0.182318}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1712494370}
@@ -1482,8 +1482,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: -152}
-  m_SizeDelta: {x: 1501, y: 350}
+  m_AnchoredPosition: {x: 323, y: -184.1}
+  m_SizeDelta: {x: 761.2502, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438989440
 MonoBehaviour:
@@ -3760,7 +3760,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: -442}
+  m_AnchoredPosition: {x: 0, y: -442}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884350962
@@ -3786,7 +3786,7 @@ MonoBehaviour:
   m_text: "Chrys Woehler\nModeling | Programming | Animation\n\nMiles Haase\nProgramming
     | Historian | Wizard\n\nBruno Dede\nProgramming | System Sorcerer\n\nKinnara
     Bosworth\nProgramming | Dev Wizard\n\nKelly Beaudrot\nConcept and 2D Art | Animation
-    | Music\n\n\n\nVictoria, Marlow, Conroy, Sawyer, Martin\n\n\n\n\nSiriusBizdness\ndheming\nRoovy\nZulfish\npfannkuchn\nauxide_audio\nsoundholder\nedmondsr\nmeaganlongley\nfredzed\njuskiddink\nkeweldog\nRICHERlandTV\nSnowFightStudios\nsoundmary\nlth_stp\n\n\n\nPolytope
+    | Music\n\n\n\n\nVictoria, Marlow, Conroy, Sawyer, Martin\n\n\n\n\nSiriusBizdness\ndheming\nRoovy\nZulfish\npfannkuchn\nauxide_audio\nsoundholder\nedmondsr\nmeaganlongley\nfredzed\njuskiddink\nkeweldog\nRICHERlandTV\nSnowFightStudios\nsoundmary\nlth_stp\n\n\n\nPolytope
     Studio\n\n\n\n\nMr. Karlson \nBeau "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d7b5a11612a0cb9449b8626ae8a5c327, type: 2}
@@ -3814,8 +3814,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7544,7 +7544,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return to Main Menu
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
   m_sharedMaterial: {fileID: 3121742711131630172, guid: 2d63bae44b70e51449358548580f9fba, type: 2}
@@ -7656,7 +7656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -282}
+  m_AnchoredPosition: {x: -16, y: -282}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727145683
@@ -7707,8 +7707,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
