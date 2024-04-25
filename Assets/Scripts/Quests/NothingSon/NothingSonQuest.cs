@@ -56,7 +56,7 @@ public class NothingSonQuest : MonoBehaviour
         dialogue2[2] = "If you're looking to learn more about it, I can point you in the right direction...";
         dialogue2[3] = "I would take that to the gnome in the smokey hut in the back of town. He'll have some info for you.";
 
-        GnomeVoice = GameObject.Find("MomGnome").GetComponent<AudioSource>();
+        GnomeVoice = MomGnome.GetComponent<AudioSource>();
     }
 
     public void Update()
