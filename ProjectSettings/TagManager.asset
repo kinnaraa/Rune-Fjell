@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerModel
   - EButton
+  - Environment
   layers:
   - Default
   - TransparentFX

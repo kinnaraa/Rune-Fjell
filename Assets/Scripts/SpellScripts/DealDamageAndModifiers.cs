@@ -16,57 +16,69 @@ public class DealDamageAndModifiers : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other) 
     {   
-        foreach (Ability a in PM.allAbilities)
+        if(!other.CompareTag("Environment"))
         {
-            string newName = gameObject.transform.parent.name.Replace("(Clone)", "");
-            if (a.Name == newName)
+            foreach (Ability a in PM.allAbilities)
             {
-                if (other.GetComponent<EnemyHealth>())
+                string newName = gameObject.transform.parent.name.Replace("(Clone)", "");
+                if (a.Name == newName)
                 {
-                    EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
-                    enemyHealth.currentHealth -= a.damage * PM.damageModifier;
-                    
-                    if (!enemyHealth.CheckIfRed() && enemyHealth.flashingCoroutine == null)
+                    if (GameObject.Find("Wyrm") || GameObject.Find("Wyrm(Clone)"))
                     {
-                        enemyHealth.flashingCoroutine = StartCoroutine(enemyHealth.FlashRed(() =>
+                        GameObject wyrm = gameObject;
+                        if(GameObject.Find("Wyrm"))
                         {
-                            // This is the callback function, it will be invoked when the coroutine ends
-                            enemyHealth.flashingCoroutine = null; // Reset the coroutine state
-                        }));
-                    }
-                }
-                else if (GameObject.Find("Wyrm"))
-                {
-                    GameObject wyrm = GameObject.Find("Wyrm");
-                    WyrmHealth wyrmHealth = wyrm.GetComponent<WyrmHealth>();
-                    wyrmHealth.currentHealth -= a.damage * PM.damageModifier;
-                    
-                    if (!wyrmHealth.CheckIfRed() && wyrmHealth.flashingCoroutine == null)
-                    {
-                        wyrmHealth.flashingCoroutine = StartCoroutine(wyrmHealth.FlashRed(() =>
+                            wyrm = GameObject.Find("Wyrm");
+                        }
+                        else if(GameObject.Find("Wyrm(Clone)"))
                         {
-                            // This is the callback function, it will be invoked when the coroutine ends
-                            wyrmHealth.flashingCoroutine = null; // Reset the coroutine state
-                        }));
-                    }
-                }
-    
+                        wyrm = GameObject.Find("Wyrm(Clone)");
+                        }
 
-                if(a.Modifier == 0)
-                {
-                    return;
-                }
-                else if(a.Modifier == 1)
-                {
-                    Instantiate(Modifiers[0], other.transform.position, Modifiers[0].transform.rotation).transform.parent = other.transform;
-                }
-                else if(a.Modifier == 2)
-                {
-                    Instantiate(Modifiers[1], other.transform.position, Modifiers[1].transform.rotation).transform.parent = other.transform;
-                }
-                else if(a.Modifier == 3)
-                {
-                    Instantiate(Modifiers[2], other.transform.position, Modifiers[2].transform.rotation).transform.parent = other.transform;
+                        WyrmHealth wyrmHealth = wyrm.GetComponent<WyrmHealth>();
+                        wyrmHealth.currentHealth -= a.damage * PM.damageModifier;
+                        
+                        if (!wyrmHealth.CheckIfRed() && wyrmHealth.flashingCoroutine == null)
+                        {
+                            wyrmHealth.flashingCoroutine = StartCoroutine(wyrmHealth.FlashRed(() =>
+                            {
+                                // This is the callback function, it will be invoked when the coroutine ends
+                                wyrmHealth.flashingCoroutine = null; // Reset the coroutine state
+                            }));
+                        }
+                    }
+                    else if (other.GetComponent<EnemyHealth>())
+                    {
+                        EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+                        enemyHealth.currentHealth -= a.damage * PM.damageModifier;
+                        
+                        if (!enemyHealth.CheckIfRed() && enemyHealth.flashingCoroutine == null)
+                        {
+                            enemyHealth.flashingCoroutine = StartCoroutine(enemyHealth.FlashRed(() =>
+                            {
+                                // This is the callback function, it will be invoked when the coroutine ends
+                                enemyHealth.flashingCoroutine = null; // Reset the coroutine state
+                            }));
+                        }
+                    } 
+        
+
+                    if(a.Modifier == 0)
+                    {
+                        return;
+                    }
+                    else if(a.Modifier == 1)
+                    {
+                        Instantiate(Modifiers[0], other.transform.position, Modifiers[0].transform.rotation).transform.parent = other.transform;
+                    }
+                    else if(a.Modifier == 2)
+                    {
+                        Instantiate(Modifiers[1], other.transform.position, Modifiers[1].transform.rotation).transform.parent = other.transform;
+                    }
+                    else if(a.Modifier == 3)
+                    {
+                        Instantiate(Modifiers[2], other.transform.position, Modifiers[2].transform.rotation).transform.parent = other.transform;
+                    }
                 }
             }
         }
