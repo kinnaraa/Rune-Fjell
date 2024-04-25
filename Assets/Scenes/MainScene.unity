@@ -10899,7 +10899,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 353237035}
     - targetCorrespondingSourceObject: {fileID: 5001306300482894655, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
-      insertIndex: 3
+      insertIndex: 0
       addedObject: {fileID: 1302900637}
     - targetCorrespondingSourceObject: {fileID: 5001306300482894655, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       insertIndex: -1
@@ -53708,14 +53708,14 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7542556581520875799, guid: 4dbe758717371c943b9a2494cdfeb520, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 185229312}
+    - targetCorrespondingSourceObject: {fileID: 7542556581520875799, guid: 4dbe758717371c943b9a2494cdfeb520, type: 3}
       insertIndex: -1
       addedObject: {fileID: 563577230}
     - targetCorrespondingSourceObject: {fileID: 7542556581520875799, guid: 4dbe758717371c943b9a2494cdfeb520, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1750137746}
-    - targetCorrespondingSourceObject: {fileID: 7542556581520875799, guid: 4dbe758717371c943b9a2494cdfeb520, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 185229312}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dbe758717371c943b9a2494cdfeb520, type: 3}
 --- !u!4 &1941963704 stripped
@@ -64441,7 +64441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 155473427994191146, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: groundDrag
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 155473427994191146, guid: 8e359bcb81e2a4e469d635c465bfe488, type: 3}
       propertyPath: specialPlayerAudio
