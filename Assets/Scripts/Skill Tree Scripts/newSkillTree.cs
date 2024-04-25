@@ -260,7 +260,7 @@ public class newSkillTree : MonoBehaviour
         {
             for (int j = 0; j < skillList[i].Count; j++)
             {
-                if (chosenSkill.displayName == "SowiloKenaz" && skillPoints > 0 && !skillList[i][j].unlocked)
+                if (chosenSkill.displayName == "SowiloKenaz" && skillPoints > 0 && !extraList[1].unlocked)
                 {
                     if (skillList[0][0].unlocked && skillList[1][0].unlocked)
                     {
@@ -273,7 +273,7 @@ public class newSkillTree : MonoBehaviour
                         infoSection.transform.GetChild(4).GetComponent<Image>().sprite = chosenSkill.sprite;
                     }
                 }
-                else if (chosenSkill.displayName == "ThurisazUruz" && skillPoints > 0 && !skillList[i][j].unlocked)
+                else if (chosenSkill.displayName == "ThurisazUruz" && skillPoints > 0 && !extraList[0].unlocked)
                 {
                     if (skillList[0][2].unlocked && skillList[1][1].unlocked)
                     {
