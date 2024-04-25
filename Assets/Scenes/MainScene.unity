@@ -653,9 +653,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 109167649}
-  - component: {fileID: 109167651}
   - component: {fileID: 109167650}
   - component: {fileID: 109167652}
+  - component: {fileID: 109167653}
   m_Layer: 0
   m_Name: Halagaz
   m_TagString: Untagged
@@ -693,27 +693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &109167651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109167648}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &109167652
 AudioSource:
   m_ObjectHideFlags: 0
@@ -810,6 +789,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &109167653
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109167648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.622711
+  m_Height: 1.7622566
+  m_Direction: 1
+  m_Center: {x: -0.15703438, y: 0.005340576, z: 0.119943924}
 --- !u!1 &109689023
 GameObject:
   m_ObjectHideFlags: 0
@@ -30494,9 +30496,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1196926104}
-  - component: {fileID: 1196926103}
   - component: {fileID: 1196926102}
   - component: {fileID: 1196926105}
+  - component: {fileID: 1196926106}
   m_Layer: 0
   m_Name: Isa
   m_TagString: Untagged
@@ -30516,27 +30518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1196926103
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196926101}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1196926104
 Transform:
   m_ObjectHideFlags: 0
@@ -30651,6 +30632,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &1196926106
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196926101}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.61787057
+  m_Height: 1.6043177
+  m_Direction: 1
+  m_Center: {x: -0.16255844, y: 0.07729769, z: 0.12984997}
 --- !u!1 &1200050820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1215182899609276316, guid: c6a512d95615f534cbe31aba1aaa354c, type: 3}
@@ -41157,9 +41161,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1356822656}
-  - component: {fileID: 1356822658}
   - component: {fileID: 1356822657}
   - component: {fileID: 1356822659}
+  - component: {fileID: 1356822660}
   m_Layer: 0
   m_Name: Sowilo
   m_TagString: Untagged
@@ -41197,27 +41201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1356822658
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356822655}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &1356822659
 AudioSource:
   m_ObjectHideFlags: 0
@@ -41314,6 +41297,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &1356822660
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356822655}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.61106485
+  m_Height: 1.7756376
+  m_Direction: 1
+  m_Center: {x: -0.13668758, y: -0.018679142, z: 0.086134136}
 --- !u!1 &1364489144
 GameObject:
   m_ObjectHideFlags: 0
@@ -47543,9 +47549,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1803727719}
-  - component: {fileID: 1803727721}
   - component: {fileID: 1803727720}
   - component: {fileID: 1803727722}
+  - component: {fileID: 1803727723}
   m_Layer: 0
   m_Name: Ehwaz
   m_TagString: Untagged
@@ -47583,27 +47589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1803727721
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803727718}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &1803727722
 AudioSource:
   m_ObjectHideFlags: 0
@@ -47700,6 +47685,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &1803727723
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803727718}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5841978
+  m_Height: 1.6311073
+  m_Direction: 1
+  m_Center: {x: -0.13908517, y: 0.031690598, z: 0.08186805}
 --- !u!1 &1809950431
 GameObject:
   m_ObjectHideFlags: 0
@@ -52736,9 +52744,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1899402326}
-  - component: {fileID: 1899402325}
   - component: {fileID: 1899402324}
   - component: {fileID: 1899402327}
+  - component: {fileID: 1899402328}
   m_Layer: 0
   m_Name: Raidho
   m_TagString: Untagged
@@ -52758,27 +52766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe5323abc6ab84a976e35656ff96d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1899402325
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899402323}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1899402326
 Transform:
   m_ObjectHideFlags: 0
@@ -52893,6 +52880,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &1899402328
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899402323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6438751
+  m_Height: 1.7299004
+  m_Direction: 1
+  m_Center: {x: -0.15385437, y: -0.017172813, z: 0.10608578}
 --- !u!1 &1899522310
 GameObject:
   m_ObjectHideFlags: 0
