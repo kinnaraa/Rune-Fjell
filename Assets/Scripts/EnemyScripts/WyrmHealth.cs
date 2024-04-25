@@ -22,8 +22,11 @@ public class WyrmHealth : MonoBehaviour
 
     void Start()
     {
-        AreYouSure = GameObject.Find("Are You Sure?");
-        AreYouSure.SetActive(false);
+        if(SceneManager.GetActiveScene().name != "ArenaScene")
+        {
+            AreYouSure = GameObject.Find("Are You Sure?");
+            AreYouSure.SetActive(false);
+        }
         currentHealth = maxHealth;
     }
 

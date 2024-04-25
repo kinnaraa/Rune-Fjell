@@ -48,10 +48,7 @@ public class ArenaMenu : MonoBehaviour
             for(int i = 0; i < Inputs.Length; i++)
             {
                 foreach (Ability a in Magic.allAbilities)
-                {
-                    Debug.Log(Inputs[i].text);
-                    Debug.Log(a.Name);
-                    
+                {   
                     if(Inputs[i].text == a.Name)
                     {
                         Magic.abilities[i] = a;
@@ -113,6 +110,7 @@ public class ArenaMenu : MonoBehaviour
         PM.enabled = true;
         Magic.enabled = true;
         player.enabled = true;
+        Magic.SetAbilityUI();
 
         for(int i = 0; i < numOfBats; i++)
         {
