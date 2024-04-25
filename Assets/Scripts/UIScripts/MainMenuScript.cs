@@ -10,7 +10,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void OpenCredits()
     {
-        creditsMenu.SetActive(true);
+        SceneManager.LoadScene("Credits");
     }
     public void PlayGame()
     {
@@ -20,10 +20,5 @@ public class MainMenuScript : MonoBehaviour
     public void EnterTheArena()
     {
         SceneManager.LoadScene("ArenaScene");
-    }
-
-    public void CloseCredits()
-    {
-        creditsMenu.SetActive(false);
     }
 }
