@@ -48,7 +48,10 @@ public class WyrmHealth : MonoBehaviour
         yield return new WaitForSeconds(1f);
         // make ending nicer
 
-        yield return StartCoroutine(endingManager.EndGame());
+        if(SceneManager.GetActiveScene().name != "ArenaScene")
+        {
+            yield return StartCoroutine(endingManager.EndGame());
+        }
 
         gameObject.SetActive(false);
     }

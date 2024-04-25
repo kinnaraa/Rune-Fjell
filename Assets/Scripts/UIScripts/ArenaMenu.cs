@@ -80,17 +80,17 @@ public class ArenaMenu : MonoBehaviour
 
     public void RemoveBats()
     {
-        if(numOfBats !< 0)
+        if(numOfBats != 0)
             numOfBats--;
     }
     public void RemoveIceCreatures()
     {
-        if(numOfIceCreatures !< 0)
+        if(numOfIceCreatures != 0)
             numOfIceCreatures--;
     }
     public void RemoveWyrms()
     {
-        if(numOfWyrms !< 0)
+        if(numOfWyrms != 0)
             numOfWyrms--;
     }
 
@@ -122,7 +122,7 @@ public class ArenaMenu : MonoBehaviour
         }
         for(int i = 0; i < numOfWyrms; i++)
         {
-            Instantiate(Wyrm, GetRandomSpawnPosition(), Quaternion.identity);
+            Instantiate(Wyrm, Spawns[5].position, Quaternion.identity);
         }
     }
 

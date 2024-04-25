@@ -112,5 +112,9 @@ public class EnemyHealth : MonoBehaviour
             // Invoke the callback to notify that the coroutine has ended
             coroutineEnded?.Invoke();
         }
+        else
+        {
+            yield return new WaitForSeconds(0);
+        }
     }
 }
