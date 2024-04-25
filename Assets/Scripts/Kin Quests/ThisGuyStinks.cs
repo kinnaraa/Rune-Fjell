@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class ThisGuyStinks : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class ThisGuyStinks : MonoBehaviour
     public AudioClip knock;
     public TabMenuScript TMS;
     public NothingSonQuest GFNS;
+    public CinemachineBrain cinemachine;
+
+    private bool skillTreeOpen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -131,6 +135,11 @@ public class ThisGuyStinks : MonoBehaviour
             collectedShrooms = true;
         }
 
+        if(skillTreeOpen && Input.GetKeyDown(KeyCode.Tab))
+        {
+            skillTreeOpen = false;
+        }
+
         if(collectedShrooms && Vector3.Distance(Player.transform.position, gnomeHouse.transform.position) < 5 && !questOver)
         {
             EButton.transform.localScale = new Vector3(1, 1, 1);
@@ -142,9 +151,9 @@ public class ThisGuyStinks : MonoBehaviour
                 GnomeVoice.Play();
             }
             weedGnomeSpeech.text = dialogue2[dialogueCount];
-            if (Input.GetKeyDown(KeyCode.E) && !questOver)
+            if (Input.GetKeyDown(KeyCode.E) && !questOver && !skillTreeOpen)
             {
-                if (dialogueCount == 6)
+                if (dialogueCount == 6 && !skillTreeOpen)
                 {
                     OpenSkillTree();
                 }
@@ -222,6 +231,9 @@ public class ThisGuyStinks : MonoBehaviour
         Player.GetComponentInParent<Player>().PM.enabled = false;
         Player.GetComponentInParent<Player>().Magic.enabled = false;
         Player.GetComponentInParent<Player>().Cam.enabled = false;
+
+        //cinemachine.enabled = false;
+
         TMS.OpenSkillTree();
     }
 }

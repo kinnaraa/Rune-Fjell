@@ -30,6 +30,13 @@ public class EscMenuScript : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void Start()
+    {
+        cinemachine = GameObject.Find("Main Camera").GetComponent<ThirdPersonCam>().GetComponent<CinemachineBrain>();
+        Cam = GameObject.Find("Main Camera").GetComponent<ThirdPersonCam>();
+        Magic = GameObject.Find("Player").GetComponent <PlayerMagic>();
+    }
+
     // Optional: Add any player-specific initialization logic here
     public void MainMenu()
     {

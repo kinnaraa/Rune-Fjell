@@ -1,9 +1,9 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WyrmHealth : MonoBehaviour
 {
@@ -17,6 +17,8 @@ public class WyrmHealth : MonoBehaviour
     public GameObject AreYouSure;
 
     private bool isRed = false;
+    public EndingManager endingManager;
+    private bool ended = false;
 
     void Start()
     {
@@ -28,24 +30,24 @@ public class WyrmHealth : MonoBehaviour
     void Update()
     {   
         // Check if the enemy is defeated
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !ended)
         {
             StartCoroutine(Die());
+            ended = true;
         }
     }
 
     public IEnumerator Die()
     {
+        Debug.Log("wyrm dead");
         GetComponent<WrymBehavior>().enabled = false;
         deathSound.Play();
-        yield return new WaitForSeconds(3f);
-        Destroy(Wrym);
+        yield return new WaitForSeconds(1f);
+        // make ending nicer
 
-        GameObject.Find("Player").GetComponent<Player>().escMenu.SetActive(true);
-        GameObject.Find("Player").GetComponent<Player>().tabMenu.SetActive(true);
-        AreYouSure.SetActive(true);
-        
-        SceneManager.LoadScene("Credits");
+        yield return StartCoroutine(endingManager.EndGame());
+
+        gameObject.SetActive(false);
     }
 
     public bool CheckIfRed()
