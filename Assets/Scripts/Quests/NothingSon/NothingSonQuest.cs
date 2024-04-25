@@ -49,7 +49,7 @@ public class NothingSonQuest : MonoBehaviour
         dialogue[2] = "I'm sorry my son doesn't know any better, he really needs to get his life together.";
         dialogue[3] = "Would you mind helping me get supplies for dinner since my son seems to be good for nothing?";
         dialogue[4] = "I just need 2 berries for my meal and 3 wood stacks for my fire.";
-        dialogue[5] = "There should be some by the glade just down the way you came and to the left.";
+        dialogue[5] = "If you walk back down the path from here and go left there should be some by the pond in the glade.";
 
         dialogue2[0] = "Thank you so much, this is exactly what I needed!";
         dialogue2[1] = "I see my son gave you that interesting little rock he had.";
