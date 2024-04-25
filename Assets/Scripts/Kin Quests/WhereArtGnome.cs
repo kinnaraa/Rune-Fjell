@@ -249,6 +249,8 @@ public class WhereArtGnome : MonoBehaviour
 
         if(!WAGfinished && bigIceBoyDead && megaBatDead && Vector3.Distance(Player.transform.position, NormalMayorGnome.transform.position) < 5.0f)
         {
+            CurrentMayor = NormalMayorGnome;
+            GnomeVoice = CurrentMayor.GetComponent<AudioSource>();
             normalMayorEButton.transform.localScale = new Vector3(1, 1, 1);
             normalMayorEButton.SetActive(true);
 
