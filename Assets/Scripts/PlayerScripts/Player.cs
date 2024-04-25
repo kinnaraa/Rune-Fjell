@@ -53,9 +53,9 @@ public class Player : MonoBehaviour
     public KeyCode ResetPlayer = KeyCode.Delete;
 
     public bool tabMenuOpen;
-    private bool escMenuOpen;
+    public bool escMenuOpen;
 
-    private bool canOpenMenu = true;
+    public bool canOpenMenu = true;
 
     public GameObject specialPlayerAudio;
     public AudioClip deathSound;
@@ -103,9 +103,9 @@ public class Player : MonoBehaviour
 
         tabMenuOpen = tabMenu.activeSelf;
         escMenuOpen = escMenu.activeSelf;
-        if(EnterCaveMenu && !EnterCaveMenu.activeSelf && SceneManager.GetActiveScene().name != "ArenaScene")
+        if(EnterCaveMenu && !EnterCaveMenu.activeSelf)
         {
-            if(Input.GetKeyDown(TabMenu) && canOpenMenu )
+            if(Input.GetKeyDown(TabMenu) && canOpenMenu)
             {
                 if(tabMenuOpen)
                 {
@@ -138,6 +138,40 @@ public class Player : MonoBehaviour
                 }
             }
 
+            if(Input.GetKeyDown(EscMenu) && canOpenMenu)
+            {
+                if(escMenuOpen)
+                {
+                    StartCoroutine(MenuCooldown());
+
+                    cinemachine.enabled = true;
+
+                    escMenu.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+
+                    Cam.enabled = true;
+                    PM.enabled = true;
+                    Magic.enabled = true;
+                }
+                else if(!tabMenuOpen) 
+                {
+                    StartCoroutine(MenuCooldown());
+
+                    cinemachine.enabled = false;
+
+                    escMenu.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+
+                    PM.enabled = false;
+                    Magic.enabled = false;
+                    Cam.enabled = false;
+                }
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "ArenaScene")
+        {
             if(Input.GetKeyDown(EscMenu) && canOpenMenu)
             {
                 if(escMenuOpen)
