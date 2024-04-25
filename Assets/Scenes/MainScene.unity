@@ -10657,6 +10657,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7030686810475189664, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
+      propertyPath: cine
+      value: 
+      objectReference: {fileID: 8257503221171369751}
+    - target: {fileID: 7030686810475189664, guid: aaa00004f95d8a041b3d4107bcdd0b95, type: 3}
       propertyPath: tabMenu
       value: 
       objectReference: {fileID: 468194865}
