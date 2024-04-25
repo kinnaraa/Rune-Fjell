@@ -108,11 +108,11 @@ public class newSkillTree : MonoBehaviour
         utilityList[4].bindRuneName = "Healing Forcefield";
 
         utilityList[0].infoBlurb = "Torch, Vision, Revelation, Creativity, Technical Ability.\n\nSummon a light orb to help light your way.\n\nDamage: 0\n\nCooldown: 0 seconds";
-        utilityList[1].infoBlurb = "A wild ox, Physical Strength, Speed, Untamed Potential.\n\nGain a multiplier to your damage for a short amount of time.\n\nDamage: 0\n\nCooldown: 10 second";
+        utilityList[1].infoBlurb = "A wild ox, Physical Strength, Speed, Untamed Potential.\n\nGain a multiplier to your damage for a short amount of time.\n\nDamage: x2\n\nCooldown: 10 second";
         utilityList[2].infoBlurb = "The combined powers of Uruz and Algiz.\n\nConjure a forcefield that gives you a damage multiplier while inside of it.\n\nDamage: 0\n\nCooldown: 5 seconds";
         utilityList[3].infoBlurb = "The Elk, Protection, Sheild, Ward Off Evil.\n\nConjure a shield in front of you to block enemy attacks.\n\nDamage: 0\n\nCooldown: 0 seconds";
-        utilityList[4].infoBlurb = "The combined powers of Algiz and Wunjo.\n\nSummon a forcefield that heals you when inside of it.\n\nDamage: 0\n\nCooldown: 5 seconds";
-        utilityList[5].infoBlurb = "Joy, Comfort, Pleasure.\n\nHeal yourself to regain health.\n\nDamage: 0\n\nCooldown: 5 seconds";
+        utilityList[4].infoBlurb = "The combined powers of Algiz and Wunjo.\n\nSummon a forcefield that heals you when inside of it.\n\nHealing: 10 per second\n\nCooldown: 5 seconds";
+        utilityList[5].infoBlurb = "Joy, Comfort, Pleasure.\n\nHeal yourself to regain health.\n\nHealing: 10\n\nCooldown: 5 seconds";
         utilityList[6].infoBlurb = "Odin, Insight, Communication, Inspiration, True Vision.\n\n\n\n\n\nAvailable in future updates...";
 
         passiveList = new List<Skill>()
