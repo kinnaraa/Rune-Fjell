@@ -9,7 +9,6 @@ public class SocketSkill : MonoBehaviour
     public newSkillTree.Skill[] socketedSkills = new newSkillTree.Skill[7];
     public Image skillToSocket;
     public PlayerMagic playerMagic;
-    bool gameStart = false;
 
     void Start()
     {
@@ -37,7 +36,6 @@ public class SocketSkill : MonoBehaviour
             socketedSkills[4] = newSkillTree.skillList[1][3]; // shield
             socketedSkills[5] = newSkillTree.nullSkill;
             socketedSkills[6] = newSkillTree.nullSkill;
-            gameStart = true;
         //}
         
     }
