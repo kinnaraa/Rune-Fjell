@@ -14,3 +14,6 @@ Contributions to this project include the following scripts and shaders:
       - oceanShader.shadergraph
 
       - waterShader.shadergraph
+
+Demo video and other information:
+https://www.behance.net/gallery/195260379/Rune-Fjell#
